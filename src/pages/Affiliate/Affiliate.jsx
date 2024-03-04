@@ -222,7 +222,7 @@ const Affiliate = () => {
                             : "0.00"}
                         </p>
                         <div className="flex gap-3">
-                          <p className="2xl:text-lg font-semibold capitalize text-gray-600">
+                          <p className="2xl:text-lg p-1 font-semibold capitalize text-gray-600">
                             your balance
                           </p>
                           <h1 className="bg-[#ee391c] p-1 px-2 text-white rounded-full">
@@ -304,103 +304,6 @@ const Affiliate = () => {
                   {/* <div className="hidden xl:block">
                     <AffiliateCard />
                   </div> */}
-
-                  <div className="hidden xl:block">
-                    <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
-                      <span className="font-bold xl:text-3xl special:text-5xl">
-                        Affiliate
-                      </span>{" "}
-                      List
-                    </p>
-                    <div className="flex flex-col space-y-4 pt-4">
-                      <div className="flex flex-row md:gap-4 gap-1 items-center">
-                        <button
-                          className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
-                            activeButton === 1
-                              ? "bg-black text-white"
-                              : "bg-[#F3F3F3]"
-                          }`}
-                          onClick={handleLevel01ButtonClick}
-                        >
-                          Level 01
-                        </button>
-                        <button
-                          className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
-                            activeButton === 2
-                              ? "bg-black text-white"
-                              : "bg-[#F3F3F3]"
-                          }`}
-                          onClick={handleLevel02ButtonClick}
-                        >
-                          Level 02
-                        </button>
-                        <button
-                          className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
-                            activeButton === 3
-                              ? "bg-black text-white"
-                              : "bg-[#F3F3F3]"
-                          }`}
-                          onClick={handleLevel03ButtonClick}
-                        >
-                          Level 03
-                        </button>
-                        <button
-                          className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
-                            activeButton === 4
-                              ? "bg-black text-white"
-                              : "bg-[#F3F3F3]"
-                          }`}
-                          onClick={handleLevel04ButtonClick}
-                        >
-                          Level 04
-                        </button>
-                      </div>
-                      <div className="flex flex-col">
-                        <div className="flex flex-row justify-between">
-                          <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
-                            Name
-                          </p>
-                          <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
-                            Email
-                          </p>
-                          <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
-                            Subscription Plan
-                          </p>
-                        </div>
-
-                        {loading2 ? (
-                          <div className="flex justify-center pt-12">
-                            <ItemLoader />
-                          </div>
-                        ) : refferals?.length > 0 ? (
-                          refferals?.map((refferal, key) => (
-                            <>
-                              <div
-                                className="flex flex-row items-center justify-between pt-2 text-xs md:text-md px-4 mb-2"
-                                key={key}
-                              >
-                                <p>{refferal.firstname}</p>
-                                <p>{refferal.email}</p>
-                                <p>
-                                  {/* {refferal?.sub?.data?.name
-                                    ? refferal?.sub?.data?.name
-                                    : "no plan"} */}
-                                  {refferal?.planname}
-                                </p>
-                              </div>
-                              <hr />
-                            </>
-                          ))
-                        ) : (
-                          <div className="pt-4 flex justify-center">
-                            <p className="text-xs md:text-sm">
-                              You have no affiliates
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
                 </>
               )}
             </div>
@@ -595,6 +498,92 @@ const Affiliate = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="hidden xl:block px-10">
+        <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
+          <span className="font-bold xl:text-3xl special:text-5xl">
+            Affiliate
+          </span>{" "}
+          List
+        </p>
+        <div className="flex flex-col space-y-4 pt-4 items-right">
+          <div className="flex flex-row md:gap-4 gap-1">
+            <button
+              className={`rounded-lg text-xs special:2xl md:text-sm py-2 px-2 ${
+                activeButton === 1 ? "bg-black text-white" : "bg-[#F3F3F3]"
+              }`}
+              onClick={handleLevel01ButtonClick}
+            >
+              Level 01
+            </button>
+            <button
+              className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                activeButton === 2 ? "bg-black text-white" : "bg-[#F3F3F3]"
+              }`}
+              onClick={handleLevel02ButtonClick}
+            >
+              Level 02
+            </button>
+            <button
+              className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                activeButton === 3 ? "bg-black text-white" : "bg-[#F3F3F3]"
+              }`}
+              onClick={handleLevel03ButtonClick}
+            >
+              Level 03
+            </button>
+            <button
+              className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                activeButton === 4 ? "bg-black text-white" : "bg-[#F3F3F3]"
+              }`}
+              onClick={handleLevel04ButtonClick}
+            >
+              Level 04
+            </button>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex flex-row justify-between">
+              <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                Name
+              </p>
+              <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                Email
+              </p>
+              <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                Subscription Plan
+              </p>
+            </div>
+
+            {loading2 ? (
+              <div className="flex justify-center pt-12">
+                <ItemLoader />
+              </div>
+            ) : refferals?.length > 0 ? (
+              refferals?.map((refferal, key) => (
+                <>
+                  <div
+                    className="flex flex-row items-center justify-between pt-2 text-xs md:text-md px-4 mb-2"
+                    key={key}
+                  >
+                    <p>{refferal.firstname}</p>
+                    <p>{refferal.email}</p>
+                    <p>
+                      {/* {refferal?.sub?.data?.name
+                                    ? refferal?.sub?.data?.name
+                                    : "no plan"} */}
+                      {refferal?.planname}
+                    </p>
+                  </div>
+                  <hr />
+                </>
+              ))
+            ) : (
+              <div className="pt-4 flex justify-center">
+                <p className="text-xs md:text-sm">You have no affiliates</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
