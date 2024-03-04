@@ -1,0 +1,40 @@
+.Pr-tittle{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+  .slider{
+    /* height: 100px; */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* .slider .slide-track{
+    animation: scroll-left 20s linear infinite;
+    display: flex;
+    width: calc(250px *14);
+  } */
+/* 
+  .slider .slide{
+    height: 100px;
+    width: 250px;
+  } */
+
+/* 
+  @keyframes scroll-left{
+    0%{
+      transform: translateX(0);
+    }
+    100%{
+      transform: translateX(calc(-250px * 7));
+    }
+  } */
+
+

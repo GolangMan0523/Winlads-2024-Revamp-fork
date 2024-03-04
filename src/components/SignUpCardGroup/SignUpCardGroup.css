@@ -1,0 +1,32 @@
+/* SignUpCardGroup.css */
+
+/* Style for the card group (container) */
+
+
+/* Style for each card */
+.card {
+  flex: 1;
+  border-radius: 15px;
+  background-color: black;
+}
+
+/* Style for card titles */
+.card-title {
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Style for card text */
+.card-text {
+  font-size: 1.2rem;
+  color: #757575;
+}
+
+/* Style for card images */
+.card-img-top {
+  
+  place-items: center;
+}
+
+

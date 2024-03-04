@@ -1,0 +1,95 @@
+
+
+/* button animaion */
+.animate_btn {
+  
+  --c:  #4FC8E8; /* the color*/
+  
+  /* box-shadow: 0 0 0 .1em inset var(--c);  */
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: 
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+.animate_btn:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+}
+.animate_btn:active {
+  box-shadow: 0 0 9e9q inset #3ebfe2; 
+  background-color: var(--c);
+  color: #fff;
+}
+
+.black_btn{
+  background-color: #000;
+}
+
+
+
+/* pages bg */
+
+/* showcase2 */
+.bg-left-showcase{
+  background-image: url("../../assets/images/showacase/curve.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* welcomeHome2 */
+.bg-welcome{
+  background-image: url("../../assets/images/home/home.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-welcome2 {
+  background-image: url("../../assets/images/welcomehome/hidebg.png"),
+                    linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* service */
+.bg-service{
+  background: linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%);
+}
+
+
+/* youtube */
+.bg-youtube{
+  background: linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%);
+}
+.r-player > div > video{
+border-radius: 16px !important;
+}
+
+
+/* benifit */
+.bg-benifit{
+  background-image: url("../../assets/images/benifit/Ellipse3.png"),
+                    linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+/* gallery */
+.bg-gallery{
+  background: linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%);
+}
+
+/* choose plan */
+.bg-chose-plan{
+  background: linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%);
+}

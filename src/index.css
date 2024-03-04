@@ -1,0 +1,482 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital@1&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.pageBgColor {
+  background: linear-gradient(to right, #80E2E2 0%, #FFE9E9 100%);
+}
+
+@media (max-width: 1280px){
+  .hidemb{
+    display: none;
+  }
+
+  .mbsmalltext{
+    color: black;
+  }
+}
+
+.ongoing-bg{
+  background-image: url('../src/assets//images/ongoing/bg.png');
+  object-position: cover;
+}
+
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+} */
+
+/* button animaion */
+.animate_btn {
+  
+  --c:  #4FC8E8; /* the color*/
+  
+  /* box-shadow: 0 0 0 .1em inset var(--c);  */
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: 
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+.animate_btn:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+}
+.animate_btn:active {
+  box-shadow: 0 0 9e9q inset #3ebfe2; 
+  background-color: var(--c);
+  color: #fff;
+}
+
+.black_btn{
+  background-color: #000;
+}
+
+
+.paymentCardBorder {
+  border-radius: 66.29px;
+}
+
+.mobile-btns {
+  justify-content: flex-end;
+}
+
+.buttonBg {
+  background: linear-gradient(93deg, #43e3ed 1.1%, #01819d 97.54%);
+  filter: drop-shadow(5px 5px 10px #bde5e8);
+}
+
+.buttonBg:hover {
+  background: linear-gradient(93deg, #36b7c1 1.1%, #03b0d6 97.54%);
+}
+
+.dashbtn-group {
+  justify-content: flex-end;
+}
+
+.mobile-btns {
+  justify-content: flex-end;
+}
+
+.allcontent-group {
+  margin-right: 20px;
+}
+
+@media (max-width: 600px) {
+  .mobile-btns {
+    justify-content: unset;
+  }
+
+  .dashbtn-group {
+    justify-content: unset;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .dashcontent-group {
+    margin-top: 20px;
+    /* margin-right: 10px; */
+  }
+
+  .frontbtns {
+    width: 100%;
+  }
+
+  .allcontent-group {
+    margin-right: 0px;
+  }
+}
+
+.react-link {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  color: #252525;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.my-border {
+  border: 1px solid red;
+}
+
+/* common css */
+
+.react-tel-input .form-control{
+  font-size: 18px !important;
+  border: none !important;
+  background: #fff !important;
+  padding-left: 50px !important;
+  width: 100% !important; 
+  height: 45px;
+}
+
+.react-tel-input .flag-dropdown{
+  border: none;
+  border-radius: 8px;
+}
+.react-tel-input .flag-dropdown.open{
+  border: none;
+  border-radius: 8px;
+}
+
+
+.react-tel-input .selected-flag{
+  border: none;
+  border-radius: 8px !important;
+}
+
+/* .react-tel-input .country-list{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+} */
+
+.react-tel-input .country-list {
+  border-radius: 8px;
+  margin: 3px 0 10px -1px !important;
+  width: 387px;
+}
+
+.input-div {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: white;
+  font-size: 18px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 45px;
+
+  position: relative;
+}
+
+
+
+.input-div > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding-left: 5%;
+}
+
+.input-div > img {
+  width: 27px;
+}
+
+.btn-main {
+  box-shadow: none;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  height: 45px;
+
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.btn-main > span {
+  font-weight: 500;
+  font-size: 30px;
+}
+.btn-main > :last-child {
+  font-size: 40px;
+}
+
+/* animation for button */
+.btn-main:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  border-radius: 8px;
+  box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.781),
+    -4px -4px 5px 0px #fff9, 7px 7px 20px 0px rgba(0, 0, 0, 0.133),
+    4px 4px 5px 0px rgba(8, 8, 8, 0.067);
+  transition: all 0.3s ease;
+}
+.btn-main:hover {
+  color: #fff;
+}
+.btn-main:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.btn-main:active {
+  top: 2px;
+}
+
+
+
+.yellow-text {
+  color: #e7b600;
+}
+
+.blue-text {
+  color: #23859f;
+}
+
+.input-error {
+  border: 2px solid #eb4d4b !important;
+}
+.text-error {
+  color: #eb4d4b;
+  font-weight: 500;
+
+  position: absolute;
+  left: 0px;
+  bottom: -20px;
+  font-size: 12px;
+}
+
+.text-gold {
+  color: #f38744 !important;
+}
+.text-green {
+  color: #12b76a !important;
+}
+
+.text-blue {
+  color: #3ba6b7
+}
+
+.t-65{
+  top:65%;
+}
+
+.buttonBgBlack {
+  background: linear-gradient(93deg, #000000 1.1%, #1b1b1b 97.54%);
+  filter: drop-shadow(5px 5px 10px #bde5e8);
+}
+
+.buttonBgBlack:hover {
+  background: linear-gradient(93deg, #434343 1.1%, #393939 97.54%);
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('path/to/your/background-image.jpg'); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Ensure the background stays behind the other content */
+}
+
+.h-250{
+  height: 250px;
+}
+
+.mr-35 {
+  margin-right: 35%;
+}
+
+.photo-gallery {
+  text-align: center;
+}
+
+.gallery-image {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 20px 0;
+}
+
+.gallery-buttons button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.background-video{
+  height: auto;
+  
+}
+
+/* set responsive */
+
+@media (max-width :992px) {
+  .react-tel-input .country-list {
+    width: 304px;
+  }
+}
+
+@media (max-width :720px) {
+  .react-tel-input .country-list {
+    width: 257px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .text-error {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 390px) {
+  .input-div {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .input-div > img {
+    width: 25px;
+  }
+
+  .btn-main {
+    height: 40px;
+  }
+  .btn-main > span {
+    font-size: 20px;
+  }
+
+  .btn-main > :last-child {
+    font-size: 30px;
+  }
+}
+
+/* animat */
+
+.custom-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in;
+}
+
+.custom-card:hover {
+  transform: scale(1.05);
+}
+
+.apexcharts-menu-icon {
+  display: none !important;
+}
+
+/* notice-inner */
+.bg-notice-inner {
+  background-image: url("../src/assets/images/notice/noticecar.png");
+  background-repeat: no-repeat;
+}
+.bg-notice-inner-2 {
+  background-image: url("../src/assets/images/notice/noticecar.png");
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.prevent {
+  pointer-events: none;
+}
+
+
+.moonloader-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* screen right logo */
+/* .right-side-logo {
+  background-image: url('./assets/images/HomesideBg2.png');
+} */
+
+
+
+
+.bgColor{
+  background: linear-gradient(to right, #E83F3F 100%, #A20505  100%);
+}
+
+
+.side-car-live{
+  background-image: url('./assets/images/live/side-car.png');
+  background-size: contain;
+  background-position-x: left;
+  background-repeat: no-repeat;
+}

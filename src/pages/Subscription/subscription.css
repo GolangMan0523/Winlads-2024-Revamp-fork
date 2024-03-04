@@ -1,0 +1,16 @@
+.top-img-inner-subscription{
+    position: relative;
+    background: #000;
+    width: 100%;
+    height: 50%;
+     border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-bottom: 40px;
+}
+.side-img-inner-subscription{
+   width: 80%; /* should ajust for variuos screen*/
+   bottom: 0;
+   right: 0%;
+   position: absolute;
+   z-index: 12;
+}

@@ -1,0 +1,58 @@
+.header {
+  position: absolute;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.header .navbar-nav .nav-item .nav-link {
+  color: #767676 !important; /* Set the text color to white */
+  margin-top: 10px;
+  margin-right: 140px;
+  margin-left: 100px;
+}
+
+
+/* Optional: Change the color of the dropdown menus' background */
+.header .navbar-nav .dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.7); /* Change the background color to your desired color with transparency */
+}
+
+/* Optional: Change the color of the dropdown menu items' text */
+.header .navbar-nav .dropdown-menu .dropdown-item {
+  color: #727272 !important; /* Set the text color to white */
+}
+/* Add this CSS to change the background color to  when the toggle button is active */
+
+
+/* Add this CSS to position the toggle button on the right side */
+.header .navbar-toggler {
+  order: 1; /* Change the order to 1 to move it to the right */
+  margin-left: 330px; /* Add margin to separate it from the other content */
+  background-color: #ffffff;
+  margin-top: -30px;
+}
+
+
+
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .header .btn.btn-warning {
+    margin-left: 100px; /* Adjust the margin for smaller screens */
+    margin-bottom: 20x;
+  }
+}
+.link-no-underlin{
+  text-decoration: none;
+  color: #000000;/* You can set the color you prefer */
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+/* /* .card-text{
+    color: #ffffff;
+}
+
+.N-tittle{
+    color: #ffffff;
+}
+.van-card-image {
+  width: 700px;
+  height: auto;
+  margin-left: -650px;
+ margin-bottom: -500px;
+}  */
+
+.hover-up {
+  transition: transform 0.3s ease; /* You can adjust the duration and easing as needed */
+}
+
+.hover-up:hover {
+  transform: translateY(-10px); /* Adjust the value to control how much it moves up */
+}

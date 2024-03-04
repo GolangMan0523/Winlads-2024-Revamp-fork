@@ -1,0 +1,42 @@
+.gucci-card{
+    width: 100%;
+    background: #4FC8E8;
+    border-radius: 25px;
+    height: 170px;
+    padding: 16px;
+}
+.gucci-card-sec-1{
+    width: 100%;
+    padding: 16px;
+    background: #1A1A1B;
+    border-radius: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.gucci-card-sec-2{
+    width: 100%;
+    padding: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.gucci-card-sec-2 >span{
+    color: #fff;
+}
+.gucci-card-sec-2-inner{
+    display: flex;
+    align-self: start;
+    justify-content: flex-start;
+    flex-direction: column;
+    line-height: 20px;
+    /* border: 1px solid red; */
+    font-style: italic;
+}
+.gucci-card-sec-2-inner>:nth-child(1){
+    font-size: 18px;
+}

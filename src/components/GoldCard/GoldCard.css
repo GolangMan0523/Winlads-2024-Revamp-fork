@@ -1,0 +1,31 @@
+.cardBg {
+  position: relative;
+  overflow: hidden;
+}
+
+.cardBg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; 
+  width: 100%;
+  height: 100%;
+  background: rgba(157, 124, 0, 0.1);
+  transition: left 0.3s ease; 
+}
+
+.cardBg:hover::before {
+  left: 0; 
+  
+}
+
+.cardBg:hover{
+  transition: 300ms ease;
+  .main-t{
+      color: #fff;
+  }
+}
+
+.top-card {
+  background: rgba(0, 0, 0, 0.68);
+}

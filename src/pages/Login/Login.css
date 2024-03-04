@@ -1,0 +1,20 @@
+.login-section{
+    max-width: 1440px;
+}
+.bg-image{
+    background-image: url('../../assets/images/background/reg-bg-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+@media (max-width:390px) {  
+    .form-contain{
+        min-width: 280px;
+    }
+
+}
+.react-tel-input{
+    border-radius: 5px;
+}

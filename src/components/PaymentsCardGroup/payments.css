@@ -1,0 +1,71 @@
+
+
+.P-pricing{
+font-family: 'Montserrat', sans-serif;
+font-weight: 700;
+}
+.P-pricing-plan{
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.P-pricing-trial{
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+margin-bottom: 50px;
+}
+.card-title{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.Payment-tittle{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: 800;
+}
+.card-type{
+    color: #bebebe;
+    margin-top: -4px
+}
+.card-price{
+    color: #bebebe;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 10px;
+   
+}
+.btn-primary{
+    background-color: aliceblue;
+    color: #121212;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    padding: 4px;
+    
+}
+/* .btn-primary:hover{
+    background-color: #121212;
+    color: aliceblue;
+    border-radius: 20px;
+    margin-bottom: 15px;
+} */
+
+.btn-primary:hover{
+    color: #000000;
+  background: linear-gradient(to left, #ffffff 50%,  #74E2FF 50%) right;
+  background-size: 200%;
+  transition: .6s ease-out;
+}
+
+
+.card-text {
+  margin: 4px ;
+  font-size: 1.2em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+}
+.card {
+  border-radius: 10px; 
+}
+ 
+.custom-background-price{
+background-image: url(../../assets/images/Rectangle.png);
+background-size: cover; 
+background-repeat: no-repeat;
+background-position: center;
+}

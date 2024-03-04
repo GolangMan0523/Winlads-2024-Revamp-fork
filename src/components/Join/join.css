@@ -1,0 +1,36 @@
+.join{
+ /* height: 90vh; */
+  align-items: center;
+  position: relative; /* Add this to position the image properly */
+}
+
+.background-image-join {
+  width: 55%; /* Set the width to 50% of the parent container */
+  height: auto; /* Set height to auto to maintain the image's aspect ratio */
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1; /* Place the image behind other content */
+}
+
+@media (max-width: 767px) {
+  /* Adjust background size and position for smaller screens */
+  .background-image-join {
+  }
+}
+.J-tittle {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 6vh; /* Change px to vh for font-size */
+  font-weight: 700;
+/* Change px to vw for margin-right */ /* Change px to vh for margin-top */
+}
+
+
+@media (max-width: 767px) {
+  .J-tittle {
+    font-size: 4vh; /* Decrease font size for smaller screens */
+    margin-right: -20px; /* Reset margin-right */
+    margin-top: 50px; /* Add a small margin from the top */
+  }
+}
+

@@ -1,0 +1,252 @@
+f.home-section{
+    margin: auto;
+    position: relative;
+    height: 100%;
+    display: flex;
+}
+
+.home-contain{
+    flex: 1;
+    height: 100%;
+    /* border: 1px solid rgb(20, 54, 128); */
+    display: flex;
+}
+
+/* left side */
+.home-contain-left{
+    flex: 1;
+    /* border: 1px solid red; */
+    /* padding: 0px 16px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.purchase-card {
+    flex: 1;
+    width: 100%;
+    /* border: 1px solid blue; */
+}
+
+.gold-card{
+    flex: 1;
+    width: 100%;
+    /* border: 1px solid blue; */
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.top-img{
+    flex: 1;
+    width: 100%;
+    /* border: 1px solid blue; */
+
+}
+
+.top-img-inner{
+    position: relative;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.volume-inner{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    color: #fff;
+    background: #333333;
+    width: 90%;
+    top: 5%;
+    left: 10px;
+    font-size: 14px;
+    padding: 4px 15px;
+    border-radius: 16px;
+    z-index: 10;
+}
+.volume-inner> img{
+    width: 25px;
+}
+
+.hidden-img-inner{
+    position: absolute;
+    width: 60%;
+    left: 0;
+    bottom: 0;
+    /* border: 2px solid red; */
+    z-index: 11;
+}
+
+
+.side-img-inner {
+   width: 80%; /* should ajust for variuos screen*/;
+   bottom: 10%;
+   right: -35%;
+   position: absolute;
+   z-index: 12;
+   /* border: 1px solid #22CCEE; */
+}
+
+
+
+.toggle-btn-sec{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+
+.right-side-logo {
+    background-image: url('../../assets/images/HomesideBg2.png');
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position:right bottom;;
+    background-repeat: no-repeat;
+    background-size: auto;
+    z-index: -10;
+}
+
+
+
+
+.side-bg{
+    position: absolute;
+    /* background: #da4d4d7c; */
+    width: 25%;
+    height: 400px;
+    top: 20%;
+    right: 0;
+    z-index: 100;
+    background-image: url('../../assets/images/HomesideBg.png');
+    background-position:right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -10;
+}
+
+.graph-section{
+    width: 100%;
+    margin-top: 400px;
+    margin-bottom: 20px;
+}
+
+.margin-10{
+    margin-top: 4px;
+    margin-left: -10px;
+}
+
+.w-auto{
+    width: auto;
+}
+
+.w-web{
+    width: -webkit-fill-available
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center; 
+    /* border: 1px solid #ccc;  */
+    padding: 10px; 
+  }
+  
+  .pagination-button {
+    padding: 8px 16px; 
+    border: 1px solid #ddd; 
+    background-color: #f9f9f9; 
+    cursor: pointer;
+  }
+  
+  .pagination-button:disabled {
+    opacity: 0.5; 
+    cursor: not-allowed;
+  }
+
+  .pagination-display{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+  }
+
+
+/* set responsive */
+@media (max-width:992px) {
+   
+    .home-contain{
+        flex-direction: column;
+        margin-left: 100px;
+    }
+
+
+    /* .top-img{
+        flex: none;
+        height: 350px;
+        width: 100%;
+    } */
+
+    .purchase-card {
+        flex: none;
+        height: 200px;
+    }
+
+    .top-img-inner{
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+    }
+
+    .side-img-inner{
+        width: 100%;
+        right: 0;
+    }
+
+    .hidden-img-inner{
+        width: 100%;
+        left: 0;
+        top: 5%;
+        z-index: 11;
+    }
+    .volume-inner{
+        gap: 20px;
+        top: 180px;
+        left: 10px;
+        font-size: 10px;
+        padding: 4px 10px;
+        border-radius: 16px;
+    }
+    .volume-inner > img{
+        width: 20px;
+    }
+    .gold-card{
+        flex: 0.9;
+        width: 100%;
+        /* border: 1px solid blue; */
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+
+
+    /* right side */
+    .side-bg{
+        display: none;
+    }
+    
+    .graph-section{
+        margin-top: 24px;
+        
+    }
+}

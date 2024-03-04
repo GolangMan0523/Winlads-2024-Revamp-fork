@@ -1,0 +1,16 @@
+.container-raffle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+@media (max-width: 767px) {
+  .container-raffle {
+    flex-direction: column;
+
+  }
+  
+}
