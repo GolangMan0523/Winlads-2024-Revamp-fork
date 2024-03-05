@@ -40,11 +40,11 @@ function News() {
           className="mx-4"
         >
           <div className="flex flex-col">
-            <p className="font-bold text-4xl xl:text-5xl mt-8">{maintitle}</p>
+            <p className="font-bold text-3xl xl:text-5xl mt-8">{maintitle}</p>
             <p className="text-xs md:text-sm xl:text-sm 2xl:text-sm special:text-xl my-2">
               {formattedDate}
             </p>
-            <img src={img}  className="w-1/2 rounded-xl"/>
+            <img src={img}  className="w-full lg:w-1/2 rounded-xl"/>
           </div>
 
           <p className="text-sm xl:text-3xl md:text-3xl mt-4">
