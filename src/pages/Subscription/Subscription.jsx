@@ -598,6 +598,7 @@ function Subscription() {
                     showUnSubModal={handleShowUnsub}
                     trailUserTest={valUser.trial}
                     userSub={valUser?.subscription?.subid}
+                    subStatus={valUser.subscription_status}
                     handleRenew={() => {
                       setRenewModal(true);
                     }}

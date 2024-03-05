@@ -7,6 +7,8 @@ import MainCar from "../../assets/images/MainCar.png";
 import Vrfy from "../../assets/images/icons/Verified.png";
 import NotVrfy from "../../assets/images/icons/Unverified.png";
 import backgroundcar from "../../assets/images/background/Background-car.png";
+import NewEarning from "../../assets/images/new/earnings.png";
+
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { MdOutlinePhotoCamera } from "react-icons/md";
@@ -21,6 +23,9 @@ import AffiliateCard from "../../components/Affiliate/AffiliateCard";
 import { useRefresh } from "../../utils/RefreshContext";
 import { IoIosClose } from "react-icons/io";
 import { MdDone } from "react-icons/md";
+import Count from "../../components/Affiliate/Count";
+import Ticket from "../../assets/images/affiliate/affiliate.png";
+
 const Profile = () => {
   const cookies = new Cookies(null, { path: "/" });
   const { refreshCount, refresh, userImage, setUserImage } = useRefresh();
@@ -47,6 +52,12 @@ const Profile = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [refferalId, setRefferalId] = useState();
   const [localImage, setLocalImage] = useState('');
+  const [affCount, setAffCount] = useState([]);
+  const [wallet, setWallet] = useState([]);
+  const [refferals, setRefferals] = useState([]);
+
+
+
   // const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     getUserData();
@@ -194,453 +205,533 @@ const Profile = () => {
   }
 
 
-function getProfileImage(img) {
-  getDownloadURL(ref(storage, img))
-    .then((url) => {
-      setUserImage(url);
-      console.log(url, "imgg");
-      setLoading(false);
-    })
-    .catch((error) => {
-      setLoading(false);
-      // Handle any errors
-    });
-}
-
-useEffect(() => {
-  currentUserValidation();
-}, []);
-
-const currentUserValidation = async () => {
-  const validator = await validateCurrentUser();
-  if (validator.validatorBl) {
-    console.log("Session OK", validator.user);
-    setValUser(validator.user);
-  } else {
-    navigate("/login");
+  function getProfileImage(img) {
+    getDownloadURL(ref(storage, img))
+      .then((url) => {
+        setUserImage(url);
+        console.log(url, "imgg");
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        // Handle any errors
+      });
   }
-};
-return (
-  <div className="bg-[#F2F5FB] w-full h-full">
-    <div className="flex relative w-full">
-      <div className="right-side-logo max-xl:hidden"></div>
-      <div className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat w-full">
-        <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
-          <div className="bg-black rounded-b-3xl py-4">
-            <TopNav textColor={"white"} />
-            <div className="pt-10">
-              <img className="" src={MainCar} alt="main" />
-            </div>
-          </div>
-          <AffiliateCard />
-        </div>
-        <div className="flex flex-col space-y-4 flex-1 xl:mx-4">
-          <div className="flex flex-col space-y-3">
-            {loading ? (
-              <div className="flex justify-center pt-12">
-                <ItemLoader />
+
+  useEffect(() => {
+    currentUserValidation();
+  }, []);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
+  return (
+    <div className="bg-[#F2F5FB] w-full h-full">
+      <div className="flex relative w-full">
+        <div className="right-side-logo max-xl:hidden"></div>
+        <div className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-0 space-y-4 xl:space-y-0 bg-no-repeat w-full">
+          <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
+            <div className=" rounded-b-3xl pt-4">
+              <TopNav textColor={"black"} />
+              <div className="pt-0 -mb-10">
+                <img className="" src={MainCar} alt="main" />
               </div>
-            ) : (
-              <>
-                <form className="mx-auto mt-4 relative">
-                  {userImage ? (
-                    <div className="special:w-28 w-16 2xl:w-20 aspect-square rounded-full overflow-hidden">
-                      <img
-                        className="w-full h-full object-cover"
-                        src={localImage ? localImage : userImage}
-                      />
-                    </div>
-                  ) : (
-                    <img
-                      src={localImage ? localImage : User}
-                      alt="profile-pic"
-                      className="special:w-16 2xl:w-16 xl:w-14 w-14"
-                    />
-                  )}
-
-                  <label
-                    htmlFor="profile"
-                    className="z-10 absolute -bottom-3 -right-2 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer"
-                  >
-                    {/* {userImage ? <img src={userImage} /> : <MdOutlinePhotoCamera />} */}
-
-                    <MdOutlinePhotoCamera />
-                  </label>
-                  <input
-                    type="file"
-                    className="hidden"
-                    name="profile"
-                    id="profile"
-                    onChange={handleProfileImageChange}
-                  />
-                </form>
-                {profile && <p className="text-center text-xs flex items-center justify-center gap-2">{profile?.name} </p>}
-                {/* <span className="text-xl cursor-pointer" onClick={handleRemoveLocalImage}><IoIosClose/></span> */}
-                <div className="flex items-center justify-center gap-2">
-                  {/* <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit special:px-3">
-                  <p
-                    className="w-fit special:text-xl "
-                    style={{ fontSize: "8px" }}
-                  >
-                    Level 1
-                  </p>
-                </div> */}
-                  {/* <p className="special:text-xl">Verified User</p> */}
-                  <p className="special:text-xl">{valUser.name}</p>
+            </div>
+            {/* <AffiliateCard /> */}
+          </div>
+          <div className="flex flex-col space-y-4 flex-1 xl:mx-4">
+            <div className="flex flex-col space-y-3">
+              {loading ? (
+                <div className="flex justify-center pt-12">
+                  <ItemLoader />
                 </div>
-                <div className="flex flex-col space-y-2 special:space-y-5">
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      User ID
-                    </p>
-                    <input
-                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter User Name"
-                      type="text"
-                      value={userData?.uid}
-                      disabled
-                    ></input>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex flex-col w-1/2 space-y-2">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        First Name
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
-                        placeholder="Enter First Name"
-                        type="text"
-                        onChange={(e) => {
-                          const inputText = e.target.value;
-                          const lettersOnly = inputText.replace(
-                            /[^A-Za-z]/g,
-                            ""
-                          );
-                          setFirstName(lettersOnly);
-                        }}
-                        value={firstName}
-                      ></input>
-                    </div>
-                    <div className="flex flex-col w-1/2 space-y-2">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        Surname
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
-                        placeholder="Enter Surame"
-                        type="text"
-                        onChange={(e) => {
-                          const inputText = e.target.value;
-                          const lettersOnly = inputText.replace(
-                            /[^A-Za-z]/g,
-                            ""
-                          );
-
-                          setLastName(lettersOnly);
-                        }}
-                        value={lastName}
-                      ></input>
-                    </div>
-                  </div>
-
-                  {/* <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      Last Name
-                    </p>
-                    <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Last Name"
-                      type="text"
-                      onChange={(e) => setName(e.target.value)}
-                      value={name}
-                    ></input>
-                  </div> */}
-                  <div className="flex flex-col space-y-2 relative">
-                    <div className="flex items-center justify-between">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        Valid Email
-                      </p>
-                      {
-                        valUser.verified ? '' : <span className="text-xs text-red-500 text-right"> Please verify your email by clicking <Link to={'/verifyEmail'} className="text-blue-500 font-bold"> here</Link></span>
-                      }
-                    </div>
-
-
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter Valid EMail"
-                        type="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                        disabled={valUser.verified ? true : false}
-                      ></input>
-                      {valUser && <img src={valUser.verified ? Vrfy : NotVrfy} className="w-20 absolute top-8 right-2"/> }
-                    </div>
-                    <div className="flex flex-col space-y-2">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        Phone Number
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter Phone Number"
-                        type="tel"
-                        disabled
-                        onChange={(e) => setMobile(e.target.value)}
-                        value={mobile}
-                      ></input>
-                    </div>
-                    {/* <div className="flex flex-col space-y-2">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        NIC Number
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter NIC Number"
-                        type="text"
-                        onChange={(e) => setNic(e.target.value)}
-                        value={nic}
-                      ></input>
-                    </div> */}
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      Date of Birth
-                    </p>
-                    <input
-                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Date of Birth"
-                      type="date"
-                      value={dob?.substring(0, 10)}
-                      onChange={(e) => setDob(e.target.value)}
-                    ></input>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex flex-col space-y-2 w-1/2">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        Address Line 1
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
-                        placeholder="Address Line 1"
-                        type="text"
-                        value={address}
-                        onChange={(e) => {
-                          const inputText = e.target.value;
-                          const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
-                          setAddress(lettersAndNumbersOnly)
-                        }
-                        }
-
-
-                      ></input>
-                    </div>
-                    <div className="flex flex-col space-y-2 w-1/2">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        Address Line 2
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
-                        placeholder="Address Line 2"
-                        type="text"
-                        value={address2}
-                        onChange={(e) => {
-                          const inputText = e.target.value;
-                          const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
-
-                          setAddress2(lettersAndNumbersOnly)
-                        }
-                        }
-
-
-                      ></input>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex flex-col space-y-2 w-1/3">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        City
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
-                        placeholder="City"
-                        type="text"
-                        value={city}
-                        onChange={(e) => {
-                          const inputText = e.target.value;
-                          const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
-                          setCity(lettersAndNumbersOnly)
-                        }
-                        }
-
-
-                      ></input>
-                    </div>
-                    <div className="flex flex-col space-y-2 w-1/3">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        State
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
-                        placeholder="State"
-                        type="text"
-                        value={state}
-                        onChange={(e) => {
-                          const inputText = e.target.value;
-                          const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
-                          setState(lettersAndNumbersOnly)
-                        }
-                        }
-
-
-                      ></input>
-                    </div>
-                    <div className="flex flex-col space-y-2 w-1/3">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        Postal Code
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
-                        placeholder="Postal Code"
-                        type="text"
-                        value={postalcode}
-                        onChange={(e) => {
-                          const inputText = e.target.value;
-                          const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
-                          setPostalcode(lettersAndNumbersOnly)
-                        }
-                        }
-
-                      ></input>
-                    </div>
-                  </div>
-
-                  {/* <div className="flex flex-col space-y-2">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        License Number
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="License Number"
-                        type="text"
-                        value={license}
-                        onChange={(e) => setLicense(e.target.value)}
-                      ></input>
-                    </div> */}
-                  {/* <div className="flex flex-col space-y-2">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        TIN
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter Tin"
-                        type="text"
-                        value={tin}
-                        onChange={(e) => setTin(e.target.value)}
-                      />
-                    </div> */}
-                  {refferalId ? (
-                    <div className="flex flex-col space-y-2">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        Refferal Id
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter Reference Id"
-                        type="text"
-                        disabled
-                        value={userData?.rafflesId}
-                      ></input>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-
-                  <div className="flex flex-row justify-between items-center pt-4">
-                    {/* <div className="flex items-center xl:gap-6 gap-3">
-                    <input
-                      id="default-checkbox"
-                      type="checkbox"
-                      value=""
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      htmlFor="checked-checkbox"
-                      className="ml-2 xl:text-sm text-xs font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      <p className="text-black">
-                        {" "}
-                        I agree with the terms of use
-                      </p>
-                    </label>
-                  </div> */}
-
-                    <div className="special:text-xl flex flex-row gap-2 items-center">
-                      {" "}
-                      <input
-                        id="checkbox"
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={onCheckboxChange}
-                        className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <div className="flex flex-row items-center gap-2">
-                        <p
-                          className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer"
-                          onClick={() => setIsChecked(!isChecked)}
-                        >
-                          I agree with the
+              ) : (
+                <>
+                  <div className="flex justify-between px-3 md:mt-10">
+                    <div className="flex items-center">
+                      <div className="flex-1">
+                        <p className="text-black font-bold  font text-lg md:text-xl xl:text-xl 2xl:text-5xl special:text-3xl">
+                          $
+                          {typeof valUser.balance === "number"
+                            ? valUser.balance.toFixed(2)
+                            : "0.00"}
                         </p>
-                        <Link
-                          to="/conditions"
-                          target="_blank"
-                          className="yellow-text"
-                        >
-                          <p className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer">
-                            Terms of use
+                        <div className="flex gap-3">
+                          <p className="2xl:text-lg p-1 font-semibold capitalize text-gray-600">
+                            your balance
                           </p>
-                        </Link>
+                          <h1 className="bg-[#ee391c] p-1 px-2 text-white rounded-full">
+                            boomer
+                          </h1>
+                        </div>
                       </div>
                     </div>
-
-                    <button
-                      disabled={!isChecked}
-                      onClick={() => updateUserDatails()}
-                      className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl bg-${isChecked ? "black" : "gray-500"
-                        } hover:bg-${isChecked ? "black/50" : ""}`}
-                    >
-                      Confirm
-                    </button>
                   </div>
-                </div>
-              </>
-            )}
+                  <div className="flex py-4">
+                    <div className="flex-1 py-2    md:px-4 cursor-default">
+                      <div className="flex ">
+                        <img
+                          src={NewEarning}
+                          alt=""
+                          className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
+                        />
+                        <div>
+                          <div className="px-10 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
+                            $
+                            {wallet.earning
+                              ? Math.floor(wallet.earning * 100) / 100 || "0.00"
+                              : "0.00"}
+                          </div>
+                        </div>
+                      </div>
+                      <p className="py-5 text-black text-sm md:text-2xl xl:text-sm 2xl:text-xl special:text-2xl">
+                        Total Earnings
+                      </p>
+                    </div>
+
+                    <div className="flex-1 py-2   md:px-4 cursor-default">
+                      <div className="flex">
+                        <img
+                          src={Ticket}
+                          alt=""
+                          className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
+                        />
+
+                        <p className=" px-8 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
+                          {String(
+                            refferals?.l1count +
+                            refferals?.l2count +
+                            refferals?.l3count +
+                            refferals?.l4count || 0
+                          ).padStart(2, "0")}
+                        </p>
+                      </div>
+                      <p className="py-4 text-black text-sm md:text-2xl xl:text-sm 2xl:text-xl special:text-2xl">
+                        Total Affiliates
+                      </p>
+                    </div>
+                  </div>
+
+                  <button
+                    className={`bg-[#FF4C00] py-2 text-center rounded-xl hover:bg-black/75 ${!valUser.subscriptionPlan?.data
+                        ? "cursor-not-allowed"
+                        : "cursor-pointer"
+                      }`}
+                    onClick={() => navigate("/withdraw")}
+                    disabled={!valUser.subscriptionPlan?.data}
+                  >
+                    <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl  font-semibold">
+                      Withdraw
+                    </p>
+                  </button>
+
+                </>
+              )}
+            </div>
+          </div>
+          <div className="xl:flex flex-col space-y-4 flex-1 hidden">
+            <div className=" rounded-b-3xl pt-4">
+              <TopNav textColor={"black"} />
+              <div className="pt-10">
+                <motion.img
+                  initial={{ x: 80, opacity: 0 }}
+                  animate={{ x: 80, opacity: 1 }}
+                  transition={{ type: "tween", duration: 1, delay: 1 }}
+                  className="w-3/4"
+                  src={MainCar}
+                  alt="main"
+                />
+              </div>
+            </div>
+
+            {/* <div className="w-full">
+              <GoldCard />
+            </div> */}
+            {/* <div>
+              <AffiliateCard />
+            </div> */}
           </div>
         </div>
-        <div className="xl:flex flex-col space-y-4 flex-1 hidden">
-          <div className="bg-black rounded-b-3xl py-4">
-            <TopNav textColor={"white"} />
-            <div className="pt-10">
-              <motion.img
-                initial={{ x: 80, opacity: 0 }}
-                animate={{ x: 80, opacity: 1 }}
-                transition={{ type: "tween", duration: 1, delay: 1 }}
-                className="w-3/4"
-                src={MainCar}
-                alt="main"
-              />
+
+      </div>
+      <form className="mx-auto relative">
+
+        {userImage ? (
+          <div className="special:w-28 w-16 2xl:w-20 aspect-square mx-auto rounded-full overflow-hidden">
+            <img
+              className="w-full h-full object-cover"
+              src={localImage ? localImage : userImage}
+            />
+          </div>
+        ) : (
+          <img
+            src={localImage ? localImage : User}
+            alt="profile-pic"
+            className="special:w-16 2xl:w-16 xl:w-14 w-14"
+          />
+        )}
+
+        <label
+          htmlFor="profile"
+          className="z-10 absolute -bottom-3 right-1/2 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer"
+        >
+          {/* {userImage ? <img src={userImage} /> : <MdOutlinePhotoCamera />} */}
+
+          <MdOutlinePhotoCamera />
+        </label>
+        <input
+          type="file"
+          className="hidden"
+          name="profile"
+          id="profile"
+          onChange={handleProfileImageChange}
+        />
+      </form>
+      {profile && <p className="text-center text-xs flex items-center justify-center gap-2">{profile?.name} </p>}
+      {/* <span className="text-xl cursor-pointer" onClick={handleRemoveLocalImage}><IoIosClose/></span> */}
+      <div className=" items-center justify-center gap-2 hidden">
+        {/* <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit special:px-3">
+<p
+className="w-fit special:text-xl "
+style={{ fontSize: "8px" }}
+>
+Level 1
+</p>
+</div> */}
+        {/* <p className="special:text-xl">Verified User</p> */}
+        <p className="special:text-xl">{valUser.name}</p>
+      </div>
+      <div className="flex flex-col space-y-2 special:space-y-5 px-10 mb-20">
+        <div className="flex flex-col space-y-2">
+          <p className="text-black text-sm xl:text-md special:text-xl">
+            User ID
+          </p>
+          <input
+            className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+            placeholder="Enter User Name"
+            type="text"
+            value={userData?.uid}
+            disabled
+          ></input>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="flex flex-col w-1/2 space-y-2">
+            <p className="text-black text-sm xl:text-md special:text-xl">
+              First Name
+            </p>
+            <input
+              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
+              placeholder="Enter First Name"
+              type="text"
+              onChange={(e) => {
+                const inputText = e.target.value;
+                const lettersOnly = inputText.replace(
+                  /[^A-Za-z]/g,
+                  ""
+                );
+                setFirstName(lettersOnly);
+              }}
+              value={firstName}
+            ></input>
+          </div>
+          <div className="flex flex-col w-1/2 space-y-2">
+            <p className="text-black text-sm xl:text-md special:text-xl">
+              Surname
+            </p>
+            <input
+              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
+              placeholder="Enter Surame"
+              type="text"
+              onChange={(e) => {
+                const inputText = e.target.value;
+                const lettersOnly = inputText.replace(
+                  /[^A-Za-z]/g,
+                  ""
+                );
+
+                setLastName(lettersOnly);
+              }}
+              value={lastName}
+            ></input>
+          </div>
+        </div>
+
+        {/* <div className="flex flex-col space-y-2">
+<p className="text-black text-sm xl:text-md special:text-xl">
+  Last Name
+</p>
+<input
+  className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+  placeholder="Enter Last Name"
+  type="text"
+  onChange={(e) => setName(e.target.value)}
+  value={name}
+></input>
+</div> */}
+        <div className="flex flex-col space-y-2 relative">
+          <div className="flex items-center justify-between">
+            <p className="text-black text-sm xl:text-md special:text-xl">
+              Valid Email
+            </p>
+            {
+              valUser.verified ? '' : <span className="text-xs text-red-500 text-right"> Please verify your email by clicking <Link to={'/verifyEmail'} className="text-blue-500 font-bold"> here</Link></span>
+            }
+          </div>
+
+
+          <input
+            className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+            placeholder="Enter Valid EMail"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            disabled={valUser.verified ? true : false}
+          ></input>
+          {valUser && <img src={valUser.verified ? Vrfy : NotVrfy} className="w-20 absolute top-8 right-2" />}
+        </div>
+        <div className="flex flex-col space-y-2">
+          <p className="text-black text-sm xl:text-md special:text-xl">
+            Phone Number
+          </p>
+          <input
+            className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+            placeholder="Enter Phone Number"
+            type="tel"
+            disabled
+            onChange={(e) => setMobile(e.target.value)}
+            value={mobile}
+          ></input>
+        </div>
+        {/* <div className="flex flex-col space-y-2">
+  <p className="text-black text-sm xl:text-md special:text-xl">
+    NIC Number
+  </p>
+  <input
+    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+    placeholder="Enter NIC Number"
+    type="text"
+    onChange={(e) => setNic(e.target.value)}
+    value={nic}
+  ></input>
+</div> */}
+        <div className="flex flex-col space-y-2">
+          <p className="text-black text-sm xl:text-md special:text-xl">
+            Date of Birth
+          </p>
+          <input
+            className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+            placeholder="Enter Date of Birth"
+            type="date"
+            value={dob?.substring(0, 10)}
+            onChange={(e) => setDob(e.target.value)}
+          ></input>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="flex flex-col space-y-2 w-1/2">
+            <p className="text-black text-sm xl:text-md special:text-xl">
+              Address Line 1
+            </p>
+            <input
+              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+              placeholder="Address Line 1"
+              type="text"
+              value={address}
+              onChange={(e) => {
+                const inputText = e.target.value;
+                const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
+                setAddress(lettersAndNumbersOnly)
+              }
+              }
+
+
+            ></input>
+          </div>
+          <div className="flex flex-col space-y-2 w-1/2">
+            <p className="text-black text-sm xl:text-md special:text-xl">
+              Address Line 2
+            </p>
+            <input
+              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+              placeholder="Address Line 2"
+              type="text"
+              value={address2}
+              onChange={(e) => {
+                const inputText = e.target.value;
+                const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
+
+                setAddress2(lettersAndNumbersOnly)
+              }
+              }
+
+
+            ></input>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="flex flex-col space-y-2 w-1/3">
+            <p className="text-black text-sm xl:text-md special:text-xl">
+              City
+            </p>
+            <input
+              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+              placeholder="City"
+              type="text"
+              value={city}
+              onChange={(e) => {
+                const inputText = e.target.value;
+                const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
+                setCity(lettersAndNumbersOnly)
+              }
+              }
+
+
+            ></input>
+          </div>
+          <div className="flex flex-col space-y-2 w-1/3">
+            <p className="text-black text-sm xl:text-md special:text-xl">
+              State
+            </p>
+            <input
+              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+              placeholder="State"
+              type="text"
+              value={state}
+              onChange={(e) => {
+                const inputText = e.target.value;
+                const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
+                setState(lettersAndNumbersOnly)
+              }
+              }
+
+
+            ></input>
+          </div>
+          <div className="flex flex-col space-y-2 w-1/3">
+            <p className="text-black text-sm xl:text-md special:text-xl">
+              Postal Code
+            </p>
+            <input
+              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+              placeholder="Postal Code"
+              type="text"
+              value={postalcode}
+              onChange={(e) => {
+                const inputText = e.target.value;
+                const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
+                setPostalcode(lettersAndNumbersOnly)
+              }
+              }
+
+            ></input>
+          </div>
+        </div>
+
+        {/* <div className="flex flex-col space-y-2">
+  <p className="text-black text-sm xl:text-md special:text-xl">
+    License Number
+  </p>
+  <input
+    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+    placeholder="License Number"
+    type="text"
+    value={license}
+    onChange={(e) => setLicense(e.target.value)}
+  ></input>
+</div> */}
+        {/* <div className="flex flex-col space-y-2">
+  <p className="text-black text-sm xl:text-md special:text-xl">
+    TIN
+  </p>
+  <input
+    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+    placeholder="Enter Tin"
+    type="text"
+    value={tin}
+    onChange={(e) => setTin(e.target.value)}
+  />
+</div> */}
+        {refferalId ? (
+          <div className="flex flex-col space-y-2">
+            <p className="text-black text-sm xl:text-md special:text-xl">
+              Refferal Id
+            </p>
+            <input
+              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+              placeholder="Enter Reference Id"
+              type="text"
+              disabled
+              value={userData?.rafflesId}
+            ></input>
+          </div>
+        ) : (
+          ""
+        )}
+
+        <div className="flex flex-row justify-between items-center pt-4">
+          {/* <div className="flex items-center xl:gap-6 gap-3">
+<input
+  id="default-checkbox"
+  type="checkbox"
+  value=""
+  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+/>
+<label
+  htmlFor="checked-checkbox"
+  className="ml-2 xl:text-sm text-xs font-medium text-gray-900 dark:text-gray-300"
+>
+  <p className="text-black">
+    {" "}
+    I agree with the terms of use
+  </p>
+</label>
+</div> */}
+
+          <div className="special:text-xl flex flex-row gap-2 items-center">
+            {" "}
+            <input
+              id="checkbox"
+              type="checkbox"
+              checked={isChecked}
+              onChange={onCheckboxChange}
+              className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            />
+            <div className="flex flex-row items-center gap-2">
+              <p
+                className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer"
+                onClick={() => setIsChecked(!isChecked)}
+              >
+                I agree with the
+              </p>
+              <Link
+                to="/conditions"
+                target="_blank"
+                className="yellow-text"
+              >
+                <p className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer">
+                  Terms of use
+                </p>
+              </Link>
             </div>
           </div>
 
-          {/* <div className="w-full">
-              <GoldCard />
-            </div> */}
-          <div>
-            <AffiliateCard />
-          </div>
+          <button
+            disabled={!isChecked}
+            onClick={() => updateUserDatails()}
+            className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl bg-${isChecked ? "black" : "gray-500"
+              } hover:bg-${isChecked ? "black/50" : ""}`}
+          >
+            Confirm
+          </button>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default Profile;
