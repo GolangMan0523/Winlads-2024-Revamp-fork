@@ -46,6 +46,7 @@ function SubscribeCard({
   showUnSubModal,
   trailUserTest,
   userSub,
+  subStatus,
   handleRenew,
 }) {
   const cookies = new Cookies(null, { path: "/" });
@@ -88,7 +89,7 @@ const dynamicBackgroundColor = hexToRgba(color, opacity);
         planeId &&
         ((month && planeId === mPlanId) ||
         (quartly && planeId === qPlanId) ||
-        (year && planeId === yPlanId)
+        (year && planeId === yPlanId) 
           )
       }
       `}
@@ -158,9 +159,9 @@ const dynamicBackgroundColor = hexToRgba(color, opacity);
       </div>
 
       <div className="">
-        {(month && userSub === mPlanId) ||
+        {((month && userSub === mPlanId) ||
         (quartly && userSub === qPlanId) ||
-        (year && userSub === yPlanId) ? (
+        (year && userSub === yPlanId)) && subStatus !== 'active' ? (
           <button
             type="button"
             className={`bg-transparent border-${buttonHover} text-${buttonText} font-semibold uppercase w-full border-2 rounded-xl text-black py-2 px-2 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}

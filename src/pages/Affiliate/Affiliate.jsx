@@ -502,14 +502,16 @@ const Affiliate = () => {
         </div>
       </div>
       <div className="hidden xl:block px-10">
+        <div className="flex items-baseline justify-between">
+
         <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
           <span className="font-bold xl:text-3xl special:text-5xl">
             Affiliate
           </span>{" "}
           List
         </p>
-        <div className="flex flex-col space-y-4 pt-4 items-right">
-          <div className="flex flex-row md:gap-4 gap-1">
+
+        <div className="flex flex-row md:gap-4 gap-1">
             <button
               className={`rounded-lg text-xs special:2xl md:text-sm py-2 px-2 ${
                 activeButton === 1 ? "bg-black text-white" : "bg-[#F3F3F3]"
@@ -543,8 +545,12 @@ const Affiliate = () => {
               Level 04
             </button>
           </div>
+        </div>
+
+        <div className="flex flex-col space-y-4 pt-4 items-right">
+          
           <div className="flex flex-col">
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row justify-between bg-[#F3F3F3]">
               <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
                 Name
               </p>
@@ -564,7 +570,7 @@ const Affiliate = () => {
               refferals?.map((refferal, key) => (
                 <>
                   <div
-                    className="flex flex-row items-center justify-between pt-2 text-xs md:text-md px-4 mb-2"
+                    className="flex flex-row items-center justify-between pt-2 text-xs md:text-md px-4 pb-2 hover:bg-cyan-100"
                     key={key}
                   >
                     <p>{refferal.firstname}</p>
