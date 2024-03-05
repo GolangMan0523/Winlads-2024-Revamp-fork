@@ -90,7 +90,7 @@ function Newslist() {
               {newsList.map((news, key) => (
                 <NewsListProps
                   key={key}
-                  img={newsCar}
+                  img={news.image ? news.image :newsCar}
                   maintitle={news.maintitle}
                   newstitle={news.newstitle}
                   createdat={news.createdat}

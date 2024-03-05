@@ -28,7 +28,7 @@ function NewsListProps({ img, maintitle, newstitle, createdat, id, desc }) {
     <div>
       <div className="flex flex-col space-y-1 hover:bg-[#F5F5F5] py-2  px-2">
         <div className="flex xl:flex-row flex-col gap-2 2xl:gap-4 ">
-          <img src={img} alt="" className="w- h-auto" />
+          <img src={img} alt="" className="w-1/5 h-auto rounded-2xl" />
           <div className="">
             <p className="text-md xl:text-2xl   font-bold md:text-lg special:text-4xl uppercase">
               {maintitle}
@@ -53,7 +53,7 @@ function NewsListProps({ img, maintitle, newstitle, createdat, id, desc }) {
         <div className="flex justify-end">
           <Link
             to={`/news/${id}`}
-            state={{ maintitle, newstitle, createdat, desc }}
+            state={{ maintitle, newstitle, createdat, desc ,img}}
           >
             <p className="text-[#FF4C00] text-xl font-bold">Show More</p>
           </Link>
