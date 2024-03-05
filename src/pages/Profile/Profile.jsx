@@ -61,6 +61,7 @@ const Profile = () => {
   // const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     getUserData();
+
   }, [refreshCount]);
 
   const onCheckboxChange = (e) => {
@@ -85,6 +86,18 @@ const Profile = () => {
     setLocalImage(userImage)
     //setProfile(null);
   }
+  const getEarning = async (valuid) => {
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`)
+      .then((response) => {
+        setWallet(response?.data?.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  };
 
   const getUserData = async () => {
     setLoading(true);
@@ -98,6 +111,11 @@ const Profile = () => {
         setFirstName(response?.data?.data.firstname);
         setLastName(response?.data?.data.lastname);
         setUserId(response?.data?.data.uid);
+
+        getEarning(response?.data?.data.uid)
+        getReffeles(response?.data?.data.uid)
+        getAffiliatsCount(response?.data?.data.uid)
+
         setEmail(response?.data?.data.email);
         setNic(response?.data?.data.nic);
         setTin(response?.data?.data.tin);
@@ -231,6 +249,32 @@ const Profile = () => {
       navigate("/login");
     }
   };
+  const getAffiliatsCount = async (uid) => {
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${uid}`)
+      .then((response) => {
+        console.log(response.data);
+        setAffCount(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  };
+
+  const getReffeles = async (uid) => {
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${uid}`)
+      .then((response) => {
+        console.log(response.data.l1);
+        setRefferals(response.data.l1);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="bg-[#F2F5FB] w-full h-full">
       <div className="flex relative w-full">
