@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 
 function News() {
   const location = useLocation()
-  const { maintitle, newstitle, createdat, desc } = location.state
+  const { maintitle, newstitle, createdat, desc,img } = location.state
 
   const dateObject = new Date(createdat);
   const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
@@ -40,10 +40,11 @@ function News() {
           className="mx-4"
         >
           <div className="flex flex-col">
-            <p className="font-bold text-4xl xl:text-5xl mt-8">{maintitle}</p>
-            <p className="text-xs md:text-sm xl:text-sm 2xl:text-sm special:text-xl">
+            <p className="font-bold text-3xl xl:text-5xl mt-8">{maintitle}</p>
+            <p className="text-xs md:text-sm xl:text-sm 2xl:text-sm special:text-xl my-2">
               {formattedDate}
             </p>
+            <img src={img}  className="w-full lg:w-1/2 rounded-xl"/>
           </div>
 
           <p className="text-sm xl:text-3xl md:text-3xl mt-4">
