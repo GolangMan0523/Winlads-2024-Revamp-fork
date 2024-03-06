@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import SearchField from "../../components/SearchField/SearchField";
 import ChoosePlane from "../../components/SubscribeCard/ChoosePlane";
 import BG from "../../assets/images/HomesideBg.png";
-import homeTopBg from "../../assets/images/homeTopBg.png";
+import homeTopBg from "../../assets/images/HomeTopBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
