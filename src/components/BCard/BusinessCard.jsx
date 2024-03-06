@@ -149,12 +149,12 @@ function BusinessCard() {
       )}
 
       <div className="flex flex-col special:space-y-5">
-        <p className="text-xl font-bold xl:text-xl md:text-xl special:text-4xl">
-          Get My NFC
-        </p>
+        {/* <p className="text-xl font-bold xl:text-xl md:text-xl special:text-4xl">
+          Business Card
+        </p> */}
       </div>
-      <div className="">
-        <div className="text-left flex flex-col items-center space-y-0 special:space-y-16">
+      <div className="flex items-center justify-center">
+        <div className="text-left flex flex-col items-center space-y-0 special:space-y-16 ">
           {isOrderNow ? (
             <ShareForm
               firstName={valUser.firstname}
@@ -208,14 +208,14 @@ function BusinessCard() {
                 // Display "add" image when isOrderNow is false
                 <>
                   <button
-                    className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black ${
+                    className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-[#FF4C00] text-white hover:bg-white  hover:text-black border-2 hover:border-black ${
                       !valUser.subscriptionid ||
                       (valUser?.subscriptionPlan?.data?.name === "Starter" &&
                         "cursor-not-allowed")
                     }`}
                     onClick={handleShareClick}
                     disabled={
-                      valUser.subscription_status == 'noplan' ||
+                      valUser.subscription_status == "noplan" ||
                       valUser?.subscriptionPlan?.data?.name === "Starter"
                     }
                   >
@@ -236,7 +236,7 @@ function BusinessCard() {
           </div>
           {loading
             ? ""
-            : valUser?.subscription_status == 'noplan' && (
+            : valUser?.subscription_status == "noplan" && (
                 <p className="text-xs md:text-lg font-semibold text-center capitalize">
                   You are not eligeble,{" "}
                   <span className="text-red-500">
