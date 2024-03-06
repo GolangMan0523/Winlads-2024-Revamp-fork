@@ -480,3 +480,11 @@ code {
   background-position-x: left;
   background-repeat: no-repeat;
 }
+
+
+.winner-bg{
+  background-image: url("./assets/images/winner-card.png") !important;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

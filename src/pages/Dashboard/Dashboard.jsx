@@ -7,6 +7,7 @@ import Loader from "../../components/Loader/Loader";
 import axios from "axios";
 import { validateCurrentUser } from "../../utils/validateuser";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
+import DashboardWinnerVehicleCard from "../../components/DashboardVehicleCard/DashboardWinnerVehicleCard";
 import SmallGoldCard from "../../components/GoldCard/SmallGoldCard";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import ItemLoader from "../../components/Loader/ItemLoader";
@@ -39,7 +40,7 @@ const Dashboard = () => {
   const [selectPayment, setSelectPayment] = useState(false);
   const [initialLength, setInitSize] = useState(8);
   const cookies = new Cookies(null, { path: "/" });
-  const [fiveX, setFiveEx] = useState(1)
+  const [fiveX, setFiveEx] = useState(1);
   const [sortedGiveaways, setSortedGiveaways] = useState([]);
   const [vehicleGiveaway, setVehiGive] = useState({});
 
@@ -67,7 +68,7 @@ const Dashboard = () => {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
       getGiveaways();
-      getGiveawaysPast()
+      getGiveawaysPast();
       getRaffleCount(validator.user.uid);
       return validator.user;
     } else {
@@ -94,14 +95,12 @@ const Dashboard = () => {
 
   const getGiveawaysPast = async () => {
     await axios
-      .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsPast`
-      )
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsPast`)
       .then((response) => {
         console.log(response.data.data, "data raffle");
         const sortedRaffles = response.data.data.sort(
           (a, b) => new Date(b.startingtime) - new Date(a.startingtime)
-        )
+        );
         setGiveawaysPast(sortedRaffles);
         setLoading(false);
       })
@@ -129,8 +128,8 @@ const Dashboard = () => {
       });
   };
 
-  const handleButton = ({ id, price, name,xValue }) => {
-    setFiveEx(xValue ? xValue : 1)
+  const handleButton = ({ id, price, name, xValue }) => {
+    setFiveEx(xValue ? xValue : 1);
     setSelectGiveawayId(id);
     setPrice(price);
     setSelectGiveName(name);
@@ -342,7 +341,7 @@ const Dashboard = () => {
                       {giveawaysPast
                         .slice(0, initialLength)
                         .map((giveaway, key) => (
-                          <DashboardVehicleCard
+                          <DashboardWinnerVehicleCard
                             isSubscribed={true}
                             key={key}
                             type={giveaway.raffle.type}
@@ -413,6 +412,7 @@ const Dashboard = () => {
                       </p>
                     </div>
                   )}
+
                   <div className="w-full text-center">
                     {giveaways.length > 8 &&
                       (initialLength == 8 ? (
@@ -482,7 +482,7 @@ const Dashboard = () => {
                   </div>
 
                   <div className="flex justify-center flex-col items-center px-32 bg-gradient-to-b h-full -translate-y-4 from-[#45E1FF] to-black w-2/3 relative rounded-xl">
-                    <h1 className="text-white uppercase text-4xl font-bold">
+                    <h1 className="text-white uppercase text-4xl font-bold pt-3">
                       WANT MORE CHANCES?
                     </h1>
                     <div className="w-full p-5">
@@ -629,7 +629,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Previous Winners
+                    Previous Winners  
                   </p>
 
                   {loading ? (
@@ -641,7 +641,7 @@ const Dashboard = () => {
                       {giveawaysPast
                         .slice(0, initialLength)
                         .map((giveaway, key) => (
-                          <DashboardVehicleCard
+                          <DashboardWinnerVehicleCard
                             isSubscribed={true}
                             key={key}
                             type={giveaway.raffle.type}
@@ -687,6 +687,7 @@ const Dashboard = () => {
                             // }}
                           />
                         ))}
+
                       {giveaways.length > 7 &&
                         (initialLength == 7 ? (
                           <button
@@ -712,6 +713,7 @@ const Dashboard = () => {
                       </p>
                     </div>
                   )}
+
                   <div className="w-full text-center">
                     {giveaways.length > 8 &&
                       (initialLength == 8 ? (

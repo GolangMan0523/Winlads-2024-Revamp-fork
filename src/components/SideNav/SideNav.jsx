@@ -162,7 +162,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/dashboard" onClick={() => handleMenu(true)}>
-              <button className={`flex flex-row items-center  xl:justify-start justify-start px-5  gap-2 hover:bg-[#36383b] py-2  w-full  ${isNavLinkActive('/dashboard') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center  xl:justify-start justify-start px-5  gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2  w-full  ${isNavLinkActive('/dashboard') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={Home} className="w-[18px]" alt="protect" />
 
                 <span className="">
@@ -176,7 +176,7 @@ const SideNav = () => {
           </div>
 
           <div onClick={expandSidebar}>
-            <button className={`flex gap-2 space-y-2 xl:space-y-0 items-center justify-start px-5 hover:bg-[#36383b] py-2 w-full `}>
+            <button className={`flex gap-2 space-y-2 xl:space-y-0 items-center justify-start px-5 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full `}>
               <img src={Giv} className="w-[18px]" alt="protect" />
               <div
                 className=" flex  gap-2 items-center"
@@ -194,7 +194,7 @@ const SideNav = () => {
           {showDropdown && (
             <div className={`bg-black flex flex-col space-y-2 text-xs text-white text-start xl:ml-10 ml-4`}>
               <Link to="/ongoingGiveaways" onClick={() => handleMenu(true)}>
-                <div className={`flex flex-row space-x-2 items-center hover:bg-[#36383b] ${isNavLinkActive('/ongoingGiveaways') ? 'bg-[#36383b]' : ''} `}>
+                <div className={`flex flex-row space-x-2 items-center hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] ${isNavLinkActive('/ongoingGiveaways') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''} `}>
                   <img src={Ongoing} alt="" className="w-[18px]" />
                   <p className="cursor-pointer  px-2 py-1">
                     Active
@@ -202,7 +202,7 @@ const SideNav = () => {
                 </div>
               </Link>
               <Link to="/upcomingGiveaways" onClick={() => handleMenu(true)}>
-                <div className={`flex flex-row space-x-2 items-center hover:bg-[#36383b] ${isNavLinkActive('/upcomingGiveaways') ? 'bg-[#36383b]' : ''}`}>
+                <div className={`flex flex-row space-x-2 items-center hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] ${isNavLinkActive('/upcomingGiveaways') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                   <img src={Upcoming} alt="" className="w-[18px]" />
                   <p className="cursor-pointer px-2 py-1">
                     Upcoming
@@ -210,7 +210,7 @@ const SideNav = () => {
                 </div>
               </Link>
               <Link to="/pastGiveaways" onClick={() => handleMenu(true)}>
-                <div className={`flex flex-row space-x-2 items-center hover:bg-[#36383b] ${isNavLinkActive('/pastGiveaways') ? 'bg-[#36383b]' : ''}`}>
+                <div className={`flex flex-row space-x-2 items-center hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] ${isNavLinkActive('/pastGiveaways') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                   <img src={Past} alt="" className="w-[18px]" />
                   <p className="cursor-pointer px-2 py-1">
                     Past
@@ -222,7 +222,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/subscription" onClick={() => handleMenu(true)}>
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/subscription') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/subscription') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={SubIcon} className="w-[18px]" alt="protect" />
                 <span className="">
                   <p className="link-no-underlin  flex text-white">
@@ -235,7 +235,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/myentries" onClick={() => handleMenu(true)}>
-              <button className= {`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/myentries') ? 'bg-[#36383b]' : ''}`}>
+              <button className= {`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/myentries') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={EntryIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  xl:flex text-white">
@@ -248,7 +248,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/transaction" onClick={() => handleMenu(true)}>
-              <button className={`flex flex-row items-center  justify-start px-5  gap-2 hover:bg-[#36383b] py-2  w-full ${isNavLinkActive('/transaction') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center  justify-start px-5  gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2  w-full ${isNavLinkActive('/transaction') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={Trans} className="w-[14px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white ">
@@ -265,7 +265,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/affiliate" onClick={() => handleMenu(true)}>
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/affiliate') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/affiliate') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={Aff} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white">
@@ -278,7 +278,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/promo" onClick={() => handleMenu(true)}>
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/promo') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/promo') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={PromoIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white">
@@ -291,7 +291,7 @@ const SideNav = () => {
 {/* 
           <div onClick={expandSidebar}>
             <Link to="/partners">
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/partners') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/partners') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={partners} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white">
@@ -304,7 +304,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/business-card">
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/business-card') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/business-card') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={BC} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white">
@@ -321,7 +321,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/newslist" onClick={() => handleMenu(true)}>
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/newslist') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/newslist') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={NewsIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  xl:flex text-white">
@@ -334,7 +334,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/groupchat" onClick={() => handleMenu(true)}>
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/groupchat') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/groupchat') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={Messages} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  xl:flex text-white">
@@ -347,7 +347,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar} className="hidden">
             <Link to="/forum" onClick={() => handleMenu(true)}>
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/forum') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/forum') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={Form} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  xl:flex text-white">
@@ -359,7 +359,7 @@ const SideNav = () => {
           </div>
           <div onClick={expandSidebar}>
             <Link to="/messages">
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/messages') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/messages') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={supportIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  xl:flex text-white">
@@ -375,7 +375,7 @@ const SideNav = () => {
           </div>
 
           {/* <div onClick={expandSidebar} title="This feature will be available soon">
-              <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
+              <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 px-2 w-full">
                 <img src={Sub} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin hidden xl:flex text-white">
@@ -387,7 +387,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/profile" onClick={() => handleMenu(true)}>
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/profile') ? 'bg-[#36383b]' : ''}`}>
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2 w-full ${isNavLinkActive('/profile') ? 'bg-gradient-to-r  from-[#000]  to-[#FB9701]' : ''}`}>
                 <img src={Setting} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white">
@@ -401,7 +401,7 @@ const SideNav = () => {
           <div onClick={expandSidebar}>
             <button
               onClick={handleClick}
-              className="flex flex-row items-center justify-start gap-2 px-5 hover:bg-[#36383b] py-2  w-full "
+              className="flex flex-row items-center justify-start gap-2 px-5 hover:bg-gradient-to-r hover:from-[#000] hover:to-[#FB9701] py-2  w-full "
             >
               <img src={Logout} className="w-[18px]" alt="protect" />
               <span className=" mobile-hide">

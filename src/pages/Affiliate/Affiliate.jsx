@@ -289,7 +289,7 @@ const Affiliate = () => {
                   </div>
 
                   <button
-                    className={`bg-[#FF4C00] py-2 text-center rounded-xl hover:bg-black/75 ${
+                    className={`bg-[#FF4C00] py-3 sm:py-4 text-center rounded-xl hover:bg-black/75 ${
                       !valUser.subscriptionPlan?.data
                         ? "cursor-not-allowed"
                         : "cursor-pointer"
@@ -313,13 +313,13 @@ const Affiliate = () => {
               <TopNav textColor={"black"} />
             </div>
             <div>
-              <div className=" bg-[#EFF9FB] p-4 border-2 border-[#00ECFF] rounded-xl flex flex-col space-y-2 special:space-y-5">
-                <div className="flex flex-col space-y-2">
-                  <p className="text-black text-sm xl:text-md special:text-xl">
+              <div className=" bg-[#EFF9FB] p-5 sm:p-8 border border-[#5EC1DC] rounded-xl flex flex-col space-y-2 special:space-y-5">
+                <div className="flex flex-col ">
+                  <p className="text-black text-sm xl:text-md special:text-xl text-[#6B6B6B] ">
                     Full Name
                   </p>
                   <input
-                    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                    className="border-none outline-none font-bold bg-transparent py-0 text-sm sm:text-base  md:text-lg"
                     placeholder="Loading..."
                     type="text"
                     onChange={(e) => setName(e.target.value)}
@@ -332,31 +332,34 @@ const Affiliate = () => {
                         : ""
                     }
                   ></input>
+
+                  <hr className="border border-[#D7E0E2] rounded-lg mt-2" />
                 </div>
 
-                <div className="flex flex-col space-y-2">
-                  <p className="text-black text-sm xl:text-md special:text-xl">
+                <div className="flex flex-col ">
+                  <p className="text-black text-sm xl:text-md special:text-xl text-[#6B6B6B]">
                     Your Email
                   </p>
                   <input
-                    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                    className="border-none outline-none font-bold bg-transparent py-0 text-sm sm:text-base  md:text-lg"
                     // placeholder="Loading..."
                     type="email"
                     // onChange={(e) => setEmail(e.target.value)}
                     value={valUser?.email}
                     disabled
                   ></input>
+                  <hr className="border border-[#D7E0E2] rounded-lg mt-2" />
                 </div>
-                <div className="flex flex-col space-y-2">
-                  <p className="text-black text-sm xl:text-md special:text-xl">
+                <div className="flex flex-col ">
+                  <p className="text-black text-sm xl:text-md special:text-xl text-[#6B6B6B]">
                     Your Affiliate ID
                   </p>
                   <div className="w-full relative">
                     <input
-                      className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
+                      className="border-none outline-none font-bold bg-transparent py-0 text-sm sm:text-base  md:text-lg w-full"
                       // placeholder="loading..."
                       type="text"
-                      value={valUser?.uid}
+                      value={valUser?.uid.slice(0,20)+"..."}
                       disabled
                     />
                     <button
@@ -364,28 +367,29 @@ const Affiliate = () => {
                       className="absolute right-1 bottom-0 text-xl pb-2 pr-2"
                     >
                       {valUser.uid ? (
-                        <FaRegCopy className="hover:opacity-75" />
+                        <FaRegCopy className="hover:opacity-75 text-[#5EC1DC]" />
                       ) : (
                         ""
                       )}
                     </button>
+                    <hr className="border border-[#D7E0E2] rounded-lg mt-2" />
                   </div>
                 </div>
 
                 <div className="flex flex-col space-y-2">
-                  <p className="text-black text-sm xl:text-md special:text-xl">
+                  <p className="text-black text-sm xl:text-md special:text-xl text-[#6B6B6B]">
                     Your Affiliate Link
                   </p>
                   <div className="w-full relative">
                     <input
-                      className="bg-white w-full rounded-xl px-2 py-3 focus:outline-none md:text-sm text-[9px] font-bold placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="border-none outline-none font-bold bg-transparent py-0 text-sm sm:text-base  md:text-lg w-full"
                       // placeholder="Enter Phone Number"
                       type="tel"
                       disabled
                       onChange={(e) => setMobile(e.target.value)}
                       value={
                         valUser.uid
-                          ? `https://www.winlads.com/?ref=${valUser?.uid}`
+                          ? `https://www.winlads.com/?ref=${valUser?.uid.slice(0,2)+"..."}`
                           : ""
                       }
                     ></input>
@@ -398,11 +402,13 @@ const Affiliate = () => {
                       className="absolute right-1 bottom-0 text-xl pb-3 pr-2"
                     >
                       {valUser.uid ? (
-                        <FaRegCopy className="hover:opacity-75" />
+                        <FaRegCopy className="hover:opacity-75 text-[#5EC1DC]" />
+                       
                       ) : (
                         ""
                       )}
                     </button>
+                    <hr className="border border-[#D7E0E2] rounded-lg mt-2" />
                   </div>
                 </div>
               </div>
@@ -412,7 +418,7 @@ const Affiliate = () => {
               <div className="flex flex-col space-y-4 pt-4">
                 <div className="flex flex-row md:gap-4 gap-1 items-center">
                   <button
-                    className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                    className={`rounded-full text-xs md:text-sm py-2 px-3 ${
                       activeButton === 1
                         ? "bg-black text-white"
                         : "bg-[#F3F3F3]"
@@ -422,7 +428,7 @@ const Affiliate = () => {
                     Level 01
                   </button>
                   <button
-                    className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                    className={`rounded-full text-xs md:text-sm py-2 px-3 ${
                       activeButton === 2
                         ? "bg-black text-white"
                         : "bg-[#F3F3F3]"
@@ -432,7 +438,7 @@ const Affiliate = () => {
                     Level 02
                   </button>
                   <button
-                    className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                    className={`rounded-full text-xs md:text-sm py-2 px-3 ${
                       activeButton === 3
                         ? "bg-black text-white"
                         : "bg-[#F3F3F3]"
@@ -442,7 +448,7 @@ const Affiliate = () => {
                     Level 03
                   </button>
                   <button
-                    className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                    className={`rounded-full text-xs md:text-sm py-2 px-3 ${
                       activeButton === 4
                         ? "bg-black text-white"
                         : "bg-[#F3F3F3]"
@@ -513,7 +519,7 @@ const Affiliate = () => {
 
         <div className="flex flex-row md:gap-4 gap-1">
             <button
-              className={`rounded-lg text-xs special:2xl md:text-sm py-2 px-2 ${
+              className={`rounded-full text-xs special:2xl md:text-sm py-2 px-3 ${
                 activeButton === 1 ? "bg-black text-white" : "bg-[#F3F3F3]"
               }`}
               onClick={handleLevel01ButtonClick}
@@ -521,7 +527,7 @@ const Affiliate = () => {
               Level 01
             </button>
             <button
-              className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+              className={`rounded-full text-xs md:text-sm py-2 px-3 ${
                 activeButton === 2 ? "bg-black text-white" : "bg-[#F3F3F3]"
               }`}
               onClick={handleLevel02ButtonClick}
@@ -529,7 +535,7 @@ const Affiliate = () => {
               Level 02
             </button>
             <button
-              className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+              className={`rounded-full text-xs md:text-sm py-2 px-3 ${
                 activeButton === 3 ? "bg-black text-white" : "bg-[#F3F3F3]"
               }`}
               onClick={handleLevel03ButtonClick}
@@ -537,7 +543,7 @@ const Affiliate = () => {
               Level 03
             </button>
             <button
-              className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+              className={`rounded-full text-xs md:text-sm py-2 px-3 ${
                 activeButton === 4 ? "bg-black text-white" : "bg-[#F3F3F3]"
               }`}
               onClick={handleLevel04ButtonClick}
@@ -938,11 +944,11 @@ export default Affiliate;
 //             <div>
 //               <div className="flex flex-col space-y-2 special:space-y-5">
 //                 <div className="flex flex-col space-y-2">
-//                   <p className="text-black text-sm xl:text-md special:text-xl">
+//                   <p className="text-black text-sm xl:text-md special:text-xl text-[#6B6B6B]">
 //                     Full Name
 //                   </p>
 //                   <input
-//                     className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+//                     className="border-none outline-none font-bold bg-transparent py-0 text-sm sm:text-base  md:text-lg"
 //                     placeholder="Loading..."
 //                     type="text"
 //                     onChange={(e) => setName(e.target.value)}
@@ -958,11 +964,11 @@ export default Affiliate;
 //                 </div>
 
 //                 <div className="flex flex-col space-y-2">
-//                   <p className="text-black text-sm xl:text-md special:text-xl">
+//                   <p className="text-black text-sm xl:text-md special:text-xl text-[#6B6B6B]">
 //                     Your Email
 //                   </p>
 //                   <input
-//                     className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+//                     className="border-none outline-none font-bold bg-transparent py-0 text-sm sm:text-base  md:text-lg"
 //                     // placeholder="Loading..."
 //                     type="email"
 //                     // onChange={(e) => setEmail(e.target.value)}
@@ -971,7 +977,7 @@ export default Affiliate;
 //                   ></input>
 //                 </div>
 //                 <div className="flex flex-col space-y-2">
-//                   <p className="text-black text-sm xl:text-md special:text-xl">
+//                   <p className="text-black text-sm xl:text-md special:text-xl text-[#6B6B6B]">
 //                     Your Affiliate ID
 //                   </p>
 //                   <div className="w-full relative">
@@ -996,7 +1002,7 @@ export default Affiliate;
 //                 </div>
 
 //                 <div className="flex flex-col space-y-2">
-//                   <p className="text-black text-sm xl:text-md special:text-xl">
+//                   <p className="text-black text-sm xl:text-md special:text-xl text-[#6B6B6B]">
 //                     Your Affiliate Link
 //                   </p>
 //                   <div className="w-full relative">
