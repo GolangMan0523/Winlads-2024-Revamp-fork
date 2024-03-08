@@ -25,6 +25,7 @@ import { IoIosClose } from "react-icons/io";
 import { MdDone } from "react-icons/md";
 import Count from "../../components/Affiliate/Count";
 import Ticket from "../../assets/images/affiliate/affiliate.png";
+import { LuAlignJustify } from "react-icons/lu";
 
 const Profile = () => {
   const cookies = new Cookies(null, { path: "/" });
@@ -51,17 +52,14 @@ const Profile = () => {
   const [license, setLicense] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [refferalId, setRefferalId] = useState();
-  const [localImage, setLocalImage] = useState('');
+  const [localImage, setLocalImage] = useState("");
   const [affCount, setAffCount] = useState([]);
   const [wallet, setWallet] = useState([]);
   const [refferals, setRefferals] = useState([]);
 
-
-
   // const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     getUserData();
-
   }, [refreshCount]);
 
   const onCheckboxChange = (e) => {
@@ -73,19 +71,17 @@ const Profile = () => {
 
     if (file) {
       setProfile(file);
-      const reader = new FileReader();  // Create a new FileReader
+      const reader = new FileReader(); // Create a new FileReader
       reader.onload = () => {
         setLocalImage(reader.result); // Set the state with the URL of the uploaded image
       };
       reader.readAsDataURL(file); // Read the file as a data URL
-
     }
-
   };
   const handleRemoveLocalImage = () => {
-    setLocalImage(userImage)
+    setLocalImage(userImage);
     //setProfile(null);
-  }
+  };
   const getEarning = async (valuid) => {
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`)
@@ -112,9 +108,9 @@ const Profile = () => {
         setLastName(response?.data?.data.lastname);
         setUserId(response?.data?.data.uid);
 
-        getEarning(response?.data?.data.uid)
-        getReffeles(response?.data?.data.uid)
-        getAffiliatsCount(response?.data?.data.uid)
+        getEarning(response?.data?.data.uid);
+        getReffeles(response?.data?.data.uid);
+        getAffiliatsCount(response?.data?.data.uid);
 
         setEmail(response?.data?.data.email);
         setNic(response?.data?.data.nic);
@@ -182,7 +178,7 @@ const Profile = () => {
           postalcode,
           image: profileImageName,
         }
-      )
+      );
 
       if (response.data.status == 200) {
         toast.success("Profile details updated!", {
@@ -211,17 +207,16 @@ const Profile = () => {
           theme: "colored",
         });
         setLoading(false);
-        setIsChecked(true)
+        setIsChecked(true);
       }
     } catch (err) {
-      console.log('CATCH STATEMENT');
+      console.log("CATCH STATEMENT");
       console.log(err);
-      toast.error(err.response.data.message)
+      toast.error(err.response.data.message);
       setLoading(false);
       setIsChecked(false);
     }
-  }
-
+  };
 
   function getProfileImage(img) {
     getDownloadURL(ref(storage, img))
@@ -282,8 +277,14 @@ const Profile = () => {
         <div className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-0 space-y-4 xl:space-y-0 bg-no-repeat w-full">
           <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
             <div className=" rounded-b-3xl pt-4">
-              <TopNav textColor={"black"} />
-              <div className="pt-0 -mb-10">
+              <div className="flex justify-between items-center py-3">
+                <p className="font-bold text-xl special:text-4xl 2xl:text-2xl">
+                  Subscription
+                </p>
+                <LuAlignJustify className="sm:hidden w-7 h-7" />
+              </div>
+              {/* <TopNav textColor={"black"} /> */}
+              <div className="pt-0 -mb-10 max-sm:hidden">
                 <img className="" src={MainCar} alt="main" />
               </div>
             </div>
@@ -291,16 +292,21 @@ const Profile = () => {
           </div>
           <div className="flex flex-col space-y-4 flex-1 xl:mx-4">
             <div className="flex flex-col space-y-3">
+              <div className="flex justify-between items-center py-3 max-sm:hidden">
+                <p className="font-bold text-xl special:text-4xl 2xl:text-2xl">
+                  Subscription
+                </p>
+              </div>
               {loading ? (
                 <div className="flex justify-center pt-12">
                   <ItemLoader />
                 </div>
               ) : (
                 <>
-                  <div className="flex justify-between px-3 md:mt-10">
-                    <div className="flex items-center">
+                  <div className="flex justify-between max-sm:justify-center max-sm:items-center px-3 md:mt-10">
+                    <div className="flex max-sm:justify-center items-center">
                       <div className="flex-1">
-                        <p className="text-black font-bold  font text-lg md:text-xl xl:text-xl 2xl:text-5xl special:text-3xl">
+                        <p className="text-black font-bold font text-4xl md:text-xl xl:text-xl 2xl:text-5xl special:text-3xl max-sm:text-center">
                           $
                           {typeof valUser.balance === "number"
                             ? valUser.balance.toFixed(2)
@@ -317,8 +323,8 @@ const Profile = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex py-4">
-                    <div className="flex-1 py-2    md:px-4 cursor-default">
+                  <div className="flex py-4 max-sm:divide-x max-sm:justify-between">
+                    <div className="flex-1 py-2 md:px-4 cursor-default">
                       <div className="flex ">
                         <img
                           src={NewEarning}
@@ -339,8 +345,8 @@ const Profile = () => {
                       </p>
                     </div>
 
-                    <div className="flex-1 py-2   md:px-4 cursor-default">
-                      <div className="flex">
+                    <div className="flex-1 py-2 md:px-4 cursor-default">
+                      <div className="flex max-sm:justify-end">
                         <img
                           src={Ticket}
                           alt=""
@@ -350,31 +356,31 @@ const Profile = () => {
                         <p className=" px-8 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
                           {String(
                             refferals?.l1count +
-                            refferals?.l2count +
-                            refferals?.l3count +
-                            refferals?.l4count || 0
+                              refferals?.l2count +
+                              refferals?.l3count +
+                              refferals?.l4count || 0
                           ).padStart(2, "0")}
                         </p>
                       </div>
-                      <p className="py-4 text-black text-sm md:text-2xl xl:text-sm 2xl:text-xl special:text-2xl">
+                      <p className="py-4 text-black max-sm:text-center text-sm md:text-2xl xl:text-sm 2xl:text-xl special:text-2xl">
                         Total Affiliates
                       </p>
                     </div>
                   </div>
 
                   <button
-                    className={`bg-[#FF4C00] py-2 text-center rounded-xl hover:bg-black/75 ${!valUser.subscriptionPlan?.data
+                    className={`bg-[#FF4C00] py-2 text-center rounded-xl hover:bg-black/75 ${
+                      !valUser.subscriptionPlan?.data
                         ? "cursor-not-allowed"
                         : "cursor-pointer"
-                      }`}
+                    }`}
                     onClick={() => navigate("/withdraw")}
                     disabled={!valUser.subscriptionPlan?.data}
                   >
-                    <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl  font-semibold">
+                    <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl font-semibold">
                       Withdraw
                     </p>
                   </button>
-
                 </>
               )}
             </div>
@@ -402,10 +408,8 @@ const Profile = () => {
             </div> */}
           </div>
         </div>
-
       </div>
-      <form className="mx-auto relative">
-
+      {/* <form className="mx-auto relative">
         {userImage ? (
           <div className="special:w-28 w-16 2xl:w-20 aspect-square mx-auto rounded-full overflow-hidden">
             <img
@@ -425,7 +429,6 @@ const Profile = () => {
           htmlFor="profile"
           className="z-10 absolute -bottom-3 right-1/2 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer"
         >
-          {/* {userImage ? <img src={userImage} /> : <MdOutlinePhotoCamera />} */}
 
           <MdOutlinePhotoCamera />
         </label>
@@ -436,8 +439,13 @@ const Profile = () => {
           id="profile"
           onChange={handleProfileImageChange}
         />
-      </form>
-      {profile && <p className="text-center text-xs flex items-center justify-center gap-2">{profile?.name} </p>}
+      </form> */}
+
+      {profile && (
+        <p className="text-center text-xs flex items-center justify-center gap-2">
+          {profile?.name}{" "}
+        </p>
+      )}
       {/* <span className="text-xl cursor-pointer" onClick={handleRemoveLocalImage}><IoIosClose/></span> */}
       <div className=" items-center justify-center gap-2 hidden">
         {/* <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit special:px-3">
@@ -464,8 +472,8 @@ Level 1
             disabled
           ></input>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="flex flex-col w-1/2 space-y-2">
+        <div className="flex items-center gap-2 max-sm:flex-col">
+          <div className="flex flex-col w-1/2 space-y-2 max-sm:w-full">
             <p className="text-black text-sm xl:text-md special:text-xl">
               First Name
             </p>
@@ -475,16 +483,13 @@ Level 1
               type="text"
               onChange={(e) => {
                 const inputText = e.target.value;
-                const lettersOnly = inputText.replace(
-                  /[^A-Za-z]/g,
-                  ""
-                );
+                const lettersOnly = inputText.replace(/[^A-Za-z]/g, "");
                 setFirstName(lettersOnly);
               }}
               value={firstName}
             ></input>
           </div>
-          <div className="flex flex-col w-1/2 space-y-2">
+          <div className="flex flex-col w-1/2 space-y-2 max-sm:w-full">
             <p className="text-black text-sm xl:text-md special:text-xl">
               Surname
             </p>
@@ -494,10 +499,7 @@ Level 1
               type="text"
               onChange={(e) => {
                 const inputText = e.target.value;
-                const lettersOnly = inputText.replace(
-                  /[^A-Za-z]/g,
-                  ""
-                );
+                const lettersOnly = inputText.replace(/[^A-Za-z]/g, "");
 
                 setLastName(lettersOnly);
               }}
@@ -523,11 +525,19 @@ Level 1
             <p className="text-black text-sm xl:text-md special:text-xl">
               Valid Email
             </p>
-            {
-              valUser.verified ? '' : <span className="text-xs text-red-500 text-right"> Please verify your email by clicking <Link to={'/verifyEmail'} className="text-blue-500 font-bold"> here</Link></span>
-            }
+            {valUser.verified ? (
+              ""
+            ) : (
+              <span className="text-xs text-red-500 text-right">
+                {" "}
+                Please verify your email by clicking{" "}
+                <Link to={"/verifyEmail"} className="text-blue-500 font-bold">
+                  {" "}
+                  here
+                </Link>
+              </span>
+            )}
           </div>
-
 
           <input
             className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
@@ -537,7 +547,12 @@ Level 1
             value={email}
             disabled={valUser.verified ? true : false}
           ></input>
-          {valUser && <img src={valUser.verified ? Vrfy : NotVrfy} className="w-20 absolute top-8 right-2" />}
+          {valUser && (
+            <img
+              src={valUser.verified ? Vrfy : NotVrfy}
+              className="w-20 absolute top-8 right-2"
+            />
+          )}
         </div>
         <div className="flex flex-col space-y-2">
           <p className="text-black text-sm xl:text-md special:text-xl">
@@ -576,8 +591,8 @@ Level 1
             onChange={(e) => setDob(e.target.value)}
           ></input>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="flex flex-col space-y-2 w-1/2">
+        <div className="flex items-center gap-2 max-sm:flex-col">
+          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full">
             <p className="text-black text-sm xl:text-md special:text-xl">
               Address Line 1
             </p>
@@ -588,15 +603,15 @@ Level 1
               value={address}
               onChange={(e) => {
                 const inputText = e.target.value;
-                const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
-                setAddress(lettersAndNumbersOnly)
-              }
-              }
-
-
+                const lettersAndNumbersOnly = inputText.replace(
+                  /[^A-Za-z0-9]/g,
+                  ""
+                );
+                setAddress(lettersAndNumbersOnly);
+              }}
             ></input>
           </div>
-          <div className="flex flex-col space-y-2 w-1/2">
+          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full">
             <p className="text-black text-sm xl:text-md special:text-xl">
               Address Line 2
             </p>
@@ -607,18 +622,18 @@ Level 1
               value={address2}
               onChange={(e) => {
                 const inputText = e.target.value;
-                const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
+                const lettersAndNumbersOnly = inputText.replace(
+                  /[^A-Za-z0-9]/g,
+                  ""
+                );
 
-                setAddress2(lettersAndNumbersOnly)
-              }
-              }
-
-
+                setAddress2(lettersAndNumbersOnly);
+              }}
             ></input>
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="flex flex-col space-y-2 w-1/3">
+        <div className="flex items-center gap-2 max-sm:flex-col">
+          <div className="flex flex-col space-y-2 w-1/3 max-sm:w-full">
             <p className="text-black text-sm xl:text-md special:text-xl">
               City
             </p>
@@ -629,15 +644,15 @@ Level 1
               value={city}
               onChange={(e) => {
                 const inputText = e.target.value;
-                const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
-                setCity(lettersAndNumbersOnly)
-              }
-              }
-
-
+                const lettersAndNumbersOnly = inputText.replace(
+                  /[^A-Za-z0-9]/g,
+                  ""
+                );
+                setCity(lettersAndNumbersOnly);
+              }}
             ></input>
           </div>
-          <div className="flex flex-col space-y-2 w-1/3">
+          <div className="flex flex-col space-y-2 w-1/3 max-sm:w-full">
             <p className="text-black text-sm xl:text-md special:text-xl">
               State
             </p>
@@ -648,15 +663,15 @@ Level 1
               value={state}
               onChange={(e) => {
                 const inputText = e.target.value;
-                const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
-                setState(lettersAndNumbersOnly)
-              }
-              }
-
-
+                const lettersAndNumbersOnly = inputText.replace(
+                  /[^A-Za-z0-9]/g,
+                  ""
+                );
+                setState(lettersAndNumbersOnly);
+              }}
             ></input>
           </div>
-          <div className="flex flex-col space-y-2 w-1/3">
+          <div className="flex flex-col space-y-2 w-1/3 max-sm:w-full">
             <p className="text-black text-sm xl:text-md special:text-xl">
               Postal Code
             </p>
@@ -667,11 +682,12 @@ Level 1
               value={postalcode}
               onChange={(e) => {
                 const inputText = e.target.value;
-                const lettersAndNumbersOnly = inputText.replace(/[^A-Za-z0-9]/g, '');
-                setPostalcode(lettersAndNumbersOnly)
-              }
-              }
-
+                const lettersAndNumbersOnly = inputText.replace(
+                  /[^A-Za-z0-9]/g,
+                  ""
+                );
+                setPostalcode(lettersAndNumbersOnly);
+              }}
             ></input>
           </div>
         </div>
@@ -717,25 +733,7 @@ Level 1
           ""
         )}
 
-        <div className="flex flex-row justify-between items-center pt-4">
-          {/* <div className="flex items-center xl:gap-6 gap-3">
-<input
-  id="default-checkbox"
-  type="checkbox"
-  value=""
-  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-/>
-<label
-  htmlFor="checked-checkbox"
-  className="ml-2 xl:text-sm text-xs font-medium text-gray-900 dark:text-gray-300"
->
-  <p className="text-black">
-    {" "}
-    I agree with the terms of use
-  </p>
-</label>
-</div> */}
-
+        <div className="flex flex-row justify-between items-center pt-4 max-sm:flex-col max-sm:items-start max-sm:gap-5">
           <div className="special:text-xl flex flex-row gap-2 items-center">
             {" "}
             <input
@@ -752,11 +750,7 @@ Level 1
               >
                 I agree with the
               </p>
-              <Link
-                to="/conditions"
-                target="_blank"
-                className="yellow-text"
-              >
+              <Link to="/conditions" target="_blank" className="yellow-text">
                 <p className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer">
                   Terms of use
                 </p>
@@ -767,8 +761,9 @@ Level 1
           <button
             disabled={!isChecked}
             onClick={() => updateUserDatails()}
-            className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl bg-${isChecked ? "black" : "gray-500"
-              } hover:bg-${isChecked ? "black/50" : ""}`}
+            className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl max-sm:w-full bg-${
+              isChecked ? "black" : "[#FF4C00]"
+            } hover:bg-${isChecked ? "black/50" : ""}`}
           >
             Confirm
           </button>
