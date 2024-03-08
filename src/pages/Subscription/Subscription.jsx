@@ -224,16 +224,16 @@ function Subscription() {
             <div className="visible xl:hidden space-y-4">
               <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
-                <div className="pt-10">
+                {/* <div className="pt-10">
                   <img className="w-full" src={MainCar} alt="main" />
-                </div>
+                </div> */}
               </div>
 
-              <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2 relative">
+              {/* <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2 relative">
                 <div className="w-full">
                   <GoldCard />
                 </div>
-              </div>
+              </div> */}
             </div>
             {/* <SearchField /> */}
             <p className="font-bold text-xl special:text-4xl 2xl:text-2xl">
@@ -379,7 +379,7 @@ function Subscription() {
         )}
       </div>
       <div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center max-sm:flex-col">
           <div className="pt-10 flex-1">
             <motion.img
               initial={{ x: 80, opacity: 0 }}
@@ -411,7 +411,7 @@ function Subscription() {
                   />
                 </div>
               </div>
-              <div className="flex flex-row justify-between bg-[#f5f5f5] items-center rounded-full px-5 py-3 special:py-2 special:px-2 w-1/2 p-10">
+              <div className="flex flex-row justify-between bg-[#f5f5f5] items-center rounded-full px-5 py-3 special:py-2 special:px-2 w-1/2 p-10 max-sm:w-full">
                 <button
                   type="button"
                   onClick={handleMonthly}

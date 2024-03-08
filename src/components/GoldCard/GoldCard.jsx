@@ -52,8 +52,8 @@ const GoldCard = () => {
         (valUser?.subscription_status !== "noplan" ? (
           <div className="flex flex-col justify-center items-center">
             <div className="top-card text-white rounded-t-lg flex justify-between items-center px-10 py-3 w-3/5">
-              <h1>Earning Balance</h1>
-              <h1 className="font-bold text-lg">$ 170.86</h1>
+              <h1 className="max-sm:text-sm">Earning Balance</h1>
+              <h1 className="font-bold text-lg max-sm:text-sm">$ 170.86</h1>
             </div>
             <div
               className={`relative  ${
