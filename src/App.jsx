@@ -61,7 +61,7 @@ import GroupChat from "./pages/Messages/GroupChat";
 import { RefreshProvider } from "./utils/RefreshContext";
 import EmailVerify from "./pages/Profile/EmailVerify";
 import NewMyEntries from "./pages/MyEntries/NewMyEntries";
-
+import Succesful from "./pages/Login/Succesful";
 function App() {
   const tagManagerArgs = {
     gtmId: "GTM-P2DVFZVB",
@@ -221,6 +221,10 @@ function App() {
     {
       path: "*",
       element: <NotFound />,
+    },
+    {
+      path: "/succes",
+      element: <Succesful />,
     },
     {
       path: "/registerQr",
