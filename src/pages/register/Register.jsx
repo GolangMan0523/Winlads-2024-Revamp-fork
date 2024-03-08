@@ -569,7 +569,7 @@ const Register = ({ location }) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-image">
+        <div className="min-h-screen flex flex-col items-center justify-center">
           {eligible && (
             <div className="py-4 w-full bg-yellow-300 text-center">
               <p className="text-black font-semibold">

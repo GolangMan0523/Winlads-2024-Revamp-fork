@@ -2,7 +2,7 @@
     max-width: 1440px;
 }
 .bg-image{
-    /* background-image: url('../../assets/images/background/reg-bg-image.jpg'); */
+    background-image: url('../../assets/images/background/reg-bg-image.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
