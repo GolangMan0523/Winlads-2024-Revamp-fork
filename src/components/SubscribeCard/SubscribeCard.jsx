@@ -114,9 +114,8 @@ function SubscribeCard({
           <p className="text-start">Tier</p>
         </p>
         <p className="text-4xl md:text-4xl">
-          {" "}
           {raffleCount}&nbsp;<span className="text-xs">FREE</span>
-        </p>{" "}
+        </p>
       </div>
       <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3 w-full bg-slate-100">
         <span className="uppercase text-xs w-full text-black">

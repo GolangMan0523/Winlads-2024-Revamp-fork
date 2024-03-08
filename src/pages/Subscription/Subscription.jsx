@@ -310,7 +310,7 @@ function Subscription() {
                   <span className="text-xs">
                     If you confirm and end your subscription now, you can still
                     have your subscription until
-                    <br />{" "}
+                    <br />
                     {new Date(valUser.expireDate).toLocaleString("en-GB", {
                       year: "numeric",
                       month: "numeric",
@@ -610,6 +610,12 @@ function Subscription() {
                     <FreeEntryCardDashboard />
                   </div> */}
               </div>
+
+
+
+
+
+              
             </div>
           ) : (
             <div className="flex flex-col items-center space-y-2">
