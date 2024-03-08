@@ -24,6 +24,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { toast } from "react-toastify";
 import { IoCloseSharp } from "react-icons/io5";
 import Vector from "../../assets/images/subcription/Vector.png";
+import { LuAlignJustify } from "react-icons/lu";
 
 function Subscription() {
   const [planes, setPlanes] = useState([]);
@@ -222,12 +223,9 @@ function Subscription() {
           {/* left side */}
           <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6 relative">
             <div className="visible xl:hidden space-y-4">
-              <div className="bg-black rounded-b-3xl py-4">
+              {/* <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
-                {/* <div className="pt-10">
-                  <img className="w-full" src={MainCar} alt="main" />
-                </div> */}
-              </div>
+              </div> */}
 
               {/* <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2 relative">
                 <div className="w-full">
@@ -236,9 +234,13 @@ function Subscription() {
               </div> */}
             </div>
             {/* <SearchField /> */}
+            <div className="flex justify-between items-center">
+
             <p className="font-bold text-xl special:text-4xl 2xl:text-2xl">
               Subscription
             </p>
+            <LuAlignJustify className="sm:hidden w-7 h-7"/>
+            </div>
 
             {/* absolute xl:left-60 left-0 right-0 top-60 bottom-0 flex */}
 
@@ -308,7 +310,7 @@ function Subscription() {
                   <span className="text-xs">
                     If you confirm and end your subscription now, you can still
                     have your subscription until
-                    <br />{" "}
+                    <br />
                     {new Date(valUser.expireDate).toLocaleString("en-GB", {
                       year: "numeric",
                       month: "numeric",
@@ -608,6 +610,12 @@ function Subscription() {
                     <FreeEntryCardDashboard />
                   </div> */}
               </div>
+
+
+
+
+
+              
             </div>
           ) : (
             <div className="flex flex-col items-center space-y-2">
