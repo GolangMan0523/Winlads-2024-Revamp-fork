@@ -631,7 +631,7 @@ const Register = ({ location }) => {
                 )}
               </div>
             </div>
-            <div className="hidden md:grid xl:grid-cols-5 md:grid-cols-2 justify-start gap-3 w-full relative bottom-32 px-10">
+            <div className="grid xl:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-start max-sm:justify-center gap-3 w-full relative bottom-32 px-10">
               {/* {abilityCoupen === "CHNCEOFF" && <FreeEntryCardDashboard3 />} */}
 
               {showFreeEntry && (
@@ -749,7 +749,7 @@ const Register = ({ location }) => {
                 </>
               )}
             </div>
-            <div className="flex w-full justify-st items-start divide-x">
+            <div className="flex w-full justify-st items-start sm:divide-x max-sm:flex-col">
               <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 md:mt-10 lg:mt-20 xl:mt-10 special:mt-10 mt-1 mb-10 sm:mb-0 px-10 w-full">
                 <span className="text-2xl md:text-4xl xl:text-4xl fw-bold font-bold special:text-8xl">
                   User Info
@@ -933,259 +933,146 @@ const Register = ({ location }) => {
                       ) : (
                         <></>
                       )}
-                      {/* <div className="w-full"> */}
-                      {/* SUB PLANS SHOW MOBILE*/}
-                      {memberShipType == "subscription" && (
-                        <div className="flex md:hidden flex-row justify-between bg-black items-center rounded-full px-1 py-1 special:py-2 special:px-2 mb-1">
-                          <button
-                            type="button"
-                            onClick={handleMonthly}
-                            className={`${
-                              isMonthly
-                                ? "bg-white text-black"
-                                : "bg-black text-white"
-                            } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-sm rounded-full py-1 flex-1`}
-                          >
-                            Monthly
-                          </button>
-
-                          <button
-                            type="button"
-                            onClick={handleQuatly}
-                            className={`${
-                              isQuartly
-                                ? "bg-white text-black  w-max"
-                                : "bg-black text-white"
-                            } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-sm rounded-full py-1 flex-1`}
-                          >
-                            Quartly (Save 10%)
-                          </button>
-
-                          <button
-                            type="button"
-                            onClick={handleYearly}
-                            className={`${
-                              isYearly
-                                ? "bg-white text-black"
-                                : "bg-black text-white"
-                            } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-sm rounded-full py-1 flex-1`}
-                          >
-                            Yearly (Save 20%)
-                          </button>
-                        </div>
-                      )}
-                      <div className="md:hidden w-[80vw] overflow-x-scroll">
-                        {memberShipType == "subscription" ? (
-                          <div className="w-max gap-2 flex items-stretch justify-between">
-                            {/* {abilityCoupen === "CHNCEOFF" && (
-                            <FreeEntryCardDashboard3 />
-                          )} */}
-                            {showFreeEntry && (
-                              <div className="">
-                                <FreeEntryCardDashboard2 />
-                              </div>
-                            )}
-                            {plans.map((plan, key) => (
-                              <Card
-                                key={key}
-                                planId={plan._id}
-                                title={plan.name + " Tier"}
-                                title2={plan.raffle_count}
-                                specDesc={
-                                  abilityCoupen === "CHNCEOFF" ? (
-                                    plan.name === "Starter" ? (
-                                      <>
-                                        Free entries for{" "}
-                                        <strong> DJ & Mazz Booths</strong>
-                                      </>
-                                    ) : (
-                                      <>
-                                        Free entries for{" "}
-                                        <strong> DJ & Mazz Booths</strong>
-                                      </>
-                                    )
-                                  ) : (
-                                    ""
-                                  )
-                                }
-                                titleColor2={
-                                  plan.name == "Black" ? "white" : "black"
-                                }
-                                buttonColor={
-                                  plan.name == "Starter"
-                                    ? "black"
-                                    : "" | (plan.name == "Boomer")
-                                    ? "black"
-                                    : "" | (plan.name == "Platinum")
-                                    ? "black"
-                                    : "" | (plan.name == "Gold")
-                                    ? "black"
-                                    : "" | (plan.name == "Black")
-                                    ? "white"
-                                    : "black"
-                                }
-                                arrowColor="[#01819D]"
-                                buttonTextColor={
-                                  plan.name == "Black" ? "black" : "white"
-                                }
-                                btnword="CHOOSE PLAN"
-                                handleChosePlan={handleChosePlan}
-                                bgColorFrom={plan.color}
-                                bgColorTo={plan.colorFrom}
-                                titleColor={
-                                  plan.name == "Black" ? "white" : "black"
-                                }
-                                classNames={"w-[150px]"}
-                                chosenPlan={chosenPlan}
-                                multiplyBy={1}
-                              />
-                            ))}
-                          </div>
-                        ) : (
-                          // <div className="flex items-center justify-center w-max gap-2">
-                          <div className="w-max gap-2 flex items-stretch justify-between">
-                            {oneOffPackages.map((oneOff, key) => (
-                              <VehicleCardForReg
-                                key={key}
-                                oneOffId={oneOff._id}
-                                type={"vehicle"}
-                                name={oneOff.name}
-                                price={oneOff.price}
-                                descs={oneOff.desc[0]}
-                                color={oneOff.color}
-                                date={"2024-02-28"}
-                                raffleimage={
-                                  "https://winland.onrender.com/public/images/vehicle.png"
-                                }
-                                handleChoseOneOff={handleChoseOneOff}
-                                select={select}
-                                setSelect={setSelect}
-                                setSelectedPlanName={setSelectedPlanName}
-                                setSelPlanPrice={setSelPlanPrice}
-                                multiplyBy={1}
-                              />
-                            ))}
-                          </div>
-                        )}
-                      </div>
                     </div>
                   </div>
                 </form>
               </div>
 
               <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 md:mt-10 lg:mt-20 xl:mt-10 special:mt-10 mt-1 mb-10 sm:mb-0 px-10 w-full">
-              <span className="text-2xl md:text-4xl xl:text-4xl fw-bold font-bold special:text-8xl">
+                <span className="text-2xl md:text-4xl xl:text-4xl fw-bold font-bold special:text-8xl">
                   Membership Types
                 </span>
                 <div className="pt-3 special:pt-20 flex flex-col gap-5">
-                {showOneOff && (
-                  <div className="bg-white border border-black px-4 py-1 rounded-xl w-full ">
+                  {showOneOff && (
+                    <div className="bg-white border border-black px-4 py-1 rounded-xl w-full ">
+                      <input
+                        type="radio"
+                        name="selectPack"
+                        value={"round"}
+                        onChange={handleMemType}
+                        checked={memberShipType === "round"}
+                      />
+                      <label htmlFor="selectPack" className="text-sm">
+                        One off package
+                      </label>
+                    </div>
+                  )}
+                  <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
                     <input
                       type="radio"
                       name="selectPack"
-                      value={"round"}
+                      value={"subscription"}
                       onChange={handleMemType}
-                      checked={memberShipType === "round"}
+                      checked={memberShipType === "subscription"}
                     />
                     <label htmlFor="selectPack" className="text-sm">
-                      One off package
+                      {" "}
+                      Subscription (Most popular accumulating entries)
                     </label>
                   </div>
-                )}
-                <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
-                  <input
-                    type="radio"
-                    name="selectPack"
-                    value={"subscription"}
-                    onChange={handleMemType}
-                    checked={memberShipType === "subscription"}
-                  />
-                  <label htmlFor="selectPack" className="text-sm">
-                    {" "}
-                    Subscription (Most popular accumulating entries)
-                  </label>
-                </div>
-                {/* </div> */}
-                <p className="text-sm font-bold border-b border-gray-500">
-                  Amount
-                </p>
-                <div className="flex items-start justify-between text-xs text-gray-500 border-b border-gray-500">
-                  <p>
-                    {selectedPlanName}{" "}
-                    {memberShipType === "subscription" ? "Tier" : ""}
-                  </p>{" "}
-                  <p>${selectedPlanPrice}</p>
-                </div>
-                <div className="flex items-start justify-between text-xs font-bold">
-                  <p>Order Total</p> <p>${selectedPlanPrice}</p>
-                </div>
-                <p className="text-sm font-bold border-b">Payment Method</p>
-                <div className="flex flex-row items-center justify-between gap-2 bg-gray-300 rounded-xl p-2 overflow-hidden">
-                  <button
-                    className={` w-full py-2 px-4 ${
-                      selectPaymentMethod === "stripe"
-                        ? "bg-black text-white rounded-xl overflow-hidden cursor-not-allowed"
-                        : "hover:opacity-75 text-black"
-                    }`}
-                    onClick={() =>
-                      handlePaymentMethod(setSelectPaymentMethod("stripe"))
-                    }
-                    disabled={selectPaymentMethod === "stripe"}
-                  >
-                    Pay by card
-                  </button>
+                  {/* </div> */}
+                  <p className="text-sm font-bold border-b border-gray-500">
+                    Amount
+                  </p>
+                  <div className="flex items-start justify-between text-xs text-gray-500 border-b border-gray-500">
+                    <p>
+                      {selectedPlanName}{" "}
+                      {memberShipType === "subscription" ? "Tier" : ""}
+                    </p>{" "}
+                    <p>${selectedPlanPrice}</p>
+                  </div>
+                  <div className="flex items-start justify-between text-xs font-bold">
+                    <p>Order Total</p> <p>${selectedPlanPrice}</p>
+                  </div>
+                  <p className="text-sm font-bold border-b">Payment Method</p>
+                  <div className="flex flex-row items-center justify-between gap-2 bg-gray-300 rounded-xl p-2 overflow-hidden">
+                    <button
+                      className={` w-full py-2 px-4 ${
+                        selectPaymentMethod === "stripe"
+                          ? "bg-black text-white rounded-xl overflow-hidden cursor-not-allowed"
+                          : "hover:opacity-75 text-black"
+                      }`}
+                      onClick={() =>
+                        handlePaymentMethod(setSelectPaymentMethod("stripe"))
+                      }
+                      disabled={selectPaymentMethod === "stripe"}
+                    >
+                      Pay by card
+                    </button>
 
-                  <button
-                    className={` w-full py-2 px-4 ${
-                      selectPaymentMethod === "crypto"
-                        ? "bg-black text-white overflow-hidden rounded-xl cursor-not-allowed"
-                        : "hover:opacity-75 text-black"
-                    }`}
-                    onClick={() =>
-                      handlePaymentMethod(setSelectPaymentMethod("crypto"))
-                    }
-                    disabled={selectPaymentMethod === "crypto"}
-                  >
-                    Pay by crypto
-                  </button>
-                </div>
-                <button
-                  className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl disabled:bg-[#FF4C00] bg-${
-                    isChecked ? "black" : "gray-500"
-                  } hover:bg-${isChecked ? "black/50" : ""}`}
-                  onClick={(e) => onSignup(e)}
-                  // onClick={(e) => onSignup(e)}
-                  disabled={
-                    !isChecked ||
-                    buttonDis ||
-                    !values.firstname ||
-                    !values.lastname ||
-                    !values.email ||
-                    !values.password ||
-                    !values.confirmPassword ||
-                    !ph ||
-                    !memberShipType
-                  }
-                  type="submit"
+                    <button
+                      className={` w-full py-2 px-4 ${
+                        selectPaymentMethod === "crypto"
+                          ? "bg-black text-white overflow-hidden rounded-xl cursor-not-allowed"
+                          : "hover:opacity-75 text-black"
+                      }`}
+                      onClick={() =>
+                        handlePaymentMethod(setSelectPaymentMethod("crypto"))
+                      }
+                      disabled={selectPaymentMethod === "crypto"}
+                    >
+                      Pay by crypto
+                    </button>
+                  </div>
+                  <div className="special:text-xl flex flex-row gap-2 items-center px-10 sm:hidden">
+              <input
+                id="checkbox"
+                type="checkbox"
+                checked={isChecked}
+                onChange={onCheckboxChange}
+                className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <div className="flex flex-row items-center gap-2">
+                <p
+                  className="text-[10px] xl:text-sm special:text-lg cursor-pointer"
+                  onClick={() => setIsChecked(!isChecked)}
                 >
-                  <span className="xl:text-xl md:text-xl special:text-2xl text-lg text-white font-bold">
-                    {buttonText}
-                  </span>
-                  <MdOutlineNavigateNext
-                    color={"#fff"}
-                    size={40}
-                    className=""
-                  />
-                </button>
+                  By checking the box you agree to our
+                </p>
+                <Link to="/conditions" target="_blank" className="yellow-text">
+                  <p className="text-[10px] xl:text-sm  special:text-lg cursor-pointer">
+                    Terms of use
+                  </p>
+                </Link>
+              </div>
+            </div>
+                  <button
+                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl disabled:bg-[#FF4C00] bg-${
+                      isChecked ? "black" : "gray-500"
+                    } hover:bg-${isChecked ? "black/50" : ""}`}
+                    onClick={(e) => onSignup(e)}
+                    // onClick={(e) => onSignup(e)}
+                    disabled={
+                      !isChecked ||
+                      buttonDis ||
+                      !values.firstname ||
+                      !values.lastname ||
+                      !values.email ||
+                      !values.password ||
+                      !values.confirmPassword ||
+                      !ph ||
+                      !memberShipType
+                    }
+                    type="submit"
+                  >
+                    <span className="xl:text-xl md:text-xl special:text-2xl text-lg text-white font-bold">
+                      {buttonText}
+                    </span>
+                    <MdOutlineNavigateNext
+                      color={"#fff"}
+                      size={40}
+                      className=""
+                    />
+                  </button>
 
-                <div className="font-semibold text-lg text-center">
-                  <span>Already a member? </span>
-                  <span>
-                    <Link className="react-link text-[#157D98]" to="/login">
-                      Login
-                    </Link>
-                  </span>
-                </div>
+                  <div className="font-semibold text-lg text-center">
+                    <span>Already a member? </span>
+                    <span>
+                      <Link className="react-link text-[#157D98]" to="/login">
+                        Login
+                      </Link>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1212,8 +1099,7 @@ const Register = ({ location }) => {
               </div>
             )}
 
-            <div className="special:text-xl flex flex-row gap-2 items-center px-10 pb-10">
-              {" "}
+            <div className="special:text-xl flex flex-row gap-2 items-center px-10 pb-10 max-sm:hidden">
               <input
                 id="checkbox"
                 type="checkbox"
