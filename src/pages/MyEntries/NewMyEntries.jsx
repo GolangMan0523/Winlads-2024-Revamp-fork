@@ -58,6 +58,7 @@ const NewMyEntries = () => {
           <Loader />
         </div>
       }
+      
       <div className='flex items-center justify-center'>
         <div className='w-1/2 hidden xl:block'></div>
 
