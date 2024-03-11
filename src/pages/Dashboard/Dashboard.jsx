@@ -257,7 +257,7 @@ const Dashboard = () => {
 
                 <div>
                   <p className="text-xl font-semibold pb-4">
-                    Upcoming Giveaways
+                    Upcoming <span className="font-bold">Giveaways</span>
                   </p>
 
                   {loading ? (
@@ -333,7 +333,7 @@ const Dashboard = () => {
                 </div>
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Previous Winners
+                    Previous <span className="font-bold">Winners</span>
                   </p>
 
                   {loading ? (
@@ -535,7 +535,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Upcoming Giveaways
+                  Upcoming <span className="font-bold">Giveaways</span>
                   </p>
 
                   {loading ? (
@@ -633,7 +633,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Previous Winners
+                    Previous <span className="font-bold">Winners</span>
                   </p>
 
                   {loading ? (
