@@ -297,7 +297,7 @@ function App() {
     <>
       <GoogleAnalytics trackingCode="G-N927BPJE6K" />
       <RefreshProvider>
-      <RouterProvider router={router} />
+          <RouterProvider router={router} />
       </RefreshProvider>
       <ToastContainer />
     </>
