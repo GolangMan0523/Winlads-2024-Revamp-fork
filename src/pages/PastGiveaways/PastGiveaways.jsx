@@ -210,9 +210,9 @@ const PastGiveaways = () => {
                     Earning Balance
                   </div>
     
-                  <h1 className="bg-[#ee391c] p-1 px-2 text-white rounded-full">
-                   boomer
-                  </h1>
+                  {/* <h1 className="bg-[#ee391c] p-1 px-2 text-white rounded-full">
+                   
+                  </h1> */}
                 </div>
               </div>
             </div>

@@ -36,6 +36,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-countup": "^6.5.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.13",
     "react-fast-marquee": "^1.6.2",
     "react-firebase-hooks": "^5.1.1",
     "react-gtm-module": "^2.0.11",

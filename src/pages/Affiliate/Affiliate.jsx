@@ -359,10 +359,10 @@ const Affiliate = () => {
                   </p>
                   <div className="w-full relative">
                     <input
-                      className="border-none outline-none font-bold bg-transparent py-0 text-sm sm:text-base  md:text-lg w-full"
+                      className="border-none outline-none font-bold bg-transparent py-0 text-sm sm:text-base  md:text-lg w-full overflow-hidden overflow-ellipsis pr-8"
                       // placeholder="loading..."
                       type="text"
-                      value={valUser?.uid.slice(0,20)+"..."}
+                      value={valUser?.uid ? valUser?.uid : ''}
                       disabled
                     />
                     <button
@@ -385,14 +385,14 @@ const Affiliate = () => {
                   </p>
                   <div className="w-full relative">
                     <input
-                      className="border-none outline-none font-bold bg-transparent py-0 text-sm sm:text-base  md:text-lg w-full"
+                      className="border-none outline-none font-bold bg-transparent py-0 text-sm sm:text-base  md:text-lg w-full overflow-hidden overflow-ellipsis pr-8"
                       // placeholder="Enter Phone Number"
                       type="tel"
                       disabled
                       onChange={(e) => setMobile(e.target.value)}
                       value={
                         valUser.uid
-                          ? `https://www.winlads.com/?ref=${valUser?.uid.slice(0,2)+"..."}`
+                          ? `https://www.winlads.com/?ref=${valUser?.uid}`
                           : ""
                       }
                     ></input>
