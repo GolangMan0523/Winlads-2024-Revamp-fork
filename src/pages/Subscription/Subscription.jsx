@@ -171,7 +171,7 @@ function Subscription() {
   const handleRenew = async (sb) => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_SERVER_API}/checkoutSession`,
+        `${import.meta.env.VITE_SERVER_API}/${valUser.points ?  'subscribeWithPoints': 'checkoutSession'}`,
         { subid: valUser.subscription?.subid, uid: valUser.uid }
       );
       console.log("Response:", response.data);

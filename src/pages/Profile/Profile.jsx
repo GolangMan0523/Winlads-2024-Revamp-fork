@@ -356,9 +356,9 @@ const Profile = () => {
                         <p className=" px-8 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
                           {String(
                             refferals?.l1count +
-                              refferals?.l2count +
-                              refferals?.l3count +
-                              refferals?.l4count || 0
+                            refferals?.l2count +
+                            refferals?.l3count +
+                            refferals?.l4count || 0
                           ).padStart(2, "0")}
                         </p>
                       </div>
@@ -369,11 +369,10 @@ const Profile = () => {
                   </div>
 
                   <button
-                    className={`bg-[#FF4C00] py-2 text-center rounded-xl hover:bg-black/75 ${
-                      !valUser.subscriptionPlan?.data
+                    className={`bg-[#FF4C00] py-2 text-center rounded-xl hover:bg-black/75 ${!valUser.subscriptionPlan?.data
                         ? "cursor-not-allowed"
                         : "cursor-pointer"
-                    }`}
+                      }`}
                     onClick={() => navigate("/withdraw")}
                     disabled={!valUser.subscriptionPlan?.data}
                   >
@@ -554,10 +553,16 @@ Level 1
             />
           )}
         </div>
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col space-y-2 relative">
+          <div className="flex items-center justify-between">
           <p className="text-black text-sm xl:text-md special:text-xl">
             Phone Number
           </p>
+          {
+            valUser.mobileVerified ? '' : <span className="text-xs text-red-500 text-right"> Please verify your mobile by clicking <Link to={'/verifyMobile'} className="text-blue-500 font-bold"> here</Link></span>
+          }
+          </div>
+
           <input
             className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
             placeholder="Enter Phone Number"
@@ -566,6 +571,7 @@ Level 1
             onChange={(e) => setMobile(e.target.value)}
             value={mobile}
           ></input>
+          {valUser && <img src={valUser.mobileVerified ? Vrfy : NotVrfy} className="w-20 absolute top-8 right-2" />}
         </div>
         {/* <div className="flex flex-col space-y-2">
   <p className="text-black text-sm xl:text-md special:text-xl">
@@ -761,9 +767,8 @@ Level 1
           <button
             disabled={!isChecked}
             onClick={() => updateUserDatails()}
-            className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl max-sm:w-full bg-${
-              isChecked ? "black" : "[#FF4C00]"
-            } hover:bg-${isChecked ? "black/50" : ""}`}
+            className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl max-sm:w-full bg-${isChecked ? "black" : "[#FF4C00]"
+              } hover:bg-${isChecked ? "black/50" : ""}`}
           >
             Confirm
           </button>

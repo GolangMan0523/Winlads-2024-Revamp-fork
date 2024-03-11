@@ -43,6 +43,8 @@ const Dashboard = () => {
   const [fiveX, setFiveEx] = useState(1);
   const [sortedGiveaways, setSortedGiveaways] = useState([]);
   const [vehicleGiveaway, setVehiGive] = useState({});
+  const [isVerified, setVerified] = useState(false);
+  const [mobileVery, setMobileVery] = useState(false);
 
   useEffect(() => {
     const sortedArray = [...giveaways];
@@ -56,6 +58,8 @@ const Dashboard = () => {
   useEffect(() => {
     currentUserValidation().then((us) => {
       createCometChatAccount(us);
+      setVerified(us?.verified);
+      setMobileVery(us.mobileVerified)
     });
     // if (cookies.get("selected-package-id")) {
     //   navigate("/subscription");
@@ -160,6 +164,15 @@ const Dashboard = () => {
       ) : (
         <div className="flex relative mx-auto w-full overflow-hidden">
           {/* <SideNav screen="full" name={valUser.name} userId={valUser.uid} /> */}
+          {
+            (!isVerified || !mobileVery) &&
+            < div className="bg-white p-4 rounded-xl shadow-xl w-full flex items-center justify-between gap-5 absolute top-0 left-0 border text-center">
+              <h1>Your {!isVerified && 'Email '} {!mobileVery && 'Mobile'} is not verified, please verify from <Link onClick={() => navigate(!isVerified ? '/verifyEmail' : '/verifyMobile')} className="text-blue-500">here</Link> </h1>
+
+              <button className="bg-white hover:bg-black p-2 hover:text-white rounded-xl  text-amber-500" onClick={() => setVerified(true)}>X</button>
+
+            </div>
+          }
           <div></div>
           {/* home-content */}
           <div className="flex flex-col xl:flex-col flex-1 px-4 gap-5">

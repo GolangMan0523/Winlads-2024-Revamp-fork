@@ -62,6 +62,7 @@ import { RefreshProvider } from "./utils/RefreshContext";
 import EmailVerify from "./pages/Profile/EmailVerify";
 import NewMyEntries from "./pages/MyEntries/NewMyEntries";
 import Succesful from "./pages/Login/Succesful";
+import MobileVerify from "./pages/Profile/EmailVerify copy";
 function App() {
   const tagManagerArgs = {
     gtmId: "GTM-P2DVFZVB",
@@ -202,6 +203,10 @@ function App() {
         {
           path: "/verifyEmail",
           element: <EmailVerify />,
+        },
+        {
+          path: "/verifyMobile",
+          element: <MobileVerify />,
         },
         {
           path: "/myentries",
