@@ -69,7 +69,7 @@ const SubCard = ({
     }
   };
 
-  const opacity = 0.5;
+  const opacity = 1;
   const opacity2 = 1;
 
   const hexToRgba = (hex, opacity) => {
@@ -91,8 +91,8 @@ const SubCard = ({
       transition={{ duration: 1, delay: 0.5 }}
       className={`rounded-2xl md:pt-8 pt-14 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black ${classNames} text-black`}
       style={{
-        background: dynamicBackgroundColor,
-        borderColor: dynamicBackgroundColor2,
+        background: bgColorFrom,
+        borderColor: bgColorTo,
       }}
     >
       {popular && (
@@ -164,7 +164,7 @@ const SubCard = ({
 <button
   className={`mx-6 border-2 rounded-md disabled:bg-gray-500 text-white hover:opacity-75 cursor-pointer flex flex-row justify-center py-2 mt-auto ${
     chosenPlan === planId && currentType === chosenType
-      ? `bg-${dynamicBackgroundColor2}`
+      ? `bg-${bgColorTo}`
       : "bg-white"
   }` }
   onClick={() => handleChosePlan(planId)}
@@ -172,8 +172,9 @@ const SubCard = ({
   onMouseLeave={() => switchBtnColor()}
   disabled={isDisabled}
   style={{
-    color: dynamicBackgroundColor2,
-    borderColor: dynamicBackgroundColor2,
+    color: bgColorTo,
+    borderColor: bgColorTo,
+    backgroundColor:(chosenPlan === planId && currentType === chosenType) ? bgColorTo : 'white'
   }}
 >
   <div className={`flex flex-row items-center gap-2`} disabled={isDisabled}>

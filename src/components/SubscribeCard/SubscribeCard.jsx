@@ -70,7 +70,6 @@ function SubscribeCard({
     }
   };
 
-  const opacity = 0.1;
   const opacity2 = 1;
 
   const hexToRgba = (hex, opacity) => {
@@ -81,7 +80,6 @@ function SubscribeCard({
     const b = bigint & 255;
     return `rgba(${r}, ${g}, ${b}, ${opacity})`;
   };
-  const dynamicBackgroundColor = hexToRgba(color, opacity);
   const dynamicBackgroundColor2 = hexToRgba(color, opacity2);
 
   return (
@@ -95,8 +93,8 @@ function SubscribeCard({
       }
       `}
       style={{
-        background: dynamicBackgroundColor,
-        borderColor: dynamicBackgroundColor2
+        background: color,
+        borderColor: colorFrom
       }}
     >
       {isPopular && (
@@ -190,14 +188,14 @@ function SubscribeCard({
                 : true)
             }
             style={{
-              background: dynamicBackgroundColor2,
+              background: colorFrom,
             }}
           >
             <p
               className="text-white"
-              style={{
-                background: dynamicBackgroundColor2,
-              }}
+              // style={{
+              //   background: color,
+              // }}
             >
               {trailUserTest ? "End Trial Subscription" : "Choose Plan"}
             </p>
@@ -208,7 +206,7 @@ function SubscribeCard({
             className={`bg-transparent border-${buttonHover} text-${buttonText} font-semibold uppercase w-full border-2 rounded-xl text-black py-2 px-2 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}
             onClick={showUnSubModal}
             style={{
-              background: dynamicBackgroundColor2,
+              background: colorFrom,
             }}
           >
             <p className={``}>
