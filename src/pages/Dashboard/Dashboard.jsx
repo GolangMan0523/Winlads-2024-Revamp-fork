@@ -197,14 +197,31 @@ const Dashboard = () => {
                       src={MainCar}
                       alt="main"
                     /> */}
+
                     <div className="text-black w-full text-left mb-3">
                       <p className="font-semibold">Welcome Back</p>
                       <h2 className="text-xl font-bold">
                         {valUser.firstname + " " + valUser.lastname}
                       </h2>
                     </div>
+
+                    <div
+                      className="bg-gray-400 w-full flex items-center justify-center p-4 rounded-xl min-h-[300px] sm:min-h-[350px] mb-3"
+                      style={{
+                        backgroundImage: `url(${welocme})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    >
+                      <SmallGoldCard />
+                    </div>
+
                     <div className="flex justify-center px-2 bg-gradient-to-b from-[#45E1FF] to-black relative rounded-xl p-2">
-                      <div className="flex flex-col items-center">
+                      <div className="flex flex-col items-center w-full justify-center">
+                        <h1 className="text-white uppercase text-base sm:text-lg font-bold pt-3 mb-5">
+                          WANT MORE CHANCES?
+                        </h1>
+
                         <div className="max-w-[300px] px-10 md:px-20 md:max-w-[400px]">
                           <img
                             src={FreeEntries}
@@ -212,21 +229,18 @@ const Dashboard = () => {
                             className="w-full h-full object-contain"
                           />
                         </div>
-                        <div className="w-20 absolute left-3 top-10">
+
+                        <div className=" absolute left-3 top-10 ">
                           <img
                             src={x5}
-                            className="w-full h-full object-contain"
+                            className="w-[50px] sm:w-[60px] md:w-[80px]"
                           />
                         </div>
-                        <div className="py-2 gap-2 flex flex-col">
-                          {/* <Link to="/requestEntries">
-                            <button className="bg-[#F7B928] text-black rounded-lg py-1 w-64 hover:bg-[#F7B928]/75">
-                              Request
-                            </button>
-                          </Link> */}
-                          <Link>
+
+                        <div className="py-2 flex items-center justify-center gap-2  w-full ">
+                          <Link className="w-1/2 flex items-center justify-end ">
                             <button
-                              className="bg-white text-black rounded-lg py-2 w-64 hover:bg-gray-100/75"
+                              className="bg-white font-semibold text-sm sm:text-base text-black rounded-lg py-2 w-full max-w-64 hover:bg-gray-100/75"
                               onClick={() =>
                                 handleButton({
                                   id: vehicleGiveaway._id,
@@ -239,8 +253,12 @@ const Dashboard = () => {
                               Get 5x Entries!
                             </button>
                           </Link>
-                          <Link to="/subscription">
-                            <button className="bg-[#FF0000] text-white rounded-lg py-2 w-64 hover:bg-[#FF0000]/75">
+
+                          <Link
+                            to="/subscription"
+                            className="w-1/2 flex items-center justify-start"
+                          >
+                            <button className="bg-[#FF4C00] font-semibold text-sm sm:text-base text-white rounded-lg py-2 w-full  max-w-64 hover:bg-[#FF4C00]/75">
                               Upgrade Subscription
                             </button>
                           </Link>
@@ -249,24 +267,10 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-                <div className="left-4 top-20 space-y-4">
-                  <div className="flex flex-col space-y-2 ">
-                    <p className="text-[#22CCEE] text-lg font-semibold">
-                      Earning Balance
-                    </p>
-                    <p className="text-3xl text-black">
-                      <span className="text-base">$</span>
 
-                      {typeof valUser.balance === "number"
-                        ? valUser.balance.toFixed(2)
-                        : "0.00"}
-                    </p>
-                  </div>
-                  <SmallGoldCard />
-                </div>
                 <div>
                   <p className="text-xl font-semibold pb-4">
-                    Upcoming Giveaways
+                    Upcoming <span className="font-bold">Giveaways</span>
                   </p>
 
                   {loading ? (
@@ -342,7 +346,7 @@ const Dashboard = () => {
                 </div>
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Previous Winners
+                    Previous <span className="font-bold">Winners</span>
                   </p>
 
                   {loading ? (
@@ -511,7 +515,7 @@ const Dashboard = () => {
                     <div className="pb-2 flex  gap-3 absolute bottom-3">
                       <Link>
                         <button
-                          className="bg-white text-black rounded-lg py-3 w-64 text-xl hover:bg-gray-100/75"
+                          className="bg-white font-semibold text-black rounded-lg py-3 w-64 text-xl hover:bg-gray-100/75"
                           onClick={() =>
                             handleButton({
                               id: vehicleGiveaway._id,
@@ -525,7 +529,7 @@ const Dashboard = () => {
                         </button>
                       </Link>
                       <Link to="/subscription">
-                        <button className="bg-[#FF0000] text-white rounded-lg py-3 text-xl w-64 hover:bg-[#FF1111]/75">
+                        <button className="bg-[#FF4C00] font-semibold text-white rounded-lg py-3 text-xl w-64 hover:bg-[#FF4C00]/75">
                           Upgrade Subscription
                         </button>
                       </Link>
@@ -544,7 +548,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Upcoming Giveaways
+                  Upcoming <span className="font-bold">Giveaways</span>
                   </p>
 
                   {loading ? (
@@ -642,7 +646,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Previous Winners  
+                    Previous <span className="font-bold">Winners</span>
                   </p>
 
                   {loading ? (

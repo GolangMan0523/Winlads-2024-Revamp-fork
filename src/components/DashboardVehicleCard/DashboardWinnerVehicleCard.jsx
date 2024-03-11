@@ -61,15 +61,17 @@ const DashboardWinnerVehicleCard = ({
   return (
     <>
       <div
-        className={`flex text-white  rounded-2xl w-full p-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer overflow-hidden `}
+        className={`flex text-white  rounded-2xl w-full p-2 sm:p-3 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer overflow-hidden `}
         // style={{ backgroundColor: color }}
 
         style={{
           background: `linear-gradient(180deg, ${color} 0%, #ACACAC 100%)`,
         }}
+
+       
         onClick={handleNavigateWon}
       >
-        {checkTrial ? (
+        {/* {checkTrial ? (
           <div className="text-center bg-gradient-to-t from-black to-transparent absolute top-0 left-0 w-full h-full flex items-center justify-center cursor-not-allowed z-20">
             <p className="text-xs md:text-lg font-semibold text-white capitalize">
               You remain ineligible until
@@ -87,15 +89,17 @@ const DashboardWinnerVehicleCard = ({
               </p>
             </div>
           )
-        )}
+        )} */}
 
-        <div className="flex items-center justify-center ">
+        <div className="flex items-center justify-center  w-full ">
+          
           <div className="w-1/2  h-full">
-            <img src={raffleimage} className="h-full" alt="" />
+            <img src={raffleimage} className=" object-cover rounded-2xl" alt="" />
           </div>
+
           <div className="w-1/2  h-full">
             {" "}
-            <div className="flex flex-col   h-full justify-between">
+            <div className="flex flex-col   h-full justify-between w-full ">
               <div className="mt-2 sm:mt-5">
                 <div className="px-3 flex flex-row justify-between items-center text-black font-bold sm:text-lg special:text-4xl special:p-2">
                   <div>{name}</div>
@@ -111,9 +115,9 @@ const DashboardWinnerVehicleCard = ({
                   My Entries : {count ? count : "No Entries"}
                 </p>
               )}
-              <div className="flex flex-col">
+              <div className="flex flex-col w-full ">
                 <div
-                  className="flex flex-col w-[97%] sm:w-[95%] py-1 sm:py-2 rounded-r-2xl winner-bg"
+                  className="flex flex-col w-[97%] sm:w-[95%] py-1 sm:py-2 rounded-r-2xl winner-bg "
                   style={{ backgroundColor: color }}
                 >
                   <div className="px-3">
