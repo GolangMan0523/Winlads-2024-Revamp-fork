@@ -54,10 +54,13 @@ const Affiliate = () => {
   };
 
   useEffect(() => {
+    console.log("fsd")
+
     currentUserValidation();
   }, []);
 
   const currentUserValidation = async () => {
+    console.log("fsd")
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);

@@ -23,6 +23,8 @@ export const validateCurrentUser = async () => {
                     validatorBl.validatorBl = true;
                     validatorBl.user = response.data.data;
                 } else {
+                    console.log("Session false", response.data);
+
                     validatorBl.validatorBl = false;
                 }
             })
