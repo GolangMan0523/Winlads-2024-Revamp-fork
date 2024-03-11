@@ -9,6 +9,8 @@ import { useState } from "react";
 
 const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId, logDetailsToDataLayer}) => {
   const [loading, setLoading] = useState(false);
+  const [btnDis, setBtnDisable] = useState(false)
+  const [showConfBox, setShowBox] = useState(false)
   const handleButtonClick = async () => {
     setLoading(true);
     try {
@@ -98,6 +100,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId, logDet
   };
 
   const handlePointsButtonClick = async () => {
+    setBtnDisable(true)
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_API}/subscribeWithPoints`,
@@ -134,6 +137,8 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId, logDet
     } catch (error) {
       console.log(error);
     }
+    setBtnDisable(false)
+
   };
 
   return (
@@ -141,6 +146,15 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId, logDet
       className="popup-container bg-black/50 justify-center items-center"
       //   onClick={handleBackdropClick}
     >
+                  {
+       showConfBox && <div className="bg-white z-10 p-5 border rounded-xl fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <h2>Are you sure to pay by balance?</h2>
+          <div className="w-full flex items-center justify-center my-5 gap-4">
+            <button className="bg-black hover:bg-white text-white hover:text-black border px-6 py-2 rounded-xl" disabled={btnDis} onClick={handlePointsButtonClick}>Yes</button>
+            <button className="bg-white hover:bg-black text-black hover:text-white border px-6 py-2 rounded-xl" onClick={()=>setShowBox(false)}>No</button>
+          </div>
+        </div>
+      }
       <div className="popup-content text-black flex flex-col bg-white shadow-lg space-y-4 special:space-y-12 2xl:space-y-8 justify-center py-4 special:py-8 2xl:py-6">
         <div className="flex justify-between items-center">
           <p className="text-black text-lg font-bold 2xl:text-xl special:text-4xl">
@@ -199,7 +213,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId, logDet
             </div>
             <div
               className="bg-white hover:bg-black/5 flex-row item-center gap-1 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
-              onClick={handlePointsButtonClick}
+              onClick={()=>setShowBox(true)}
             >
               <img
                 src={Usd}
