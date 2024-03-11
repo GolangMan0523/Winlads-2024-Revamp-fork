@@ -17,25 +17,25 @@ const BCard = () => {
   const [loading, setLoading] = useState(true);
 
    useEffect(() => {
-    getBCard();
     currentUserValidation();
   //   //bug :  USE EFFECT IS RUNNING INFINITE
-  }, [bCard, valUser]);
+  }, []);
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log(validator.user);
       setValUser(validator.user);
+      getBCard(validator.user.uid);
     } else {
       navigate("/login");
     }
   };
 
-  const getBCard = async () => {
+  const getBCard = async (id) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/getBusinessCard?uid=${valUser.uid}`
+        `${import.meta.env.VITE_SERVER_API}/getBusinessCard?uid=${id}`
       )
       .then((response) => {
         console.log(response?.data?.data, "img")
