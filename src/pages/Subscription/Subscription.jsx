@@ -489,51 +489,51 @@ function Subscription() {
                     desc3={plane.desc3}
                     color={plane.color}
                     colorFrom={plane.colorFrom}
-                    bgColor={
-                      plane.name == "Starter"
-                        ? "[#808080]"
-                        : "black" | (plane.name == "Boomer")
-                        ? "[#366B71]"
-                        : "black" | (plane.name == "Platinum")
-                        ? "white"
-                        : "black" | (plane.name == "Black")
-                        ? "black"
-                        : ""
-                    }
-                    gradientFrom={
-                      plane.name == "Bronz"
-                        ? "from-red-400"
-                        : "black" | (plane.name == "Silver")
-                        ? "from-gray-200"
-                        : "black" | (plane.name == "Gold")
-                        ? "from-[#FFDF37]"
-                        : ""
-                    }
-                    gradientTo={
-                      plane.name == "Bronz"
-                        ? "to-white"
-                        : "black" | (plane.name == "Silver")
-                        ? "to-white"
-                        : "black" | (plane.name == "Gold")
-                        ? "to-[#9D7C00]"
-                        : ""
-                    }
+                    // bgColor={
+                    //   plane.name == "Starter"
+                    //     ? "[#808080]"
+                    //     : "black" | (plane.name == "Boomer")
+                    //     ? "[#366B71]"
+                    //     : "black" | (plane.name == "Platinum")
+                    //     ? "white"
+                    //     : "black" | (plane.name == "Black")
+                    //     ? "black"
+                    //     : ""
+                    // }
+                    // gradientFrom={
+                    //   plane.name == "Bronz"
+                    //     ? "from-red-400"
+                    //     : "black" | (plane.name == "Silver")
+                    //     ? "from-gray-200"
+                    //     : "black" | (plane.name == "Gold")
+                    //     ? "from-[#FFDF37]"
+                    //     : ""
+                    // }
+                    // gradientTo={
+                    //   plane.name == "Bronz"
+                    //     ? "to-white"
+                    //     : "black" | (plane.name == "Silver")
+                    //     ? "to-white"
+                    //     : "black" | (plane.name == "Gold")
+                    //     ? "to-[#9D7C00]"
+                    //     : ""
+                    // }
                     textColor={plane.name == "Black" ? "white" : "black"}
                     // cardBorderColor={plane.name == "Black" ? "black" : "black"}
                     // borderColor={plane.name == "white" ? "black" : "black"}
-                    buttonColor={
-                      plane.name == "Starter"
-                        ? "black"
-                        : "" | (plane.name == "Boomer")
-                        ? "black"
-                        : "" | (plane.name == "Platinum")
-                        ? "black"
-                        : "" | (plane.name == "Gold")
-                        ? "black"
-                        : "" | (plane.name == "Black")
-                        ? "white"
-                        : ""
-                    }
+                    // buttonColor={
+                    //   plane.name == "Starter"
+                    //     ? "black"
+                    //     : "" | (plane.name == "Boomer")
+                    //     ? "black"
+                    //     : "" | (plane.name == "Platinum")
+                    //     ? "black"
+                    //     : "" | (plane.name == "Gold")
+                    //     ? "black"
+                    //     : "" | (plane.name == "Black")
+                    //     ? "white"
+                    //     : ""
+                    // }
                     buttonText={
                       plane.name == "Starter"
                         ? "white"
