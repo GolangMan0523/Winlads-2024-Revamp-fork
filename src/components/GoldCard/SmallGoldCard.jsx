@@ -48,7 +48,7 @@ const SmallGoldCard = () => {
     <>
       {!loading &&
         (valUser?.subscription_status !== "noplan" ? (
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center w-full ">
             <div className="top-card text-white rounded-t-lg flex justify-between items-center px-2 py-3 w-3/5">
               <h1  className="text-sm sm:text-base">Earning Balance</h1>
               

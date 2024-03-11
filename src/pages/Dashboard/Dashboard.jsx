@@ -184,15 +184,27 @@ const Dashboard = () => {
                       src={MainCar}
                       alt="main"
                     /> */}
+
                     <div className="text-black w-full text-left mb-3">
                       <p className="font-semibold">Welcome Back</p>
                       <h2 className="text-xl font-bold">
                         {valUser.firstname + " " + valUser.lastname}
                       </h2>
                     </div>
+
+                    <div
+                      className="bg-gray-400 w-full flex items-center justify-center p-4 rounded-xl min-h-[300px] sm:min-h-[350px] mb-3"
+                      style={{
+                        backgroundImage: `url(${welocme})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    >
+                      <SmallGoldCard />
+                    </div>
+
                     <div className="flex justify-center px-2 bg-gradient-to-b from-[#45E1FF] to-black relative rounded-xl p-2">
                       <div className="flex flex-col items-center w-full justify-center">
-                       
                         <h1 className="text-white uppercase text-base sm:text-lg font-bold pt-3 mb-5">
                           WANT MORE CHANCES?
                         </h1>
@@ -229,7 +241,10 @@ const Dashboard = () => {
                             </button>
                           </Link>
 
-                          <Link to="/subscription" className="w-1/2 flex items-center justify-start">
+                          <Link
+                            to="/subscription"
+                            className="w-1/2 flex items-center justify-start"
+                          >
                             <button className="bg-[#FF4C00] font-semibold text-sm sm:text-base text-white rounded-lg py-2 w-full  max-w-64 hover:bg-[#FF4C00]/75">
                               Upgrade Subscription
                             </button>
@@ -239,9 +254,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-                <div className="left-4 top-20 space-y-4">
-                  <SmallGoldCard />
-                </div>
+
                 <div>
                   <p className="text-xl font-semibold pb-4">
                     Upcoming Giveaways
