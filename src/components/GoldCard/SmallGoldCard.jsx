@@ -54,7 +54,7 @@ const SmallGoldCard = () => {
               <h1 className="font-bold text-lg">$ 170.86</h1>
             </div>
             <div
-              className={`relative  ${
+              className={`relative   ${
                 valUser.subscriptionPlan?.data?.name == "Black"
                   ? "border-white"
                   : "border-black"
@@ -136,10 +136,11 @@ const SmallGoldCard = () => {
                   </span>
                 </span>
               </div>
-              <div className="flex items-center">
+
+              <div className="flex items-center  absolute right-0 top-0 h-full overflow-hidden">
                 {valUser?.subscription_status !== "noplan" ? (
                   valUser.subscription_status === "unsubscribed" ? (
-                    <img src={subBg_2} alt="" className="w-24 md:w-16" />
+                    <img src={subBg_2} alt="" className="w-auto h-full" />
                   ) : (
                     <img src={subBg_2} alt="" className="" />
                   )
@@ -147,6 +148,7 @@ const SmallGoldCard = () => {
                   ""
                 )}
               </div>
+
             </div>
           </div>
         ) : (
