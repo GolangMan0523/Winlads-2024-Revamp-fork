@@ -89,7 +89,7 @@ const Register = ({ location }) => {
   const [chooseOneOff, setChooseOneOff] = useState("");
   const [selectOneOffId, setSelectOneOffId] = useState("");
   const [selectOneOffName, setSelectOneOffName] = useState("");
-
+  const isOnetime = searchParams.get('onetime');
   const [isYearly, setIsYearly] = useState(false);
   const [isMonthly, setIsMonthly] = useState(true);
   const [isQuartly, setIsQuartly] = useState(false);
@@ -238,7 +238,7 @@ const Register = ({ location }) => {
 
   const saveFormData = async (temp_values, uid) => {
     // console.log(temp_values, uid);
-
+    //Flow 3rd Step
     // let coupen = "";
 
     const checkAbility = searchParams.get("ability");
@@ -256,14 +256,17 @@ const Register = ({ location }) => {
       nic: values.passport,
       tin: values.tin,
       refferalId: memberShipType === "subscription" ? values.refferalId : "",
-      uid: uid,
+      // uid: uid,
       coupen: checkAbility == "WINACCESSEN" ? "MAZDABT50S" : abilityCoupen,
       subid: selectedSubId,
       type: eligible ? "trial" : memberShipType,
       roundid: selectedSubId,
       oneoff_id: selectOneOffId,
       registerLink: window.location.href,
-      fivex: 0, //GET 5 X Entries
+      fivex: 0,   //GET 5 X Entries
+      onetime: isOnetime ? 1 : 0,
+      verified: true,
+      mobileVerified: false
     };
 
     console.log(data);
@@ -291,13 +294,14 @@ const Register = ({ location }) => {
             selectedSubId
           );
           cookies.remove("affiliate");
+
           window.location.href = response.data?.payurl;
         } else {
           console.log("NO PAY");
         }
       } catch (error) {
         console.log(data, "Submitted data");
-        toast.error("Error submitting login credentials", {
+        toast.error(error.response?.data?.message, {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -325,7 +329,8 @@ const Register = ({ location }) => {
     }
   };
 
-  function onSignup(e) {
+  // THIS IS THE FIRST STEP IN REG FLOW
+  async function onSignup(e) {
     setFieldDis(true);
     setPlanDis(true);
     if (!isChecked) {
@@ -369,73 +374,96 @@ const Register = ({ location }) => {
       return;
     }
     if (buttonText === "Register") {
+      //FLOW 2nd Step
       setBtnDis(true);
-      ValidateOtp();
+      // ValidateOtp();
       // setBtnDis(false);
+      validateEmailOTP();
     } else {
-      setButtonText("Sending...");
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        auth,
-        "recaptcha-container",
-        {}
-      );
-      let verify = window.recaptchaVerifier;
-      axios
-        .get(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}`)
-        .then((response) => {
-          if (response.data.exists) {
-            toast.error("Mobile number is already registered!", {
-              position: "top-center",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-            // alert("Mobile number is already registered!");
-            setButtonText("Get OTP");
-          } else {
-            signInWithPhoneNumber(auth, "+" + ph, verify)
-              .then((result) => {
-                setfinal(result);
-                setshow(true);
-                setVerifyDisable(false);
-                setShowOTPBox(true);
-                setButtonText("Register");
-              })
-              .catch((err) => {
-                toast.error(err.message, {
-                  position: "top-center",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "colored",
-                });
-                //window.location.reload();
-                setButtonText("Get OTP");
-              });
+      //FLOW 1st Step
+
+      // window.recaptchaVerifier = new RecaptchaVerifier(
+      //   auth,
+      //   "recaptcha-container",
+      //   {}
+      // );
+      // let verify = window.recaptchaVerifier;
+      try {
+        const EmailableActive = await axios.get(`https://api.emailable.com/v1/account?api_key=${import.meta.env.VITE_EMAILABLE_LIVE_KEY}`)
+        if (EmailableActive.data.available_credits > 1) {
+          const res = await axios.get(`https://api.emailable.com/v1/verify?email=${values.email}&api_key=${import.meta.env.VITE_EMAILABLE_LIVE_KEY}`)
+          //"state": "undeliverable"  or "risky"
+          console.log(res.data);
+          if (res.data.state === "undeliverable"|| !res.data.smtp_provider) {
+            throw Error("This is not a valid email try another");
           }
-        })
-        .catch((error) => {
-          console.error("Error checking mobile:", error);
-          toast.error("An error occurred while checking the mobile number.", {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
-          // alert("An error occurred while checking the mobile number.");
-          setButtonText("Get OTP");
-        });
+        }
+
+
+        const response = await axios.get(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}`)
+        if (response.data.exists) {
+          throw Error("Mobile number is already registered!");
+        } else {
+          const res = await axios.get(`${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
+          )
+          if (res.data.exists) {
+            throw Error('Email already exist')
+          } else {
+            setButtonText("Sending...");
+            //Send the OTP for email
+            axios.get(
+              `${import.meta.env.VITE_SERVER_API}/requestEmailToken?email=${values.email}`
+            ).then((res) => {
+              console.log(res);
+              setShowOTPBox(true);
+              setButtonText("Register");
+            })
+          }
+
+          // setButtonText("Register");
+          // signInWithPhoneNumber(auth, "+" + ph, verify)
+          //   .then((result) => {
+          //     setfinal(result);
+          //     setshow(true);
+          //     setVerifyDisable(false);
+          //     setShowOTPBox(true);
+          //     setButtonText("Register");
+          //   })
+          //   .catch((err) => {
+          //     toast.error(err.message, {
+          //       position: "top-center",
+          //       autoClose: 5000,
+          //       hideProgressBar: false,
+          //       closeOnClick: true,
+          //       pauseOnHover: true,
+          //       draggable: true,
+          //       progress: undefined,
+          //       theme: "colored",
+          //     });
+          //     //window.location.reload();
+          //     setButtonText("Get OTP");
+          //   });
+        }
+      } catch (error) {
+        toast.error(error.message);
+        setFieldDis(false);
+        setPlanDis(false);
+        // alert("Mobile number is already registered!");
+        setButtonText("Get OTP");
+        return
+      }
+
+    }
+  }
+  const validateEmailOTP = async () => {
+    try {
+      console.log(values.email, otp);
+      const validation = await axios.post(`${import.meta.env.VITE_SERVER_API}/validateEmailOtp`, { email: values.email, token: Number(otp) });
+      toast.success(validation.data.message);
+      saveFormData();
+    } catch (error) {
+      setBtnDis(false)
+      toast.error(error.response.data.message);
     }
   }
 
@@ -710,7 +738,7 @@ const Register = ({ location }) => {
                       bgColorFrom={plan.color}
                       bgColorTo={plan.colorFrom}
                       titleColor={"white"}
-                      classNames={"basis-[100%] md:basis-[48%] xl:basis-[28%]"}
+                      classNames={`basis-[100%] md:basis-[48%] xl:basis-[28%] ${isOnetime && plan.name == 'Starter' ? 'hidden' : ''}`}
                       chosenPlan={chosenPlan}
                       isShowDetails={true}
                       popular={
