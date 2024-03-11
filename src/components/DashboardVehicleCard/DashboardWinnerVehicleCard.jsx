@@ -91,10 +91,10 @@ const DashboardWinnerVehicleCard = ({
           )
         )} */}
 
-        <div className="flex items-center justify-center border w-full ">
+        <div className="flex items-center justify-center  w-full ">
           
           <div className="w-1/2  h-full">
-            <img src={raffleimage} className="h-full border-2 rounded-2xl" alt="" />
+            <img src={raffleimage} className=" object-cover rounded-2xl" alt="" />
           </div>
 
           <div className="w-1/2  h-full">
@@ -115,9 +115,9 @@ const DashboardWinnerVehicleCard = ({
                   My Entries : {count ? count : "No Entries"}
                 </p>
               )}
-              <div className="flex flex-col w-full border">
+              <div className="flex flex-col w-full ">
                 <div
-                  className="flex flex-col w-[97%] sm:w-[95%] py-1 sm:py-2 rounded-r-2xl winner-bg border"
+                  className="flex flex-col w-[97%] sm:w-[95%] py-1 sm:py-2 rounded-r-2xl winner-bg "
                   style={{ backgroundColor: color }}
                 >
                   <div className="px-3">
