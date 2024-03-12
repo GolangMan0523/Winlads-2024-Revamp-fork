@@ -50,8 +50,8 @@ const SmallGoldCard = () => {
         (valUser?.subscription_status !== "noplan" ? (
           <div className="flex flex-col justify-center items-center w-full ">
             <div className="top-card text-white rounded-t-lg flex justify-between items-center px-2 py-3 w-3/5">
-              <h1  className="text-sm sm:text-base">Earning Balance</h1>
-              
+              <h1 className="text-sm sm:text-base">Earning Balance</h1>
+
               <h1 className="font-bold text-base sm:text-lg">
                 $ {typeof valUser.balance === "number"
                   ? valUser.balance.toFixed(2)
@@ -60,11 +60,10 @@ const SmallGoldCard = () => {
 
             </div>
             <div
-              className={`relative   ${
-                valUser.subscriptionPlan?.data?.name == "Black"
-                  ? "border-white"
-                  : "border-black"
-              } overflow-hidden rounded-xl flex flex-row items-center justify-between cursor-default w-full shadow-2xl`}
+              className={`relative   ${valUser.subscriptionPlan?.data?.name == "Black"
+                ? "border-white"
+                : "border-black"
+                } overflow-hidden rounded-xl flex flex-row items-center justify-between cursor-default w-full shadow-2xl`}
               // style={{ backgroundColor: valUser ? valUser.subscriptionPlan?.data?.color : "" }}
               style={{
                 background: `linear-gradient(308.06deg, #FFBE1D 37.31%, #FFDD89 98.03%)`,
@@ -75,11 +74,10 @@ const SmallGoldCard = () => {
                 <span className="xl:text-4xl font-bold text-3xl 2xl:test-5xl special:text-7xl main-t">
                   {valUser?.startDate && (
                     <p
-                      className={`text-xs special:text-lg font-semibold flex justify-start items-center ${
-                        valUser.subscriptionPlan?.data?.name == "Black"
-                          ? "text-white"
-                          : "text-black"
-                      }`}
+                      className={`text-xs special:text-lg font-semibold flex justify-start items-center ${valUser.subscriptionPlan?.data?.name == "Black"
+                        ? "text-white"
+                        : "text-black"
+                        }`}
                     >
                       <span>Member Since</span>&nbsp;
                       <h1 className="bg-[#ee391c] p-1 text-white rounded-full">
@@ -89,21 +87,19 @@ const SmallGoldCard = () => {
                   )}
 
                   <p
-                    className={`${
-                      valUser.subscriptionPlan?.data?.name == "Black"
-                        ? "text-white"
-                        : "text-black"
-                    }`}
+                    className={`${valUser.subscriptionPlan?.data?.name == "Black"
+                      ? "text-white"
+                      : "text-black"
+                      }`}
                   >
                     {valUser.subscriptionPlan?.data?.name}
                   </p>
                   <span className="text-xs font-bold xl:text-xl 2xl:text-2xl special:text-3xl">
                     <p
-                      className={`text-sm special:text-lg font-semibold ${
-                        valUser.subscriptionPlan?.data?.name == "Black"
-                          ? "text-white"
-                          : "text-black"
-                      }`}
+                      className={`text-sm special:text-lg font-semibold ${valUser.subscriptionPlan?.data?.name == "Black"
+                        ? "text-white"
+                        : "text-black"
+                        }`}
                     >
                       {valUser.trial && (
                         <>
@@ -157,12 +153,30 @@ const SmallGoldCard = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-row gap-4 items-center justify-between rounded-lg w-full border-2 border-black py-2 px-4">
-            <img src={Cross} alt="" className="w-12" />
-            <p className="text-white 2xl:text-xl text-lg mbsmalltext">
-              Your subscription is currently inactive
-            </p>
+          <div className="flex flex-col items-center">
+            <div className="top-card text-white rounded-t-lg flex justify-between items-center px-2 py-3 w-3/5">
+              <h1 className="text-sm sm:text-base">Earning Balance</h1>
+
+              <h1 className="font-bold text-base sm:text-lg">
+                $ {typeof valUser.balance === "number"
+                  ? valUser.balance.toFixed(2)
+                  : "0.00"}
+              </h1>
+
+            </div>
+            <div className="flex  bg-gradient-to-r from-[#EE391C] to-[#FF9787] flex-row gap-4 items-center justify-between rounded-lg w-full border-2 border-black">
+              <div className="px-4">
+                <p className="text-white 2xl:text-lg text-sm mb-2 mbsmalltext">
+                  Your subscription is currently inactive
+                </p>
+                <button className="bg-[#D03219] hover:bg-red-800 py-3 px-5 text-white text-nowrap" onClick={()=>navigate('/subscription')}>Upgrade Subscription</button>
+              </div>
+              <div>
+                <img src={subBg_2} alt="" srcset="" />
+              </div>
+            </div>
           </div>
+
         ))}
     </>
   );

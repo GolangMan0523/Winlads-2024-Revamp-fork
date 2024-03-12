@@ -66,7 +66,7 @@ const SelectRafflePaymentMethod = ({
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/getOneoffPlans`)
       .then((response) => {
-        setOneOffPackages(response?.data?.data);
+        setOneOffPackages(response?.data?.data.sort((a,b)=>(a.count - b.count)));
         console.log(response?.data?.data, "datas");
         const selectedOneOff = response?.data?.data.find(
           (pl) => pl._id === selectedOneOffPackage
