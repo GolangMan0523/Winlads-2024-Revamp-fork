@@ -1117,7 +1117,7 @@ const Register = ({ location }) => {
                   type="text"
                   placeholder="OTP Code"
                   value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
+                  onChange={(e) => setOtp(e.target.value.trim())}
                   // id="tin"
                 />
                 <small className="text-error">
