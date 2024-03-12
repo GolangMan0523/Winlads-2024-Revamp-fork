@@ -59,8 +59,7 @@ function BusinessCard() {
   const saveBC = async () => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/downloadBusinessCard?uid=${
-          valUser.uid
+        `${import.meta.env.VITE_SERVER_API}/downloadBusinessCard?uid=${valUser.uid
         }`
       )
       .then((response) => {
@@ -152,6 +151,23 @@ function BusinessCard() {
         {/* <p className="text-xl font-bold xl:text-xl md:text-xl special:text-4xl">
           Business Card
         </p> */}
+        {loading
+          ? ""
+          : valUser?.subscription_status == "noplan" && (
+            <p className="text-xs md:text-lg text-red-500 bg-[#FBEFEF] p-4 block relative font-semibold text-center capitalize">
+              You are not eligeble, please subscribe first (Above Starter) !
+              <span className=" bg-red-500 p-1 rounded-full h-2/3 absolute top-3 block left-5"></span>
+            </p>
+          )}
+        {valUser?.subscriptionPlan?.data?.name === "Starter" && (
+          <p className="text-xs md:text-lg text-red-500 bg-[#FBEFEF] p-4 block relative font-semibold text-center capitalize">
+            You are not eligeble,{" "}
+            <span className="text-red-500">
+              To request a Business Card, kindly upgrade your subscription beyond the Starter level. !
+            </span>
+            <span className=" bg-red-500 p-1 rounded-full h-2/3 absolute top-3 block left-5"></span>
+          </p>
+        )}
       </div>
       <div className="flex items-center justify-center">
         <div className="text-left flex flex-col items-center space-y-0 special:space-y-16 ">
@@ -176,7 +192,8 @@ function BusinessCard() {
             <BCard />
           )}
 
-          <div className="w-full xl:w-1/2 special:w-2/5 flex gap-16 justify-center py-5">
+          <div className="w-full xl:w-1/2 special:w-2/5 flex gap-16 justify-center pb-10 ">
+
             {/* <div className="flex flex-col items-center">
               <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]">
                 <IoMdShare />
@@ -208,11 +225,10 @@ function BusinessCard() {
                 // Display "add" image when isOrderNow is false
                 <>
                   <button
-                    className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-[#FF4C00] text-white hover:bg-white  hover:text-black border-2 hover:border-black ${
-                      !valUser.subscriptionid ||
+                    className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-[#FF4C00] text-white hover:bg-white  hover:text-black border-2 hover:border-black ${!valUser.subscriptionid ||
                       (valUser?.subscriptionPlan?.data?.name === "Starter" &&
                         "cursor-not-allowed")
-                    }`}
+                      }`}
                     onClick={handleShareClick}
                     disabled={
                       valUser.subscription_status == "noplan" ||
@@ -234,27 +250,7 @@ function BusinessCard() {
               </label> */}
             </div>
           </div>
-          {loading
-            ? ""
-            : valUser?.subscription_status == "noplan" && (
-                <p className="text-xs md:text-lg font-semibold text-center capitalize">
-                  You are not eligeble,{" "}
-                  <span className="text-red-500">
-                    please subscribe first (Above Starter) !
-                  </span>
-                </p>
-              )}
 
-          {valUser?.subscriptionPlan?.data?.name === "Starter" && (
-            <p className="text-xs md:text-lg font-semibold text-center capitalize">
-              You are not eligeble,{" "}
-              <span className="text-red-500">
-                You are currently on the Starter Subscription. To request a
-                Business Card, kindly upgrade your subscription beyond the
-                Starter level. !
-              </span>
-            </p>
-          )}
         </div>
       </div>
     </div>

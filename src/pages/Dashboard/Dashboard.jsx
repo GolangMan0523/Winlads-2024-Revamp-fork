@@ -25,6 +25,7 @@ import {
 } from "../../utils/cometChatCreateUser";
 import HomeBG from "../../assets/homeBg.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
+import CarouselContainer from "../../components/Carousel/Carousel";
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -216,9 +217,9 @@ const Dashboard = () => {
                       <SmallGoldCard />
                     </div>
 
-                    <div className="flex justify-center px-2 bg-gradient-to-b from-[#45E1FF] to-black relative rounded-xl p-2">
+                    <div className="flex justify-center bg-gradient-to-b from-[#45E1FF] to-black relative rounded-xl">
                       <div className="flex flex-col items-center w-full justify-center">
-                        <h1 className="text-white uppercase text-base sm:text-lg font-bold pt-3 mb-5">
+                        {/* <h1 className="text-white uppercase text-base sm:text-lg font-bold pt-3 mb-5">
                           WANT MORE CHANCES?
                         </h1>
 
@@ -235,7 +236,8 @@ const Dashboard = () => {
                             src={x5}
                             className="w-[50px] sm:w-[60px] md:w-[80px]"
                           />
-                        </div>
+                        </div> */}
+                        <CarouselContainer/>
 
                         <div className="py-2 flex items-center justify-center gap-2  w-full ">
                           <Link className="w-1/2 flex items-center justify-end ">
@@ -295,7 +297,7 @@ const Dashboard = () => {
                             fromColor={giveaway.raffle?.color}
                             color={giveaway?.raffle?.color}
                             icon={giveaway.raffle?.image}
-                            raffleimage={giveaway.raffle?.raffleimage}
+                            raffleimage={giveaway.roundimage}
                             eligeble={true}
                             status={1}
                             oneOffPackage={
@@ -498,8 +500,8 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div className="flex justify-center flex-col items-center px-32 bg-gradient-to-b h-full -translate-y-4 from-[#45E1FF] to-black w-2/3 relative rounded-xl">
-                    <h1 className="text-white uppercase text-4xl font-bold pt-3">
+                  <div className="flex justify-center flex-col items-center  h-full -translate-y-4  w-2/3 relative rounded-xl">
+                    {/* <h1 className="text-white uppercase text-4xl font-bold pt-3">
                       WANT MORE CHANCES?
                     </h1>
                     <div className="w-full p-5">
@@ -510,7 +512,8 @@ const Dashboard = () => {
                     </div>
                     <div className="w-32 absolute left-5 bottom-10">
                       <img src={x5} className="w-full h-full object-contain" />
-                    </div>
+                    </div> */}
+                    <CarouselContainer/>
 
                     <div className="pb-2 flex  gap-3 absolute bottom-3">
                       <Link>
@@ -574,7 +577,7 @@ const Dashboard = () => {
                             fromColor={giveaway.raffle?.color}
                             icon={giveaway.raffle?.image}
                             price={giveaway?.price}
-                            raffleimage={giveaway.raffle?.raffleimage}
+                            raffleimage={giveaway?.roundimage}
                             eligeble={true}
                             status={1}
                             oneOffPackage={

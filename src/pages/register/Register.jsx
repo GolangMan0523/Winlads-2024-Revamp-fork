@@ -93,6 +93,7 @@ const Register = ({ location }) => {
   const [isYearly, setIsYearly] = useState(false);
   const [isMonthly, setIsMonthly] = useState(true);
   const [isQuartly, setIsQuartly] = useState(false);
+  const [vehiGiveaway, setVehiGive] = useState({});
 
   const getRefId = () => {
     let refid = searchParams.get("ref");
@@ -130,6 +131,7 @@ const Register = ({ location }) => {
     // }
     getPlanes();
     getOneOff();
+    getGiveaways();
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
@@ -571,13 +573,24 @@ const Register = ({ location }) => {
     setOneOffActive(true);
   };
 
+  const getGiveaways =  () => {
+     axios
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsUpcoming`)
+      .then((response) => {
+        setVehiGive(response?.data?.data.filter((g) => g.raffle?.type == "max")[0]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const handleMemType = (e) => {
     setMemType(e.target.value);
     const checkAbility = searchParams.get("ability");
     if (e.target.value == "round") {
       setChosenPlan("");
       setSelectedPlanName("One off round");
-      setSelectedSubId("6582b82ea332291cc7752d92");
+      setSelectedSubId(vehiGiveaway._id);
       setSelPlanPrice(0);
 
       //  setAbilityCoupen("");
