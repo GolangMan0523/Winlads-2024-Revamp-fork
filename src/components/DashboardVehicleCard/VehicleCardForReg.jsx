@@ -77,7 +77,7 @@ const VehicleCardForReg = ({
   return (
     <>
       <div
-        className={`border-4 cursor-pointer  hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 xl:px-4 px-4 w-full ${select === oneOffId ? "border-black" : ""
+        className={`border-4 cursor-pointer  hover:opacity-75 saturate-200 rounded-lg flex flex-col py-4 md:px-2 xl:px-4 px-4 w-full ${select === oneOffId ? "border-black" : ""
           }`}
         style={{
           background: `linear-gradient(135deg, ${color} 0%, black 200%)`,
