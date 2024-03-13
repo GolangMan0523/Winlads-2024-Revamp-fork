@@ -468,8 +468,8 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="hidden xl:flex flex-col space-y-4 items-end">
-                <div className="grid grid-cols-2 w-full mt-5 gap-4 m-2">
-                  <div className="col-span-1 ">
+                <div className="grid grid-cols-2 w-full mt-5 gap-4 m-2 ">
+                  <div className="col-span-1 px-2 ">
                     <div className="text-black w-full text-left">
                       <p className="font-semibold">Welcome Back</p>
                       <h2 className="text-xl font-bold">

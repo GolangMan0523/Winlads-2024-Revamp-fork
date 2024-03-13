@@ -18,7 +18,7 @@ const TopNav = ({ textColor }) => {
   const { handleMenu, showMenu } = useRefresh();
 
   const handleClick = () => {
-    setNotShow((pre) => !pre);
+    setNotShow((pre) => true);
   };
 
   const handleShowMenu = () => {
@@ -93,14 +93,14 @@ const TopNav = ({ textColor }) => {
               onClick={handleClick}
             />
 
-            {!notShow && (
+            {notShow && (
               <OutsideClickHandler
-                onOutsideClick={() => setNotShow((pre) => !pre)}
+                onOutsideClick={() => setNotShow((pre) => false)}
               >
                 <div className="absolute -bottom-2 sm:bottom-1 right-14 sm:right-16">
                   <div className="bg-white flex flex-col z-50 rounded-xl px-3 py-1 w-60 sm:w-72 border border-solid border-black text-black hover:text-black">
                     <div className="flex justify-end">
-                          <IoCloseSharp onClick={() => setNotShow((pre) => !pre)} size={20}  />
+                          <IoCloseSharp onClick={() => setNotShow((pre) => false)} size={20}  />
                      </div>
                     <p className="text-center text-sm text-[#FF0000] ">No more notification</p>
                   </div>

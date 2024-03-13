@@ -140,12 +140,12 @@ const GoldCard = () => {
                 </span>
               </div>
 
-              <div className="flex items-center absolute top-0 right-0 h-full  ">
+              <div className="flex items-center  absolute right-0 top-0 h-full overflow-hidden">
                 {valUser?.subscription_status !== "noplan" ? (
                   valUser.subscription_status === "unsubscribed" ? (
-                    <img src={subBg_2} alt="" className="object-cover " />
+                    <img src={subBg_2} alt="" className="w-auto h-full" />
                   ) : (
-                    <img src={subBg_2} alt="" className="object-cover" />
+                    <img src={subBg_2} alt="" className="w-auto h-full" />
                   )
                 ) : (
                   ""
