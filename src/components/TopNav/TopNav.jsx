@@ -87,7 +87,8 @@ const TopNav = ({ textColor }) => {
         </span>
 
         <span className="navlinks">
-          <div className=" p-2 sm:p-3 md:p-4 rounded-full bg-[#F5F5F5] relative">
+        
+          <div className={`p-2 sm:p-3 md:p-4 rounded-full  relative ${textColor === "black" ? "bg-[#F5F5F5]" : "bg-[#232323]"}`}>
             <GoBellFill
               className="lg:text-[25px] md:text-[21px] sm:text-[18px] text-[16px] "
               onClick={handleClick}

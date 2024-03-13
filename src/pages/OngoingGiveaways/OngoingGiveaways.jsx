@@ -20,6 +20,7 @@ import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import ActiveBanner from "../../assets/activeBanner.png";
 import ActiveBanner1 from "../../assets/activeBannerM.png";
+import Doted from "../../assets/images/doted.png"
 
 const OngoingGiveaways = () => {
   const iframeStyle = {
@@ -264,8 +265,8 @@ const OngoingGiveaways = () => {
               </Link>
             </div>
           </div>
-          <div className="flex items-start flex-col xl:flex-row">
-            <div className="xl:w-2/3 pt-8 w-full">
+          <div className="flex items-start flex-col lg:flex-row pt-8 gap-5  ">
+            <div className="lg:w-1/2 xl:w-2/3  w-full">
               <iframe
                 title="YouTube Video"
                 src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
@@ -275,25 +276,116 @@ const OngoingGiveaways = () => {
                 style={iframeStyle}
               ></iframe>
             </div>
-            <div className="xl:w-1/3  mx-3  border border-[#5EC1DC] bg-[#EFF9FB] rounded-lg my-5">
-              <div className="text-xl xl:text-2xl font-bold 2xl:text-3xl special:text-6xl 2xl:pt-4 mb-5 text-white bg-black  px-12  rounded-t-lg p-3 ">
+            
+            <div className=" w-full lg:w-1/2 xl:w-1/3    border border-[#5EC1DC] bg-[#EFF9FB] rounded-2xl ">
+              
+              <div className="text-xl xl:text-2xl font-bold 2xl:text-3xl special:text-6xl 2xl:pt-4 mb-5 text-white bg-black  px-12  rounded-t-2xl p-3 ">
                 Vehicle Specifications
               </div>
-              <div className="md:text-sm xl:text-sm flex flex-row xl:flex-col items-start font-normal gap-2 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs xl:mx-10">
-                <div className="w-full flex flex-col space-y-5 p-3 font-semibold ">
-                  <p>• 3.5 Tonne Towing Capacity</p>
-                  <p>• Apple Carplay</p>
-                  <p>• Leather Interior & Roof Racks</p>
-                  <p>• Delivered Australia-Wide</p>
-                  <p>• Valued at $68,750</p>
+
+
+              <div className="flex flex-col gap-6 px-3 font-semibold  text-sm sm:text-lg special:text-2xl py-5 sm:py-10">
+              
+                <div className="flex items-center justify-start gap-2 ">
+                  {/* left */}
+                  <div className="flex items-center justify-center  relative ">
+                      <img src={Doted} alt="" className="w-4" />
+
+                      <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
+                  </div>
+                  <span  className="font-semibold ">3.5 Tonne Towing Capacity</span>
                 </div>
-                <div className="w-full flex flex-col space-y-3 p-3 font-semibold">
-                  <p>• Brand New Mazda BT-50 SP Model</p>
-                  <p>• 3.0L Turbo Diesel</p>
-                  <p>• 140KW & 450NM of Torque</p>
-                  <p>• Crystal LED Headlights</p>
-                  <p>• 18 Inch Black Metallic Alloys</p>
+
+                <div className="flex items-center justify-start gap-2 ">
+                  {/* left */}
+                  <div className="flex items-center justify-center  relative ">
+                      <img src={Doted} alt="" className="w-4" />
+
+                      <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
+                  </div>
+                  <span className="font-semibold ">Apple Carplay</span>
                 </div>
+
+                <div className="flex items-center justify-start gap-2 ">
+                  {/* left */}
+                  <div className="flex items-center justify-center  relative ">
+                      <img src={Doted} alt="" className="w-4" />
+
+                      <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
+                  </div>
+                  <span className="font-semibold ">Leather Interior & Roof Racks</span>
+                </div>
+
+                <div className="flex items-center justify-start gap-2 ">
+                  {/* left */}
+                  <div className="flex items-center justify-center  relative ">
+                      <img src={Doted} alt="" className="w-4" />
+
+                      <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
+                  </div>
+                  <span className="font-semibold ">Delivered Australia-Wide</span>
+                </div>
+
+                <div className="flex items-center justify-start gap-2 ">
+                  {/* left */}
+                  <div className="flex items-center justify-center  relative ">
+                      <img src={Doted} alt="" className="w-4" />
+
+                      <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
+                  </div>
+                  <span className="font-semibold "> Valued at $68,750</span>
+                </div>
+
+                <div className="flex items-center justify-start gap-2 ">
+                  {/* left */}
+                  <div className="flex items-center justify-center  relative ">
+                      <img src={Doted} alt="" className="w-4" />
+
+                      <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
+                  </div>
+                  <span className="font-semibold "> Brand New Mazda BT-50 SP Model</span>
+                </div>
+
+                <div className="flex items-center justify-start gap-2 ">
+                  {/* left */}
+                  <div className="flex items-center justify-center  relative ">
+                      <img src={Doted} alt="" className="w-4" />
+
+                      <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
+                  </div>
+                  <span className="font-semibold "> 3.0L Turbo Diesel</span>
+                </div>
+
+                <div className="flex items-center justify-start gap-2 ">
+                  {/* left */}
+                  <div className="flex items-center justify-center  relative ">
+                      <img src={Doted} alt="" className="w-4" />
+
+                      <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
+                  </div>
+                  <span className="font-semibold ">140KW & 450NM of Torque</span>
+                </div>
+
+                <div className="flex items-center justify-start gap-2 ">
+                  {/* left */}
+                  <div className="flex items-center justify-center  relative ">
+                      <img src={Doted} alt="" className="w-4" />
+
+                      <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
+                  </div>
+                  <span className="font-semibold ">Crystal LED Headlights</span>
+                </div>
+
+                <div className="flex items-center justify-start gap-2 ">
+                  {/* left */}
+                  <div className="flex items-center justify-center  relative ">
+                      <img src={Doted} alt="" className="w-4" />
+
+                  </div>
+                  <span className="font-semibold ">Crystal LED Headlights</span>
+                </div>
+
+
               </div>
             </div>
           </div>
