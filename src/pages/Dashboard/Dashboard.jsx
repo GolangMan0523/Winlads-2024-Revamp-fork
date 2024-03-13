@@ -287,7 +287,7 @@ const Dashboard = () => {
 
                 <div>
                   <p className="text-xl font-semibold pb-4">
-                    Upcoming <span className="font-[800px]">Giveaways</span>
+                    Upcoming <span className="font-extrabold">Giveaways</span>
                   </p>
 
                   {loading ? (

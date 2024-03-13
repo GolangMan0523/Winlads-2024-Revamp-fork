@@ -106,8 +106,9 @@ const DashboardVehicleCard = ({
         )}
 
         <div className="flex flex-col items-center justify-center">
-          <div className="w-full flex items-center justify-center shadow-lg rounded-2xl">
-            <img src={raffleimage} alt="" className="rounded-lg w-full" />
+          
+          <div className="w-full flex items-center justify-center shadow-lg rounded-2xl ">
+            <img src={raffleimage} alt="" className="rounded-lg w-full h-[220px] special:h-[250px]" />
           </div>
 
           <div className="w-full">
@@ -174,6 +175,7 @@ const DashboardVehicleCard = ({
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </>
