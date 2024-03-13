@@ -237,9 +237,9 @@ const Dashboard = () => {
                             className="w-[50px] sm:w-[60px] md:w-[80px]"
                           />
                         </div> */}
-                        <CarouselContainer/>
+                        <CarouselContainer handleButton={handleButton} giveaways={giveaways}/>
 
-                        <div className="py-2 flex items-center justify-center gap-2  w-full ">
+                        {/* <div className="py-2 flex items-center justify-center gap-2  w-full ">
                           <Link className="w-1/2 flex items-center justify-end ">
                             <button
                               className="bg-white font-semibold text-sm sm:text-base text-black rounded-lg py-2 w-full max-w-64 hover:bg-gray-100/75"
@@ -264,7 +264,7 @@ const Dashboard = () => {
                               Upgrade Subscription
                             </button>
                           </Link>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -513,8 +513,8 @@ const Dashboard = () => {
                     <div className="w-32 absolute left-5 bottom-10">
                       <img src={x5} className="w-full h-full object-contain" />
                     </div> */}
-                    <CarouselContainer/>
-
+                    <CarouselContainer handleButton={handleButton} giveaways={giveaways}/>
+{/* 
                     <div className="pb-2 flex  gap-3 absolute bottom-3">
                       <Link>
                         <button
@@ -536,7 +536,7 @@ const Dashboard = () => {
                           Upgrade Subscription
                         </button>
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* <motion.img
