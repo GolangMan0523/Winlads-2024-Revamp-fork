@@ -1,6 +1,6 @@
 import "./TopNav.css";
 import { Link } from "react-router-dom";
-import { GoBell } from "react-icons/go";
+import { GoBellFill } from "react-icons/go";
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 // import { messaging } from "../../firebase.config";
@@ -18,7 +18,7 @@ const TopNav = ({ textColor }) => {
   const { handleMenu, showMenu } = useRefresh();
 
   const handleClick = () => {
-    setNotShow(!notShow);
+    setNotShow((pre) => !pre);
   };
 
   const handleShowMenu = () => {
@@ -87,26 +87,31 @@ const TopNav = ({ textColor }) => {
         </span>
 
         <span className="navlinks">
-          <GoBell
-            className="lg:text-[25px] md:text-[21px] sm:text-[18px] text-[16px]"
-            onClick={handleClick}
-          />
+          <div className=" p-2 sm:p-3 md:p-4 rounded-full bg-[#F5F5F5] relative">
+            <GoBellFill
+              className="lg:text-[25px] md:text-[21px] sm:text-[18px] text-[16px] "
+              onClick={handleClick}
+            />
+
+            {!notShow && (
+              <OutsideClickHandler
+                onOutsideClick={() => setNotShow((pre) => !pre)}
+              >
+                <div className="absolute -bottom-2 sm:bottom-1 right-14 sm:right-16">
+                  <div className="bg-white flex flex-col z-50 rounded-xl px-3 py-1 w-60 sm:w-72 border border-solid border-black text-black hover:text-black">
+                    <div className="flex justify-end">
+                          <IoCloseSharp onClick={() => setNotShow((pre) => !pre)} size={20}  />
+                     </div>
+                    <p className="text-center text-sm text-[#FF0000] ">No more notification</p>
+                  </div>
+                </div>
+              </OutsideClickHandler>
+            )}
+
+
+          </div>
         </span>
       </div>
-      {notShow ? (
-        <OutsideClickHandler onOutsideClick={() => setNotShow(false)}>
-          <div className="absolute right-8">
-            <div className="bg-white flex flex-col mt-8 rounded-xl p-2 w-72 border border-solid border-black">
-              {/* <div className="flex justify-end">
-              <IoCloseSharp onClick={() => setNotShow(false)} size={20} className="hover:scale-110" />
-            </div> */}
-              <p className="text-center">No more notification</p>
-            </div>
-          </div>
-        </OutsideClickHandler>
-      ) : (
-        ""
-      )}
     </>
   );
 };
