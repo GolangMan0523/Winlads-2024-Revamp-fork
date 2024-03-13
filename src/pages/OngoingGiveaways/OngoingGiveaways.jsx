@@ -279,8 +279,8 @@ const OngoingGiveaways = () => {
             
             <div className=" w-full lg:w-1/2 xl:w-1/3    border border-[#5EC1DC] bg-[#EFF9FB] rounded-2xl ">
               
-              <div className="text-xl xl:text-2xl font-bold 2xl:text-3xl special:text-6xl 2xl:pt-4 mb-5 text-white bg-black  px-12  rounded-t-2xl p-3 ">
-                Vehicle Specifications
+              <div className="text-xl xl:text-2xl  2xl:text-3xl special:text-6xl  text-white bg-black  rounded-t-2xl  flex justify-center py-4 sm:py-5 special:py-7 ">
+               <span> Vehicle  <span className="font-bold">Specifications</span></span>
               </div>
 
 
