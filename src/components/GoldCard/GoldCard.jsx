@@ -50,26 +50,28 @@ const GoldCard = () => {
     <>
       {!loading &&
         (valUser?.subscription_status !== "noplan" ? (
-          <div className="flex flex-col justify-center items-center">
-            <div className="top-card text-white rounded-t-lg flex justify-between items-center px-10 py-3 w-3/5">
-              <h1 className="max-sm:text-sm">Earning Balance</h1>
-              <h1 className="font-bold text-lg max-sm:text-sm">$ {typeof valUser.balance === "number"
+          <div className="flex flex-col justify-center items-center ">
+            
+            <div className="top-card text-white rounded-t-lg flex justify-between items-center px-10 py-3  w-10/12  max-w-[330px] ">
+              <span className="max-sm:text-sm">Earning Balance</span>
+              <span className="font-bold text-lg max-sm:text-sm">$ {typeof valUser.balance === "number"
                         ? valUser.balance.toFixed(2)
-                        : "0.00"}</h1>
+                        : "0.00"}</span>
             </div>
+
             <div
               className={`relative  ${
                 valUser.subscriptionPlan?.data?.name == "Black"
                   ? "border-white"
                   : "border-black"
-              } overflow-hidden rounded-xl flex flex-row items-center justify-between cursor-default w-4/5 shadow-2xl`}
+              } overflow-hidden rounded-xl flex flex-row items-center justify-between cursor-default w-full max-w-md shadow-2xl`}
               // style={{ backgroundColor: valUser ? valUser.subscriptionPlan?.data?.color : "" }}
               style={{
                 background: `linear-gradient(308.06deg, #FFBE1D 37.31%, #FFDD89 98.03%)`,
               }}
             >
               {/* <div className="gold-card-inner-sec1"> */}
-              <div className="flex flex-col pl-4 py-4 ">
+              <div className="flex flex-col pl-4 py-4">
                 <span className="xl:text-4xl font-bold text-3xl 2xl:test-5xl special:text-7xl main-t">
                   {valUser?.startDate && (
                     <p
@@ -137,17 +139,20 @@ const GoldCard = () => {
                   </span>
                 </span>
               </div>
-              <div className="flex items-center">
+
+              <div className="flex items-center absolute top-0 right-0 h-full  ">
                 {valUser?.subscription_status !== "noplan" ? (
                   valUser.subscription_status === "unsubscribed" ? (
-                    <img src={subBg_2} alt="" className="w-24 md:w-16" />
+                    <img src={subBg_2} alt="" className="object-cover " />
                   ) : (
-                    <img src={subBg_2} alt="" className="" />
+                    <img src={subBg_2} alt="" className="object-cover" />
                   )
                 ) : (
                   ""
                 )}
               </div>
+
+
             </div>
           </div>
         ) : (

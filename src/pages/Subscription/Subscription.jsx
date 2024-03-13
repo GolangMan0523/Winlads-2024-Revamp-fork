@@ -218,7 +218,7 @@ function Subscription() {
           <img
             src={homeTopBg}
             alt=""
-            className="absolute right-0 -z-10 top-0 left-60"
+            className="absolute right-0 -z-10  sm:left-60 "
           />
           {/* left side */}
           <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6 relative">
@@ -380,6 +380,7 @@ function Subscription() {
           </div>
         )}
       </div>
+      
       <div>
         <div className="flex justify-center items-center max-sm:flex-col">
           <div className="pt-10 flex-1">
@@ -392,7 +393,7 @@ function Subscription() {
               alt="main"
             />
           </div>
-          <div className="w-full flex-1">
+          <div className="w-full px-5 sm:px-0 flex-1">
             <GoldCard />
           </div>
         </div>
@@ -402,24 +403,25 @@ function Subscription() {
               <ItemLoader />
             </div>
           ) : planes.length > 0 ? (
-            <div className="flex flex-col space-y-4 pb-1 justify-center items-center">
+            <div className="flex flex-col space-y-4 pb-1 justify-center items-center mt-5">
               <div className="flex flex-col">
-                <h1 className="text-5xl font-semibold">Choose Your Plan</h1>
+                <h1 className="text-xl sm:text-4xl special:text-5xl font-semibold">Choose Your Plan</h1>
                 <div className="self-end">
                   <img
                     src={Vector}
                     alt="Vector"
-                    className="relative bottom-3 left-3"
+                    className="relative bottom-1 sm:bottom-3 left-3  w-[100px] sm:w-fit "
                   />
                 </div>
               </div>
-              <div className="flex flex-row justify-between bg-[#f5f5f5] items-center rounded-full px-5 py-3 special:py-2 special:px-2 w-1/2 p-10 max-sm:w-full">
+              <div className="w-full flex items-center justify-center px-3 sm:px-0">
+              <div className="flex flex-row justify-between bg-[#f5f5f5] items-center rounded-full px-2 sm:px-5 py-3 special:py-2 special:px-2 w-1/2 p-10 max-sm:w-full">
                 <button
                   type="button"
                   onClick={handleMonthly}
                   className={`${
                     isMonthly ? "bg-black text-white" : ""
-                  } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
+                  } text-[9px] sm:text-[10px] font-semibold  xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                 >
                   Monthly
                 </button>
@@ -429,7 +431,7 @@ function Subscription() {
                   onClick={handleQuatly}
                   className={`${
                     isQuartly ? "bg-black text-white" : ""
-                  } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
+                  } text-[9px] sm:text-[10px] font-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                 >
                   Quartly <span className="text-[#ee391c]">(Save 10%)</span>
                 </button>
@@ -439,11 +441,14 @@ function Subscription() {
                   onClick={handleYearly}
                   className={`${
                     isYearly ? "bg-black text-white" : ""
-                  } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
+                  } text-[9px] sm:text-[10px] font-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                 >
                   Yearly <span  className="text-[#ee391c]">(Save 20%)</span>
                 </button>
               </div>
+              </div>
+             
+
               <div
                 className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 special:gap-6 2xl:gap-4 pt-10 ${
                   choosePlane == "true ? bg-white/50"
