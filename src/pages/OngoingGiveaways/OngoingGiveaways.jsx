@@ -18,8 +18,8 @@ import Cookies from "universal-cookie";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
-import ActiveBanner from "../../assets/activeBanner.png";
-import ActiveBanner1 from "../../assets/activeBannerM.png";
+import ActiveBanner from "../../assets/banner4.png";
+import ActiveBanner1 from "../../assets/banner4.png";
 
 const OngoingGiveaways = () => {
   const iframeStyle = {
@@ -252,7 +252,7 @@ const OngoingGiveaways = () => {
               <img src={ActiveBanner1} alt="" />
             </div>
 
-            <div className="absolute xl:bottom-[-0px]  2xl:right-[20px] xl:left-[-2px] special:bottom-[15px] bottom-16 md:bottom-4 left-[10px] md:left-[20px] ">
+            <div className="absolute xl:bottom-[-0px]  2xl:right-[20px] xl:left-[-2px] special:bottom-[15px] bottom-0 md:bottom-4 left-[10px] md:left-[20px] ">
               <Link
                 to="https://winladsgiveaway.com/#packages"
                 target="_blank"
