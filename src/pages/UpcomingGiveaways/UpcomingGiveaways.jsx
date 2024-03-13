@@ -120,7 +120,6 @@ const UpcomingGiveaways = () => {
   return (
     <>
       <div className="flex flex-col xl:px-6 px-4 special:px-12  overflow-hidden relative">
-       
         <div className="flex items-center justify-between w-full">
           <div className="xl:flex flex-1 hidden">
             <p className="font-bold text-lg xl:text-xl 2xl:text-2xl special:text-4xl pt-4 xl:pt-0">
@@ -134,10 +133,10 @@ const UpcomingGiveaways = () => {
         </div>
 
         <div className="flex flex-1 xl:hidden">
-            <p className="font-bold text-lg xl:text-xl 2xl:text-2xl special:text-4xl pt-4 xl:pt-0">
-              Upcoming Giveaways
-            </p>
-          </div>
+          <p className="font-bold text-lg xl:text-xl 2xl:text-2xl special:text-4xl pt-4 xl:pt-0">
+            Upcoming Giveaways
+          </p>
+        </div>
 
         <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0 ">
           <img
@@ -175,57 +174,44 @@ const UpcomingGiveaways = () => {
               </div>
             </div>
           </div>
-          <div className="flex-col flex-1 space-y-4 hidden xl:flex ">
-            <div className="rounded-b-[50px] py-4">
-              <div className="flex flex-col  xl:px-20 xl:py-20 justify-between gap-5 pt-4">
-                <div className="flex items-left gap-2 special:gap-4">
-                  {userImage ? (
-                    <div className="w-12 h-12 special:w-36 special:h-36 rounded-full aspect-square">
-                      <img
-                        src={userImage}
-                        className="w-full h-full object-cover rounded-full"
-                        alt="user"
-                      />
-                    </div>
-                  ) : (
+          <div className="flex-col flex-1 space-y-4 flex  ">
+            <div className="flex flex-col xl:items-start items-center xl:justify-start justify-center xl:px-20 py-10 xl:py-20  gap-5 pt-4">
+              <div className="flex items-left gap-2 special:gap-4">
+                {userImage ? (
+                  <div className="w-12 h-12 special:w-36 special:h-36 rounded-full aspect-square">
                     <img
-                      src={User}
-                      alt=""
-                      className="w-12 h-12 special:w-36 special:h-36"
+                      src={userImage}
+                      className="w-full h-full object-cover rounded-full"
+                      alt="user"
                     />
-                  )}
-                </div>
-
-                <div className="flex flex-row items-left gap-2 special:gap-4">
-                  <div className="special:text-6xl font-extrabold text-4xl">
-                    $&nbsp;
-                    {typeof valUser.balance === "number"
-                      ? valUser.balance.toFixed(2)
-                      : "0.00"}
                   </div>
+                ) : (
+                  <img
+                    src={User}
+                    alt=""
+                    className="w-12 h-12 special:w-36 special:h-36"
+                  />
+                )}
+              </div>
+
+              <div className="flex flex-row items-left gap-2 special:gap-4">
+                <div className="special:text-6xl font-extrabold text-4xl">
+                  $&nbsp;
+                  {typeof valUser.balance === "number"
+                    ? valUser.balance.toFixed(2)
+                    : "0.00"}
                 </div>
-                <div className="flex flex-row items-left gap-2 special:gap-4">
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="font-semibold special:text-4xl text-xl text-gray-500">
-                      Earning Balance
-                    </span>
-                    <div className="flex items-center justify-center p-1 special:p-2  px-3 special:px-5 rounded-full shadow-xl cursor-pointer hover:text-white bg-[#FFC128] text-black font-extrabold text-sm special:text-lg">
-                      GOLD
-                    </div>
+              </div>
+              <div className="flex flex-row items-left gap-2 special:gap-4">
+                <div className="flex items-center justify-center gap-2">
+                  <span className="font-semibold special:text-4xl text-xl text-gray-500">
+                    Earning Balance
+                  </span>
+                  <div className="flex items-center justify-center p-1 special:p-2  px-3 special:px-5 rounded-full shadow-xl cursor-pointer hover:text-white bg-[#FFC128] text-black font-extrabold text-sm special:text-lg">
+                    GOLD
                   </div>
                 </div>
               </div>
-
-              {/* <div className="pt-10">
-                <motion.img
-                  initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
-                  animate={{ x: 60, opacity: 1 }} // Move and fade in when in view
-                  transition={{ type: "tween", duration: 1, delay: 1 }}
-                  className="w-3/4"
-                  src={MainCar}
-                  alt="main"
-                />
-              </div> */}
             </div>
           </div>
         </div>
