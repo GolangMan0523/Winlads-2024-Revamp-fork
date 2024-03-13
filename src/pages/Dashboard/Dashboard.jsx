@@ -239,7 +239,7 @@ const Dashboard = () => {
                         </div> */}
                         <CarouselContainer/>
 
-                        <div className="py-2 flex items-center justify-center gap-2  w-full ">
+                        <div className="py-2 flex items-center justify-center gap-2  w-full px-5 absolute bottom-2 ">
                           <Link className="w-1/2 flex items-center justify-end ">
                             <button
                               className="bg-white font-semibold text-sm sm:text-base text-black rounded-lg py-2 w-full max-w-64 hover:bg-gray-100/75"
@@ -272,7 +272,7 @@ const Dashboard = () => {
 
                 <div>
                   <p className="text-xl font-semibold pb-4">
-                    Upcoming <span className="font-bold">Giveaways</span>
+                    Upcoming <span className="font-[800px]">Giveaways</span>
                   </p>
 
                   {loading ? (
@@ -348,7 +348,7 @@ const Dashboard = () => {
                 </div>
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Previous <span className="font-bold">Winners</span>
+                    Previous <span className="font-[800px]">Winners</span>
                   </p>
 
                   {loading ? (
