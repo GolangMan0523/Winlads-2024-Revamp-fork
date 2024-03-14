@@ -168,9 +168,11 @@ const DashboardVehicleCard = ({
                   </div>
                 )} */}
 
-                <button className="rounded-lg py-3 font-semibold text-black text-sm sm:text-base hover:scale-105 mt-5" style={{ backgroundColor: color }}>
+
+                {onePackage && (  <button className="rounded-lg py-3 font-semibold text-black text-sm sm:text-base hover:scale-105 mt-5" style={{ backgroundColor: color }}>
                 one off packages
-                </button>
+                </button>)}
+              
 
               </div>
             </div>
