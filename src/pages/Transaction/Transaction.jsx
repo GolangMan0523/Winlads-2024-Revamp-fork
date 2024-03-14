@@ -287,6 +287,8 @@ const Transaction = () => {
                   </p>
                 </div>
               </div>
+
+              
             </div>
             {transactionsCom ? (
               ""

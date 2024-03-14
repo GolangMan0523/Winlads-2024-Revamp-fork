@@ -263,9 +263,9 @@ const Affiliate = () => {
                           </div>
                         </div>
                       </div>
-                      <p className="py-5 text-black text-sm md:text-2xl xl:text-sm 2xl:text-xl special:text-2xl">
-                        Total Earnings
-                      </p>
+                      <p className="py-4 text-[#6B6B6B] text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
+                    Total Earnings
+                  </p>
                     </div>
 
                     <div className="h-full border"></div>
@@ -287,7 +287,7 @@ const Affiliate = () => {
                           ).padStart(2, "0")}
                         </p>
                       </div>
-                      <p className="py-4 text-black text-sm md:text-2xl xl:text-sm 2xl:text-xl special:text-2xl">
+                      <p className="py-4 text-[#6B6B6B] text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                         Total Affiliates
                       </p>
                     </div>
