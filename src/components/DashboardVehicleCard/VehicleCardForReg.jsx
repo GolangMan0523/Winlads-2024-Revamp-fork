@@ -30,6 +30,7 @@ const VehicleCardForReg = ({
   descs,
   handleChoseOneOff,
   multiplyBy = 1,
+  discount = 0
 }) => {
   const [isChanceOff, setIsChance] = useState();
   const [searchParams] = useSearchParams();
@@ -77,13 +78,19 @@ const VehicleCardForReg = ({
   return (
     <>
       <div
-        className={`border-4 cursor-pointer  hover:opacity-75 saturate-200 rounded-lg flex flex-col py-4 md:px-2 xl:px-4 px-4 w-full ${select === oneOffId ? "border-black" : ""
+        className={`border-4 cursor-pointer relative hover:opacity-75 saturate-200 rounded-lg flex flex-col py-4 md:px-2 xl:px-4 px-4 w-full ${select === oneOffId ? "border-black" : ""
           }`}
         style={{
           background: `linear-gradient(135deg, ${color} 0%, black 200%)`,
         }}
         onClick={() => handleCardSelect(oneOffId)}
       >
+        {
+          discount > 0 ? <div className="bg-red-500 px-4 py-1 text-white font-bold absolute top-0 right-0 rounded-sm">
+            -{discount}%
+          </div> : ''
+        }
+
         <div
           className={` relative font-[1000] xl:text-5xl md:text-5xl mt-8 text-6xl pb-16 md:pb-8 text-center xl:px-4 px-2 text-white`}
         // style={{ lineHeight: "0px" }}
@@ -113,7 +120,7 @@ const VehicleCardForReg = ({
         </div>
         <div className="bg-white mb-4 rounded-lg py-4 px-4 border-2 border-black">
           <p className="text-center">
-            <span className="font-bold">${price}&nbsp;</span>only
+            <span className="font-bold">${price - (price * discount/100.0)}&nbsp;</span>only
           </p>
           <div
             className={`px-4 py-2 my-2 rounded-md border border-solid border-black text-${name === "150" ? "white" : "white"
