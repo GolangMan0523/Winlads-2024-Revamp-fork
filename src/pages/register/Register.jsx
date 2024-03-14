@@ -259,7 +259,7 @@ const Register = ({ location }) => {
       tin: values.tin,
       refferalId: memberShipType === "subscription" ? values.refferalId : "",
       // uid: uid,
-      coupen: checkAbility == "WINACCESSEN" ? "MAZDABT50S" : abilityCoupen,
+      coupen: searchParams.get('from') == 'bali' ? 'WIN50OFF' : checkAbility == "WINACCESSEN" ? "MAZDABT50S" : abilityCoupen,
       subid: selectedSubId,
       type: eligible ? "trial" : memberShipType,
       roundid: selectedSubId,
@@ -573,15 +573,26 @@ const Register = ({ location }) => {
     setOneOffActive(true);
   };
 
-  const getGiveaways =  () => {
-     axios
-      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsUpcoming`)
-      .then((response) => {
-        setVehiGive(response?.data?.data.filter((g) => g.raffle?.type == "max")[0]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const getGiveaways =async  () => {
+    await axios
+    .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsUpcoming`)
+    .then((response) => {
+      if (searchParams.get('from') == 'bali') {
+        const v = response?.data?.data.filter((g) => g.raffle?.type == "tour")[0]
+        setVehiGive(
+          v
+        );
+        setSelectedSubId(v._id);
+      } else {
+        setVehiGive(
+          response?.data?.data.filter((g) => g.raffle?.type == "max")[0]
+        );
+      }
+
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
 
   const handleMemType = (e) => {
@@ -783,6 +794,7 @@ const Register = ({ location }) => {
                       setSelPlanPrice={setSelPlanPrice}
                       chooseOneOff={chooseOneOff}
                       multiplyBy={1}
+                      discount={searchParams.get('from') == 'bali' ? 50 : 0}
                     />
                   ))}
 
@@ -1020,10 +1032,10 @@ const Register = ({ location }) => {
                       {selectedPlanName}{" "}
                       {memberShipType === "subscription" ? "Tier" : ""}
                     </p>{" "}
-                    <p>${selectedPlanPrice}</p>
+                    <p>${(searchParams.get('from') == 'bali' && memberShipType === "round") ? selectedPlanPrice/2 : selectedPlanPrice}</p>
                   </div>
                   <div className="flex items-start justify-between text-xs font-bold">
-                    <p>Order Total</p> <p>${selectedPlanPrice}</p>
+                    <p>Order Total</p> <p>${(searchParams.get('from') == 'bali' && memberShipType === "round") ? selectedPlanPrice/2 : selectedPlanPrice}</p>
                   </div>
                   <p className="text-sm font-bold border-b">Payment Method</p>
                   <div className="flex flex-row items-center justify-between gap-2 bg-gray-300 rounded-xl p-2 overflow-hidden">
