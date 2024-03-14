@@ -103,9 +103,9 @@ const SubCard = ({
           <FaStar className="text-yellow-500" /> Most Popular
         </div>
       )}
-      <div className="flex justify-between items-end pt-2 px-6 text-black">
+      <div className="flex justify-between items-start mb-2 pt-2 px-6 text-black">
         <p
-          className={`text-black text-center  uppercase text-sm lg:text-xl 2xl:text-2xl font-bold`}
+          className={`text-black text-center  uppercase text-sm lg:text-xl 2xl:text-2xl`}
         >
           <p className="text-start font-bold ">{title}</p>
           <p className="text-start">Tier</p>
@@ -118,7 +118,7 @@ const SubCard = ({
           </span>
         </p>
       </div>
-      <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3 w-full bg-slate-100/70">
+      <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3 w-full bg-slate-200">
         <span className="uppercase text-xs w-full text-black">
           Accumulating {title2 == 1 ? "Entry" : "Entries"}
         </span>
@@ -150,47 +150,46 @@ const SubCard = ({
             </div>
           )}
 
-          <div className="text-xs font-semibold text-black border-[1px] rounded-md border-slate-100 p-2">
-            <p
-              className="capitalize flex justify-center text-[8px] cursor-pointer text-black"
-              // style={{ color: buttonColor }}
-              onClick={handleClick}
-            >
-              {initial == 1 ? "See More" : "See Less"}
-            </p>
-          </div>
+
         </div>
       )}
-<button
-  className={`mx-6 border-2 rounded-md disabled:bg-gray-500 text-white hover:opacity-75 cursor-pointer flex flex-row justify-center py-2 mt-auto ${
-    chosenPlan === planId && currentType === chosenType
-      ? `bg-${bgColorTo}`
-      : "bg-white"
-  }` }
-  onClick={() => handleChosePlan(planId)}
-  onMouseEnter={() => switchBtnColor()}
-  onMouseLeave={() => switchBtnColor()}
-  disabled={isDisabled}
-  style={{
-    color: bgColorTo,
-    borderColor: bgColorTo,
-    backgroundColor:(chosenPlan === planId && currentType === chosenType) ? bgColorTo : 'white'
-  }}
->
-  <div className={`flex flex-row items-center gap-2`} disabled={isDisabled}>
-    <p
-      className={`text-xs 2xl:text-lg ${
-        chosenPlan === planId && currentType === chosenType
-          ? "text-white"
-          : ""
-      }`}
-    >
-      {chosenPlan === planId && currentType === chosenType
-        ? "SELECTED"
-        : btnword}
-    </p>
-  </div>
-</button>
+      <div className="text-xs font-semibold text-black border-[1px] rounded-md border-gray-300 p-3 mb-2 mx-6">
+        <p
+          className="capitalize flex justify-center cursor-pointer text-black"
+          // style={{ color: buttonColor }}
+          onClick={handleClick}
+        >
+          {initial == 1 ? "View More" : "See Less"}
+        </p>
+      </div>
+      <button
+        className={`mx-6 border-2 rounded-md disabled:bg-gray-500 text-white hover:opacity-75 cursor-pointer flex flex-row justify-center py-2 mt-auto ${chosenPlan === planId && currentType === chosenType
+            ? `bg-${bgColorTo}`
+            : "bg-white"
+          }`}
+        onClick={() => handleChosePlan(planId)}
+        onMouseEnter={() => switchBtnColor()}
+        onMouseLeave={() => switchBtnColor()}
+        disabled={isDisabled}
+        style={{
+          color: bgColorTo,
+          borderColor: bgColorTo,
+          backgroundColor: (chosenPlan === planId && currentType === chosenType) ? bgColorTo : 'white'
+        }}
+      >
+        <div className={`flex flex-row items-center gap-2`} disabled={isDisabled}>
+          <p
+            className={`text-xs 2xl:text-lg ${chosenPlan === planId && currentType === chosenType
+                ? "text-white"
+                : ""
+              }`}
+          >
+            {chosenPlan === planId && currentType === chosenType
+              ? "SELECTED"
+              : btnword}
+          </p>
+        </div>
+      </button>
 
     </motion.div>
   );

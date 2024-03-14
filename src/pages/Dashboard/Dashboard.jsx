@@ -133,12 +133,23 @@ const Dashboard = () => {
       });
   };
 
-  const handleButton = ({ id, price, name, xValue }) => {
-    setFiveEx(xValue ? xValue : 1);
-    setSelectGiveawayId(id);
-    setPrice(price);
-    setSelectGiveName(name);
-    setSelectPayment(true);
+  const handleButton = ({ id, price, name, xValue = 0}) => {
+    console.log(name);
+    if(id){
+      setFiveEx(xValue ? xValue : 1)
+      setSelectGiveawayId(id);
+      setPrice(price);
+      setSelectGiveName(name);
+      setSelectPayment(true);
+    }else{
+      handleButton({
+        id: vehicleGiveaway._id,
+        price: vehicleGiveaway.price,
+        name: vehicleGiveaway.name,
+        xValue: 0
+      })
+    }
+
   };
 
   const handleSeeMore = (show) => {
