@@ -60,7 +60,11 @@ const NewMyEntries = () => {
       }
       
       <div className='flex items-center justify-center'>
-        <div className='w-1/2 hidden xl:block'></div>
+        <div className='w-1/2 hidden xl:block'>
+        <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl ">
+                My Entries
+              </p>
+        </div>
 
         <div className="flex-col flex-1  xl:flex">
           <div className="py-4">
@@ -69,7 +73,9 @@ const NewMyEntries = () => {
         </div>
       </div>
 
-      <h1 className=' text-lg xl:text-xl font-bold'>My Entries</h1>
+      <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl  xl:hidden ">
+                My Entries
+       </p>
       <div className='flex lg:flex-row flex-col-reverse items-center justify-start gap-10'>
         <div className='flex items-center justify-between w-full lg:w-1/2 bg-[#EFF9FB] p-3 rounded-xl rounded-r-full'>
           <div className='border-l-4 pl-5 border-orange-600'>
@@ -83,7 +89,7 @@ const NewMyEntries = () => {
             </div>
           </div>
         </div>
-        <div className='w lg:w-1/4'>
+        <div className='w-5/6 sm:w-1/2 lg:w-1/4'>
           <img src={MainCar} className='w-full h-full object-contain' />
         </div>
 
@@ -93,7 +99,7 @@ const NewMyEntries = () => {
 
         {
           myentries.map((giveaway, key) => (
-            <div className='w-full md:w-1/3 xl:w-1/4 p-2 min-w-60'>
+            <div key={key} className='w-full md:w-1/3 xl:w-1/4 p-2 min-w-60'>
               <DashboardVehicleCard
                 key={key}
                 type={'vehicle'} //giveaway.raffle.type
