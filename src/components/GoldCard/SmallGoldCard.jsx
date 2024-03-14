@@ -144,7 +144,7 @@ const SmallGoldCard = () => {
                   valUser.subscription_status === "unsubscribed" ? (
                     <img src={subBg_2} alt="" className="w-auto h-full" />
                   ) : (
-                    <img src={subBg_2} alt="" className="" />
+                    <img src={subBg_2} alt="" className="w-auto h-full" />
                   )
                 ) : (
                   ""

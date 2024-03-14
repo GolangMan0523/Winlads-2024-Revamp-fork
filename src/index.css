@@ -489,3 +489,23 @@ code {
   background-repeat: no-repeat;
 }
 
+
+.t-main::before,
+.t-main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #6ED9F7;
+  opacity: 0; /* Initially hidden */
+ 
+}
+
+.t-main:hover::before,
+.t-main:hover::after {
+  opacity: 1; /* Show on hover */
+}
+
+

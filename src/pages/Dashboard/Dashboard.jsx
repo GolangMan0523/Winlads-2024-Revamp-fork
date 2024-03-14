@@ -60,7 +60,7 @@ const Dashboard = () => {
     currentUserValidation().then((us) => {
       createCometChatAccount(us);
       setVerified(us?.verified);
-      setMobileVery(us.mobileVerified)
+      setMobileVery(us.mobileVerified);
     });
     // if (cookies.get("selected-package-id")) {
     //   navigate("/subscription");
@@ -165,16 +165,31 @@ const Dashboard = () => {
       ) : (
         <div className="flex relative mx-auto w-full overflow-hidden">
           {/* <SideNav screen="full" name={valUser.name} userId={valUser.uid} /> */}
-          {
-            (!isVerified || !mobileVery) &&
-            < div className="bg-white p-4 rounded-xl shadow-xl w-full flex items-center justify-between gap-5 absolute top-0 left-0 border text-center">
-              <h1>Your {!isVerified && 'Email '} {!mobileVery && 'Mobile'} is not verified, please verify from <Link onClick={() => navigate(!isVerified ? '/verifyEmail' : '/verifyMobile')} className="text-blue-500">here</Link> </h1>
+          {(!isVerified || !mobileVery) && (
+            <div className="bg-white p-4 rounded-xl shadow-xl w-full flex items-center justify-between gap-5 absolute top-0 left-0 border text-center">
+              <h1>
+                Your {!isVerified && "Email "} {!mobileVery && "Mobile"} is not
+                verified, please verify from{" "}
+                <Link
+                  onClick={() =>
+                    navigate(!isVerified ? "/verifyEmail" : "/verifyMobile")
+                  }
+                  className="text-blue-500"
+                >
+                  here
+                </Link>{" "}
+              </h1>
 
-              <button className="bg-white hover:bg-black p-2 hover:text-white rounded-xl  text-amber-500" onClick={() => setVerified(true)}>X</button>
-
+              <button
+                className="bg-white hover:bg-black p-2 hover:text-white rounded-xl  text-amber-500"
+                onClick={() => setVerified(true)}
+              >
+                X
+              </button>
             </div>
-          }
+          )}
           <div></div>
+
           {/* home-content */}
           <div className="flex flex-col xl:flex-col flex-1 px-4 gap-5">
             {/* left side */}
@@ -272,7 +287,7 @@ const Dashboard = () => {
 
                 <div>
                   <p className="text-xl font-semibold pb-4">
-                    Upcoming <span className="font-bold">Giveaways</span>
+                    Upcoming <span className="font-extrabold">Giveaways</span>
                   </p>
 
                   {loading ? (
@@ -280,7 +295,7 @@ const Dashboard = () => {
                       <ItemLoader />
                     </div>
                   ) : sortedGiveaways?.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-3  xl:grid-cols-4 gap-2">
                       {sortedGiveaways
                         .slice(0, initialLength)
                         .map((giveaway, key) => (
@@ -348,7 +363,7 @@ const Dashboard = () => {
                 </div>
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Previous <span className="font-bold">Winners</span>
+                    Previous <span className="font-[800px]">Winners</span>
                   </p>
 
                   {loading ? (
@@ -453,18 +468,20 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="hidden xl:flex flex-col space-y-4 items-end">
-                <div className="grid grid-cols-2 w-full mt-5 gap-4 m-2">
-                  <div className="col-span-1 ">{/* <SearchField /> */}</div>
+                <div className="grid grid-cols-2 w-full mt-5 gap-4 m-2 ">
+                  <div className="col-span-1 px-2 ">
+                    <div className="text-black w-full text-left">
+                      <p className="font-semibold">Welcome Back</p>
+                      <h2 className="text-xl font-bold">
+                        {valUser.firstname + " " + valUser.lastname}
+                      </h2>
+                    </div>
+                  </div>
                   <div className="col-span-1  flex flex-col justify-center ">
                     <TopNav textColor={"black"} />
                   </div>
                 </div>
-                <div className="text-black w-full text-left">
-                  <p className="font-semibold">Welcome Back</p>
-                  <h2 className="text-xl font-bold">
-                    {valUser.firstname + " " + valUser.lastname}
-                  </h2>
-                </div>
+
                 <div
                   className=" w-full justify-between flex gap-3 items-stretch rounded-b-3xl space-y-4 relative w-web "
                   // style={{
@@ -551,7 +568,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                  Upcoming <span className="font-bold">Giveaways</span>
+                    Upcoming <span className="font-bold">Giveaways</span>
                   </p>
 
                   {loading ? (

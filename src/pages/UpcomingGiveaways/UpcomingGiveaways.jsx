@@ -71,9 +71,7 @@ const UpcomingGiveaways = () => {
 
   const getGiveaways = async (valuid) => {
     await axios
-      .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsUpcoming`
-      )
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsUpcoming`)
       .then((response) => {
         console.log(response.data.data, "data raffle");
         setGiveaways(response?.data?.data);
@@ -121,30 +119,40 @@ const UpcomingGiveaways = () => {
 
   return (
     <>
-      <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8 overflow-hidden relative">
-        <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0">
+      <div className="flex flex-col xl:px-6 px-4 special:px-12  overflow-hidden relative">
+        <div className="flex items-center justify-between w-full">
+          <div className="xl:flex flex-1 hidden">
+            <p className="font-bold text-lg xl:text-xl 2xl:text-2xl special:text-4xl pt-4 xl:pt-0">
+              Upcoming Giveaways
+            </p>
+          </div>
+
+          <div className="flex-col flex-1 space-y-4 flex  py-4">
+            <TopNav textColor={"black"} />
+          </div>
+        </div>
+
+        <div className="flex flex-1 xl:hidden">
+          <p className="font-bold text-lg xl:text-xl 2xl:text-2xl special:text-4xl pt-4 xl:pt-0">
+            Upcoming Giveaways
+          </p>
+        </div>
+
+        <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0 ">
           <img
             src={BG}
             alt=""
             className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-40 opacity-60"
           />
           <div className="flex flex-col flex-1">
-            <div className="block xl:hidden space-y-4">
-              <div className="bg-black rounded-b-3xl py-4">
-                <TopNav textColor={"white"} />
-                <div className="pt-10">
-                  <img className="" src={MainCar} alt="main" />
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col 2xl:space-y-8 space-y-6 special:space-y-12">
+            <div className="flex flex-col ">
               {/* <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
                 <SearchField />
               </div> */}
               <div className="flex flex-row justify-between items-center pt-4">
                 <div className="flex flex-col space-y-2 special:space-y-8 flex-1"></div>
               </div>
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col ">
                 <div className="w-full">
                   <iframe
                     title="YouTube Video"
@@ -166,66 +174,57 @@ const UpcomingGiveaways = () => {
               </div>
             </div>
           </div>
-          <div className="flex-col flex-1 space-y-4 hidden xl:flex">
-            <div className="rounded-b-[50px] py-4">
-              <TopNav textColor={"black"} />
-              <div className="flex flex-col  xl:px-20 xl:py-20 justify-between gap-5 pt-4">
-                <div className="flex items-left gap-2 special:gap-4">
-                  {userImage ? (
-                    <div className="w-12 h-12 special:w-36 special:h-36 rounded-full aspect-square">
-                      <img
-                        src={userImage}
-                        className="w-full h-full object-cover rounded-full"
-                        alt="user"
-                      />
-                    </div>
-                  ) : (
+          <div className="flex-col flex-1 space-y-4 flex  ">
+            <div className="flex flex-col xl:items-start items-center xl:justify-start justify-center xl:px-20 py-10 xl:py-20  gap-5 pt-4">
+              <div className="flex items-left gap-2 special:gap-4">
+                {userImage ? (
+                  <div className="w-12 h-12 special:w-36 special:h-36 rounded-full aspect-square">
                     <img
-                      src={User}
-                      alt=""
-                      className="w-12 h-12 special:w-36 special:h-36"
+                      src={userImage}
+                      className="w-full h-full object-cover rounded-full"
+                      alt="user"
                     />
-                  )}
-                </div>
-
-                <div className="flex flex-row items-left gap-2 special:gap-4">
-                  <div className="special:text-6xl font-extrabold text-4xl">
-                    $&nbsp;
-                    {typeof valUser.balance === "number"
-                      ? valUser.balance.toFixed(2)
-                      : "0.00"}
                   </div>
+                ) : (
+                  <img
+                    src={User}
+                    alt=""
+                    className="w-12 h-12 special:w-36 special:h-36"
+                  />
+                )}
+              </div>
+
+              <div className="flex flex-row items-left gap-2 special:gap-4">
+                <div className="special:text-6xl font-extrabold text-4xl">
+                  $&nbsp;
+                  {typeof valUser.balance === "number"
+                    ? valUser.balance.toFixed(2)
+                    : "0.00"}
                 </div>
-                <div className="flex flex-row items-left gap-2 special:gap-4">
-                  <div className="font-semibold special:text-4xl text-xl text-gray-500">
+              </div>
+              <div className="flex flex-row items-left gap-2 special:gap-4">
+                <div className="flex items-center justify-center gap-2">
+                  <span className="font-semibold special:text-4xl text-xl text-gray-500">
                     Earning Balance
+                  </span>
+                  <div className="flex items-center justify-center p-1 special:p-2  px-3 special:px-5 rounded-full shadow-xl cursor-pointer hover:text-white bg-[#FFC128] text-black font-extrabold text-sm special:text-lg">
+                    GOLD
                   </div>
                 </div>
               </div>
-
-              {/* <div className="pt-10">
-                <motion.img
-                  initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
-                  animate={{ x: 60, opacity: 1 }} // Move and fade in when in view
-                  transition={{ type: "tween", duration: 1, delay: 1 }}
-                  className="w-3/4"
-                  src={MainCar}
-                  alt="main"
-                />
-              </div> */}
             </div>
           </div>
         </div>
         <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
-          <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
-            Upcoming Giveaways
+          <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl py-4">
+            Upcoming <span className="font-extrabold">Giveaways</span>
           </p>
           {loading ? (
             <div className="flex justify-center">
               <ItemLoader />
             </div>
           ) : sortedGiveaways.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-3  xl:grid-cols-4 gap-2">
               {sortedGiveaways.slice(0, initialLength).map((giveaway, key) => (
                 <DashboardVehicleCard
                   isSubscribed={valUser.subscriptionPlan?.data}

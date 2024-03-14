@@ -194,8 +194,8 @@ const Transaction = () => {
               <div className="block xl:hidden space-y-4">
                 <div className=" rounded-b-3xl py-4">
                   <TopNav textColor={"black"} />
-                  <div className="pt-10">
-                    <img className="w-full" src={MainCar} alt="main" />
+                  <div className="pt-10 flex items-center justify-center">
+                    <img className="w-8/12" src={MainCar} alt="main" />
                   </div>
                 </div>
 
@@ -222,20 +222,28 @@ const Transaction = () => {
               </p>
             </div>
             <div className="flex xl:flex-col md:flex-row flex-col gap-1 xl:gap-2 md:gap-6 2xl:text-2xl special:text-3xl">
-              <div className="flex py-2 xl:px-3 md:px-4  flex-row px-2 cursor-default">
+              
+              <div className="flex py-2 xl:px-3 md:px-4  flex-row px-2 cursor-default ">
                 <div className="flex-1 w-full">
-                  <p className=" text-black font-bold  font text-4xl md:text-xl xl:text-xl 2xl:text-5xl special:text-8xl">
+                  <p className=" text-black font-extrabold  font text-4xl md:text-xl xl:text-xl 2xl:text-5xl special:text-8xl">
                     ${Math.floor(wallet.balance * 100) / 100 || "0.00"}
                   </p>
-                  <div className="flex">
-                    <p className="py-2 text-black text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
+                  <div className="flex items-center gap-2">
+                    <p className="py-2 text-[#6B6B6B] text-sm md:text-lg  2xl:text-xl special:text-2xl">
                       Your Balance
                     </p>
+
+                    <div className="flex items-center justify-center  p-1 special:p-2  px-3 special:px-5 rounded-full shadow-xl cursor-pointer hover:text-white bg-[#FFC128] text-black font-extrabold text-sm special:text-lg">
+                    GOLD
+                  </div>
+
                   </div>
                 </div>
               </div>
-              <div className="flex">
-                <div className="flex-1 py-2    md:px-4 cursor-default">
+
+
+              <div className="flex  items-center justify-evenly">
+                <div className=" py-2    md:px-4 cursor-default ">
                   <div className="flex ">
                     <img
                       src={NewEarning}
@@ -243,7 +251,7 @@ const Transaction = () => {
                       className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
                     />
                     <div>
-                      <div className="px-10 text-black font-bold text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
+                      <div className="px-10 text-black font-extrabold text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
                         $
                         {wallet.earning
                           ? Math.floor(wallet.earning * 100) / 100 || "0.00"
@@ -251,12 +259,14 @@ const Transaction = () => {
                       </div>
                     </div>
                   </div>
-                  <p className="py-5 text-black text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
+                  <p className="py-5 text-[#6B6B6B] text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                     Total Earnings
                   </p>
                 </div>
 
-                <div className="flex-1 py-2   md:px-4 cursor-default">
+                <div className="h-full border"></div>
+
+                <div className=" py-2   md:px-4 cursor-default ">
                   <div className="flex">
                     <img
                       src={NewPurcahase}
@@ -264,14 +274,14 @@ const Transaction = () => {
                       className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
                     />
 
-                    <p className=" px-8 text-black font-bold text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
+                    <p className=" px-8 text-black font-extrabold text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
                       $
                       {wallet.purchase
                         ? Math.floor(wallet.purchase * 100) / 100 || "0.00"
                         : "0.00"}
                     </p>
                   </div>
-                  <p className="py-4 text-black text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
+                  <p className="py-4 text-[#6B6B6B] text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                     Total Purchase
                   </p>
                 </div>
@@ -348,11 +358,12 @@ const Transaction = () => {
             {transactions?.map((transaction, key) => (
               <div
                 key={key}
-                className="flex flex-row items-center justify-between  hover:bg-[#F5F5F5] p-2 rounded-lg cursor-default"
+                className="flex flex-row items-center justify-between hover:bg-gradient-to-r hover:from-[#a8e4f5]  hover:to-[#F5F5F5] p-2  cursor-default border-b relative t-main"
               >
+                
                 <div className="flex flex-row items-center gap-2">
                   <div className="flex flex-col">
-                    <p className="text-black capitalize">{transaction.mode}</p>
+                    <p className="text-black capitalize font-bold">{transaction.mode}</p>
                     <div className="flex flex-col">
                       <p className={`capitalize text-xs text-gray-400`}>
                         {new Date(transaction.startfrom).toLocaleString(
@@ -371,7 +382,7 @@ const Transaction = () => {
                         transaction.transactiontype == "DR"
                           ? "red-400"
                           : "green-400"
-                      } text-lg`}
+                      } text-lg font-bold`}
                     >
                       ${Math.floor(transaction.amount * 100) / 100}
                     </p>

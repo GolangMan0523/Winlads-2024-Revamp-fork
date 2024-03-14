@@ -108,14 +108,14 @@ function SubscribeCard({
 
       <div className="flex justify-between items-end pt-2 px-6 text-black">
         <p className="text-lg special:text-3xl 2xl:text-2xl text-centerflex flex-col">
-          <p className="text-start font-bold ">{name}</p>
+          <p className="text-start font-extrabold ">{name}</p>
           <p className="text-start">Tier</p>
         </p>
-        <p className="text-4xl md:text-4xl">
-          {raffleCount}&nbsp;<span className="text-xs">FREE</span>
+        <p className="text-4xl md:text-4xl font-extrabold">
+          {raffleCount}&nbsp;<span className="text-xs font-semibold">FREE</span>
         </p>
       </div>
-      <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3 w-full bg-slate-100">
+      <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3 w-full bg-[#DEE8E9]">
         <span className="uppercase text-xs w-full text-black">
           {subId}&nbsp;Accumulating {raffleCount == 1 ? "Entry" : "Entries"}
         </span>
@@ -150,10 +150,10 @@ function SubscribeCard({
         {descL.length > 3 && (
           <button
             onClick={() => handleShowMore()}
-            className="text-xs font-semibold text-black bg-slate-100 p-2"
+            className="text-xs font-bold text-black bg-[#F1F5F9] p-2"
             // style={{ color: color }}
           >
-            {initialShow == 3 ? "View More" : "View Less"}
+            {initialShow == 3 ? "View More.." : "View Less"}
           </button>
         )}
       </div>
@@ -166,7 +166,7 @@ function SubscribeCard({
           <button
             type="button"
             style={{background:colorFrom}}
-            className={`bg-transparent border-${buttonHover} text-${buttonText} font-semibold uppercase w-full border-2 rounded-xl text-black py-2 px-2 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}
+            className={`bg-transparent border-transparent text-${buttonText} font-semibold uppercase w-full border-2 rounded-xl text-black py-2 px-2 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}
             onClick={() => handleRenew(userSub)}
           >
             <p className={``}>Renew</p>
@@ -176,6 +176,7 @@ function SubscribeCard({
             (quartly && planeId === qPlanId) ||
             (year && planeId === yPlanId)
           ) ? (
+          
           <button
             type="button"
             className={`text-${buttonText} font-semibold uppercase w-full border-2 border-transparent rounded-xl text-black py-2 px-2 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}

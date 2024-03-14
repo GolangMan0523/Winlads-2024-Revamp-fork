@@ -62,15 +62,27 @@ const DashboardVehicleCard = ({
     }
   };
 
+
+   // Convert hexadecimal to RGBA
+   function hexToRgba(hex, alpha) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
+
+  const bg = hexToRgba(color, 0.5);
+
+
   return (
     <>
       <div
-        className={`relative flex text-white flex-col justify-between rounded-2xl w-full p-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer overflow-hidden `}
-        // style={{ backgroundColor: color }}
+        className={`relative flex text-white flex-col justify-between rounded-2xl w-full p-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out cursor-pointer overflow-hidden `}
+        style={{ backgroundColor: bg }}
 
-        style={{
-          background: `linear-gradient(180deg, ${color} 0%, #ACACAC 100%)`,
-        }}
+        // style={{
+        //   background: `linear-gradient(180deg, ${color} 0%, #ACACAC 100%)`,
+        // }}
         onClick={handleNavigateWon}
       >
         {checkTrial ? (
@@ -93,28 +105,36 @@ const DashboardVehicleCard = ({
           )
         )}
 
-        <div className="flex">
-          <div className="w-1/2">
-            <img src={raffleimage} alt="" />
+        <div className="flex flex-col items-center justify-center">
+          
+          <div className="w-full flex items-center justify-center shadow-lg rounded-2xl ">
+            <img src={raffleimage} alt="" className="rounded-lg w-full h-[220px] special:h-[250px]" />
           </div>
-          <div className="w-1/2">
+
+          <div className="w-full">
             {" "}
-            <div className="flex flex-col px-3">
-              <div className="flex flex-row justify-between items-center text-black font-bold special:text-4xl special:p-2">
-                <div>{name}</div>
+            <div className="flex flex-col px-3 mt-3">
+              
+              <div className="px-3 flex flex-row justify-between items-center text-black font-bold text-base sm:text-xl special:text-4xl special:p-2">
+                <span>{name}</span>
               </div>
-              <div className="flex flex-row justify-between items-center text-black font-bold">
-                <div className="text-xs special:text-3xl text-black py-2 special:p-2">
-                  {formattedDate}
+
+              <div className="px-3 flex flex-row justify-between items-center text-black ">
+                  <span className="text-sm special:text-lg text-black py-2 special:p-2">
+                    {formattedDate}
+                  </span>
                 </div>
-              </div>
+
               {count && (
                 <p className="text-sm">
                   My Entries : {count ? count : "No Entries"}
                 </p>
               )}
+
+             
+
               <div className="flex flex-col">
-                <div
+                {/* <div
                   className="flex flex-col z-10 pr-2 items-end space-y-2 2xl:space-y-4 special:space-y-4  special:py-5  special:  text-right rounded-xl w-full border-2 capitalize hover:bg-black bg-white text-black cursor-pointer py-1 hover:scale-105 hover:transition-transform ease-out duration-300 mt-2 hover:text-white text-sm px-1"
                   style={{ backgroundColor: color }}
                 >
@@ -131,7 +151,8 @@ const DashboardVehicleCard = ({
                       </p>
                     )}
                   </div>
-                </div>
+                </div> */}
+
                 {/* {onePackage && (
                   <div>
                     <button
@@ -146,9 +167,17 @@ const DashboardVehicleCard = ({
                     </button>
                   </div>
                 )} */}
+
+
+                {onePackage && (  <button className="rounded-lg py-3 font-semibold text-black text-sm sm:text-base hover:scale-105 mt-5" style={{ backgroundColor: color }}>
+                one off packages
+                </button>)}
+              
+
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </>
