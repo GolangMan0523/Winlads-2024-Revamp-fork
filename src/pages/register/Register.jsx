@@ -172,7 +172,8 @@ const Register = ({ location }) => {
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/getSubscriptionPlans`)
       .then((response) => {
-        setPlans(response?.data?.data);
+        console.log(response.data.data);
+        setPlans(response?.data?.data.sort((a, b) => (a.raffle_count - b.raffle_count)));  //Sort ASC
         const selectedPlan = response?.data?.data.find(
           (pl) => pl._id === selectedPackage
         );
@@ -192,7 +193,7 @@ const Register = ({ location }) => {
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/getOneoffPlans`)
       .then((response) => {
-        setOneOffPackages(response?.data?.data.sort((a,b)=>a.count-b.count));
+        setOneOffPackages(response?.data?.data.sort((a, b) => a.count - b.count));
         console.log(response?.data?.data, "datas");
         const selectedOneOff = response?.data?.data.find(
           (pl) => pl._id === selectedOneOffPackage
@@ -396,7 +397,7 @@ const Register = ({ location }) => {
           const res = await axios.get(`https://api.emailable.com/v1/verify?email=${values.email}&api_key=${import.meta.env.VITE_EMAILABLE_LIVE_KEY}`)
           //"state": "undeliverable"  or "risky"
           console.log(res.data);
-          if (res.data.state === "undeliverable"|| !res.data.smtp_provider) {
+          if (res.data.state === "undeliverable" || !res.data.smtp_provider) {
             throw Error("This is not a valid email try another");
           }
         }
@@ -549,15 +550,15 @@ const Register = ({ location }) => {
       isQuartly
         ? selectedPlan.subidsemiannual
         : isYearly
-        ? selectedPlan.subidannual
-        : selectedPlan.subid
+          ? selectedPlan.subidannual
+          : selectedPlan.subid
     );
     setSelPlanPrice(
       isQuartly
         ? selectedPlan.semiannualy
         : isYearly
-        ? selectedPlan.annualy
-        : selectedPlan.monthly
+          ? selectedPlan.annualy
+          : selectedPlan.monthly
     );
     setSubcriptionActive(true);
     setOneOffActive(false);
@@ -573,26 +574,26 @@ const Register = ({ location }) => {
     setOneOffActive(true);
   };
 
-  const getGiveaways =async  () => {
+  const getGiveaways = async () => {
     await axios
-    .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsUpcoming`)
-    .then((response) => {
-      if (searchParams.get('from') == 'bali') {
-        const v = response?.data?.data.filter((g) => g.raffle?.type == "tour")[0]
-        setVehiGive(
-          v
-        );
-        setSelectedSubId(v._id);
-      } else {
-        setVehiGive(
-          response?.data?.data.filter((g) => g.raffle?.type == "max")[0]
-        );
-      }
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsUpcoming`)
+      .then((response) => {
+        if (searchParams.get('from') == 'bali') {
+          const v = response?.data?.data.filter((g) => g.raffle?.type == "tour")[0]
+          setVehiGive(
+            v
+          );
+          setSelectedSubId(v._id);
+        } else {
+          setVehiGive(
+            response?.data?.data.filter((g) => g.raffle?.type == "max")[0]
+          );
+        }
 
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleMemType = (e) => {
@@ -632,14 +633,14 @@ const Register = ({ location }) => {
           )}
           <div className="flex items-start justify-center flex-col w-full">
             {/* <div className="login-contain flex items-center justify-center md:flex-row xl:flex-row 4xl:flex-row flex-col"> */}
-            <div className="w-full bg-[#78DCF8] pb-40">
+            <div className="w-full bg-[#78DCF8] pb-20 md:pb-20">
               <img src={homeTopBg} alt="" className="absolute right-0 top-0" />
-              <div className="pt-10 flex flex-col justify-center items-center">
+              <div className="pt-5 flex flex-col justify-center items-center">
                 <motion.img
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ type: "tween", duration: 1, delay: 1 }}
-                  className="w-1/4"
+                  className="w-1/4 md:-mb-5"
                   src={MainCar}
                   alt="main"
                 />
@@ -647,15 +648,14 @@ const Register = ({ location }) => {
               </div>
 
               {/* SUB PLANS SHOW DESKTOP */}
-              <div className="flex justify-center items-center py-10">
+              <div className="flex justify-center items-center py-5">
                 {memberShipType == "subscription" && (
                   <div className="flex flex-row justify-center bg-[#f5f5f5] items-center rounded-full px-5 py-3 special:py-2 special:px-2 w-1/2 p-10 max-sm:w-full">
                     <button
                       type="button"
                       onClick={handleMonthly}
-                      className={`${
-                        isMonthly ? "bg-black text-white" : ""
-                      } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
+                      className={`${isMonthly ? "bg-black text-white" : ""
+                        } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                     >
                       Monthly
                     </button>
@@ -663,9 +663,8 @@ const Register = ({ location }) => {
                     <button
                       type="button"
                       onClick={handleQuatly}
-                      className={`${
-                        isQuartly ? "bg-black text-white" : ""
-                      } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
+                      className={`${isQuartly ? "bg-black text-white" : ""
+                        } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                     >
                       Quartly <span className="text-[#ee391c]">(Save 10%)</span>
                     </button>
@@ -673,9 +672,8 @@ const Register = ({ location }) => {
                     <button
                       type="button"
                       onClick={handleYearly}
-                      className={`${
-                        isYearly ? "bg-black text-white" : ""
-                      } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
+                      className={`${isYearly ? "bg-black text-white" : ""
+                        } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                     >
                       Yearly <span className="text-[#ee391c]">(Save 20%)</span>
                     </button>
@@ -683,7 +681,7 @@ const Register = ({ location }) => {
                 )}
               </div>
             </div>
-            <div className="grid xl:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-start max-sm:justify-center gap-3 w-full relative bottom-32 px-10">
+            <div className="grid xl:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-start max-sm:justify-center gap-3 w-full relative bottom-20 lg:bottom-10 px-10">
               {/* {abilityCoupen === "CHNCEOFF" && <FreeEntryCardDashboard3 />} */}
 
               {showFreeEntry && (
@@ -709,20 +707,20 @@ const Register = ({ location }) => {
                         isMonthly
                           ? plan.raffle_count
                           : isQuartly
-                          ? plan.raffle_count_semiannual
-                          : isYearly
-                          ? plan.raffle_count_annual
-                          : ""
+                            ? plan.raffle_count_semiannual
+                            : isYearly
+                              ? plan.raffle_count_annual
+                              : ""
                       }
                       titleColor2={"white"}
                       desc1={
                         isMonthly
                           ? plan.desc[0]
                           : isQuartly
-                          ? plan.desc[1]
-                          : isYearly
-                          ? plan.desc[2]
-                          : ""
+                            ? plan.desc[1]
+                            : isYearly
+                              ? plan.desc[2]
+                              : ""
                       }
                       specDesc={
                         abilityCoupen === "CHNCEOFF" ? (
@@ -746,14 +744,14 @@ const Register = ({ location }) => {
                         plan.name == "Starter"
                           ? "black"
                           : "" | (plan.name == "Boomer")
-                          ? "black"
-                          : "" | (plan.name == "Platinum")
-                          ? "black"
-                          : "" | (plan.name == "Gold")
-                          ? "black"
-                          : "" | (plan.name == "Black")
-                          ? "white"
-                          : "black"
+                            ? "black"
+                            : "" | (plan.name == "Platinum")
+                              ? "black"
+                              : "" | (plan.name == "Gold")
+                                ? "black"
+                                : "" | (plan.name == "Black")
+                                  ? "white"
+                                  : "black"
                       }
                       arrowColor="[#01819D]"
                       buttonTextColor={plan.name == "Black" ? "black" : "white"}
@@ -802,9 +800,9 @@ const Register = ({ location }) => {
                 </>
               )}
             </div>
-            <div className="flex w-full justify-st items-start sm:divide-x max-sm:flex-col">
-              <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 md:mt-10 lg:mt-20 xl:mt-10 special:mt-10 mt-1 mb-10 sm:mb-0 px-10 w-full">
-                <span className="text-2xl md:text-4xl xl:text-4xl fw-bold font-bold special:text-8xl">
+            <div className="flex w-full justify-center items-start sm:divide-x max-sm:flex-col">
+              <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 md:mt-10 lg:mt-20 xl:mt-0 mt-1 mb-10 sm:mb-0 px-10 w-full">
+                <span className="text-xl md:text-xl xl:text-xl fw-bold font-bold special:text-2xl">
                   User Info
                 </span>
                 <form
@@ -814,11 +812,10 @@ const Register = ({ location }) => {
                 >
                   <div className="flex flex-col justify-center space-y-4 mx-auto xl:mt-4 md:mt-10 mt-4 special:mt-20">
                     <div
-                      className={`flex flex-col space-y-4 ${
-                        buttonText == "Sending..." || buttonText == "Register"
-                          ? "blur-sm"
-                          : ""
-                      }`}
+                      className={`flex flex-col space-y-4 ${buttonText == "Sending..." || buttonText == "Register"
+                        ? "blur-sm"
+                        : ""
+                        }`}
                     >
                       <div
                         className={
@@ -991,60 +988,77 @@ const Register = ({ location }) => {
                 </form>
               </div>
 
-              <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 md:mt-10 lg:mt-20 xl:mt-10 special:mt-10 mt-1 mb-10 sm:mb-0 px-10 w-full">
-                <span className="text-2xl md:text-4xl xl:text-4xl fw-bold font-bold special:text-8xl">
+              <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 md:mt-10 lg:mt-20 xl:mt-0 mt-1 lg:mb-10 sm:mb-0 px-10 w-full">
+                <span className="text-xl md:text-xl xl:text-xl fw-bold font-bold special:text-2xl">
                   Membership Types
                 </span>
-                <div className="pt-3 special:pt-20 flex flex-col gap-5">
-                  {showOneOff && (
-                    <div className="bg-white border border-black px-4 py-1 rounded-xl w-full ">
+                <div className="py-0 special:pt-20 flex flex-col gap-5">
+                  <div className="flex md:flex-row flex-col items-center gap-2 py-5 border-b">
+                    {showOneOff && (
+                      <div className={`bg-white border px-5 py-3 rounded-xl w-full flex items-center gap-2 ${memberShipType === "round" ? 'border-[#FF4C00] bg-orange-100' : ''}`}>
+                        {/* Hidden original radio input */}
+                        <input
+                          id="roundRadio" // Unique ID for label association
+                          className="opacity-0 absolute" // Hide the input
+                          type="radio"
+                          name="selectPack"
+                          value="round"
+                          onChange={handleMemType}
+                          checked={memberShipType === "round"}
+                        />
+                        {/* Custom radio button design */}
+                        <div className={`w-5 h-5 rounded-full border ${memberShipType === "round" ? 'bg-[#FF4C00]' : 'border-gray-400'} flex items-center justify-center mr-2`}>
+                          {memberShipType === "round" && (
+                            <div className="w-2 h-2 rounded-full bg-white"></div>
+                          )}
+                        </div>
+                        <label htmlFor="roundRadio" className="text-sm flex-1 cursor-pointer">
+                          One off package
+                        </label>
+                      </div>
+
+                    )}
+                    <div className={`bg-white border px-5 py-3 rounded-xl w-full flex items-center gap-2 ${memberShipType === "subscription" ? 'border-[#FF4C00] bg-orange-100' : ''}`}>
                       <input
+                        id="subscriptionRadio" // Added for label association
+                        className="opacity-0 absolute" // Hide the input
                         type="radio"
                         name="selectPack"
-                        value={"round"}
+                        value="subscription"
                         onChange={handleMemType}
-                        checked={memberShipType === "round"}
+                        checked={memberShipType === "subscription"}
                       />
-                      <label htmlFor="selectPack" className="text-sm">
-                        One off package
+                      {/* Custom radio button design */}
+                      <div className={`w-5 h-5 rounded-full border ${memberShipType === "subscription" ? 'bg-[#FF4C00]' : 'border-gray-400'} flex items-center justify-center mr-2`}>
+                        {memberShipType === "subscription" && (
+                          <div className="w-2 h-2 rounded-full bg-white"></div>
+                        )}
+                      </div>
+                      <label htmlFor="subscriptionRadio" className="text-sm flex-1 cursor-pointer">
+                        Subscription (Most popular accumulating entries)
                       </label>
                     </div>
-                  )}
-                  <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
-                    <input
-                      type="radio"
-                      name="selectPack"
-                      value={"subscription"}
-                      onChange={handleMemType}
-                      checked={memberShipType === "subscription"}
-                    />
-                    <label htmlFor="selectPack" className="text-sm">
-                      {" "}
-                      Subscription (Most popular accumulating entries)
-                    </label>
                   </div>
-                  {/* </div> */}
-                  <p className="text-sm font-bold border-b border-gray-500">
+                  <p className="text-sm font-bold py-4">
                     Amount
                   </p>
-                  <div className="flex items-start justify-between text-xs text-gray-500 border-b border-gray-500">
+                  <div className="flex items-start justify-between text-xs text-gray-500  pb-3">
                     <p>
                       {selectedPlanName}{" "}
                       {memberShipType === "subscription" ? "Tier" : ""}
                     </p>{" "}
-                    <p>${(searchParams.get('from') == 'bali' && memberShipType === "round") ? selectedPlanPrice/2 : selectedPlanPrice}</p>
+                    <p>${(searchParams.get('from') == 'bali' && memberShipType === "round") ? selectedPlanPrice / 2 : selectedPlanPrice}</p>
                   </div>
-                  <div className="flex items-start justify-between text-xs font-bold">
-                    <p>Order Total</p> <p>${(searchParams.get('from') == 'bali' && memberShipType === "round") ? selectedPlanPrice/2 : selectedPlanPrice}</p>
+                  <div className="flex items-start justify-between text-xs font-bold py-4 border-b">
+                    <p>Order Total</p> <p>${(searchParams.get('from') == 'bali' && memberShipType === "round") ? selectedPlanPrice / 2 : selectedPlanPrice}</p>
                   </div>
-                  <p className="text-sm font-bold border-b">Payment Method</p>
-                  <div className="flex flex-row items-center justify-between gap-2 bg-gray-300 rounded-xl p-2 overflow-hidden">
+                  <p className="text-sm font-bold pb-3">Payment Method</p>
+                  <div className="flex flex-row items-center justify-between gap-2 bg-gray-400 text-white rounded-xl p-1 overflow-hidden">
                     <button
-                      className={` w-full py-2 px-4 ${
-                        selectPaymentMethod === "stripe"
-                          ? "bg-black text-white rounded-xl overflow-hidden cursor-not-allowed"
-                          : "hover:opacity-75 text-black"
-                      }`}
+                      className={` w-full py-2 px-4 ${selectPaymentMethod === "stripe"
+                        ? "bg-black text-white rounded-xl overflow-hidden cursor-not-allowed"
+                        : "hover:opacity-75 "
+                        }`}
                       onClick={() =>
                         handlePaymentMethod(setSelectPaymentMethod("stripe"))
                       }
@@ -1054,11 +1068,10 @@ const Register = ({ location }) => {
                     </button>
 
                     <button
-                      className={` w-full py-2 px-4 ${
-                        selectPaymentMethod === "crypto"
-                          ? "bg-black text-white overflow-hidden rounded-xl cursor-not-allowed"
-                          : "hover:opacity-75 text-black"
-                      }`}
+                      className={` w-full py-2 px-4 ${selectPaymentMethod === "crypto"
+                        ? "bg-black text-white overflow-hidden rounded-xl cursor-not-allowed"
+                        : "hover:opacity-75 "
+                        }`}
                       onClick={() =>
                         handlePaymentMethod(setSelectPaymentMethod("crypto"))
                       }
@@ -1067,115 +1080,119 @@ const Register = ({ location }) => {
                       Pay by crypto
                     </button>
                   </div>
-                  <div className="special:text-xl flex flex-row gap-2 items-center px-10 sm:hidden">
-              <input
-                id="checkbox"
-                type="checkbox"
-                checked={isChecked}
-                onChange={onCheckboxChange}
-                className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <div className="flex flex-row items-center gap-2">
-                <p
-                  className="text-[10px] xl:text-sm special:text-lg cursor-pointer"
-                  onClick={() => setIsChecked(!isChecked)}
-                >
-                  By checking the box you agree to our
-                </p>
-                <Link to="/conditions" target="_blank" className="yellow-text">
-                  <p className="text-[10px] xl:text-sm  special:text-lg cursor-pointer">
-                    Terms of use
-                  </p>
-                </Link>
-              </div>
-            </div>
-                  <button
-                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl disabled:bg-[#FF4C00] bg-${
-                      isChecked ? "black" : "gray-500"
-                    } hover:bg-${isChecked ? "black/50" : ""}`}
-                    onClick={(e) => onSignup(e)}
-                    // onClick={(e) => onSignup(e)}
-                    disabled={
-                      !isChecked ||
-                      buttonDis ||
-                      !values.firstname ||
-                      !values.lastname ||
-                      !values.email ||
-                      !values.password ||
-                      !values.confirmPassword ||
-                      !ph ||
-                      !memberShipType
-                    }
-                    type="submit"
-                  >
-                    <span className="xl:text-xl md:text-xl special:text-2xl text-lg text-white font-bold">
-                      {buttonText}
-                    </span>
-                    <MdOutlineNavigateNext
-                      color={"#fff"}
-                      size={40}
-                      className=""
+                  {/* <div className="special:text-xl flex flex-row gap-2 items-center px-10 sm:hidden">
+                    <input
+                      id="checkbox"
+                      type="checkbox"
+                      checked={isChecked}
+                      onChange={onCheckboxChange}
+                      className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
-                  </button>
-
-                  <div className="font-semibold text-lg text-center">
-                    <span>Already a member? </span>
-                    <span>
-                      <Link className="react-link text-[#157D98]" to="/login">
-                        Login
+                    <div className="flex flex-row items-center gap-2">
+                      <p
+                        className="text-[10px] xl:text-sm special:text-lg cursor-pointer"
+                        onClick={() => setIsChecked(!isChecked)}
+                      >
+                        By checking the box you agree to our
+                      </p>
+                      <Link to="/conditions" target="_blank" className="yellow-text">
+                        <p className="text-[10px] xl:text-sm  special:text-lg cursor-pointer">
+                          Terms of use
+                        </p>
                       </Link>
-                    </span>
-                  </div>
+                    </div>
+                  </div> */}
+                  {showOTPBox && (
+                    <div
+                      className={
+                        errors.otp && touched.opt
+                          ? "input-div input-error border-orange-600 border"
+                          : "input-div border-orange-600 border"
+                      }
+                    >
+                      <input
+                        type="text"
+                        placeholder="OTP Code"
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value.trim())}
+                      // id="tin"
+                      />
+                      <small className="text-error">
+                        {errors.otp && touched.opt && errors.otp}
+                      </small>
+                      {/* <small onClick={resendOTP}>Resend</small> */}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
+            <div className="flex  flex-col md:flex-row items-center justify-between gap-4 w-full px-8 py-4 lg:border-t lg:mt-4">
 
-            {showOTPBox && (
-              <div
-                className={
-                  errors.otp && touched.opt
-                    ? "input-div input-error"
-                    : "input-div"
-                }
-              >
+              <div className="special:text-xl flex gap-2 items-center px-2 lg:px-10 lg:pb-10 mt-4 w-full lg:w-1/2">
                 <input
-                  type="text"
-                  placeholder="OTP Code"
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value.trim())}
-                  // id="tin"
+                  id="checkbox"
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={onCheckboxChange}
+                  className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-                <small className="text-error">
-                  {errors.otp && touched.opt && errors.otp}
-                </small>
-                {/* <small onClick={resendOTP}>Resend</small> */}
-              </div>
-            )}
-
-            <div className="special:text-xl flex flex-row gap-2 items-center px-10 pb-10 max-sm:hidden">
-              <input
-                id="checkbox"
-                type="checkbox"
-                checked={isChecked}
-                onChange={onCheckboxChange}
-                className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <div className="flex flex-row items-center gap-2">
-                <p
-                  className="text-[10px] xl:text-sm special:text-lg cursor-pointer"
-                  onClick={() => setIsChecked(!isChecked)}
-                >
-                  By checking the box you agree to our
-                </p>
-                <Link to="/conditions" target="_blank" className="yellow-text">
-                  <p className="text-[10px] xl:text-sm  special:text-lg cursor-pointer">
-                    Terms of use
+                <div className="flex flex-row items-center gap-2">
+                  <p
+                    className="text-[10px] xl:text-sm special:text-lg cursor-pointer"
+                    onClick={() => setIsChecked(!isChecked)}
+                  >
+                    By checking the box you agree to our
                   </p>
-                </Link>
+                  <Link to="/conditions" target="_blank" className="yellow-text">
+                    <p className="text-[10px] xl:text-sm  special:text-lg cursor-pointer">
+                      Terms of use
+                    </p>
+                  </Link>
+                </div>
               </div>
+              <div className="w-full lg:w-1/2 px-2">
+                <button
+                  className={`text-white w-full rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl disabled:bg-[#FF4C00] bg-${isChecked ? "black" : "gray-500"
+                    } hover:bg-${isChecked ? "black/50" : ""}`}
+                  onClick={(e) => onSignup(e)}
+                  // onClick={(e) => onSignup(e)}
+                  disabled={
+                    !isChecked ||
+                    buttonDis ||
+                    !values.firstname ||
+                    !values.lastname ||
+                    !values.email ||
+                    !values.password ||
+                    !values.confirmPassword ||
+                    !ph ||
+                    !memberShipType
+                  }
+                  type="submit"
+                >
+                  <span className="xl:text-xl md:text-xl special:text-2xl text-lg text-white font-bold">
+                    {buttonText}
+                  </span>
+                  <MdOutlineNavigateNext
+                    color={"#fff"}
+                    size={40}
+                    className=""
+                  />
+                </button>
+              </div>
+
+
             </div>
 
+
             {!final && <div id="recaptcha-container"></div>}
+            <div className="font-semibold text-lg text-center w-full bg-gray-200 p-4 text-gray-500">
+              <span>Already a member? </span>
+              <span>
+                <Link className="react-link text-[#FF4C00]" to="/login">
+                  Login Now
+                </Link>
+              </span>
+            </div>
           </div>
         </div>
       )}

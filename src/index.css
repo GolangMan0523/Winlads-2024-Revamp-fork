@@ -181,9 +181,9 @@ code {
   width: 100%;
   padding: 10px 15px;
   border-radius: 8px;
-  background: white;
+  background: rgba(196, 205, 223, 0.1);
   font-size: 18px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   align-items: center;
   justify-content: space-between;
