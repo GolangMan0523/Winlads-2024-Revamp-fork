@@ -13,21 +13,20 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
 import newsCar from "../../assets/images/news/newsCar.png";
 
-
 function Newslist() {
   const [newsList, setNewsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [valUser, setValUser] = useState({});
   const navigate = useNavigate();
   const [initialShow, setInitShow] = useState(5);
-  
+
   const handleSeeMore = (show) => {
     if (show) {
-      setInitShow(transactions.length)
+      setInitShow(transactions.length);
     } else {
-      setInitShow(5)
+      setInitShow(5);
     }
-  }
+  };
 
   useEffect(() => {
     currentUserValidation();
@@ -78,19 +77,21 @@ function Newslist() {
             </div>
           </div>
           {/* <SearchField /> */}
-          <h1 className="font-bold text-xl special:text-4xl 2xl:text-2xl">
+
+          <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl ">
             News
-          </h1>
+          </p>
+
           {loading ? (
-            <div className="flex justify-center">
+            <div className="flex justify-center items-center min-h-[80vh] ">
               <ItemLoader />
             </div>
           ) : newsList.length > 0 ? (
-            <div className="flex flex-col space-y-4 special:pt-16 2xl:pt-8 xl:pt-8 pt-4 2xl:space-y-6">
+            <div className="flex flex-col space-y-4 special:pt-16 2xl:pt-8 xl:pt-8 pt-4 2xl:space-y-6 ">
               {newsList.map((news, key) => (
                 <NewsListProps
                   key={key}
-                  img={news.image ? news.image :newsCar}
+                  img={news.image ? news.image : newsCar}
                   maintitle={news.maintitle}
                   newstitle={news.newstitle}
                   createdat={news.createdat}
@@ -106,7 +107,7 @@ function Newslist() {
                 ))}
             </div>
           ) : (
-            <div className="flex flex-col items-center space-y-2">
+            <div className="flex flex-col items-center space-y-2  min-h-[80vh] justify-center">
               <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24" />
               <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
                 No More News
