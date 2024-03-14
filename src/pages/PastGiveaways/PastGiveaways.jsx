@@ -93,7 +93,7 @@ const PastGiveaways = () => {
        <div className="flex flex-col xl:px-6 px-4 special:px-12  overflow-hidden relative">
         <div className="flex items-center justify-between w-full">
           <div className="xl:flex flex-1 hidden">
-            <p className="font-bold text-lg xl:text-xl 2xl:text-2xl special:text-4xl pt-4 xl:pt-0">
+            <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl pt-4 xl:pt-0">
               Past Giveaways
             </p>
           </div>
@@ -104,9 +104,10 @@ const PastGiveaways = () => {
         </div>
 
         <div className="flex flex-1 xl:hidden">
-          <p className="font-bold text-lg xl:text-xl 2xl:text-2xl special:text-4xl pt-4 xl:pt-0">
-            Past Giveaways
-          </p>
+         
+          <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl  pt-4 ">
+          Past Giveaways
+              </p>
         </div>
 
         <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0 ">

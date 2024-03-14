@@ -28,7 +28,7 @@ const TopNav = ({ textColor }) => {
   return (
     <>
       <div
-        className={`border-none text-${textColor} flex flex-row items-center justify-between cursor-pointer xl:mx-4 mx-5  sm:font-bold text-[10px] sm:text-sm xl:text-sm md:text-lg 2xl:text-xl special:text-2xl nav-list-top `}
+        className={`border-none text-${textColor} flex flex-row items-center justify-between cursor-pointer xl:mx-4 mx-5 w-full  sm:font-bold text-[10px] sm:text-sm xl:text-sm md:text-lg 2xl:text-xl special:text-2xl nav-list-top `}
       >
         {/* <span className="navlinks">
           <Link to="/dashboard">Home</Link>
@@ -88,7 +88,7 @@ const TopNav = ({ textColor }) => {
 
         <span className="navlinks">
         
-          <div className={`p-2 sm:p-3 md:p-4 rounded-full  relative ${textColor === "black" ? "bg-[#F5F5F5]" : "bg-[#232323]"}`}>
+          <div className={`p-2 sm:p-3 md:p-4 rounded-full mr-3  relative ${textColor === "black" ? "bg-[#F5F5F5]" : "bg-[#232323]"}`}>
             <GoBellFill
               className="lg:text-[25px] md:text-[21px] sm:text-[18px] text-[16px] "
               onClick={handleClick}

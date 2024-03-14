@@ -243,6 +243,7 @@ const Transaction = () => {
 
 
               <div className="flex  items-center justify-evenly">
+               
                 <div className=" py-2    md:px-4 cursor-default ">
                   <div className="flex ">
                     <img
@@ -286,6 +287,8 @@ const Transaction = () => {
                   </p>
                 </div>
               </div>
+
+              
             </div>
             {transactionsCom ? (
               ""

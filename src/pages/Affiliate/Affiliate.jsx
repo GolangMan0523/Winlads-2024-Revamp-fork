@@ -218,7 +218,7 @@ const Affiliate = () => {
                   <div className="flex justify-between px-3">
                     <div className="flex items-center">
                       <div className="flex-1">
-                        <p className="text-black font-bold  font text-lg md:text-xl xl:text-xl 2xl:text-5xl special:text-3xl">
+                        <p className="text-black font-extrabold  font text-lg md:text-xl xl:text-xl 2xl:text-5xl special:text-3xl">
                           $
                           {typeof valUser.balance === "number"
                             ? valUser.balance.toFixed(2)
@@ -246,8 +246,8 @@ const Affiliate = () => {
                     </div>
                   </div>
 
-                  <div className="flex py-4">
-                    <div className="flex-1 py-2    md:px-4 cursor-default">
+                  <div className="flex  items-center justify-evenly">
+                    <div className="py-2    md:px-4 cursor-default">
                       <div className="flex ">
                         <img
                           src={NewEarning}
@@ -263,12 +263,14 @@ const Affiliate = () => {
                           </div>
                         </div>
                       </div>
-                      <p className="py-5 text-black text-sm md:text-2xl xl:text-sm 2xl:text-xl special:text-2xl">
-                        Total Earnings
-                      </p>
+                      <p className="py-4 text-[#6B6B6B] text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
+                    Total Earnings
+                  </p>
                     </div>
 
-                    <div className="flex-1 py-2   md:px-4 cursor-default">
+                    <div className="h-full border"></div>
+
+                    <div className="py-2   md:px-4 cursor-default ">
                       <div className="flex">
                         <img
                           src={Ticket}
@@ -285,7 +287,7 @@ const Affiliate = () => {
                           ).padStart(2, "0")}
                         </p>
                       </div>
-                      <p className="py-4 text-black text-sm md:text-2xl xl:text-sm 2xl:text-xl special:text-2xl">
+                      <p className="py-4 text-[#6B6B6B] text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                         Total Affiliates
                       </p>
                     </div>

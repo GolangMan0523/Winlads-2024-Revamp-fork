@@ -84,7 +84,7 @@ function SubscribeCard({
 
   return (
     <div
-      className={`relative border-2 border-blue-900 text-${textColor} py-8 special:py-8 2xl:py-8 xl:pt-10 rounded-[10px] flex flex-col cursor-pointer
+      className={`relative border-2 border-blue-900 text-${textColor} pt-8 special:pt-8 2xl:pt-8 xl:pt-10 rounded-[10px] flex flex-col cursor-pointer
       ${
         planeId &&
         ((month && planeId === mPlanId) ||
@@ -92,21 +92,18 @@ function SubscribeCard({
           (year && planeId === yPlanId))
       }
       `}
-      style={{
-        background: color,
-        borderColor: colorFrom
-      }}
+      style={{background: color, borderColor: colorFrom}}
     >
       {isPopular && (
         <div
-          className="flex items-center justify-center text-center absolute rounded-t-2xl top-[-40px] left-1/2 transform -translate-x-1/2 py-2 bg-black font-semibold w-1/2 "
+          className="flex items-center  justify-center text-center absolute rounded-t-2xl top-[-40px] left-1/2 transform -translate-x-1/2 py-2 bg-black font-semibold w-1/2 "
           style={{ color: "#fff" }}
         >
           <FaStar className="text-yellow-500" /> Most Popular
         </div>
       )}
 
-      <div className="flex justify-between items-end pt-2 px-6 text-black">
+      <div className="flex justify-between items-end  px-6 text-black">
         <p className="text-lg special:text-3xl 2xl:text-2xl text-centerflex flex-col">
           <p className="text-start font-extrabold ">{name}</p>
           <p className="text-start">Tier</p>
@@ -115,11 +112,12 @@ function SubscribeCard({
           {raffleCount}&nbsp;<span className="text-xs font-semibold">FREE</span>
         </p>
       </div>
-      <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3 w-full bg-[#DEE8E9]">
+      <div className="font-bold text-center text-sm special:text-2xl 2xl:text-lg my-3 flex items-center justify-center  w-full bg-[#DEE8E9] py-2 special:py-3">
         <span className="uppercase text-xs w-full text-black">
           {subId}&nbsp;Accumulating {raffleCount == 1 ? "Entry" : "Entries"}
         </span>
-      </p>
+      </div>
+
       <div
         className={`mx-6 relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 text-black pt-2 px-2 rounded-xl h-full -2 border-solid border-${cardBorderColor}`}
       >

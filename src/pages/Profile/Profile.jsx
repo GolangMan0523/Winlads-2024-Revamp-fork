@@ -4,8 +4,8 @@ import TopNav from "../../components/TopNav/TopNav";
 import User from "../../assets/images/side-bar/User2.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import MainCar from "../../assets/images/MainCar.png";
-import Vrfy from "../../assets/images/icons/Verified.png";
-import NotVrfy from "../../assets/images/icons/Unverified.png";
+import Vrfy from "../../assets/images/icons/Verified2.png";
+import NotVrfy from "../../assets/images/icons/Unverified2.png";
 import backgroundcar from "../../assets/images/background/Background-car.png";
 import NewEarning from "../../assets/images/new/earnings.png";
 
@@ -273,19 +273,20 @@ const Profile = () => {
   return (
     <div className="bg-[#F2F5FB] w-full h-full">
       <div className="flex relative w-full">
-        <div className="right-side-logo max-xl:hidden"></div>
         <div className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-0 space-y-4 xl:space-y-0 bg-no-repeat w-full">
-          <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
+          <div className="flex flex-col space-y-4 flex-1 xl:hidden">
             <div className=" rounded-b-3xl pt-4">
-              <div className="flex justify-between items-center py-3">
-                <p className="font-bold text-xl special:text-4xl 2xl:text-2xl">
-                  Subscription
+              <div className="flex flex-col py-3  w-full ">
+                <TopNav textColor={"black"} />
+                <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl block  xl:hidden pt-4 ml-5">
+                  Setting
                 </p>
-                <LuAlignJustify className="sm:hidden w-7 h-7" />
+
+                {/* <LuAlignJustify className="sm:hidden w-7 h-7" /> */}
               </div>
               {/* <TopNav textColor={"black"} /> */}
               <div className="pt-0 -mb-10 max-sm:hidden">
-                <img className="" src={MainCar} alt="main" />
+                <img className="w-2/3" src={MainCar} alt="main" />
               </div>
             </div>
             {/* <AffiliateCard /> */}
@@ -293,8 +294,8 @@ const Profile = () => {
           <div className="flex flex-col space-y-4 flex-1 xl:mx-4">
             <div className="flex flex-col space-y-3">
               <div className="flex justify-between items-center py-3 max-sm:hidden">
-                <p className="font-bold text-xl special:text-4xl 2xl:text-2xl">
-                  Subscription
+                <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl hidden xl:block pt-4">
+                  Setting
                 </p>
               </div>
               {loading ? (
@@ -323,8 +324,9 @@ const Profile = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex py-4 max-sm:divide-x max-sm:justify-between">
-                    <div className="flex-1 py-2 md:px-4 cursor-default">
+
+                  <div className="flex  items-center justify-evenly">
+                    <div className="py-2    md:px-4 cursor-default">
                       <div className="flex ">
                         <img
                           src={NewEarning}
@@ -340,12 +342,14 @@ const Profile = () => {
                           </div>
                         </div>
                       </div>
-                      <p className="py-5 text-black text-sm md:text-2xl xl:text-sm 2xl:text-xl special:text-2xl">
+                      <p className="py-5 text-[#6B6B6B] text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                         Total Earnings
                       </p>
                     </div>
 
-                    <div className="flex-1 py-2 md:px-4 cursor-default">
+                    <div className="h-full border"></div>
+
+                    <div className="py-2    md:px-4 cursor-default">
                       <div className="flex max-sm:justify-end">
                         <img
                           src={Ticket}
@@ -356,30 +360,33 @@ const Profile = () => {
                         <p className=" px-8 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
                           {String(
                             refferals?.l1count +
-                            refferals?.l2count +
-                            refferals?.l3count +
-                            refferals?.l4count || 0
+                              refferals?.l2count +
+                              refferals?.l3count +
+                              refferals?.l4count || 0
                           ).padStart(2, "0")}
                         </p>
                       </div>
-                      <p className="py-4 text-black max-sm:text-center text-sm md:text-2xl xl:text-sm 2xl:text-xl special:text-2xl">
+                      <p className="py-4 text-[#6B6B6B] text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                         Total Affiliates
                       </p>
                     </div>
                   </div>
 
-                  <button
-                    className={`bg-[#FF4C00] py-2 text-center rounded-xl hover:bg-black/75 ${!valUser.subscriptionPlan?.data
-                        ? "cursor-not-allowed"
-                        : "cursor-pointer"
+                  <div className="flex items-center justify-center w-full px-5 pb-10 xl:pb-0 xl:pt-20">
+                    <button
+                      className={`bg-[#FF4C00] py-3 sm:py-4 text-center rounded-xl hover:bg-black/75 w-full ${
+                        !valUser.subscriptionPlan?.data
+                          ? "cursor-not-allowed"
+                          : "cursor-pointer"
                       }`}
-                    onClick={() => navigate("/withdraw")}
-                    disabled={!valUser.subscriptionPlan?.data}
-                  >
-                    <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl font-semibold">
-                      Withdraw
-                    </p>
-                  </button>
+                      onClick={() => navigate("/withdraw")}
+                      disabled={!valUser.subscriptionPlan?.data}
+                    >
+                      <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl  font-semibold">
+                        Withdraw
+                      </p>
+                    </button>
+                  </div>
                 </>
               )}
             </div>
@@ -387,6 +394,7 @@ const Profile = () => {
           <div className="xl:flex flex-col space-y-4 flex-1 hidden">
             <div className=" rounded-b-3xl pt-4">
               <TopNav textColor={"black"} />
+
               <div className="pt-10">
                 <motion.img
                   initial={{ x: 80, opacity: 0 }}
@@ -458,26 +466,28 @@ Level 1
         {/* <p className="special:text-xl">Verified User</p> */}
         <p className="special:text-xl">{valUser.name}</p>
       </div>
+
       <div className="flex flex-col space-y-2 special:space-y-5 px-10 mb-20">
-        <div className="flex flex-col space-y-2">
-          <p className="text-black text-sm xl:text-md special:text-xl">
+        {/* <div className="flex flex-col space-y-2">
+          <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
             User ID
           </p>
           <input
-            className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+            className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
             placeholder="Enter User Name"
             type="text"
             value={userData?.uid}
             disabled
           ></input>
-        </div>
-        <div className="flex items-center gap-2 max-sm:flex-col">
+        </div> */}
+
+        <div className="flex items-center gap-2 max-sm:flex-col mb-3">
           <div className="flex flex-col w-1/2 space-y-2 max-sm:w-full">
-            <p className="text-black text-sm xl:text-md special:text-xl">
+            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
               First Name
             </p>
             <input
-              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
+              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
               placeholder="Enter First Name"
               type="text"
               onChange={(e) => {
@@ -489,11 +499,11 @@ Level 1
             ></input>
           </div>
           <div className="flex flex-col w-1/2 space-y-2 max-sm:w-full">
-            <p className="text-black text-sm xl:text-md special:text-xl">
+            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
               Surname
             </p>
             <input
-              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
+              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
               placeholder="Enter Surame"
               type="text"
               onChange={(e) => {
@@ -508,7 +518,7 @@ Level 1
         </div>
 
         {/* <div className="flex flex-col space-y-2">
-<p className="text-black text-sm xl:text-md special:text-xl">
+<p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
   Last Name
 </p>
 <input
@@ -521,7 +531,7 @@ Level 1
 </div> */}
         <div className="flex flex-col space-y-2 relative">
           <div className="flex items-center justify-between">
-            <p className="text-black text-sm xl:text-md special:text-xl">
+            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
               Valid Email
             </p>
             {valUser.verified ? (
@@ -539,7 +549,7 @@ Level 1
           </div>
 
           <input
-            className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+            className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
             placeholder="Enter Valid EMail"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
@@ -549,61 +559,84 @@ Level 1
           {valUser && (
             <img
               src={valUser.verified ? Vrfy : NotVrfy}
-              className="w-20 absolute top-8 right-2"
+              className="w-20 special:w-24 absolute top-9 special:top-12 right-2"
             />
           )}
         </div>
-        <div className="flex flex-col space-y-2 relative">
-          <div className="flex items-center justify-between">
-          <p className="text-black text-sm xl:text-md special:text-xl">
-            Phone Number
-          </p>
-          {
-            valUser.mobileVerified ? '' : <span className="text-xs text-red-500 text-right"> Please verify your mobile by clicking <Link to={'/verifyMobile'} className="text-blue-500 font-bold"> here</Link></span>
-          }
-          </div>
 
-          <input
-            className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-            placeholder="Enter Phone Number"
-            type="tel"
-            disabled
-            onChange={(e) => setMobile(e.target.value)}
-            value={mobile}
-          ></input>
-          {valUser && <img src={valUser.mobileVerified ? Vrfy : NotVrfy} className="w-20 absolute top-8 right-2" />}
-        </div>
         {/* <div className="flex flex-col space-y-2">
-  <p className="text-black text-sm xl:text-md special:text-xl">
+  <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
     NIC Number
   </p>
   <input
-    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+    className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
     placeholder="Enter NIC Number"
     type="text"
     onChange={(e) => setNic(e.target.value)}
     value={nic}
   ></input>
 </div> */}
-        <div className="flex flex-col space-y-2">
-          <p className="text-black text-sm xl:text-md special:text-xl">
-            Date of Birth
-          </p>
-          <input
-            className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-            placeholder="Enter Date of Birth"
-            type="date"
-            value={dob?.substring(0, 10)}
-            onChange={(e) => setDob(e.target.value)}
-          ></input>
+
+        <div className="flex items-center gap-2 max-sm:flex-col ">
+          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full  relative mb-3">
+            <div className="flex items-center justify-between">
+              <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
+                Phone Number
+              </p>
+              {valUser.mobileVerified ? (
+                ""
+              ) : (
+                <span className="text-xs text-red-500 text-right">
+                  {" "}
+                  Please verify your mobile by clicking{" "}
+                  <Link
+                    to={"/verifyMobile"}
+                    className="text-blue-500 font-bold"
+                  >
+                    {" "}
+                    here
+                  </Link>
+                </span>
+              )}
+            </div>
+
+            <input
+              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+              placeholder="Enter Phone Number"
+              type="tel"
+              disabled
+              onChange={(e) => setMobile(e.target.value)}
+              value={mobile}
+            ></input>
+            {valUser && (
+              <img
+                src={valUser.mobileVerified ? Vrfy : NotVrfy}
+                className="w-20 special:w-24 absolute top-9 special:top-12 right-2"
+              />
+            )}
+          </div>
+
+          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full mb-3">
+            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
+              Date of Birth
+            </p>
+            <input
+              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+              placeholder="Enter Date of Birth"
+              type="date"
+              value={dob?.substring(0, 10)}
+              onChange={(e) => setDob(e.target.value)}
+            ></input>
+          </div>
         </div>
+
         <div className="flex items-center gap-2 max-sm:flex-col">
-          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full">
-            <p className="text-black text-sm xl:text-md special:text-xl">
+          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full mb-3">
+            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
               Address Line 1
             </p>
             <input
-              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
               placeholder="Address Line 1"
               type="text"
               value={address}
@@ -617,12 +650,12 @@ Level 1
               }}
             ></input>
           </div>
-          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full">
-            <p className="text-black text-sm xl:text-md special:text-xl">
+          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full mb-3">
+            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
               Address Line 2
             </p>
             <input
-              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
               placeholder="Address Line 2"
               type="text"
               value={address2}
@@ -638,13 +671,14 @@ Level 1
             ></input>
           </div>
         </div>
-        <div className="flex items-center gap-2 max-sm:flex-col">
+
+        <div className="flex items-center gap-2 max-sm:flex-col mb-3">
           <div className="flex flex-col space-y-2 w-1/3 max-sm:w-full">
-            <p className="text-black text-sm xl:text-md special:text-xl">
+            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
               City
             </p>
             <input
-              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
               placeholder="City"
               type="text"
               value={city}
@@ -659,11 +693,11 @@ Level 1
             ></input>
           </div>
           <div className="flex flex-col space-y-2 w-1/3 max-sm:w-full">
-            <p className="text-black text-sm xl:text-md special:text-xl">
+            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
               State
             </p>
             <input
-              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
               placeholder="State"
               type="text"
               value={state}
@@ -678,11 +712,11 @@ Level 1
             ></input>
           </div>
           <div className="flex flex-col space-y-2 w-1/3 max-sm:w-full">
-            <p className="text-black text-sm xl:text-md special:text-xl">
+            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
               Postal Code
             </p>
             <input
-              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
               placeholder="Postal Code"
               type="text"
               value={postalcode}
@@ -699,7 +733,7 @@ Level 1
         </div>
 
         {/* <div className="flex flex-col space-y-2">
-  <p className="text-black text-sm xl:text-md special:text-xl">
+  <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
     License Number
   </p>
   <input
@@ -711,7 +745,7 @@ Level 1
   ></input>
 </div> */}
         {/* <div className="flex flex-col space-y-2">
-  <p className="text-black text-sm xl:text-md special:text-xl">
+  <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
     TIN
   </p>
   <input
@@ -723,13 +757,13 @@ Level 1
   />
 </div> */}
         {refferalId ? (
-          <div className="flex flex-col space-y-2">
-            <p className="text-black text-sm xl:text-md special:text-xl">
+          <div className="flex flex-col space-y-2 mb-3">
+            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
               Refferal Id
             </p>
             <input
-              className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-              placeholder="Enter Reference Id"
+              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+              placeholder="Enter Refferal Id"
               type="text"
               disabled
               value={userData?.rafflesId}
@@ -741,23 +775,42 @@ Level 1
 
         <div className="flex flex-row justify-between items-center pt-4 max-sm:flex-col max-sm:items-start max-sm:gap-5">
           <div className="special:text-xl flex flex-row gap-2 items-center">
-            {" "}
-            <input
-              id="checkbox"
-              type="checkbox"
-              checked={isChecked}
-              onChange={onCheckboxChange}
-              className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
+            <div className="inline-flex items-center">
+              <label className="relative flex items-center p-3 rounded-full cursor-pointer ">
+                <input
+                  id="checkbox"
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={onCheckboxChange}
+                  className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-[#666666]  transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-[#FF4C00] checked:bg-[#FF4C00] checked:before:bg-[#FF4C00] hover:before:opacity-10"
+                />
+                <span className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-3.5 w-3.5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    strokeWidth={1}
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </label>
+            </div>
             <div className="flex flex-row items-center gap-2">
               <p
-                className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer"
+                className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer font-semibold "
                 onClick={() => setIsChecked(!isChecked)}
               >
                 I agree with the
               </p>
               <Link to="/conditions" target="_blank" className="yellow-text">
-                <p className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer">
+                <p className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer font-semibold text-[#FF4C00]">
                   Terms of use
                 </p>
               </Link>
@@ -767,8 +820,9 @@ Level 1
           <button
             disabled={!isChecked}
             onClick={() => updateUserDatails()}
-            className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl max-sm:w-full bg-${isChecked ? "black" : "[#FF4C00]"
-              } hover:bg-${isChecked ? "black/50" : ""}`}
+            className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl max-sm:w-full bg-${
+              isChecked ? "black" : "[#FF4C00]"
+            } hover:bg-${isChecked ? "black/50" : ""}`}
           >
             Confirm
           </button>

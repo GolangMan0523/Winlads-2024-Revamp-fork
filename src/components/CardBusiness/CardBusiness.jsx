@@ -88,9 +88,9 @@ const BCard = () => {
               </div>
               <div className="flex items-center justify-center">
 
-                <span className="  text-black text-xs text-center md:text-sm xl:text-lg 2xl:text-xl special:text-xl xl:w-96 w-40">
-                  "Connecting hearts, uplifting lives: Our People-centric
-                  giveaways"
+                <span className="  text-black text-xs font-semibold text-center md:text-sm xl:text-lg 2xl:text-xl special:text-xl xl:w-96 w-40">
+                  "Connecting Hearts, Uplifting Lives: Our People-Centric Giveaways"
+
                 </span>
                 <div className="w-5/6 py-5">
                   <img
