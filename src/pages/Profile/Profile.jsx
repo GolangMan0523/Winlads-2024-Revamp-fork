@@ -369,7 +369,7 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-center w-full px-5 pb-10 xl:pb-0 xl:pt-20">
+                  <div className="flex items-center justify-center w-full px-5 pb-10 xl:pb-0">
                     <button
                       className={`bg-[#FF4C00] py-3 sm:py-4 text-center rounded-xl hover:bg-black/75 w-full ${
                         !valUser.subscriptionPlan?.data
