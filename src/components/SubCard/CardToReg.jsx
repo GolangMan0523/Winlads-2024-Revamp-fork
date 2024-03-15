@@ -133,6 +133,12 @@ const SubCard = ({
               {desc1}
             </p>
           </div> */}
+          <div className="flex flex-row  gap-2 items-center">
+            <img src={Correct} alt="" />
+            <p className={`text-${descColor} text-[10px] 2xl:text-[16px]`}>
+              ${price}
+            </p>
+          </div>
           {desc1.slice(0, initial).map((el, key) => (
             <div className="flex flex-row  gap-2 items-center" key={key}>
               <img src={Correct} alt="" />
@@ -164,8 +170,8 @@ const SubCard = ({
       </div>
       <button
         className={`mx-6 border-2 rounded-md disabled:bg-gray-500 text-white hover:opacity-75 cursor-pointer flex flex-row justify-center py-2 mt-auto ${chosenPlan === planId && currentType === chosenType
-            ? `bg-${bgColorTo}`
-            : "bg-white"
+          ? `bg-${bgColorTo}`
+          : "bg-white"
           }`}
         onClick={() => handleChosePlan(planId)}
         onMouseEnter={() => switchBtnColor()}
@@ -180,8 +186,8 @@ const SubCard = ({
         <div className={`flex flex-row items-center gap-2`} disabled={isDisabled}>
           <p
             className={`text-xs 2xl:text-lg ${chosenPlan === planId && currentType === chosenType
-                ? "text-white"
-                : ""
+              ? "text-white"
+              : ""
               }`}
           >
             {chosenPlan === planId && currentType === chosenType

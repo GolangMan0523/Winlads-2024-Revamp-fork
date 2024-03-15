@@ -41,10 +41,10 @@ const NewMyEntries = () => {
   const getGiveawaySummery = async (uid) => {
     try {
       const summery = await axios.get(`${import.meta.env.VITE_SERVER_API}/myRaffleRoundsSummary?uid=${uid}`);
-      console.log(summery.data.data.rounds);
+      console.log(summery.data.data.rounds,"Rounds");
       let upcomingRounds = summery.data.data.rounds.filter(round => new Date(round.startingtime) > Date.now());
       setMyEntries(upcomingRounds.sort((a, b) => new Date(a.startingtime) - new Date(b.startingtime)));
-      summery.data?.data?.rounds?.map((g) => {
+      upcomingRounds.map((g) => {
         setTotalEntries((prev) => (prev + g.ticketCount))
       })
     } catch (error) {
