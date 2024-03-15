@@ -169,8 +169,10 @@ function BusinessCard() {
           </p>
         )}
       </div>
+
+
       <div className="flex items-center justify-center">
-        <div className="text-left flex flex-col items-center space-y-0 special:space-y-16 ">
+        <div className="text-left flex flex-col items-center space-y-0 special:space-y-16   ">
           {isOrderNow ? (
             <ShareForm
               firstName={valUser.firstname}
@@ -192,7 +194,7 @@ function BusinessCard() {
             <BCard />
           )}
 
-          <div className="w-full xl:w-1/2 special:w-2/5 flex gap-16 justify-center pb-10 ">
+          <div className="w-full md:w-2/3 lg:w-1/2  flex gap-16 justify-center pb-10 pt-5  ">
 
             {/* <div className="flex flex-col items-center">
               <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]">
@@ -211,11 +213,11 @@ function BusinessCard() {
                 Save
               </label>
             </div> */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center  w-full">
               {isOrderNow ? (
                 // Display "orderNow" image when isOrderNow is true
                 <button
-                  className="text-md md:text-lg pro:text-xl xl:text-xl special:text-xl p-3 rounded-[20px] bg-black hover:bg-white hover:text-black hover:border-black border-2 text-white"
+                  className="text-sm font-semibold w-full special:text-xl py-3 sm:py-5 special:py-6 rounded-2xl bg-black hover:bg-white hover:text-black hover:border-black border-2 text-white"
                   onClick={handleRequestButton}
                 >
                   {/* <MdOutlineAddShoppingCart /> */}
@@ -225,8 +227,8 @@ function BusinessCard() {
                 // Display "add" image when isOrderNow is false
                 <>
                   <button
-                    className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-[#FF4C00] text-white hover:bg-white  hover:text-black border-2 hover:border-black ${!valUser.subscriptionid ||
-                      (valUser?.subscriptionPlan?.data?.name === "Starter" &&
+                    className={`text-sm font-semibold w-full special:text-xl py-3 sm:py-5 special:py-6 rounded-2xl bg-[#FF4C00] text-white hover:bg-white  hover:text-black border-2 hover:border-black ${!valUser.subscriptionid ||
+                      (valUser?.subscriptionPlan?.data?.name == "Starter" &&
                         "cursor-not-allowed")
                       }`}
                     onClick={handleShareClick}
@@ -237,6 +239,7 @@ function BusinessCard() {
                   >
                     {/* <MdPersonAddAlt1 /> */} Apply for a Business Card
                   </button>
+
 
                   <Link
                     className={`text-xs md:text-xs pro:text-xs xl:text-sm special:text-sm px-3 py-2 my-0 rounded-[20px] hover:text-blue-500`}

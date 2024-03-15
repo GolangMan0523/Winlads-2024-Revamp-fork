@@ -222,24 +222,19 @@ function Subscription() {
           />
           {/* left side */}
           <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6 relative">
-            <div className="visible xl:hidden space-y-4">
-              {/* <div className="bg-black rounded-b-3xl py-4">
-                <TopNav textColor={"white"} />
-              </div> */}
-
-              {/* <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2 relative">
-                <div className="w-full">
-                  <GoldCard />
-                </div>
-              </div> */}
+            <div className=" space-y-4 w-full  xl:hidden">
+              <div className=" py-4">
+                <TopNav textColor={"black"} />
+              </div>
             </div>
-            {/* <SearchField /> */}
-            <div className="flex justify-between items-center">
 
-            <p className="font-bold text-xl special:text-4xl 2xl:text-2xl">
-              Subscription
-            </p>
-            <LuAlignJustify className="sm:hidden w-7 h-7"/>
+            {/* <SearchField /> */}
+            <div className="flex  items-center xl:pt-4">
+
+            <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl ">
+                Subscription
+              </p>
+            
             </div>
 
             {/* absolute xl:left-60 left-0 right-0 top-60 bottom-0 flex */}
@@ -276,21 +271,10 @@ function Subscription() {
 
           {/* right-side */}
           <div className="flex-col flex-1 space-y-4 hidden xl:flex">
-            <div className="space-y-8">
-              {/* <div className="bg-black rounded-b-3xl py-4"> */}
-              <div></div>
-              <TopNav textColor={"black"} />
-              {/* <div className="pt-10">
-                  <motion.img
-                    initial={{ x: 80, opacity: 0 }}
-                    animate={{ x: 80, opacity: 1 }}
-                    transition={{ type: "tween", duration: 1, delay: 1 }}
-                    className="w-3/4"
-                    src={MainCar}
-                    alt="main"
-                  />
-                </div> */}
-              {/* </div> */}
+            <div className="space-y-4">
+            <div className=" py-4">
+                <TopNav textColor={"black"} />
+              </div>
             </div>
           </div>
         </div>

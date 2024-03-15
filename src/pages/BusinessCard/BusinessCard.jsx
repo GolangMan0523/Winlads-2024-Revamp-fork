@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
 
-
 function BusinessCard() {
   const [valUser, setValUser] = useState({});
   const navigate = useNavigate();
@@ -30,10 +29,11 @@ function BusinessCard() {
 
   return (
     <div>
-      <p className="text-xl font-bold xl:text-xl md:text-xl special:text-4xl p-5">
-          Business Card
-        </p>
-      <div className="w-full px-5 xl:px-40 ">
+      <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl p-5">
+        Business Card
+      </p>
+
+      <div className="w-full px-10 xl:px-40 ">
         <BusinessCardComponent />
       </div>
     </div>

@@ -192,7 +192,7 @@ const OngoingGiveaways = () => {
           </div>
           <div className="flex items-center justify-between w-full">
             <div className="flex flex-1">
-              <p className="font-bold text-lg xl:text-xl 2xl:text-2xl special:text-4xl pt-4 xl:pt-0">
+              <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl pt-4 xl:pt-0">
                 Active Giveaways
               </p>
             </div>
