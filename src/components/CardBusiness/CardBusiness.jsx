@@ -60,14 +60,14 @@ const BCard = () => {
         <>
           <div className="bg-gray-200 rotate-2 mt-4 rounded-2xl xl:w-3/4 mx-auto">
             <div
-              className={`bg-[#6ED9F7] -rotate-2 rounded-[35px] px-4 special:px-8 2xl:px-6 justify-between py-4 special:py-8 2xl:py-4 cursor-pointer `}
-            // style={{
-            //   background: `linear-gradient(90deg, ${
-            //     valUser?.subscriptionPlan?.data?.color
-            //       ? valUser?.subscriptionPlan?.data?.color
-            //       : "#15803D"
-            //   } 0%, #000608 100%)`,
-            // }}
+              className={` -rotate-2 rounded-[35px] px-4 special:px-8 2xl:px-6 justify-between py-4 special:py-8 2xl:py-4 cursor-pointer `}
+            style={{
+              background: `linear-gradient(90deg, ${
+                valUser?.subscriptionPlan?.data?.colorFrom
+                  ? valUser?.subscriptionPlan?.data?.colorFrom
+                  : "#15803D"
+              } 0%, #000608 100%)`,
+            }}
             >
               <div className="flex flex-row justify-between item-center py-5 xl:py-5">
                 <div className="col-span-8">
@@ -92,7 +92,7 @@ const BCard = () => {
                   "Connecting hearts, uplifting lives: Our People-centric
                   giveaways"
                 </span>
-                <div className="w-5/6 py-5">
+                <div className="w-5/6 pb-5">
                   <img
                     src={png2}
                     alt=""

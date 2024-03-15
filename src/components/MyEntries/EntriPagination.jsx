@@ -31,7 +31,7 @@ const EntriPagination = ({
     if (totalPages <= 7) {
       return Array.from({ length: totalPages }, (_, index) => (
         <div
-          className="p-2 rounded-full hover:bg-gray-300 aspect-square cursor-pointer"
+          className="px-2 rounded-full hover:bg-gray-300 aspect-square cursor-pointer"
           style={{
             backgroundColor: currentPage === index + 1 ? "#e2e8f0" : "white",
           }}
@@ -47,7 +47,7 @@ const EntriPagination = ({
       { length: visiblePages },
       (_, index) => (
         <div
-          className="p-2 rounded-full hover:bg-gray-300 aspect-square cursor-pointer"
+          className="px-2 rounded-full hover:bg-gray-300 aspect-square cursor-pointer"
           style={{
             backgroundColor: currentPage === index + 1 ? "#e2e8f0" : "white",
           }}
@@ -61,7 +61,7 @@ const EntriPagination = ({
 
     const lastPageNumbers = Array.from({ length: visiblePages }, (_, index) => (
       <div
-        className="p-2 rounded-full hover:bg-gray-300 aspect-square cursor-pointer"
+        className="px-2 rounded-full hover:bg-gray-300 aspect-square cursor-pointer"
         style={{
           backgroundColor:
             currentPage === totalPages - visiblePages + index + 1

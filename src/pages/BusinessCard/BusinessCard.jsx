@@ -33,7 +33,7 @@ function BusinessCard() {
       <p className="text-xl font-bold xl:text-xl md:text-xl special:text-4xl p-5">
           Business Card
         </p>
-      <div className="w-full px-10 xl:px-40 ">
+      <div className="w-full px-5 xl:px-40 ">
         <BusinessCardComponent />
       </div>
     </div>

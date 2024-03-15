@@ -224,13 +224,13 @@ const Affiliate = () => {
                             ? valUser.balance.toFixed(2)
                             : "0.00"}
                         </p>
-                        <div className="flex gap-3">
+                        <div className="flex items-center gap-2">
                           <p className="2xl:text-lg p-1 font-semibold capitalize text-gray-600">
                             your balance
                           </p>
-                          <h1 className="bg-[#ee391c] p-1 px-2 text-white rounded-full">
-                            boomer
-                          </h1>
+                          <span className="bg-yellow-500 uppercase text-sm py-1 px-2 text-black font-extrabold rounded-full">
+                            {valUser?.subscriptionPlan?.data?.name || 'N/A'}
+                          </span>
                         </div>
                       </div>
                     </div>

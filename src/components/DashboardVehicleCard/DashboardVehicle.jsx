@@ -72,6 +72,7 @@ const DashboardVehicleCard = ({
   }
 
   const bg = hexToRgba(color, 0.5);
+  const btn = hexToRgba(color, 0.5);
 
 
   return (
@@ -169,7 +170,7 @@ const DashboardVehicleCard = ({
                 )} */}
 
 
-                {onePackage && (  <button className="rounded-lg py-3 font-semibold text-black text-sm sm:text-base hover:scale-105 mt-5" style={{ backgroundColor: color }}>
+                {onePackage && (  <button className="rounded-lg capitalize py-3 font-semibold text-black text-sm sm:text-base hover:scale-105 mt-5" style={{ backgroundColor: btn }}>
                 one off packages
                 </button>)}
               
