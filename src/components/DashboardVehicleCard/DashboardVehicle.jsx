@@ -121,13 +121,13 @@ const DashboardVehicleCard = ({
               </div>
 
               <div className="px-3 flex flex-row justify-between items-center text-black ">
-                  <span className="text-sm special:text-lg text-black py-2 special:p-2">
+                  {/* <span className="text-sm special:text-lg text-black py-2 special:p-2">
                     {formattedDate}
-                  </span>
+                  </span> */}
                 </div>
 
               {count && (
-                <p className="text-sm">
+                <p className="text-sm text-black px-3">
                   My Entries : {count ? count : "No Entries"}
                 </p>
               )}

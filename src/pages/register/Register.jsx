@@ -31,6 +31,12 @@ import {
   FcUnlock,
   FcTwoSmartphones,
 } from "react-icons/fc";
+
+import { FaRegUser } from "react-icons/fa6";
+import { MdAlternateEmail } from "react-icons/md";
+import { GoLock } from "react-icons/go";
+import { BsPhoneVibrate } from "react-icons/bs";
+
 import Card from "../../components/SubCard/CardToReg.jsx";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle.jsx";
 import VehicleCardForReg from "../../components/DashboardVehicleCard/VehicleCardForReg.jsx";
@@ -697,6 +703,15 @@ const Register = ({ location }) => {
                       currentType={
                         isQuartly ? "quater" : isYearly ? "annual" : "monthly"
                       }
+                      price={
+                        (isMonthly
+                          ? plan.monthly
+                          : isQuartly
+                            ? plan.semiannualy
+                            : isYearly
+                              ? plan.annualy
+                              : "")
+                      }
                       mPlanId={plan.subid}
                       qPlanId={plan.subidsemiannual}
                       yPlanId={plan.subidannual}
@@ -824,7 +839,7 @@ const Register = ({ location }) => {
                             : "input-div"
                         }
                       >
-                        <FcBusinessman size={20} />
+                        <FaRegUser size={20} />
                         <input
                           type="text"
                           placeholder="Your First Name"
@@ -848,7 +863,7 @@ const Register = ({ location }) => {
                             : "input-div"
                         }
                       >
-                        <FcButtingIn size={20} />
+                        <FaRegUser size={20} />
                         <input
                           type="text"
                           placeholder="Your Surname"
@@ -873,7 +888,7 @@ const Register = ({ location }) => {
                             : "input-div"
                         }
                       >
-                        <FcFeedback size={20} />
+                        <MdAlternateEmail size={20} />
                         <input
                           type="email"
                           placeholder="Your Email Address"
@@ -895,7 +910,7 @@ const Register = ({ location }) => {
                             : "input-div"
                         }
                       >
-                        <FcUnlock size={20} />
+                        <GoLock size={20} />
                         <input
                           type="password"
                           placeholder="Password"
@@ -920,7 +935,7 @@ const Register = ({ location }) => {
                             : "input-div"
                         }
                       >
-                        <FcTwoSmartphones size={20} />
+                        <GoLock size={20} />
                         <input
                           type="password"
                           placeholder="Confirm Password"
@@ -968,7 +983,7 @@ const Register = ({ location }) => {
                               : "input-div"
                           }
                         >
-                          <FcSmartphoneTablet size={20} />
+                          <BsPhoneVibrate size={20} />
                           <input
                             type="text"
                             placeholder="Affiliate ID (Optional)"
@@ -1055,7 +1070,7 @@ const Register = ({ location }) => {
                   <p className="text-sm font-bold pb-3">Payment Method</p>
                   <div className="flex flex-row items-center justify-between gap-2 bg-gray-400 text-white rounded-xl p-1 overflow-hidden">
                     <button
-                      className={` w-full py-2 px-4 ${selectPaymentMethod === "stripe"
+                      className={` w-full py-3 px-4 ${selectPaymentMethod === "stripe"
                         ? "bg-black text-white rounded-xl overflow-hidden cursor-not-allowed"
                         : "hover:opacity-75 "
                         }`}
@@ -1068,7 +1083,7 @@ const Register = ({ location }) => {
                     </button>
 
                     <button
-                      className={` w-full py-2 px-4 ${selectPaymentMethod === "crypto"
+                      className={` w-full py-3 px-4 ${selectPaymentMethod === "crypto"
                         ? "bg-black text-white overflow-hidden rounded-xl cursor-not-allowed"
                         : "hover:opacity-75 "
                         }`}

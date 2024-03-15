@@ -234,7 +234,7 @@ const Transaction = () => {
                     </p>
 
                     <div className="flex uppercase items-center justify-center  p-1 special:p-2  px-3 special:px-5 rounded-full shadow-xl cursor-pointer hover:text-white bg-[#FFC128] text-black font-extrabold text-sm special:text-lg">
-                    {valUser.subscriptionPlan.data.name}
+                    {valUser?.subscriptionPlan?.data?.name}
                   </div>
 
                   </div>
