@@ -86,7 +86,7 @@ const GoldCard = () => {
                   )}
 
                   <p
-                    className={`${
+                    className={`uppercase ${
                       valUser.subscriptionPlan?.data?.name == "Black"
                         ? "text-white"
                         : "text-black"

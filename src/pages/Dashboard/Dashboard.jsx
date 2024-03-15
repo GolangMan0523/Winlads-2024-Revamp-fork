@@ -320,7 +320,7 @@ const Dashboard = () => {
                             type={giveaway?.raffle?.type}
                             name={giveaway.name}
                             date={giveaway?.startingtime}
-                            fromColor={giveaway.raffle?.color}
+                            fromColor={giveaway.raffle?.colorFrom}
                             color={giveaway?.raffle?.color}
                             icon={giveaway.raffle?.image}
                             raffleimage={giveaway.roundimage}
@@ -397,7 +397,7 @@ const Dashboard = () => {
                             fromColor={giveaway.raffle?.color}
                             icon={giveaway.raffle?.image}
                             price={giveaway?.price}
-                            raffleimage={giveaway.raffle?.raffleimage}
+                            raffleimage={giveaway.roundimage}
                             eligeble={false}
                             winningNumber={
                               giveaway.winningNumber &&
@@ -700,7 +700,7 @@ const Dashboard = () => {
                             fromColor={giveaway.raffle?.color}
                             icon={giveaway.raffle?.image}
                             price={giveaway?.price}
-                            raffleimage={giveaway.raffle?.raffleimage}
+                            raffleimage={giveaway.roundimage}
                             eligeble={false}
                             winningNumber={
                               giveaway.winningNumber &&

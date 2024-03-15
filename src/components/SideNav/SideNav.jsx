@@ -118,6 +118,9 @@ const SideNav = () => {
       <div
         className={`${showMenu ? '-translate-x-full' : 'translate-x-0'} fixed xl:translate-x-0 xl:block xl:relative pt-10 z-30 min-h-screen h-full  space-y-4 side-nav-back transition-all  w-[180px] xl:w-[180px] overflow-y-auto xl:overflow-y-auto`}
       >
+        <div className="w-10 h-10 bg-white absolute top-5 right-0 translate-x-1/2">
+
+        </div>
         <div
           onClick={expandSidebar}
           className="flex flex-row items-center mb-10 w-full"

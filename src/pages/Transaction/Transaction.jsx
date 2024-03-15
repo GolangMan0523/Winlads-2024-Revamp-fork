@@ -233,8 +233,8 @@ const Transaction = () => {
                       Your Balance
                     </p>
 
-                    <div className="flex items-center justify-center  p-1 special:p-2  px-3 special:px-5 rounded-full shadow-xl cursor-pointer hover:text-white bg-[#FFC128] text-black font-extrabold text-sm special:text-lg">
-                    GOLD
+                    <div className="flex uppercase items-center justify-center  p-1 special:p-2  px-3 special:px-5 rounded-full shadow-xl cursor-pointer hover:text-white bg-[#FFC128] text-black font-extrabold text-sm special:text-lg">
+                    {valUser.subscriptionPlan.data.name}
                   </div>
 
                   </div>
@@ -348,7 +348,7 @@ const Transaction = () => {
       </div>
       <div className="flex flex-col space-y-4 flex-1 px-10">
         <div className="flex justify-between items-center">
-          <p className="font-bold text-xl md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
+          <p className="font-bold text-xl md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">
             Transactions
           </p>
         </div>
@@ -361,7 +361,7 @@ const Transaction = () => {
             {transactions?.map((transaction, key) => (
               <div
                 key={key}
-                className="flex flex-row items-center justify-between hover:bg-gradient-to-r hover:from-[#a8e4f5]  hover:to-[#F5F5F5] p-2  cursor-default border-b relative t-main"
+                className="flex flex-row items-center justify-between hover:bg-gradient-to-r hover:from-[#6ed9f746] via-transparent  hover:to-transparent px-4 py-3  cursor-default border-b relative t-main"
               >
                 
                 <div className="flex flex-row items-center gap-2">

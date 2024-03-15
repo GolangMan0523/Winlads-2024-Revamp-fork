@@ -18,7 +18,7 @@ const Buttons = ({ handleButton }) => {
             </button>
         </Link>
         <Link to="/subscription">
-            <button className="bg-[#FF0000] text-white rounded-lg py-3 text-xl w-64 hover:bg-[#FF1111]/75">
+            <button className="bg-[#FF4D00] text-white rounded-lg py-3 text-xl w-64 hover:bg-[#FF1111]/75">
                 Upgrade Subscription
             </button>
         </Link>

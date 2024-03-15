@@ -69,7 +69,7 @@ const TopNav = ({ textColor }) => {
             Be a Partner
           </Link>
         </span>
-
+        <span className="text-gray-400 font-thin md:block">|</span>
         <span className="navlinks">
           <Link
             to="https://winladsgiveaway.com?scroll=partners"
@@ -79,6 +79,7 @@ const TopNav = ({ textColor }) => {
             Our Partners
           </Link>
         </span>
+        <span className="text-gray-400 font-thin md:block">|</span>
 
         <span className="navlinks">
           <Link to="/faq" rel="noopener noreferrer">
@@ -101,8 +102,8 @@ const TopNav = ({ textColor }) => {
                 <div className="absolute -bottom-2 sm:bottom-1 right-14 sm:right-16">
                   <div className="bg-white flex flex-col z-50 rounded-xl px-3 py-1 w-60 sm:w-72 border border-solid border-black text-black hover:text-black">
                     <div className="flex justify-end">
-                          <IoCloseSharp onClick={() => setNotShow((pre) => false)} size={20}  />
-                     </div>
+                      <IoCloseSharp onClick={() => setNotShow((pre) => false)} size={20} />
+                    </div>
                     <p className="text-center text-sm text-[#FF0000] ">No more notification</p>
                   </div>
                 </div>

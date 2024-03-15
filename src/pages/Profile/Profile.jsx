@@ -307,7 +307,7 @@ const Profile = () => {
                   <div className="flex justify-between max-sm:justify-center max-sm:items-center px-3 md:mt-10">
                     <div className="flex max-sm:justify-center items-center">
                       <div className="flex-1">
-                        <p className="text-black font-bold font text-4xl md:text-xl xl:text-xl 2xl:text-5xl special:text-3xl max-sm:text-center">
+                        <p className="text-black font-extrabold text-4xl md:text-2xl xl:text-4xl 2xl:text-5xl special:text-3xl max-sm:text-center">
                           $
                           {typeof valUser.balance === "number"
                             ? valUser.balance.toFixed(2)
@@ -315,7 +315,7 @@ const Profile = () => {
                         </p>
                         <div className="flex gap-3">
                           <p className="2xl:text-lg p-1 font-semibold capitalize text-gray-600">
-                            your balance
+                            your balance <span className="bg-yellow-500 text-sm font-extrabold px-2 py-1 uppercase rounded-full">{valUser?.subscriptionPlan?.data?.name}</span>
                           </p>
                           {/* <h1 className="bg-[#ee391c] p-1 px-2 text-white rounded-full">
                             boomer
@@ -324,17 +324,16 @@ const Profile = () => {
                       </div>
                     </div>
                   </div>
-
-                  <div className="flex  items-center justify-evenly">
-                    <div className="py-2    md:px-4 cursor-default">
-                      <div className="flex ">
+                  <div className="flex pt-4 max-sm:divide-x max-sm:justify-between">
+                    <div className="flex-1 py-0 md:px-4 cursor-default border-r-2">
+                      <div className="flex items-baseline">
                         <img
                           src={NewEarning}
                           alt=""
                           className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
                         />
                         <div>
-                          <div className="px-10 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
+                          <div className="px-5 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
                             $
                             {wallet.earning
                               ? Math.floor(wallet.earning * 100) / 100 || "0.00"
@@ -347,17 +346,15 @@ const Profile = () => {
                       </p>
                     </div>
 
-                    <div className="h-full border"></div>
-
-                    <div className="py-2    md:px-4 cursor-default">
-                      <div className="flex max-sm:justify-end">
+                    <div className="flex-1 py-0 text-center md:px-2 cursor-default">
+                      <div className="flex max-sm:justify-end justify-center items-baseline">
                         <img
                           src={Ticket}
                           alt=""
                           className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
                         />
 
-                        <p className=" px-8 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
+                        <p className=" px-5 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
                           {String(
                             refferals?.l1count +
                               refferals?.l2count +
@@ -372,7 +369,7 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-center w-full px-5 pb-10 xl:pb-0 xl:pt-20">
+                  <div className="flex items-center justify-center w-full px-5 pb-10 xl:pb-0">
                     <button
                       className={`bg-[#FF4C00] py-3 sm:py-4 text-center rounded-xl hover:bg-black/75 w-full ${
                         !valUser.subscriptionPlan?.data
@@ -394,13 +391,12 @@ const Profile = () => {
           <div className="xl:flex flex-col space-y-4 flex-1 hidden">
             <div className=" rounded-b-3xl pt-4">
               <TopNav textColor={"black"} />
-
-              <div className="pt-10">
+              <div className="pt-0">
                 <motion.img
                   initial={{ x: 80, opacity: 0 }}
                   animate={{ x: 80, opacity: 1 }}
                   transition={{ type: "tween", duration: 1, delay: 1 }}
-                  className="w-3/4"
+                  className="w-2/3"
                   src={MainCar}
                   alt="main"
                 />
@@ -480,14 +476,13 @@ Level 1
             disabled
           ></input>
         </div> */}
-
-        <div className="flex items-center gap-2 max-sm:flex-col mb-3">
+        <div className="flex items-center gap-2 max-sm:flex-col">
           <div className="flex flex-col w-1/2 space-y-2 max-sm:w-full">
             <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
               First Name
             </p>
             <input
-              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+              className="bg-slate-100 border rounded-lg px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
               placeholder="Enter First Name"
               type="text"
               onChange={(e) => {
@@ -499,11 +494,11 @@ Level 1
             ></input>
           </div>
           <div className="flex flex-col w-1/2 space-y-2 max-sm:w-full">
-            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
+            <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
               Surname
             </p>
             <input
-              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+              className="bg-slate-100 rounded-lg border px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
               placeholder="Enter Surame"
               type="text"
               onChange={(e) => {
@@ -531,7 +526,7 @@ Level 1
 </div> */}
         <div className="flex flex-col space-y-2 relative">
           <div className="flex items-center justify-between">
-            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
+            <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
               Valid Email
             </p>
             {valUser.verified ? (
@@ -549,7 +544,7 @@ Level 1
           </div>
 
           <input
-            className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+            className="bg-slate-100 border rounded-lg px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
             placeholder="Enter Valid EMail"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
@@ -559,11 +554,30 @@ Level 1
           {valUser && (
             <img
               src={valUser.verified ? Vrfy : NotVrfy}
-              className="w-20 special:w-24 absolute top-9 special:top-12 right-2"
+              className="w-20 absolute top-6 right-2"
             />
           )}
         </div>
+        <div className="flex flex-col space-y-2 relative">
+          <div className="flex items-center justify-between">
+          <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
+            Phone Number
+          </p>
+          {
+            valUser.mobileVerified ? '' : <span className="text-xs text-red-500 text-right"> Please verify your mobile by clicking <Link to={'/verifyMobile'} className="text-blue-500 font-bold"> here</Link></span>
+          }
+          </div>
 
+          <input
+            className="bg-slate-100 border rounded-lg px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+            placeholder="Enter Phone Number"
+            type="tel"
+            disabled
+            onChange={(e) => setMobile(e.target.value)}
+            value={mobile}
+          ></input>
+          {valUser && <img src={valUser.mobileVerified ? Vrfy : NotVrfy} className="w-20 absolute top-6 right-2" />}
+        </div>
         {/* <div className="flex flex-col space-y-2">
   <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
     NIC Number
@@ -631,12 +645,12 @@ Level 1
         </div>
 
         <div className="flex items-center gap-2 max-sm:flex-col">
-          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full mb-3">
-            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
+          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full">
+            <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
               Address Line 1
             </p>
             <input
-              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+              className="bg-slate-100 border rounded-lg px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
               placeholder="Address Line 1"
               type="text"
               value={address}
@@ -650,12 +664,12 @@ Level 1
               }}
             ></input>
           </div>
-          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full mb-3">
-            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
+          <div className="flex flex-col space-y-2 w-1/2 max-sm:w-full">
+            <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
               Address Line 2
             </p>
             <input
-              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+              className="bg-slate-100 border rounded-lg px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
               placeholder="Address Line 2"
               type="text"
               value={address2}
@@ -674,11 +688,11 @@ Level 1
 
         <div className="flex items-center gap-2 max-sm:flex-col mb-3">
           <div className="flex flex-col space-y-2 w-1/3 max-sm:w-full">
-            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
+            <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
               City
             </p>
             <input
-              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+              className="bg-slate-100 border rounded-lg px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
               placeholder="City"
               type="text"
               value={city}
@@ -693,11 +707,11 @@ Level 1
             ></input>
           </div>
           <div className="flex flex-col space-y-2 w-1/3 max-sm:w-full">
-            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
+            <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
               State
             </p>
             <input
-              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+              className="bg-slate-100 border rounded-lg px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
               placeholder="State"
               type="text"
               value={state}
@@ -712,11 +726,11 @@ Level 1
             ></input>
           </div>
           <div className="flex flex-col space-y-2 w-1/3 max-sm:w-full">
-            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
+            <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
               Postal Code
             </p>
             <input
-              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
+              className="bg-slate-100 border rounded-lg px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
               placeholder="Postal Code"
               type="text"
               value={postalcode}
@@ -757,13 +771,13 @@ Level 1
   />
 </div> */}
         {refferalId ? (
-          <div className="flex flex-col space-y-2 mb-3">
-            <p className="text-[#999999] text-sm xl:text-md special:text-xl ml-2">
+          <div className="flex flex-col space-y-2">
+            <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
               Refferal Id
             </p>
             <input
-              className="border bg-transparent font-bold rounded-xl px-5 py-4 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-lg special:py-5 special:px-7  special:text-lg"
-              placeholder="Enter Refferal Id"
+              className="bg-slate-100 border rounded-lg px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+              placeholder="Enter Reference Id"
               type="text"
               disabled
               value={userData?.rafflesId}
@@ -804,13 +818,13 @@ Level 1
             </div>
             <div className="flex flex-row items-center gap-2">
               <p
-                className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer font-semibold "
+                className="text-xs md:text-sm xl:text-md capitalize special:text-xl cursor-pointer"
                 onClick={() => setIsChecked(!isChecked)}
               >
                 I agree with the
               </p>
               <Link to="/conditions" target="_blank" className="yellow-text">
-                <p className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer font-semibold text-[#FF4C00]">
+                <p className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer text-orange-500">
                   Terms of use
                 </p>
               </Link>

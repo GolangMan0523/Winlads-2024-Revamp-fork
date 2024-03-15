@@ -113,7 +113,7 @@ function Subscription() {
       .get(`${import.meta.env.VITE_SERVER_API}/getSubscriptionPlans`)
       .then((response) => {
         console.log(response.data.data);
-        setPlanes(response?.data?.data);
+        setPlanes(response?.data?.data.sort((a,b)=>(a.raffle_count - b.raffle_count)));
         // setLoading(false);
       })
       .catch((error) => {
