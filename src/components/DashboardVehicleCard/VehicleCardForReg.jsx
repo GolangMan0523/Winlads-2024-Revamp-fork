@@ -75,13 +75,13 @@ const VehicleCardForReg = ({
     }
   });
 
-     // Convert hexadecimal to RGBA
-     function hexToRgba(hex, alpha) {
-      const r = parseInt(hex.slice(1, 3), 16);
-      const g = parseInt(hex.slice(3, 5), 16);
-      const b = parseInt(hex.slice(5, 7), 16);
-      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-    }
+  // Convert hexadecimal to RGBA
+  function hexToRgba(hex, alpha) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
 
   return (
     <>
@@ -89,7 +89,7 @@ const VehicleCardForReg = ({
         className={`border-4 cursor-pointer relative hover:opacity-75 saturate-200 rounded-lg flex flex-col py-4 md:px-2 xl:px-4 px-4 w-full ${select === oneOffId ? "border-black" : ""
           }`}
         style={{
-          background: `${hexToRgba(fromColor,0.4)}`, border:`2px solid ${color}`
+          background: `${hexToRgba(fromColor, 0.4)}`, border: `2px solid ${color}`
         }}
         onClick={() => handleCardSelect(oneOffId)}
       >
@@ -126,14 +126,23 @@ const VehicleCardForReg = ({
           <p className="xl:text-sm text-xs font-semibold">Free</p>
           <p className="xl:text-sm text-xs font-semibold">Entry Package</p>
         </div>
-        <div className=" mb-4 rounded-lg py-4 px-4 border-2 " style={{background:hexToRgba(color,0.6)}}>
+        <div className=" mb-4 rounded-lg py-4 px-4 border-2 " style={{ background: hexToRgba(color, 0.6) }}>
           <p className="text-center">
-            <span className="font-bold">${price - (price * discount/100.0)}&nbsp;</span>only
+            {
+              discount > 0 && <div className="w-max relative mx-auto">
+                <span className="text-xl">${price}</span>
+                <div className="w-full absolute h-[3px] bg-red-500 top-3 left-0 -rotate-6">
+
+                </div>
+              </div>
+            }
+
+            <span className="font-bold">${price - (price * discount / 100.0)}&nbsp;</span>only
           </p>
           <div
             className={`px-4 py-2 my-2 bg-white text-black rounded-md border border-solid border-black text-${name === "150" ? "white" : "white"
               }`}
-            
+
           >
             <p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-black"> ONE OFF PACKAGES</p>
           </div>
