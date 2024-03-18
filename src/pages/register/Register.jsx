@@ -795,6 +795,7 @@ const Register = ({ location }) => {
                       name={oneOff.name}
                       price={oneOff.price}
                       descs={oneOff.desc[0]}
+                      fromColor={oneOff.colorFrom}
                       color={oneOff.color}
                       date={"2024-02-28"}
                       raffleimage={

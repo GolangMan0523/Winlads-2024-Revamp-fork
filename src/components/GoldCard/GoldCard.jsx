@@ -156,11 +156,28 @@ const GoldCard = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-row gap-4 items-center justify-between rounded-lg w-full border-2 border-black py-2 px-4">
-            <img src={Cross} alt="" className="w-12" />
-            <p className="text-black 2xl:text-xl text-lg">
-              Your subscription is currently inactive
-            </p>
+          <div className="flex flex-col items-center">
+            <div className="top-card text-white rounded-t-lg flex justify-between items-center px-2 py-3 w-3/5">
+              <h1 className="text-sm sm:text-base">Earning Balance</h1>
+
+              <h1 className="font-bold text-base sm:text-lg">
+                $ {typeof valUser.balance === "number"
+                  ? valUser.balance.toFixed(2)
+                  : "0.00"}
+              </h1>
+
+            </div>
+            <div className="flex  bg-gradient-to-r from-[#EE391C] to-[#FF9787] flex-row gap-4 items-center justify-between rounded-lg w-full border-2 border-black">
+              <div className="px-4">
+                <p className="text-white 2xl:text-lg text-sm mb-2 mbsmalltext">
+                  Your subscription is currently inactive
+                </p>
+                <button className="bg-[#D03219] hover:bg-red-800 py-3 px-5 text-white text-nowrap" onClick={()=>navigate('/subscription')}>Upgrade Subscription</button>
+              </div>
+              <div>
+                <img src={subBg_2} alt="" srcset="" />
+              </div>
+            </div>
           </div>
         ))}
     </>

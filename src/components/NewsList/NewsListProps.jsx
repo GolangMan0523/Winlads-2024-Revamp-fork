@@ -27,7 +27,7 @@ function NewsListProps({ img, maintitle, newstitle, createdat, id, desc }) {
   };
   return (
     <div>
-      <div className="flex flex-col space-y-1 hover:bg-[#95DEF1]/10 p-2 rounded-2xl">
+      <Link className="flex flex-col space-y-1 hover:bg-[#95DEF1]/10 p-2 rounded-2xl hover:bg-gray-100 cursor-pointer" to={`/news/${id}`}  state={{ maintitle, newstitle, createdat, desc, img }}>
         <div className="flex xl:flex-row flex-col gap-2 2xl:gap-4  items-center">
 
           <img src={img} alt="" className="w-full sm:w-3/5 lg:w-2/5 xl:w-1/5 h-auto rounded-2xl " />
@@ -74,7 +74,7 @@ function NewsListProps({ img, maintitle, newstitle, createdat, id, desc }) {
             <p className="text-[#FF4C00] text-sm special:text-base font-bold">Show More</p>
           </Link>
         </div>
-      </div>
+      </Link>
      
     </div>
   );

@@ -108,7 +108,7 @@ const NewMyEntries = () => {
                 date={giveaway.startingtime ? giveaway.startingtime : null}
                 color={'#000'}//giveaway?.raffle?.color
                 raffleimage={giveaway.roundimage} //giveaway.raffle?.raffleimage
-                eligeble={false}
+                eligeble={(giveaway.raffle.type == 'max' || giveaway.raffle.type == 'tour')  ? false : true}
                 oneOffPackage={false} //giveaway.raffle?.name === "Vehicle" ? true : false
                 status={0}
                 count={giveaway.ticketCount}
