@@ -108,7 +108,7 @@ const SelectRafflePaymentMethod = ({
           // roundid: selectOneOffId,
           // count: count,
           fivex: fiveEx == 5 ? 1 : 0, 
-          coupen: coupon,
+          coupen: name == 'Bali' ? 'WIN50OFF' : undefined,
         }
       );
 
@@ -136,7 +136,7 @@ const SelectRafflePaymentMethod = ({
           uid: userId,
           roundid: giveawayId,
           count: count,
-          coupen: coupon,
+          coupen: name == 'Bali' ? 'WIN50OFF' : undefined,
           oneoff_id: selectOneOffId,
         }
       );
@@ -167,6 +167,7 @@ const SelectRafflePaymentMethod = ({
         {
           uid: userId,
           roundid: giveawayId,
+          coupen: name == 'Bali' ? 'WIN50OFF' : undefined
         }
       );
       if (response.data.status == 200) {
@@ -227,7 +228,7 @@ const SelectRafflePaymentMethod = ({
 
         <div className="flex flex-col special:px-24 2xl:px-0 px-0 space-y-4 special:space-y-12 2xl:space-y-8">
           <p className="font-bold text-black text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
-            ${selectedPlanPrice}
+            ${name == 'Bali' ? selectedPlanPrice/2 : selectedPlanPrice}
           </p>
           <p className="text-red-500 text-sm">{error}</p>
 
@@ -249,6 +250,7 @@ const SelectRafflePaymentMethod = ({
                     fromColor={oneOff.colorFrom}
                     color={oneOff.color}
                     date={"2024-02-28"}
+                    discount={name == 'Bali' ? 50 : 0}
                     raffleimage={
                       "https://winland.onrender.com/public/images/vehicle.png"
                     }
