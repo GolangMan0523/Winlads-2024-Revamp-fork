@@ -7,8 +7,10 @@ import BG from "../../assets/images/HomesideBg.png";
 import { useEffect, useState } from "react";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
+import useScrollToTop from "../../utils/useScrollTop";
 
 function BusinessCard() {
+  useScrollToTop()
   const [valUser, setValUser] = useState({});
   const navigate = useNavigate();
 

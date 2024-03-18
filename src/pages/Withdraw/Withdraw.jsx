@@ -21,6 +21,7 @@ import CardComponentNoWithdraw from "../../components/cardComponent/CardComponen
 import directBankIcon from "../../assets/images/icons/direct-bank.svg";
 import stripeIcon from "../../assets/images/icons/stripe.svg";
 import { IoIosArrowBack } from "react-icons/io";
+import AffiliateCard from "../../components/Affiliate/AffiliateCard";
 const Withdraw = () => {
   const cookies = new Cookies(null, { path: "/" });
   const id = cookies.get("wr_token");
@@ -168,8 +169,8 @@ const Withdraw = () => {
         <div className="right-side-logo max-xl:hidden"></div>
         <div className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-0 xl:space-y-0 bg-no-repeat">
           <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
-            <div className="bg-black rounded-b-3xl py-4">
-              <TopNav textColor={"white"} />
+            <div className=" rounded-b-3xl py-4">
+              <TopNav textColor={"black"} />
               <div className="pt-10">
                 <img className="" src={MainCar} alt="main" />
               </div>
@@ -190,7 +191,7 @@ const Withdraw = () => {
               <div className="w-full relative flex items-center">
 
                 <input
-                  className="bg-[#ECECEC] w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                  className="bg-white border w-full rounded-lg px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                   placeholder="Payout Amount ($)"
                   type="number"
                   value={amount}
@@ -206,7 +207,7 @@ const Withdraw = () => {
                 Withdraw Method
               </p>
               <div
-                className="bg-[#ECECEC] flex items-center justify-between text-black rounded-xl cursor-pointer px-2 py-2 focus:outline-none text-xs xl:text-sm special:text-xl special:py-3"
+                className="bg-white border flex items-center justify-between text-black rounded-lg cursor-pointer px-2 py-2 focus:outline-none text-xs xl:text-sm special:text-xl special:py-3"
                 onClick={handleShowBank}
               >
                 <p>{selectMethod == "bank" ? "Direct Bank" : "Stripe"}</p>
@@ -219,14 +220,14 @@ const Withdraw = () => {
                   // onClick={() => handleDrowpdownChange("bank")}
                   >
                     <div
-                      className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl"
+                      className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-lg"
                       onClick={() => handlePaymentMethod("bank")}
                     >
                       <img src={directBankIcon} alt="icon" className="w-8" />
                       <p>Direct Bank</p>
                     </div>
                     <div
-                      className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl"
+                      className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-lg"
                       onClick={() => handlePaymentMethod("stripe")}
                     >
                       <img src={stripeIcon} alt="icon" className="w-8" />
@@ -244,7 +245,7 @@ const Withdraw = () => {
                     Bank Name
                   </p>
                   <input
-                    className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                    className="bg-white border rounded-lg px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                     placeholder="Bank Name"
                     type="text"
                     value={bankName}
@@ -260,7 +261,7 @@ const Withdraw = () => {
                     Account Number
                   </p>
                   <input
-                    className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 appearance-none remove-arrows"
+                    className="bg-white border rounded-lg px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 appearance-none remove-arrows"
                     placeholder="Account Number"
                     value={accountNumber}
                     type="number"
@@ -278,7 +279,7 @@ const Withdraw = () => {
                     BSB Number
                   </p>
                   <input
-                    className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 appearance-none remove-arrows"
+                    className="bg-white border rounded-lg px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 appearance-none remove-arrows"
                     placeholder="BSB Number"
                     type="number"
                     inputMode="numeric"
@@ -297,7 +298,7 @@ const Withdraw = () => {
               <></>
             )}
             <div
-              className="bg-black py-2 text-center rounded-xl cursor-pointer hover:bg-black/75 md:w-1/2 w-full ml-auto"
+              className="bg-[#FF4C00] py-2 text-center rounded-lg cursor-pointer hover:bg-[#FF4C00]/90 md:w-1/2 w-full ml-auto"
               onClick={() =>
                 setTransactions({
                   withdrawMethod,
@@ -311,8 +312,8 @@ const Withdraw = () => {
             </div>
           </div>
           <div className="xl:flex flex-col space-y-4 flex-1 hidden">
-            <div className="bg-black rounded-b-3xl py-4">
-              <TopNav textColor={"white"} />
+            <div className=" rounded-b-3xl py-4">
+              <TopNav textColor={"black"} />
               <div className="pt-10">
                 <motion.img
                   initial={{ x: 80, opacity: 0 }}
@@ -329,7 +330,8 @@ const Withdraw = () => {
               <GoldCard />
             </div> */}
             <div>
-              <CardComponentNoWithdraw />
+              {/* <CardComponentNoWithdraw /> */}
+              <AffiliateCard/>
             </div>
           </div>
         </div>

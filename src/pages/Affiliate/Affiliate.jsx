@@ -20,8 +20,10 @@ import Count from "../../components/Affiliate/Count";
 import { FaRegCopy } from "react-icons/fa";
 import Ticket from "../../assets/images/affiliate/affiliate.png";
 import NewEarning from "../../assets/images/new/earnings.png";
+import useScrollToTop from "../../utils/useScrollTop";
 
 const Affiliate = () => {
+  useScrollToTop()
   const cookies = new Cookies(null, { path: "/" });
   const { refreshCount, refresh } = useRefresh();
   const id = cookies.get("wr_token");
@@ -215,7 +217,7 @@ const Affiliate = () => {
                   <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl py-5">
                     Affiliate
                   </p>
-                  <div className="flex justify-between px-3">
+                  {/* <div className="flex justify-between px-3">
                     <div className="flex items-center">
                       <div className="flex-1">
                         <p className="text-black font-extrabold  font text-lg md:text-xl xl:text-xl 2xl:text-5xl special:text-3xl">
@@ -305,7 +307,8 @@ const Affiliate = () => {
                     <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl  font-semibold">
                       Withdraw
                     </p>
-                  </button>
+                  </button> */}
+                  <AffiliateCard/>
                   {/* <div className="hidden xl:block">
                     <AffiliateCard />
                   </div> */}

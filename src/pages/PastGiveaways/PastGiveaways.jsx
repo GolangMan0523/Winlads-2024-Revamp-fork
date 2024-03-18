@@ -16,8 +16,10 @@ import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import ItemLoader from "../../components/Loader/ItemLoader";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
+import useScrollToTop from "../../utils/useScrollTop.jsx";
 
 const PastGiveaways = () => {
+  useScrollToTop()
   const iframeStyle = {
     width: "100%",
     height: "100%",

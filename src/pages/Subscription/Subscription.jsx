@@ -25,8 +25,10 @@ import { toast } from "react-toastify";
 import { IoCloseSharp } from "react-icons/io5";
 import Vector from "../../assets/images/subcription/Vector.png";
 import { LuAlignJustify } from "react-icons/lu";
+import useScrollToTop from "../../utils/useScrollTop";
 
 function Subscription() {
+  useScrollToTop();
   const [planes, setPlanes] = useState([]);
   const [isYearly, setIsYearly] = useState(false);
   const [isMonthly, setIsMonthly] = useState(true);

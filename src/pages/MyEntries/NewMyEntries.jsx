@@ -5,9 +5,10 @@ import { validateCurrentUser } from '../../utils/validateuser';
 import Loader from '../../components/Loader/Loader';
 import DashboardVehicleCard from '../../components/DashboardVehicleCard/DashboardVehicle';
 import MainCar from "../../assets/images/MainCar.png";
+import useScrollToTop from '../../utils/useScrollTop';
 
 const NewMyEntries = () => {
-
+  useScrollToTop()
   const [valUser, setValUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [myentries, setMyEntries] = useState([]);

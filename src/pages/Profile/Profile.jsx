@@ -26,8 +26,10 @@ import { MdDone } from "react-icons/md";
 import Count from "../../components/Affiliate/Count";
 import Ticket from "../../assets/images/affiliate/affiliate.png";
 import { LuAlignJustify } from "react-icons/lu";
+import useScrollToTop from "../../utils/useScrollTop";
 
 const Profile = () => {
+  useScrollToTop()
   const cookies = new Cookies(null, { path: "/" });
   const { refreshCount, refresh, userImage, setUserImage } = useRefresh();
   const id = cookies.get("wr_token");
@@ -303,88 +305,9 @@ const Profile = () => {
                   <ItemLoader />
                 </div>
               ) : (
-                <>
-                  <div className="flex justify-between max-sm:justify-center max-sm:items-center px-3 md:mt-10">
-                    <div className="flex max-sm:justify-center items-center">
-                      <div className="flex-1">
-                        <p className="text-black font-extrabold text-4xl md:text-2xl xl:text-4xl 2xl:text-5xl special:text-3xl max-sm:text-center">
-                          $
-                          {typeof valUser.balance === "number"
-                            ? valUser.balance.toFixed(2)
-                            : "0.00"}
-                        </p>
-                        <div className="flex gap-3">
-                          <p className="2xl:text-lg p-1 font-semibold capitalize text-gray-600">
-                            your balance <span className="bg-yellow-500 text-sm font-extrabold px-2 py-1 uppercase rounded-full">{valUser?.subscriptionPlan?.data?.name}</span>
-                          </p>
-                          {/* <h1 className="bg-[#ee391c] p-1 px-2 text-white rounded-full">
-                            boomer
-                          </h1> */}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex pt-4 max-sm:divide-x max-sm:justify-between">
-                    <div className="flex-1 py-0 md:px-4 cursor-default border-r-2">
-                      <div className="flex items-baseline">
-                        <img
-                          src={NewEarning}
-                          alt=""
-                          className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
-                        />
-                        <div>
-                          <div className="px-5 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                            $
-                            {wallet.earning
-                              ? Math.floor(wallet.earning * 100) / 100 || "0.00"
-                              : "0.00"}
-                          </div>
-                        </div>
-                      </div>
-                      <p className="py-5 text-[#6B6B6B] text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
-                        Total Earnings
-                      </p>
-                    </div>
 
-                    <div className="flex-1 py-0 text-center md:px-2 cursor-default">
-                      <div className="flex max-sm:justify-end justify-center items-baseline">
-                        <img
-                          src={Ticket}
-                          alt=""
-                          className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
-                        />
+                <AffiliateCard />
 
-                        <p className=" px-5 text-black font-bold text-lg md:text-5xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                          {String(
-                            refferals?.l1count +
-                              refferals?.l2count +
-                              refferals?.l3count +
-                              refferals?.l4count || 0
-                          ).padStart(2, "0")}
-                        </p>
-                      </div>
-                      <p className="py-4 text-[#6B6B6B] text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
-                        Total Affiliates
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-center w-full px-5 pb-10 xl:pb-0">
-                    <button
-                      className={`bg-[#FF4C00] py-3 sm:py-4 text-center rounded-xl hover:bg-black/75 w-full ${
-                        !valUser.subscriptionPlan?.data
-                          ? "cursor-not-allowed"
-                          : "cursor-pointer"
-                      }`}
-                      onClick={() => navigate("/withdraw")}
-                      disabled={!valUser.subscriptionPlan?.data}
-                    >
-                      <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl  font-semibold">
-                        Withdraw
-                      </p>
-                    </button>
-                  </div>
-                </>
               )}
             </div>
           </div>
@@ -560,12 +483,12 @@ Level 1
         </div>
         <div className="flex flex-col space-y-2 relative">
           <div className="flex items-center justify-between">
-          <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
-            Phone Number
-          </p>
-          {
-            valUser.mobileVerified ? '' : <span className="text-xs text-red-500 text-right"> Please verify your mobile by clicking <Link to={'/verifyMobile'} className="text-blue-500 font-bold"> here</Link></span>
-          }
+            <p className="text-gray-500 text-sm xl:text-xs special:text-sm">
+              Phone Number
+            </p>
+            {
+              valUser.mobileVerified ? '' : <span className="text-xs text-red-500 text-right"> Please verify your mobile by clicking <Link to={'/verifyMobile'} className="text-blue-500 font-bold"> here</Link></span>
+            }
           </div>
 
           <input
@@ -834,9 +757,8 @@ Level 1
           <button
             disabled={!isChecked}
             onClick={() => updateUserDatails()}
-            className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl max-sm:w-full bg-${
-              isChecked ? "black" : "[#FF4C00]"
-            } hover:bg-${isChecked ? "black/50" : ""}`}
+            className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl max-sm:w-full bg-${isChecked ? "black" : "[#FF4C00]"
+              } hover:bg-${isChecked ? "black/50" : ""}`}
           >
             Confirm
           </button>

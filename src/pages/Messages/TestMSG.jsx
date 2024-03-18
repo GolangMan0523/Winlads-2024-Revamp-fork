@@ -4,12 +4,14 @@ import Loader from '../../components/Loader/Loader';
 import { createCometChatAccount } from '../../utils/cometChatCreateUser';
 import { IoIosArrowBack } from "react-icons/io";
 import { useNavigate } from 'react-router';
+import useScrollToTop from '../../utils/useScrollTop';
 // import {  UIKitSettingsBuilder, CometChatMessageComposer } from "@cometchat/chat-uikit-react";
 // import { CometChatUsersWithMessages, } from '@cometchat/chat-uikit-react';
 // import { CometChat } from "@cometchat/chat-sdk-javascript";
 // import { CometChatUIKit } from '@cometchat/chat-uikit-react/dist';
 //import { CwmDemo } from './Conversation';
 const NewMessage = () => {
+    useScrollToTop()
     const [valUser, setValUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();

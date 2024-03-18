@@ -18,8 +18,10 @@ import Cookies from "universal-cookie";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
+import useScrollToTop from "../../utils/useScrollTop.jsx";
 
 const UpcomingGiveaways = () => {
+  useScrollToTop()
   const iframeStyle = {
     width: "100%",
     height: "100%",
@@ -237,7 +239,7 @@ const UpcomingGiveaways = () => {
                   fromColor={giveaway.raffle?.color}
                   icon={giveaway.raffle?.image}
                   price={giveaway?.price}
-                  raffleimage={giveaway.raffle?.raffleimage}
+                  raffleimage={giveaway.roundimage}
                   eligeble={false}
                   status={1}
                   oneOffPackage={
