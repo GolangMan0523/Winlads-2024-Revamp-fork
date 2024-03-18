@@ -108,7 +108,7 @@ const SelectRafflePaymentMethod = ({
           // roundid: selectOneOffId,
           // count: count,
           fivex: fiveEx == 5 ? 1 : 0, 
-          coupen: coupon,
+          coupen: name == 'Bali' ? 'WIN50OFF' : undefined,
         }
       );
 
