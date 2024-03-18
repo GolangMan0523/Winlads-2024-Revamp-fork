@@ -15,9 +15,11 @@ import Faq from "../../components/LandingPage/Faq";
 import OurPartners from "../../components/OurPartners/OurPartners";
 import {  useParams } from "react-router";
 import { useEffect } from "react";
+import useScrollToTop from "../../utils/useScrollTop";
 
 const Home = () => {
   const { id } = useParams();
+  useScrollToTop();
 
   const scrollTo = (target) => {
     const otherComponentElement = document.getElementById(target);

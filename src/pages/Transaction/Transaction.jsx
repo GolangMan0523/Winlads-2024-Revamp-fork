@@ -25,10 +25,12 @@ import NewBalance from "../../assets/images/new/balance.png";
 import NewEarning from "../../assets/images/new/earnings.png";
 import NewPurcahase from "../../assets/images/new/purchase.png";
 import EntriPagination from "../../components/MyEntries/EntriPagination";
+import useScrollToTop from "../../utils/useScrollTop";
 
 const recodeCount = 10;
 
 const Transaction = () => {
+  useScrollToTop()
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isCalendarVisible, setIsCalendarVisible] = useState(false);
   const [date, setDate] = useState(new Date());

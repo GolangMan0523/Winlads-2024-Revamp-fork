@@ -12,8 +12,10 @@ import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
 import newsCar from "../../assets/images/news/newsCar.png";
+import useScrollToTop from "../../utils/useScrollTop";
 
 function Newslist() {
+  useScrollToTop()
   const [newsList, setNewsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [valUser, setValUser] = useState({});

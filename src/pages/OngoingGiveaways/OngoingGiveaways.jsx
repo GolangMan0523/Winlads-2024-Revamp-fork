@@ -21,8 +21,10 @@ import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRa
 import ActiveBanner from "../../assets/banner4.png";
 import ActiveBanner1 from "../../assets/banner4.png";
 import Doted from "../../assets/images/doted.png";
+import useScrollToTop from "../../utils/useScrollTop.jsx";
 
 const OngoingGiveaways = () => {
+  useScrollToTop()
   const iframeStyle = {
     width: "100%",
     height: "100%",

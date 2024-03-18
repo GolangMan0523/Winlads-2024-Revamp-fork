@@ -26,8 +26,10 @@ import { MdDone } from "react-icons/md";
 import Count from "../../components/Affiliate/Count";
 import Ticket from "../../assets/images/affiliate/affiliate.png";
 import { LuAlignJustify } from "react-icons/lu";
+import useScrollToTop from "../../utils/useScrollTop";
 
 const Profile = () => {
+  useScrollToTop()
   const cookies = new Cookies(null, { path: "/" });
   const { refreshCount, refresh, userImage, setUserImage } = useRefresh();
   const id = cookies.get("wr_token");

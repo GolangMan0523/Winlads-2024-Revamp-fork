@@ -26,8 +26,10 @@ import {
 import HomeBG from "../../assets/homeBg.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import CarouselContainer from "../../components/Carousel/Carousel";
+import useScrollToTop from "../../utils/useScrollTop";
 
 const Dashboard = () => {
+  useScrollToTop();
   const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(true);
   const [valUser, setValUser] = useState({});

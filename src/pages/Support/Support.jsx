@@ -7,10 +7,12 @@ import quicklinksIcon from '../../assets/images/icons/link.png';
 import contactUs from '../../assets/images/icons/contact.png';
 import newsLetter from '../../assets/images/icons/News.png';
 import UnderDev from '../../components/UnderDevMessage/UnderDev';
+import useScrollToTop from '../../utils/useScrollTop';
 
 
 
 const Support = () => {
+    useScrollToTop()
     const [isNavOpen, setNavOpen] = useState(false);
     const [isUnderDev, setIsUnderDev] = useState(true);
 

@@ -20,8 +20,10 @@ import Count from "../../components/Affiliate/Count";
 import { FaRegCopy } from "react-icons/fa";
 import Ticket from "../../assets/images/affiliate/affiliate.png";
 import NewEarning from "../../assets/images/new/earnings.png";
+import useScrollToTop from "../../utils/useScrollTop";
 
 const Affiliate = () => {
+  useScrollToTop()
   const cookies = new Cookies(null, { path: "/" });
   const { refreshCount, refresh } = useRefresh();
   const id = cookies.get("wr_token");

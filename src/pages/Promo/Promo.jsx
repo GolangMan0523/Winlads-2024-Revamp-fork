@@ -19,6 +19,7 @@ import { FaRegCopy } from "react-icons/fa";
 import Banner1 from "../../assets/images/banner-1.gif";
 import Banner2 from "../../assets/images/banner-2.gif";
 import Banner3 from "../../assets/images/banner-3.gif";
+import useScrollToTop from "../../utils/useScrollTop";
 
 const publicPath = "https://www.winlads.com";
 
@@ -28,6 +29,7 @@ const banner2Url = `${publicPath}${Banner2}`;
 const banner3Url = `${publicPath}${Banner3}`;
 
 const Promo = () => {
+  useScrollToTop()
   const cookies = new Cookies(null, { path: "/" });
   const { refreshCount, refresh } = useRefresh();
   const id = cookies.get("wr_token");
