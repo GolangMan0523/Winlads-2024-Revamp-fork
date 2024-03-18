@@ -218,13 +218,13 @@ const MobileVerify = () => {
                             </span>
 
                             <form onSubmit={handleSubmit} autoComplete="off" className="">
-                                <div className="flex flex-col justify-center gap-5 mt-10">
+                                <div className="flex flex-col  justify-center gap-5 mt-10">
                                     {
                                         codeState == "request" ? <div
                                             className={
                                                 errors.email && touched.email
-                                                    ? "input-div input-error"
-                                                    : "input-div"
+                                                    ? " input-error bg-gray-200"
+                                                    : "flex items-center py-3 px-2 gap-3 bg-gray-100"
                                             }
                                         >
                                             <FcFeedback size={20} />
@@ -254,7 +254,7 @@ const MobileVerify = () => {
                                                 value={code}
                                                 onChange={(e) => setCode(e.target.value)}
                                                 id="code"
-                                                className="placeholder:text-[16px]"
+                                                className="placeholder:text-[16px] bg-gray-200"
                                             />
                                         </div> : <div></div>
                                     }

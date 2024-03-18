@@ -237,7 +237,7 @@ const UpcomingGiveaways = () => {
                   fromColor={giveaway.raffle?.color}
                   icon={giveaway.raffle?.image}
                   price={giveaway?.price}
-                  raffleimage={giveaway.raffle?.raffleimage}
+                  raffleimage={giveaway.roundimage}
                   eligeble={false}
                   status={1}
                   oneOffPackage={

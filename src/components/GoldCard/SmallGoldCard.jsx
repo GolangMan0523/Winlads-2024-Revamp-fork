@@ -66,7 +66,7 @@ const SmallGoldCard = () => {
                 } overflow-hidden rounded-xl flex flex-row items-center justify-between cursor-default w-full shadow-2xl`}
               // style={{ backgroundColor: valUser ? valUser.subscriptionPlan?.data?.color : "" }}
               style={{
-                background: `linear-gradient(308.06deg, #FFBE1D 37.31%, #FFDD89 98.03%)`,
+                background: `linear-gradient(308.06deg, ${valUser.subscriptionPlan?.data?.color} 37.31%, ${valUser.subscriptionPlan?.data?.colorFrom} 98.03%)`,
               }}
             >
               {/* <div className="gold-card-inner-sec1"> */}
@@ -80,7 +80,7 @@ const SmallGoldCard = () => {
                         }`}
                     >
                       <span>Member Since</span>&nbsp;
-                      <h1 className="bg-[#ee391c] p-1 text-white rounded-full">
+                      <h1 className="bg-[#ee391c] p-1 text-black rounded-full" style={{background:valUser.subscriptionPlan?.data?.colorFrom ? valUser.subscriptionPlan?.data?.colorFrom  : '#000'}}>
                         {startDate}
                       </h1>
                     </p>

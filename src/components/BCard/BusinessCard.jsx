@@ -217,7 +217,7 @@ function BusinessCard() {
               {isOrderNow ? (
                 // Display "orderNow" image when isOrderNow is true
                 <button
-                  className="text-sm font-semibold w-full special:text-xl py-3 sm:py-5 special:py-6 rounded-2xl bg-black hover:bg-white hover:text-black hover:border-black border-2 text-white"
+                  className="text-sm font-semibold w-full special:text-xl py-3 sm:py-5 special:py-6 rounded-2xl bg-[#FF4C00] hover:bg-[#ff2600] hover:text-black  border-2 text-white"
                   onClick={handleRequestButton}
                 >
                   {/* <MdOutlineAddShoppingCart /> */}
@@ -298,14 +298,14 @@ function ShareForm({
       <p className="text-black text-lg special:pt-5 special:text-2xl">
         Let’s Get Your Card !!
       </p>
-      <div className="bg-[#ECECEC] flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
+      <div className="bg-white border flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
           placeholder="Your Full Name"
           id="name"
           value={firstName + " " + lastName}
           disabled
-          className="bg-[#ECECEC] placeholder:text-gray-500 outline-none w-full special:placeholder:text-2xl"
+          className="bg-white placeholder:text-gray-500 outline-none w-full special:placeholder:text-2xl"
         />
         {/* <img src={userBUS} alt="user" className="w-8 special:w-14" /> */}
       </div>
@@ -323,14 +323,14 @@ function ShareForm({
 
       {/* <img src={basketballBUS} alt="passport" className="w-8 special:w-14" /> */}
 
-      <div className="bg-[#ECECEC] flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
+      <div className="bg-white border flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
           placeholder="Your Phone Number"
           id="mobile"
           disabled
           value={phone}
-          className="bg-[#ECECEC] focus:outline-none placeholder:text-gray-500 w-full outline-none special:placeholder:text-2xl"
+          className="bg-white focus:outline-none placeholder:text-gray-500 w-full outline-none special:placeholder:text-2xl"
         />
         {/* <img src={smartphoneBUS} alt="phone" className="w-8 special:w-14" /> */}
       </div>
@@ -348,7 +348,7 @@ function ShareForm({
       <div className="flex items-center gap-2">
         <div className=" w-1/2">
           <input
-            className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+            className="bg-white border rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="Address Line 1"
             type="text"
             value={address}
@@ -357,7 +357,7 @@ function ShareForm({
         </div>
         <div className=" w-1/2">
           <input
-            className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+            className="bg-white border rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="Address Line 2"
             type="text"
             value={address2}
@@ -368,7 +368,7 @@ function ShareForm({
       <div className="flex items-center gap-2">
         <div className="w-1/3">
           <input
-            className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+            className="bg-white border rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="City"
             type="text"
             value={city}
@@ -377,7 +377,7 @@ function ShareForm({
         </div>
         <div className="w-1/3">
           <input
-            className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+            className="bg-white border rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="State"
             type="text"
             value={state}
@@ -386,7 +386,7 @@ function ShareForm({
         </div>
         <div className=" w-1/3">
           <input
-            className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+            className="bg-white border rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="Postal Code"
             type="text"
             value={postalCode}
