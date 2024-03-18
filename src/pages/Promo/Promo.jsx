@@ -90,8 +90,8 @@ const Promo = () => {
         <div className="right-side-logo max-xl:hidden"></div>
         <div className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat">
           <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
-            <div className="bg-black rounded-b-3xl py-4">
-              <TopNav textColor={"white"} />
+            <div className=" rounded-b-3xl py-4">
+              <TopNav textColor={"black"} />
               <div className="pt-10">
                 <img className="" src={MainCar} alt="main" />
               </div>
@@ -205,8 +205,8 @@ const Promo = () => {
             </div>
           </div>
           <div className="xl:flex flex-col space-y-4 flex-1 hidden">
-            <div className="bg-black rounded-b-3xl py-4">
-              <TopNav textColor={"white"} />
+            <div className=" rounded-b-3xl py-4">
+              <TopNav textColor={"black"} />
               <div className="pt-10">
                 <motion.img
                   initial={{ x: 80, opacity: 0 }}
