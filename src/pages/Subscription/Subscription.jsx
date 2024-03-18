@@ -451,9 +451,9 @@ function Subscription() {
                       isYearly
                         ? plane.annualy
                         : "" | isQuartly
-                        ? plane.price_id_semiannual
+                        ? plane.semiannualy
                         : "" | isMonthly
-                        ? plane.price_id
+                        ? plane.monthly
                         : ""
                     }
                     // descList={Array.isArray(plane.desc) ? plane.desc : []}

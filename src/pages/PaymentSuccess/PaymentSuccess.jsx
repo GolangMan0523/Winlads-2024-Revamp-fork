@@ -1,6 +1,7 @@
 import SideNav from "../../components/SideNav/SideNav";
 import Correct from "../../assets/images/payment_success/success.png";
-import Bg from "../../assets/images/payment_success/bg.png";
+// import Bg from "../../assets/images/payment_success/bg.png";
+import Bg from "../../assets/images/MainCar.png";
 import { successAnimation } from "../../animation/animation";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -111,46 +112,68 @@ function PaymentSuccess() {
 
   return (
     <div
-      className="flex w-full"
-      style={{
-        backgroundImage: `url(${Bg})`,
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
-      }}
-    >
-      {/* <SideNav screen="screen" /> */}
+    className="flex w-full"
+  // style={{
+  //   backgroundImage: `url(${Bg})`,
+  //   backgroundPosition: "center",
+  //   backgroundRepeat: "no-repeat",
+  //   backgroundSize: "contain",
+  // }}
+  >
+    {/* <SideNav screen="screen" /> */}
 
-      <div className="flex flex-col xl:mx-10 mx-5 flex-1 pt-4  items-center justify-center w-full">
-        <div className="flex flex-col justify-center items-center container xl:gap-10 lg:gap-8 md:gap-6 sm:gap-5 gap-5">
-          <div className=" flex items-center flex-col space-y-5 justify-center">
-            <p>You will redirect to the {oneTime == 1 ? 'giveaway' : 'dashboard'} after {seconds}</p>
-            {isSuccess ? (
-              <motion.img
-                src={Correct}
-                alt=""
-                className="xl:w-7/12 lg:w-8/12 md:w-6/12 sm:w-5/12 w-3/12"
-                initial="initial"
-                animate={controls}
-                transition={successAnimation.transition}
-              />
-            ) : (
-              <motion.div
-                className="text-center w-full text-6xl text-red-500"
-                initial="initial"
-                animate={controls}
-                transition={successAnimation.transition}
-              >
-                <ImCross className="mx-auto" />
-              </motion.div>
-            )}
+    <div className="flex flex-col xl:mx-10 mx-5 flex-1 pt-4  items-center justify-center w-full">
+      <div className="flex flex-col justify-center items-center container xl:gap-10 lg:gap-8 md:gap-6 sm:gap-5 gap-5">
+        <div className=" flex items-center flex-col space-y-5 justify-center">
+          {/* <p>You will redirect to the dashboard after {seconds}</p> */}
+
+          <div className='flex flex-col-reverse items-center justify-start gap-5'>
+            <div className='flex items-center justify-between w-full lg:w-1/2 bg-[#EFF9FB] p-3 rounded-xl rounded-r-full'>
+              <div className='border-l-4 text-xs pl-5 border-orange-600'>
+                <p>You will redirect to the dashboard after <br /> <span className='text-sm xl:text-2xl font-bold'>{isSuccess ? "Subscription Successful !" : "Subscription Fail"}</span></p>
+              </div>
+              <div className='bg-[#E4EFF0] p-3 rounded-full'>
+                <div className='bg-white p-3 rounded-full'>
+                  <div className='bg-orange-600 hover:bg-orange-500 p-10 font-bold text-white rounded-full relative'>
+                    <span className='absolute top-1/2 left-1/2 -translate-x-1/2 w-full -translate-y-1/2'>
+                      {isSuccess ? (
+                        <motion.img
+                          src={Correct}
+                          alt=""
+                          className="w-full"
+                          initial="initial"
+                          animate={controls}
+                          transition={successAnimation.transition}
+                        />
+                      ) : (
+                        <motion.div
+                          className="text-center w-full text-6xl text-red-500"
+                          initial="initial"
+                          animate={controls}
+                          transition={successAnimation.transition}
+                        >
+                          <ImCross className="mx-auto" />
+                        </motion.div>
+                      )}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='w lg:w-1/4'>
+              <img src={Bg} className='w-full h-full object-contain' />
+            </div>
+
           </div>
-          <p className="font-bold  xl:text-4xl lg:text-5xl md:text-4xl sm:text-3xl text-xl">
-            {isSuccess ? "Payment Successful !" : "Payment Fail"}
-          </p>
+
+
         </div>
+        {/* <p className="font-bold  xl:text-4xl lg:text-5xl md:text-4xl sm:text-3xl text-xl">
+          {isSuccess ? "Subscription Successful !" : "Subscription Fail"}
+        </p> */}
       </div>
     </div>
+  </div>
   );
 }
 

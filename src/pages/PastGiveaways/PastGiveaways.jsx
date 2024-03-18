@@ -180,7 +180,7 @@ const PastGiveaways = () => {
                     Earning Balance
                   </span>
                   <div className="flex items-center justify-center p-1 special:p-2  px-3 special:px-5 rounded-full shadow-xl cursor-pointer hover:text-white bg-[#FFC128] text-black font-extrabold text-sm special:text-lg">
-                    GOLD
+                  {valUser?.subscriptionPlan?.data?.name || 'N/A'}
                   </div>
                 </div>
               </div>
@@ -209,7 +209,7 @@ const PastGiveaways = () => {
                   fromColor={giveaway.raffle?.color}
                   icon={giveaway.raffle?.image}
                   price={giveaway?.price}
-                  raffleimage={giveaway.raffle?.raffleimage}
+                  raffleimage={giveaway.roundimage}
                   eligeble={false}
                   winningNumber={
                     giveaway.winningNumber && giveaway.winningNumber !== "0"

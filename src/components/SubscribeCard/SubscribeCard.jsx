@@ -48,6 +48,7 @@ function SubscribeCard({
   userSub,
   subStatus,
   handleRenew,
+  price
 }) {
   const cookies = new Cookies(null, { path: "/" });
   const handleChooseButton = () => {
@@ -85,14 +86,13 @@ function SubscribeCard({
   return (
     <div
       className={`relative border-2 border-blue-900 text-${textColor} pt-8 special:pt-8 2xl:pt-8 xl:pt-10 rounded-[10px] flex flex-col cursor-pointer
-      ${
-        planeId &&
+      ${planeId &&
         ((month && planeId === mPlanId) ||
           (quartly && planeId === qPlanId) ||
           (year && planeId === yPlanId))
-      }
+        }
       `}
-      style={{background: color, borderColor: colorFrom}}
+      style={{ background: color, borderColor: colorFrom }}
     >
       {isPopular && (
         <div
@@ -121,6 +121,17 @@ function SubscribeCard({
       <div
         className={`mx-6 relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 text-black pt-2 px-2 rounded-xl h-full -2 border-solid border-${cardBorderColor}`}
       >
+        <div
+
+          className="flex flex-row space-x-2 special:gap-4 2xl:gap-4 items-center "
+        >
+          <img
+            src={GreenCorrect}
+            alt=""
+            className="w-5 h-5 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+          />
+          <p className="text-xs special:text-lg 2xl:text-md">${price}</p>
+        </div>
         {descL.slice(0, initialShow).map((disc, key) => (
           <div
             key={key}
@@ -149,7 +160,7 @@ function SubscribeCard({
           <button
             onClick={() => handleShowMore()}
             className="text-xs font-bold text-black bg-[#F1F5F9] p-2"
-            // style={{ color: color }}
+          // style={{ color: color }}
           >
             {initialShow == 3 ? "View More.." : "View Less"}
           </button>
@@ -160,21 +171,21 @@ function SubscribeCard({
         {((month && userSub === mPlanId) ||
           (quartly && userSub === qPlanId) ||
           (year && userSub === yPlanId)) &&
-        subStatus !== "active" ? (
+          subStatus !== "active" ? (
           <button
             type="button"
-            style={{background:colorFrom}}
+            style={{ background: colorFrom }}
             className={`bg-transparent border-transparent text-${buttonText} font-semibold uppercase w-full border-2 rounded-xl text-black py-2 px-2 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}
             onClick={() => handleRenew(userSub)}
           >
             <p className={``}>Renew</p>
           </button>
         ) : !(
-            (month && planeId === mPlanId) ||
-            (quartly && planeId === qPlanId) ||
-            (year && planeId === yPlanId)
-          ) ? (
-          
+          (month && planeId === mPlanId) ||
+          (quartly && planeId === qPlanId) ||
+          (year && planeId === yPlanId)
+        ) ? (
+
           <button
             type="button"
             className={`text-${buttonText} font-semibold uppercase w-full border-2 border-transparent rounded-xl text-black py-2 px-2 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}
@@ -182,8 +193,8 @@ function SubscribeCard({
             disabled={
               planeId &&
               ((month && planeId === mPlanId) ||
-              (quartly && planeId === qPlanId) ||
-              (year && planeId === yPlanId)
+                (quartly && planeId === qPlanId) ||
+                (year && planeId === yPlanId)
                 ? false
                 : true)
             }
@@ -193,9 +204,9 @@ function SubscribeCard({
           >
             <p
               className="text-white"
-              // style={{
-              //   background: color,
-              // }}
+            // style={{
+            //   background: color,
+            // }}
             >
               {trailUserTest ? "End Trial Subscription" : "Choose Plan"}
             </p>
