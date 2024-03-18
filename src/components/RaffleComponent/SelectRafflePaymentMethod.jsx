@@ -167,6 +167,7 @@ const SelectRafflePaymentMethod = ({
         {
           uid: userId,
           roundid: giveawayId,
+          coupen: name == 'Bali' ? 'WIN50OFF' : undefined
         }
       );
       if (response.data.status == 200) {
@@ -249,6 +250,7 @@ const SelectRafflePaymentMethod = ({
                     fromColor={oneOff.colorFrom}
                     color={oneOff.color}
                     date={"2024-02-28"}
+                    discount={name == 'Bali' ? 50 : 0}
                     raffleimage={
                       "https://winland.onrender.com/public/images/vehicle.png"
                     }
