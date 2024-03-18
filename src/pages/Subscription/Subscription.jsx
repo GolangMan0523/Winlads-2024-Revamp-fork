@@ -149,7 +149,7 @@ function Subscription() {
 
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_API}/unsubscribe`,
-        { uid: valUser.uid }
+        { uid: valUser.uid, type: valUser.points ? 'Points' : valUser.crypto ? 'Crypto' : 'Stripe' }    //Crypto Stripe Points
       );
       console.log(response);
       if (response.data.status == 200) {
