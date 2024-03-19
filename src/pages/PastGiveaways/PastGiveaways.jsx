@@ -189,6 +189,7 @@ const PastGiveaways = () => {
             </div>
           </div>
         </div>
+        <h2 className="text-xl font-bold mb-2">Major Winners</h2>
         <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
           {/* <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl py-4">
             Past <span className="font-extrabold">Giveaways</span>
@@ -198,8 +199,9 @@ const PastGiveaways = () => {
               <ItemLoader />
             </div>
           ) : sortedGiveaways.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-3  xl:grid-cols-4 gap-2">
-              {sortedGiveaways.slice(0, initialLength).map((giveaway, key) => (
+            <div className="flex overflow-x-scroll w-[87vw]">
+            <div className="flex items-stretch justify-center gap-2 w-max">
+              {sortedGiveaways.filter((giv)=>(giv.raffle.type == 'max' || giv.raffle.type == 'tour')).map((giveaway, key) => (
                 <DashboardVehicleCard
                   isSubscribed={valUser.subscriptionPlan?.data}
                   key={key}
@@ -225,7 +227,7 @@ const PastGiveaways = () => {
                   // }
                   // winningNumber = {giveaway?.endtime === "2024-01-14T01:00:00.001Z" ? "301763" : giveaway?.endtime === "2024-01-21T01:00:00.001Z" ? "701396" : "301765"}
                   oneOffPackage={
-                    giveaway.raffle?.name === "Vehicle" ? true : false
+                    false
                   }
                   // winner={giveaway?.endtime === "2024-01-14T01:00:00.001Z" ? "Ramesh F" : giveaway?.endtime === "2024-01-21T01:00:00.001Z" ? "Joshua S" : "Joshua A"}
                   // winner={
@@ -250,6 +252,7 @@ const PastGiveaways = () => {
                 // }}
                 />
               ))}
+              </div>
             </div>
           ) : (
             <div className="flex flex-col items-center space-y-2 pt-12">
@@ -259,7 +262,194 @@ const PastGiveaways = () => {
               </p>
             </div>
           )}
-          <div className="py-5">
+          <div className="py-5 hidden">
+            {giveaways.length > 8 &&
+              (initialLength == 8 ? (
+                <button
+                  onClick={() => handleSeeMore(true)}
+                  className="mt-10 flex items-center justify-center mx-auto gap-2"
+                >
+                  See More <FaAngleDoubleDown />
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleSeeMore(false)}
+                  className="mt-10 flex items-center justify-center mx-auto gap-2"
+                >
+                  See Less <FaAngleDoubleUp />
+                </button>
+              ))}
+          </div>
+
+        </div>
+
+        <h2 className="text-xl font-bold mb-2">Weekly Winners</h2>
+        <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
+          {/* <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl py-4">
+            Past <span className="font-extrabold">Giveaways</span>
+          </p> */}
+          {loading ? (
+            <div className="flex justify-center">
+              <ItemLoader />
+            </div>
+          ) : sortedGiveaways.length > 0 ? (
+            <div className="flex overflow-x-scroll w-[87vw]">
+            <div className="flex items-stretch justify-center gap-2 w-max">
+              {sortedGiveaways.filter((giv)=>(giv.raffle.type == 'i645' || giv.raffle.type == 'lottoRed' || giv.raffle.type == 'lottoGreen')).map((giveaway, key) => (
+                <DashboardVehicleCard
+                  isSubscribed={valUser.subscriptionPlan?.data}
+                  key={key}
+                  type={giveaway.raffle.type}
+                  id={giveaway._id}
+                  name={giveaway.name}
+                  date={giveaway?.endtime}
+                  color={giveaway?.raffle?.color}
+                  fromColor={giveaway.raffle?.color}
+                  icon={giveaway.raffle?.image}
+                  price={giveaway?.price}
+                  raffleimage={giveaway.roundimage}
+                  eligeble={false}
+                  winningNumber={
+                    giveaway.winningNumber && giveaway.winningNumber !== "0"
+                      ? giveaway.winningNumber
+                      : "Reveal Soon"
+                  }
+                  // winningNumber={
+                  //   giveaway.winningNumber && giveaway.winningNumber !== "0"
+                  //     ? giveaway.winningNumber
+                  //     : "Reveal Soon"
+                  // }
+                  // winningNumber = {giveaway?.endtime === "2024-01-14T01:00:00.001Z" ? "301763" : giveaway?.endtime === "2024-01-21T01:00:00.001Z" ? "701396" : "301765"}
+                  oneOffPackage={
+                    false
+                  }
+                  // winner={giveaway?.endtime === "2024-01-14T01:00:00.001Z" ? "Ramesh F" : giveaway?.endtime === "2024-01-21T01:00:00.001Z" ? "Joshua S" : "Joshua A"}
+                  // winner={
+                  //   giveaway.winner
+                  //     ? (giveaway.winner?.firstname
+                  //         ? giveaway.winner?.firstname
+                  //         : "N/A") +
+                  //       " " +
+                  //       (giveaway.winner?.lastname
+                  //         ? giveaway.winner.lastname[0]
+                  //         : "N/A")
+                  //     : "Reveal Soon"
+                  // }
+                  status={0}
+                // winner={giveaway[0] ? "ramesh fonseka" : giveaway[1] === "Joshua Stephans" ? giveaway[2] === "Joshua a" : }
+                // onButton={() => {
+                //   handleButton({
+                //     id: giveaway?._id,
+                //     price: giveaway?.price,
+                //     name: giveaway?.name,
+                //   });
+                // }}
+                />
+              ))}
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center space-y-2 pt-12">
+              <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-12 2xl:h-12 special:w-24 special:h-24" />
+              <p className="font-bold text-2xl 2xl:text-2xl special:text-6xl">
+                No More Giveaways
+              </p>
+            </div>
+          )}
+          <div className="py-5 hidden">
+            {giveaways.length > 8 &&
+              (initialLength == 8 ? (
+                <button
+                  onClick={() => handleSeeMore(true)}
+                  className="mt-10 flex items-center justify-center mx-auto gap-2"
+                >
+                  See More <FaAngleDoubleDown />
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleSeeMore(false)}
+                  className="mt-10 flex items-center justify-center mx-auto gap-2"
+                >
+                  See Less <FaAngleDoubleUp />
+                </button>
+              ))}
+          </div>
+
+        </div>
+
+        <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4 hidden">
+          {/* <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl py-4">
+            Past <span className="font-extrabold">Giveaways</span>
+          </p> */}
+          {loading ? (
+            <div className="flex justify-center">
+              <ItemLoader />
+            </div>
+          ) : sortedGiveaways.length > 0 ? (
+            <div className="flex overflow-x-scroll w-[87vw]">
+            <div className="flex items-stretch justify-center gap-2 w-max">
+              {sortedGiveaways.map((giveaway, key) => (
+                <DashboardVehicleCard
+                  isSubscribed={valUser.subscriptionPlan?.data}
+                  key={key}
+                  type={giveaway.raffle.type}
+                  id={giveaway._id}
+                  name={giveaway.name}
+                  date={giveaway?.endtime}
+                  color={giveaway?.raffle?.color}
+                  fromColor={giveaway.raffle?.color}
+                  icon={giveaway.raffle?.image}
+                  price={giveaway?.price}
+                  raffleimage={giveaway.roundimage}
+                  eligeble={false}
+                  winningNumber={
+                    giveaway.winningNumber && giveaway.winningNumber !== "0"
+                      ? giveaway.winningNumber
+                      : "Reveal Soon"
+                  }
+                  // winningNumber={
+                  //   giveaway.winningNumber && giveaway.winningNumber !== "0"
+                  //     ? giveaway.winningNumber
+                  //     : "Reveal Soon"
+                  // }
+                  // winningNumber = {giveaway?.endtime === "2024-01-14T01:00:00.001Z" ? "301763" : giveaway?.endtime === "2024-01-21T01:00:00.001Z" ? "701396" : "301765"}
+                  oneOffPackage={
+                    false
+                  }
+                  // winner={giveaway?.endtime === "2024-01-14T01:00:00.001Z" ? "Ramesh F" : giveaway?.endtime === "2024-01-21T01:00:00.001Z" ? "Joshua S" : "Joshua A"}
+                  // winner={
+                  //   giveaway.winner
+                  //     ? (giveaway.winner?.firstname
+                  //         ? giveaway.winner?.firstname
+                  //         : "N/A") +
+                  //       " " +
+                  //       (giveaway.winner?.lastname
+                  //         ? giveaway.winner.lastname[0]
+                  //         : "N/A")
+                  //     : "Reveal Soon"
+                  // }
+                  status={0}
+                // winner={giveaway[0] ? "ramesh fonseka" : giveaway[1] === "Joshua Stephans" ? giveaway[2] === "Joshua a" : }
+                // onButton={() => {
+                //   handleButton({
+                //     id: giveaway?._id,
+                //     price: giveaway?.price,
+                //     name: giveaway?.name,
+                //   });
+                // }}
+                />
+              ))}
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center space-y-2 pt-12">
+              <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-12 2xl:h-12 special:w-24 special:h-24" />
+              <p className="font-bold text-2xl 2xl:text-2xl special:text-6xl">
+                No More Giveaways
+              </p>
+            </div>
+          )}
+          <div className="py-5 hidden">
             {giveaways.length > 8 &&
               (initialLength == 8 ? (
                 <button

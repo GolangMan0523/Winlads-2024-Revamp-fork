@@ -67,7 +67,7 @@ const GoldCard = () => {
               } overflow-hidden rounded-xl flex flex-row items-center justify-between cursor-default w-full max-w-md shadow-2xl`}
               // style={{ backgroundColor: valUser ? valUser.subscriptionPlan?.data?.color : "" }}
               style={{
-                background: `linear-gradient(308.06deg, #FFBE1D 37.31%, #FFDD89 98.03%)`,
+                background: `linear-gradient(308.06deg, ${valUser.subscriptionPlan?.data?.color} 37.31%, ${valUser.subscriptionPlan?.data?.colorFrom} 98.03%)`,
               }}
             >
               {/* <div className="gold-card-inner-sec1"> */}

@@ -42,7 +42,7 @@ const NewMyEntries = () => {
   const getGiveawaySummery = async (uid) => {
     try {
       const summery = await axios.get(`${import.meta.env.VITE_SERVER_API}/myRaffleRoundsSummary?uid=${uid}`);
-      console.log(summery.data.data.rounds,"Rounds");
+      console.log(summery.data.data.rounds, "Rounds");
       let upcomingRounds = summery.data.data.rounds.filter(round => new Date(round.startingtime) > Date.now());
       setMyEntries(upcomingRounds.sort((a, b) => new Date(a.startingtime) - new Date(b.startingtime)));
       upcomingRounds.map((g) => {
@@ -59,12 +59,12 @@ const NewMyEntries = () => {
           <Loader />
         </div>
       }
-      
+
       <div className='flex items-center justify-center'>
         <div className='w-1/2 hidden xl:block'>
-        <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl ">
-                My Entries
-              </p>
+          <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl ">
+            My Entries
+          </p>
         </div>
 
         <div className="flex-col flex-1  xl:flex">
@@ -75,8 +75,8 @@ const NewMyEntries = () => {
       </div>
 
       <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl  xl:hidden ">
-                My Entries
-       </p>
+        My Entries
+      </p>
       <div className='flex lg:flex-row flex-col-reverse items-center justify-start gap-10'>
         <div className='flex items-center justify-between w-full lg:w-1/2 bg-[#EFF9FB] p-3 rounded-xl rounded-r-full'>
           <div className='border-l-4 pl-5 border-orange-600'>
@@ -95,11 +95,45 @@ const NewMyEntries = () => {
         </div>
 
       </div>
-
-      <div className='flex items-center justify-start mt-5 flex-wrap w-full '>
+      <h2 className='text-xl font-bold '>Major Draws</h2>
+      <div className='flex items-center justify-start mt-4 flex-wrap w-full '>
 
         {
-          myentries.map((giveaway, key) => (
+          myentries.filter((giv)=>(giv.raffle.type == 'max' || giv.raffle.type =='tour' )).map((giveaway, key) => (
+            <div key={key} className='w-full md:w-1/3 xl:w-1/4 p-2 min-w-60'>
+              <DashboardVehicleCard
+                key={key}
+                type={'vehicle'} //giveaway.raffle.type
+                id={0}//giveaway._id
+                name={giveaway.name} //
+                date={giveaway.startingtime ? giveaway.startingtime : null}
+                color={'#000'}//giveaway?.raffle?.color
+                raffleimage={giveaway.roundimage} //giveaway.raffle?.raffleimage
+                eligeble={valUser?.subscriptionPlan?.data?.name ? false : !(giveaway.raffle.type == 'max' || giveaway.raffle.type == 'tour') ? true : false}
+                oneOffPackage={false} //giveaway.raffle?.name === "Vehicle" ? true : false
+                status={0}
+                count={giveaway.ticketCount}
+
+              // winningNumber={'My Entries'}
+              // onButton={() => {
+              //   handleButton({
+              //     id: giveaway?._id,
+              //     price: giveaway?.price,
+              //     name: giveaway?.name,
+              //   });
+              // }}
+              />
+            </div>
+
+          ))
+        }
+      </div>
+
+      <h2 className='text-xl font-bold '>Weekly Draws</h2>
+      <div className='flex items-center justify-start mt-4 flex-wrap w-full '>
+
+        {
+          myentries.filter((giv)=>(giv.raffle.type !== 'max' && giv.raffle.type !=='tour' )).map((giveaway, key) => (
             <div key={key} className='w-full md:w-1/3 xl:w-1/4 p-2 min-w-60'>
               <DashboardVehicleCard
                 key={key}

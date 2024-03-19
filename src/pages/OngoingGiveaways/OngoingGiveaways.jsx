@@ -16,13 +16,14 @@ import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import ItemLoader from "../../components/Loader/ItemLoader";
 import Cookies from "universal-cookie";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
-import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
+import { FaAngleDoubleDown, FaAngleDoubleUp, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import ActiveBanner from "../../assets/banner4.png";
 import ActiveBanner1 from "../../assets/banner4.png";
 import Doted from "../../assets/images/doted.png";
 import useScrollToTop from "../../utils/useScrollTop.jsx";
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 const OngoingGiveaways = () => {
   useScrollToTop()
   const iframeStyle = {
@@ -44,6 +45,37 @@ const OngoingGiveaways = () => {
   const [sortedGiveaways, setSortedGiveaways] = useState([]);
   const cookies = new Cookies(null, { path: "/" });
   const [initialLength, setInitSize] = useState(8);
+  const [selectedSlide, setSelectedSlide] = useState(0);
+
+  const giveawayDetails = [
+    {
+      "videoSrc": "https://example.com/tesla_model_y_giveaway_video",
+      "title": "Win a Tesla Model Y!",
+      "points": [
+        "Grand Prize: One brand new Tesla Model Y",
+        "Second Prize: $5,000 cash prize",
+        "Third Prize: Tesla merchandise gift package",
+        "No purchase necessary. Enter for a chance to win by filling out the entry form.",
+        "Giveaway open to residents of the United States aged 18 and over.",
+        "Entry deadline: [Insert Date]",
+        "Winner will be selected randomly and notified via email or phone.",
+        "Terms and conditions apply."
+      ]
+    },
+    {
+      videoSrc: "https://player.vimeo.com/video/924707626?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+      title:"Tour",
+      points: [
+        "2 x Return flights",
+        "7 nights accommodation in the earl beachfront suite at the Mulia Resort",
+        "$2,500 spending money",
+        "Daily a la carte breakfast at The Lounge or The Living Room, or buffet breakfast at The Café",
+        "Daily choice of lunch or dinner at The Cafe or Table8, or daily IDR500,000 dine-around credit per person",
+        "Unlimited Tropical Temptation Beach Club entry with a complimentary cocktail and cabana discounts per visit",
+        "Daily afternoon tea at The Lounge from 4pm to 6pm with free-flow cocktails and hors d'oeuvres"
+      ]
+    }
+  ]
 
   useEffect(() => {
     currentUserValidation();
@@ -120,6 +152,14 @@ const OngoingGiveaways = () => {
     }
   };
 
+  const handleDetailChange = ()=>{
+    if(selectedSlide <= giveawayDetails.length-2){
+      setSelectedSlide(prev=>++prev)
+    }else{
+      setSelectedSlide(0);
+    }
+  }
+
   return (
     <>
       <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 overflow-hidden relative">
@@ -131,7 +171,7 @@ const OngoingGiveaways = () => {
           />
           <div className="flex flex-col flex-1">
             <div className="block xl:hidden space-y-4  py-4">
-            <TopNav textColor={"black"} />
+              <TopNav textColor={"black"} />
             </div>
             <div className="flex flex-col 2xl:space-y-8 space-y-6 special:space-y-12">
               {/* <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
@@ -204,32 +244,68 @@ const OngoingGiveaways = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4 mt-5">
-          <div className="relative">
-            <div className="hidden md:block">
-              <img src={ActiveBanner} alt="" />
-            </div>
-            <div className="block md:hidden">
-              <img src={ActiveBanner1} alt="" />
-            </div>
+        <div className="">
+            <Carousel
+              showThumbs={false}
+              autoPlay={true}
+              showArrows={false}
+              swipeable={true}
+              infiniteLoop={true}
+              // centerMode={true}
+              emulateTouch={true}
+              showStatus={false}
+              width={''}
+              showIndicators={false}
+              interval={5000}
+              // onChange={e=>{console.log(e);}}
+              className=''>
+              <div className="relative w-full">
+                <div className="hidden md:block">
+                  <img src={ActiveBanner} className="w-full" />
+                </div>
+                <div className="block md:hidden">
+                  <img src={ActiveBanner1} className="w-full" />
+                </div>
 
-            <div className="absolute xl:bottom-[-0px]  2xl:right-[20px] xl:left-[-2px] special:bottom-[15px] bottom-0 md:bottom-4 left-[10px] md:left-[20px] ">
-              <Link
-                to="https://winladsgiveaway.com/#packages"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="capitalize bg-[#FF4C00]  text-white  text-xl font-semibold  md:text-xl xl:text-4xl 2xl:px-24 xl:py-10 xl:px-16 px-12 py-1 special:py-20 special:text-8xl  special:px-40 hover:opacity-75 rounded-lg">
-                  Enter Now
-                </button>
-              </Link>
-            </div>
-          </div>
+                <div className="absolute right-0 bottom-0">
+                  <Link
+                    to="https://winbali.winladsgiveaway.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="capitalize bg-[#FF4C00]  text-white  text-xl font-semibold  md:text-xl xl:text-4xl 2xl:px-24 xl:py-10 xl:px-16 px-12 py-1 special:py-20 special:text-8xl  special:px-40 hover:opacity-75 rounded-lg">
+                      Enter Now
+                    </button>
+                  </Link>
+                </div>
+              </div>
+              <div className="relative w-full">
+                <div className="hidden md:block">
+                  <img src={ActiveBanner} alt="" />
+                </div>
+                <div className="block md:hidden">
+                  <img src={ActiveBanner1} alt="" />
+                </div>
+
+                <div className="absolute bottom-0 right-0">
+                  <Link
+                    to="https://winbali.winladsgiveaway.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="capitalize bg-[#FF4C00]  text-white  text-xl font-semibold  md:text-xl xl:text-4xl 2xl:px-24 xl:py-10 xl:px-16 px-12 py-1 special:py-20 special:text-8xl  special:px-40 hover:opacity-75 rounded-lg">
+                      Enter Now
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+            </Carousel>
           <div className="flex items-start flex-col lg:flex-row pt-8 gap-5  pb-5">
             <div className="lg:w-1/2 xl:w-2/3  w-full">
               <iframe
                 title="YouTube Video"
-                src="https://player.vimeo.com/video/924707626?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                src={giveawayDetails[selectedSlide].videoSrc}
                 frameBorder="0"
                 className="w-full rounded-xl"
                 allow="autoplay; fullscreen; picture-in-picture;muted"
@@ -239,93 +315,41 @@ const OngoingGiveaways = () => {
 
             <div className=" w-full lg:w-1/2 xl:w-1/3    border border-[#5EC1DC] bg-[#EFF9FB] rounded-2xl ">
               <div className="text-xl xl:text-2xl  2xl:text-3xl special:text-6xl  text-white bg-black  rounded-t-2xl  flex justify-center py-4 sm:py-5 special:py-7 ">
+
                 <span>
                   {" "}
                   Giveaway <span className="font-bold">Details</span>
                 </span>
+                <button className="text-lg ml-3" onClick={handleDetailChange}><FaArrowRight/></button>
               </div>
+              <h1 className="text-center text-xl mt-2">{giveawayDetails[selectedSlide].title}</h1>
 
-              <div className="flex flex-col gap-6 px-3 font-semibold  text-sm sm:text-lg special:text-2xl py-5 sm:py-10">
-                <div className="flex items-center justify-start gap-2 ">
-                  {/* left */}
-                  <div className="flex items-center justify-center  relative ">
-                    <img src={Doted} alt="" className="w-4" />
+              <div className="flex flex-col gap-6 px-3 font-semibold  text-sm sm:text-lg special:text-2xl py-5 sm:py-5">
+                {
+                  giveawayDetails[selectedSlide].points.map((point) => (
+                    <div className="flex items-center justify-start gap-2 ">
+                      {/* left */}
+                      <div className="flex items-center justify-center  relative ">
+                        <img src={Doted} alt="" className="w-4" />
 
-                    <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
-                  </div>
-                  <span className="font-semibold ">
-                  2 x Return flights
-                  </span>
-                </div>
+                        <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
+                      </div>
+                      <span className="font-semibold ">
+                        {point}
+                      </span>
+                    </div>
+                  ))
+                }
 
-                <div className="flex items-center justify-start gap-2 ">
-                  {/* left */}
-                  <div className="flex items-center justify-center  relative ">
-                    <img src={Doted} alt="" className="w-4" />
 
-                    <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
-                  </div>
-                  <span className="font-semibold ">7 nights accommodation in the earl beachfront suite at the Mulia Resort</span>
-                </div>
 
-                <div className="flex items-center justify-start gap-2 ">
-                  {/* left */}
-                  <div className="flex items-center justify-center  relative ">
-                    <img src={Doted} alt="" className="w-4" />
 
-                    <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
-                  </div>
-                  <span className="font-semibold ">
-                  $2,500 spending money
-                  </span>
-                </div>
 
-                <div className="flex items-center justify-start gap-2 ">
-                  {/* left */}
-                  <div className="flex items-center justify-center  relative ">
-                    <img src={Doted} alt="" className="w-4" />
 
-                    <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
-                  </div>
-                  <span className="font-semibold ">
-                  Daily a la carte breakfast at The Lounge or The Living Room, or buffet breakfast at The Café
-                  </span>
-                </div>
 
-                <div className="flex items-center justify-start gap-2 ">
-                  {/* left */}
-                  <div className="flex items-center justify-center  relative ">
-                    <img src={Doted} alt="" className="w-4" />
 
-                    <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
-                  </div>
-                  <span className="font-semibold "> Daily choice of lunch or dinner at The Cafe or Table8, or daily IDR500,000 dine-around credit per person</span>
-                </div>
 
-                <div className="flex items-center justify-start gap-2 ">
-                  {/* left */}
-                  <div className="flex items-center justify-center  relative ">
-                    <img src={Doted} alt="" className="w-4" />
 
-                    <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
-                  </div>
-                  <span className="font-semibold ">
-                    {" "}
-                    Unlimited Tropical Temptation Beach Club entry with a complimentary cocktail and cabana discounts per visit
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-start gap-2 ">
-                  {/* left */}
-                  <div className="flex items-center justify-center  relative ">
-                    <img src={Doted} alt="" className="w-4" />
-
-                    <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
-                  </div>
-                  <span className="font-semibold ">Daily afternoon tea at The Lounge from 4pm to 6pm with free-flow cocktails and hors d'oeuvres</span>
-                </div>
-
-           
               </div>
             </div>
           </div>
