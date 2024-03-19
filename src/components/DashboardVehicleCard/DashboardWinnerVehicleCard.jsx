@@ -71,7 +71,7 @@ const DashboardWinnerVehicleCard = ({
   return (
     <>
       <div
-        className={`flex text-white  rounded-2xl w-full p-2 sm:p-3 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-80 cursor-pointer overflow-hidden max-h-[170px] sm:max-h-[200px] `}
+        className={`flex min-w-96 text-white  rounded-2xl w-full p-2 sm:p-3 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-80 cursor-pointer overflow-hidden max-h-[170px] sm:max-h-[200px] `}
         style={{ backgroundColor: bg }}
         // style={{
         //   background: `linear-gradient(180deg, ${color} 0%, #ACACAC 100%)`,

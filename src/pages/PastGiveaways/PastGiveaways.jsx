@@ -130,7 +130,7 @@ const PastGiveaways = () => {
                 <div className="w-full">
                   <iframe
                     title="YouTube Video"
-                    src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    src="https://player.vimeo.com/video/924707626?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
                     frameBorder="0"
                     className="w-full"
                     allow="autoplay; fullscreen; picture-in-picture;muted"

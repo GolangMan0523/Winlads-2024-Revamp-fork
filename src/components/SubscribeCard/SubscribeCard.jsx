@@ -96,7 +96,7 @@ function SubscribeCard({
     >
       {isPopular && (
         <div
-          className="flex items-center  justify-center text-center absolute rounded-t-2xl top-[-40px] left-1/2 transform -translate-x-1/2 py-2 bg-black font-semibold w-1/2 "
+          className="flex items-center  justify-center text-center absolute rounded-b-2xl xl:rounded-b-none xl:rounded-t-2xl -top-0 xl:top-[-40px] left-1/2 transform -translate-x-1/2 py-2 bg-black font-semibold w-1/2 "
           style={{ color: "#fff" }}
         >
           <FaStar className="text-yellow-500" /> Most Popular

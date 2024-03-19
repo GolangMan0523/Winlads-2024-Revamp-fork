@@ -105,6 +105,7 @@ const Login = () => {
               `${import.meta.env.VITE_SERVER_API}/loginWithPassword`,
               data
             );
+            console.log(response);
             if (response.data.status == 200) {
               setWrToken(response.data.data._id);
               if (response.data.data.otpVerified == 0) {

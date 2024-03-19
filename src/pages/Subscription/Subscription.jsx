@@ -369,12 +369,12 @@ function Subscription() {
       
       <div>
         <div className="flex justify-center items-center max-sm:flex-col">
-          <div className="pt-10 flex-1">
+          <div className="pt-10 flex-1 w-full text-center relative">
             <motion.img
-              initial={{ x: 80, opacity: 0 }}
-              animate={{ x: 80, opacity: 1 }}
+              initial={{ x: -80, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
               transition={{ type: "tween", duration: 1, delay: 1 }}
-              className="w-3/4"
+              className="w-3/4 mx-auto"
               src={MainCar}
               alt="main"
             />

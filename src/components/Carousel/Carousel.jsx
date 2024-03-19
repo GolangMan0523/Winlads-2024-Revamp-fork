@@ -7,18 +7,19 @@ import b3 from '../../assets/banner3.png'
 import b4 from '../../assets/banner4.png'
 import { Link } from 'react-router-dom';
 
-const Buttons = ({ handleButton }) => {
-    return < div className="pb-2 flex  gap-3 absolute bottom-5 left-1/2 -translate-x-1/2 xl:left-1/2 z-20" >
+const Buttons = ({ handleButton, buttonText= 'Get Entries!' }) => {
+    return < div className="pb-2 flex  gap-3 absolute bottom-5 left-1/2 -translate-x-1/2 z-20" >
         <Link>
             <button
-                className="bg-white text-black rounded-lg py-2 md:py-3 px-2 w-max xl:w-64 text-lg xl:text-xl hover:bg-gray-100/75"
+                className="bg-white text-black rounded-lg xl:py-3 py-1 px-2 w-max xl:w-64 text-lg xl:text-xl hover:bg-gray-100/75 shadow-xl disabled:bg-gray-200"
                 onClick={handleButton}
+                disabled={buttonText !==  'Get Entries!' }
             >
-                Get Entries!
+                {buttonText}
             </button>
         </Link>
         <Link to="/subscription">
-            <button className="bg-[#FF4D00] text-white rounded-lg py-2 px-2 md:py-3 text-lg xl:text-xl w-max xl:w-64 hover:bg-[#FF1111]/75">
+            <button className="bg-[#FF0000] text-white rounded-lg xl:py-3 py-1 px-2 text-lg xl:text-xl w-max xl:w-64 hover:bg-[#FF1111]/75">
                 Upgrade Subscription
             </button>
         </Link>
@@ -44,15 +45,15 @@ const CarouselContainer = ({ handleButton, giveaways }) => {
             className='relative'>
             <div>
                 <img src={b1} className='w-full h-full object-contain' />
-                <Buttons handleButton={handleButton} />
+                <Buttons handleButton={handleButton}  buttonText='Reveal Soon'/>
             </div>
             <div>
                 <img src={b2} className='w-full h-full object-contain' />
-                <Buttons handleButton={handleButton} />
+                <Buttons handleButton={handleButton}  buttonText='Reveal Soon'/>
             </div>
             <div>
                 <img src={b3} className='w-full h-full object-contain' />
-                <Buttons handleButton={handleButton} />
+                <Buttons handleButton={handleButton}  buttonText='Reveal Soon'/>
             </div>
             <div>
                 <img src={b4} className='w-full h-full object-contain' />
