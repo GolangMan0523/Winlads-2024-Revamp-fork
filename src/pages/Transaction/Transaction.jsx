@@ -194,10 +194,10 @@ const Transaction = () => {
           <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6">
             {transactionsCom ? (
               <div className="block xl:hidden space-y-4">
-                <div className=" rounded-b-3xl py-4">
+                <div className=" rounded-b-3xl xl:py-4 pt-5">
                   <TopNav textColor={"black"} />
-                  <div className="pt-10 flex items-center justify-center">
-                    <img className="w-8/12" src={MainCar} alt="main" />
+                  <div className="pt-0 xl:pt-10 flex items-center justify-center">
+                    <img className="w-10/12 xl:w-8/12" src={MainCar} alt="main" />
                   </div>
                 </div>
 
@@ -246,7 +246,7 @@ const Transaction = () => {
 
               <div className="flex  items-center justify-evenly">
                
-                <div className=" py-2    md:px-4 cursor-default ">
+                <div className=" py-0 xl:py-2    md:px-4 cursor-default ">
                   <div className="flex ">
                     <img
                       src={NewEarning}

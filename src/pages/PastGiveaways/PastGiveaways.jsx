@@ -92,7 +92,7 @@ const PastGiveaways = () => {
   };
   return (
     <>
-       <div className="flex flex-col xl:px-6 px-4 special:px-12  overflow-hidden relative">
+      <div className="flex flex-col xl:px-6 px-4 special:px-12  overflow-hidden relative">
         <div className="flex items-center justify-between w-full">
           <div className="xl:flex flex-1 hidden">
             <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl pt-4 xl:pt-0">
@@ -106,19 +106,19 @@ const PastGiveaways = () => {
         </div>
 
         <div className="flex flex-1 xl:hidden">
-         
+
           <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl  pt-4 ">
-          Past Giveaways
-              </p>
+            Past Giveaways
+          </p>
         </div>
 
-        <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0 ">
+        <div className="flex xl:flex-row flex-col-reverse xl:justify-between xl:gap-4 xl:space-y-0 mb-5">
           <img
             src={BG}
             alt=""
             className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-40 opacity-60"
           />
-          <div className="flex flex-col flex-1">
+          <div className="flex flex-col flex-1 ">
             <div className="flex flex-col ">
               {/* <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
                 <SearchField />
@@ -130,7 +130,7 @@ const PastGiveaways = () => {
                 <div className="w-full">
                   <iframe
                     title="YouTube Video"
-                    src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    src="https://player.vimeo.com/video/924707626?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                     frameBorder="0"
                     className="w-full"
                     allow="autoplay; fullscreen; picture-in-picture;muted"
@@ -149,7 +149,7 @@ const PastGiveaways = () => {
             </div>
           </div>
           <div className="flex-col flex-1 space-y-4 flex  ">
-            <div className="flex flex-col xl:items-start items-center xl:justify-start justify-center xl:px-20 py-10 xl:py-20  gap-5 pt-4">
+            <div className="flex flex-col xl:items-start items-center xl:justify-start justify-center xl:px-20 py-0 xl:py-20  gap-5 pt-4">
               <div className="flex items-left gap-2 special:gap-4">
                 {userImage ? (
                   <div className="w-12 h-12 special:w-36 special:h-36 rounded-full aspect-square">
@@ -182,7 +182,7 @@ const PastGiveaways = () => {
                     Earning Balance
                   </span>
                   <div className="flex items-center justify-center p-1 special:p-2  px-3 special:px-5 rounded-full shadow-xl cursor-pointer hover:text-white bg-[#FFC128] text-black font-extrabold text-sm special:text-lg">
-                  {valUser?.subscriptionPlan?.data?.name || 'N/A'}
+                    {valUser?.subscriptionPlan?.data?.name || 'N/A'}
                   </div>
                 </div>
               </div>
@@ -190,9 +190,9 @@ const PastGiveaways = () => {
           </div>
         </div>
         <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
-        <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl py-4">
+          {/* <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl py-4">
             Past <span className="font-extrabold">Giveaways</span>
-          </p>
+          </p> */}
           {loading ? (
             <div className="flex justify-center">
               <ItemLoader />
@@ -240,32 +240,16 @@ const PastGiveaways = () => {
                   //     : "Reveal Soon"
                   // }
                   status={0}
-                  // winner={giveaway[0] ? "ramesh fonseka" : giveaway[1] === "Joshua Stephans" ? giveaway[2] === "Joshua a" : }
-                  // onButton={() => {
-                  //   handleButton({
-                  //     id: giveaway?._id,
-                  //     price: giveaway?.price,
-                  //     name: giveaway?.name,
-                  //   });
-                  // }}
+                // winner={giveaway[0] ? "ramesh fonseka" : giveaway[1] === "Joshua Stephans" ? giveaway[2] === "Joshua a" : }
+                // onButton={() => {
+                //   handleButton({
+                //     id: giveaway?._id,
+                //     price: giveaway?.price,
+                //     name: giveaway?.name,
+                //   });
+                // }}
                 />
               ))}
-              {giveaways.length > 8 &&
-                (initialLength == 8 ? (
-                  <button
-                    onClick={() => handleSeeMore(true)}
-                    className="mt-10 flex items-center justify-center mx-auto gap-2 "
-                  >
-                    See More <FaAngleDoubleDown />
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => handleSeeMore(false)}
-                    className="mt-10 flex items-center justify-center mx-auto gap-2"
-                  >
-                    See Less <FaAngleDoubleUp />
-                  </button>
-                ))}
             </div>
           ) : (
             <div className="flex flex-col items-center space-y-2 pt-12">
@@ -275,6 +259,25 @@ const PastGiveaways = () => {
               </p>
             </div>
           )}
+          <div className="py-5">
+            {giveaways.length > 8 &&
+              (initialLength == 8 ? (
+                <button
+                  onClick={() => handleSeeMore(true)}
+                  className="mt-10 flex items-center justify-center mx-auto gap-2"
+                >
+                  See More <FaAngleDoubleDown />
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleSeeMore(false)}
+                  className="mt-10 flex items-center justify-center mx-auto gap-2"
+                >
+                  See Less <FaAngleDoubleUp />
+                </button>
+              ))}
+          </div>
+
         </div>
       </div>
     </>

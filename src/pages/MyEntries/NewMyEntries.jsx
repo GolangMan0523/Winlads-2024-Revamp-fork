@@ -109,7 +109,7 @@ const NewMyEntries = () => {
                 date={giveaway.startingtime ? giveaway.startingtime : null}
                 color={'#000'}//giveaway?.raffle?.color
                 raffleimage={giveaway.roundimage} //giveaway.raffle?.raffleimage
-                eligeble={(giveaway.raffle.type == 'max' || giveaway.raffle.type == 'tour')  ? false : true}
+                eligeble={valUser?.subscriptionPlan?.data?.name ? false : !(giveaway.raffle.type == 'max' || giveaway.raffle.type == 'tour') ? true : false}
                 oneOffPackage={false} //giveaway.raffle?.name === "Vehicle" ? true : false
                 status={0}
                 count={giveaway.ticketCount}

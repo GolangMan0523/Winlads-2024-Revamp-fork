@@ -229,7 +229,7 @@ const OngoingGiveaways = () => {
             <div className="lg:w-1/2 xl:w-2/3  w-full">
               <iframe
                 title="YouTube Video"
-                src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                src="https://player.vimeo.com/video/924707626?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
                 frameBorder="0"
                 className="w-full rounded-xl"
                 allow="autoplay; fullscreen; picture-in-picture;muted"
@@ -241,7 +241,7 @@ const OngoingGiveaways = () => {
               <div className="text-xl xl:text-2xl  2xl:text-3xl special:text-6xl  text-white bg-black  rounded-t-2xl  flex justify-center py-4 sm:py-5 special:py-7 ">
                 <span>
                   {" "}
-                  Vehicle <span className="font-bold">Specifications</span>
+                  Giveaway <span className="font-bold">Details</span>
                 </span>
               </div>
 
@@ -254,7 +254,7 @@ const OngoingGiveaways = () => {
                     <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
                   </div>
                   <span className="font-semibold ">
-                    3.5 Tonne Towing Capacity
+                  2 x Return flights
                   </span>
                 </div>
 
@@ -265,7 +265,7 @@ const OngoingGiveaways = () => {
 
                     <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
                   </div>
-                  <span className="font-semibold ">Apple Carplay</span>
+                  <span className="font-semibold ">7 nights accommodation in the earl beachfront suite at the Mulia Resort</span>
                 </div>
 
                 <div className="flex items-center justify-start gap-2 ">
@@ -276,7 +276,7 @@ const OngoingGiveaways = () => {
                     <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
                   </div>
                   <span className="font-semibold ">
-                    Leather Interior & Roof Racks
+                  $2,500 spending money
                   </span>
                 </div>
 
@@ -288,7 +288,7 @@ const OngoingGiveaways = () => {
                     <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
                   </div>
                   <span className="font-semibold ">
-                    Delivered Australia-Wide
+                  Daily a la carte breakfast at The Lounge or The Living Room, or buffet breakfast at The Café
                   </span>
                 </div>
 
@@ -299,7 +299,7 @@ const OngoingGiveaways = () => {
 
                     <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
                   </div>
-                  <span className="font-semibold "> Valued at $68,750</span>
+                  <span className="font-semibold "> Daily choice of lunch or dinner at The Cafe or Table8, or daily IDR500,000 dine-around credit per person</span>
                 </div>
 
                 <div className="flex items-center justify-start gap-2 ">
@@ -311,7 +311,7 @@ const OngoingGiveaways = () => {
                   </div>
                   <span className="font-semibold ">
                     {" "}
-                    Brand New Mazda BT-50 SP Model
+                    Unlimited Tropical Temptation Beach Club entry with a complimentary cocktail and cabana discounts per visit
                   </span>
                 </div>
 
@@ -322,38 +322,10 @@ const OngoingGiveaways = () => {
 
                     <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
                   </div>
-                  <span className="font-semibold "> 3.0L Turbo Diesel</span>
+                  <span className="font-semibold ">Daily afternoon tea at The Lounge from 4pm to 6pm with free-flow cocktails and hors d'oeuvres</span>
                 </div>
 
-                <div className="flex items-center justify-start gap-2 ">
-                  {/* left */}
-                  <div className="flex items-center justify-center  relative ">
-                    <img src={Doted} alt="" className="w-4" />
-
-                    <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
-                  </div>
-                  <span className="font-semibold ">
-                    140KW & 450NM of Torque
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-start gap-2 ">
-                  {/* left */}
-                  <div className="flex items-center justify-center  relative ">
-                    <img src={Doted} alt="" className="w-4" />
-
-                    <div className="absolute -bottom-10 -z-5 border h-10 border-[#CDDEDF]"></div>
-                  </div>
-                  <span className="font-semibold ">Crystal LED Headlights</span>
-                </div>
-
-                <div className="flex items-center justify-start gap-2 ">
-                  {/* left */}
-                  <div className="flex items-center justify-center  relative ">
-                    <img src={Doted} alt="" className="w-4" />
-                  </div>
-                  <span className="font-semibold ">Crystal LED Headlights</span>
-                </div>
+           
               </div>
             </div>
           </div>
