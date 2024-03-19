@@ -78,7 +78,7 @@ const DashboardVehicleCard = ({
   return (
     <>
       <div
-        className={`relative flex text-white flex-col justify-between rounded-2xl w-full p-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out cursor-pointer overflow-hidden `}
+        className={`relative flex min-w-72 text-white flex-col justify-between rounded-2xl w-full p-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out cursor-pointer overflow-hidden `}
         style={{ backgroundColor: bg }}
 
         // style={{
