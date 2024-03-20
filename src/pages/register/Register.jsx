@@ -680,27 +680,15 @@ const Register = ({ location }) => {
             </div>
             {/* <div className="grid xl:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-start max-sm:justify-center gap-3 w-full relative px-10"> */}
             <Swiper
-              slidesPerView={1.2}
+              initialSlide={1}
+              effect={"creative"}
+              grabCursor={true}
               centeredSlides={true}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2
-                },
-                768: {
-                  slidesPerView: 3,     
-                },
-                1024: {
-                  slidesPerView: 5,
-                },
-              }}
-
-              spaceBetween={10}
+              slidesPerView={"auto"}
               loop={true}
-              lazy={true}
-              pagination={{
-                clickable: true,
-              }}
-              className="mySwiper -mt-32 xl:-mt-20 "
+              pagination={false}
+              spaceBetween={10}
+              className="mySwiper-register -mt-32 xl:-mt-20 "
             >
               {/* {abilityCoupen === "CHNCEOFF" && <FreeEntryCardDashboard3 />} */}
 

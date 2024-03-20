@@ -1,14 +1,29 @@
 .swiper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0px;
+}
+
+.mySwiper-register {
+  width: 100%;
+  padding-top: 50px !important;
+}
+
+.mySwiper-register .swiper-slide {
+  width: 350px !important;
+}
+
+@media screen and (max-width: 640px) {
+  .mySwiper-register .swiper-slide {
+    width: 300px !important;
   }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 0px;
-  }
+}

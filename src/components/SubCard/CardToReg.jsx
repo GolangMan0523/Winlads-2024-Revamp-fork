@@ -85,10 +85,17 @@ const SubCard = ({
 
   return (
     <div
-      className={`rounded-2xl min-w-52 xl:min-w-72 md:pt-8 pt-14 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black ${classNames} text-black`}
+      className={`md:hover:translate-y-3 duration-300 md:hover:opacity-90 rounded-2xl min-w-52 xl:min-w-72 md:pt-8 pt-8 pb-2 shadow-lg shadow-gray-400 relative flex flex-col border-2 ${classNames} text-black md:min-w-[300px]`}
       style={{
-        background: bgColorFrom,
+        background: bgColorFrom  + "AA",
         borderColor: bgColorTo,
+        title: "Starter",
+        number: "1",
+        price: "49.99",
+        referral: "10%",
+        discounts: "Partner Store Discounts: ",
+        discountsPercent: "10%-15%",
+        buttonColor: "bg-[#296FB8]",
       }}
     >
       {popular && (
@@ -99,28 +106,28 @@ const SubCard = ({
           <FaStar className="text-yellow-500" /> Most Popular
         </div>
       )}
-      <div className="flex justify-between items-start mb-2 pt-2 px-6 text-black">
-        <p
-          className={`text-black text-center  uppercase text-sm lg:text-xl 2xl:text-2xl`}
-        >
-          <p className="text-start font-bold ">{title}</p>
-          <p className="text-start">Tier</p>
-        </p>
 
-        <p className={`font-bold text-lg 2xl:text-xl`}>
-          <span className="text-4xl lg:text-5xl">
-            {title2 * multiplyBy}{" "}
-            <span className="text-xs uppercase">Free</span>
-          </span>
+      <div className="flex items-stretch pb-2 px-8">
+        <div className="w-2/4 text-left">
+          <h1 className="text-xl text font-extrabold">{title}</h1>
+          <p className="text-xl font-light">Tier</p>
+        </div>
+        <div className="w-2/4  text-right">
+          <h1 className="text-2xl font-sans">
+            <span className="font-black">{title2 * multiplyBy}{" "}</span>
+            <span className="text-[12px] font-light">Free</span>
+          </h1>
+        </div>
+      </div>
+
+      <div className="p-[9px]  bg-white/[.46]">
+        <p className="text-center font-medium text-xs text-[#282C33]">
+          Accumulating {title2 == 1 ? "Entry" : "Entries"}
         </p>
       </div>
-      <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3 w-full bg-slate-200">
-        <span className="uppercase text-xs w-full text-black">
-          Accumulating {title2 == 1 ? "Entry" : "Entries"}
-        </span>
-      </p>
+
       {isShowDetails && (
-        <div className="relative flex flex-col mx-6 py-4 rounded-xl md:mb-10 mb-5 h-full">
+        <div className="relative flex flex-col mx-6 py-4 rounded-xl h-full ">
           {/* <div className="flex flex-row items-start gap-2">
             <img src={Correct} alt="" />
             <p
@@ -155,43 +162,48 @@ const SubCard = ({
 
         </div>
       )}
-      <div className="text-xs font-semibold text-black border-[1px] rounded-md border-gray-300 p-3 mb-2 mx-6">
+
+      <div className="mt-[23px] mx-2 px-2">
         <p
-          className="capitalize flex justify-center cursor-pointer text-black"
+          className=" border border-black/[.13] rounded-lg text-sm font-normal py-3 max-md:text-xs max-md:px-5 w-full "
           // style={{ color: buttonColor }}
           onClick={handleClick}
         >
           {initial == 1 ? "View More" : "See Less"}
         </p>
       </div>
-      <button
-        className={`mx-6 border-2 rounded-md disabled:bg-gray-500 text-white hover:opacity-75 cursor-pointer flex flex-row justify-center py-2 mt-auto ${chosenPlan === planId && currentType === chosenType
-          ? `bg-${bgColorTo}`
-          : "bg-white"
-          }`}
-        onClick={() => handleChosePlan(planId)}
-        onMouseEnter={() => switchBtnColor()}
-        onMouseLeave={() => switchBtnColor()}
-        disabled={isDisabled}
-        style={{
-          color: bgColorTo,
-          borderColor: bgColorTo,
-          backgroundColor: (chosenPlan === planId && currentType === chosenType) ? bgColorTo : 'white'
-        }}
-      >
-        <div className={`flex flex-row items-center gap-2`} disabled={isDisabled}>
-          <p
-            className={`text-xs 2xl:text-lg ${chosenPlan === planId && currentType === chosenType
-              ? "text-white"
-              : ""
-              }`}
-          >
-            {chosenPlan === planId && currentType === chosenType
-              ? "SELECTED"
-              : btnword}
-          </p>
-        </div>
-      </button>
+
+      <div className="m-2 px-2">
+        <button
+          className={`border hover:opacity-75 hover:-translate-y-0.5 border-black/[.13] rounded-lg text-sm w-full font-bold py-[14px] max-md:text-xs max-md:px-5 ${chosenPlan === planId && currentType === chosenType
+            ? `bg-${bgColorTo}`
+            : ""
+            }`}
+          onClick={() => handleChosePlan(planId)}
+          onMouseEnter={() => switchBtnColor()}
+          onMouseLeave={() => switchBtnColor()}
+          disabled={isDisabled}
+          style={{
+            color: bgColorTo,
+            borderColor: bgColorTo,
+            backgroundColor: (chosenPlan === planId && currentType === chosenType) ? bgColorTo : 'white'
+          }}
+        >
+          <div className={``} disabled={isDisabled}>
+            <p
+              className={`  ${chosenPlan === planId && currentType === chosenType
+                ? "text-white"
+                : ""
+                }`}
+            >
+              {chosenPlan === planId && currentType === chosenType
+                ? "SELECTED"
+                : btnword}
+            </p>
+          </div>
+        </button>
+      </div>
+
 
     </div>
   );
