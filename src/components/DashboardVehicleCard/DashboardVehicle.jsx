@@ -170,7 +170,7 @@ const DashboardVehicleCard = ({
                 )} */}
 
 
-                {onePackage && (  <button className="rounded-lg capitalize py-3 font-semibold text-black text-sm sm:text-base hover:scale-105 mt-5" style={{ backgroundColor: btn }}>
+                {onePackage && (  <button onClick={handleClick} className="rounded-lg capitalize py-3 font-semibold text-black text-sm sm:text-base hover:scale-105 mt-5" style={{ backgroundColor: btn }}>
                 one off packages
                 </button>)}
               
