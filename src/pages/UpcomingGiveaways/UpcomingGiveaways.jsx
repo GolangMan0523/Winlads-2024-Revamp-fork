@@ -197,7 +197,7 @@ const UpcomingGiveaways = () => {
               </div>
 
               <div className="flex flex-row items-left gap-2 special:gap-4">
-                <div className="special:text-6xl font-extrabold text-4xl">
+                <div className="special:text-7xl font-extrabold text-5xl font-axiforma tracking-tighter">
                   $&nbsp;
                   {typeof valUser.balance === "number"
                     ? valUser.balance.toFixed(2)

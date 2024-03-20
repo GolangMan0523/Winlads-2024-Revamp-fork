@@ -54,7 +54,7 @@ const GoldCard = () => {
             
             <div className="top-card text-white rounded-t-lg flex justify-between items-center px-10 py-3  w-10/12  max-w-[330px] ">
               <span className="max-sm:text-sm">Earning Balance</span>
-              <span className="font-bold text-lg max-sm:text-sm">$ {typeof valUser.balance === "number"
+              <span className="font-bold text-lg max-sm:text-sm font-axiforma font-extrabold">$ {typeof valUser.balance === "number"
                         ? valUser.balance.toFixed(2)
                         : "0.00"}</span>
             </div>

@@ -3,6 +3,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'Heavy', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url('assets/font/HEAVY.OTF') format('otf');
+  }
+  @font-face {
+    font-family: 'Heavy';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('assets/font/HEAVY-BOLD.OTF') format('otf');
+  }
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

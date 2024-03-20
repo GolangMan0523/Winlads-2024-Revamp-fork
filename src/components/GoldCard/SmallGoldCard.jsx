@@ -52,7 +52,7 @@ const SmallGoldCard = () => {
             <div className="top-card text-white rounded-t-lg flex justify-between items-center px-2 py-3 w-3/5">
               <h1 className="text-sm sm:text-base">Earning Balance</h1>
 
-              <h1 className="font-bold text-base sm:text-lg">
+              <h1 className="font-bold text-base sm:text-lg font-axiforma font-extrabold">
                 $ {typeof valUser.balance === "number"
                   ? valUser.balance.toFixed(2)
                   : "0.00"}
