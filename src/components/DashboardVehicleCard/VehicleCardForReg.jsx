@@ -86,7 +86,7 @@ const VehicleCardForReg = ({
   return (
     <>
       <div
-        className={`border-4 cursor-pointer relative hover:opacity-75 saturate-200 rounded-lg flex flex-col py-4 md:px-2 xl:px-4 px-4 w-full ${select === oneOffId ? "border-black" : ""
+        className={`border-4 min-w-52 cursor-pointer relative hover:opacity-75 saturate-200 rounded-lg flex flex-col py-4 md:px-2 xl:px-4 px-4 w-full ${select === oneOffId ? "border-black" : ""
           }`}
         style={{
           background: fromColor, border: `2px solid ${color}`

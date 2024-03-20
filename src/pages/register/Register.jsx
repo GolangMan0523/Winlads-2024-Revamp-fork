@@ -9,8 +9,6 @@ import Loader from "../../components/Loader/Loader";
 import { basicSchemasRegister } from "../../schemas/index.js";
 import { useFormik } from "formik";
 import axios from "axios";
-import { auth } from "../../firebase.config";
-import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -18,33 +16,26 @@ import Cookies from "universal-cookie";
 import "../Login/Login.css";
 import { motion } from "framer-motion";
 import { validateCurrentUser } from "../../utils/validateuser.js";
-import LoginImg from "../../assets/images/MainCar.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import CanceOffFlyer from "../../assets/images/chanceOff.png";
-import {
-  FcBusinessman,
-  FcFeedback,
-  FcDiploma1,
-  FcButtingIn,
-  FcSmartphoneTablet,
-  FcUnlock,
-  FcTwoSmartphones,
-} from "react-icons/fc";
-
 import { FaRegUser } from "react-icons/fa6";
 import { MdAlternateEmail } from "react-icons/md";
 import { GoLock } from "react-icons/go";
 import { BsPhoneVibrate } from "react-icons/bs";
-
 import Card from "../../components/SubCard/CardToReg.jsx";
-import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle.jsx";
 import VehicleCardForReg from "../../components/DashboardVehicleCard/VehicleCardForReg.jsx";
 import FreeEntryCardDashboard2 from "../../components/FreeEntry/FreeEntryCardDashboard2.jsx";
-import FreeEntryCardDashboard3 from "../../components/FreeEntry/FreeEntryCardDashboard3.jsx";
 import MainCar from "../../assets/images/MainCar.png";
 import homeTopBg from "../../assets/images/HomeTopBg.png";
-
+// import Swiper JS
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+// import required modules
+import { Pagination } from 'swiper/modules';
+// const swiper = new Swiper();
 const inputStyle = {
   border: "1px solid #000000",
   borderRadius: "1px",
@@ -687,7 +678,30 @@ const Register = ({ location }) => {
                 )}
               </div>
             </div>
-            <div className="grid xl:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-start max-sm:justify-center gap-3 w-full relative bottom-20 lg:bottom-10 px-10">
+            {/* <div className="grid xl:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-start max-sm:justify-center gap-3 w-full relative px-10"> */}
+            <Swiper
+              slidesPerView={1.2}
+              centeredSlides={true}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2
+                },
+                768: {
+                  slidesPerView: 3,     
+                },
+                1024: {
+                  slidesPerView: 5,
+                },
+              }}
+
+              spaceBetween={10}
+              loop={true}
+              lazy={true}
+              pagination={{
+                clickable: true,
+              }}
+              className="mySwiper bottom-20 lg:bottom-10"
+            >
               {/* {abilityCoupen === "CHNCEOFF" && <FreeEntryCardDashboard3 />} */}
 
               {showFreeEntry && (
@@ -698,124 +712,129 @@ const Register = ({ location }) => {
               {memberShipType == "subscription" ? (
                 <>
                   {plans.map((plan, key) => (
-                    <Card
-                      chosenType={chosenPlanType}
-                      currentType={
-                        isQuartly ? "quater" : isYearly ? "annual" : "monthly"
-                      }
-                      price={
-                        (isMonthly
-                          ? plan.monthly
-                          : isQuartly
-                            ? plan.semiannualy
-                            : isYearly
-                              ? plan.annualy
-                              : "")
-                      }
-                      mPlanId={plan.subid}
-                      qPlanId={plan.subidsemiannual}
-                      yPlanId={plan.subidannual}
-                      key={key}
-                      planId={plan._id}
-                      title={plan.name}
-                      title2={
-                        isMonthly
-                          ? plan.raffle_count
-                          : isQuartly
-                            ? plan.raffle_count_semiannual
-                            : isYearly
-                              ? plan.raffle_count_annual
-                              : ""
-                      }
-                      titleColor2={"white"}
-                      desc1={
-                        isMonthly
-                          ? plan.desc[0]
-                          : isQuartly
-                            ? plan.desc[1]
-                            : isYearly
-                              ? plan.desc[2]
-                              : ""
-                      }
-                      specDesc={
-                        abilityCoupen === "CHNCEOFF" ? (
-                          plan.name === "Starter" ? (
-                            <>
-                              Free entries for{" "}
-                              <strong> DJ & Mazz Booths</strong>
-                            </>
+                    <SwiperSlide
+                    >
+                      <Card
+                        chosenType={chosenPlanType}
+                        currentType={
+                          isQuartly ? "quater" : isYearly ? "annual" : "monthly"
+                        }
+                        price={
+                          (isMonthly
+                            ? plan.monthly
+                            : isQuartly
+                              ? plan.semiannualy
+                              : isYearly
+                                ? plan.annualy
+                                : "")
+                        }
+                        mPlanId={plan.subid}
+                        qPlanId={plan.subidsemiannual}
+                        yPlanId={plan.subidannual}
+                        key={key}
+                        planId={plan._id}
+                        title={plan.name}
+                        title2={
+                          isMonthly
+                            ? plan.raffle_count
+                            : isQuartly
+                              ? plan.raffle_count_semiannual
+                              : isYearly
+                                ? plan.raffle_count_annual
+                                : ""
+                        }
+                        titleColor2={"white"}
+                        desc1={
+                          isMonthly
+                            ? plan.desc[0]
+                            : isQuartly
+                              ? plan.desc[1]
+                              : isYearly
+                                ? plan.desc[2]
+                                : ""
+                        }
+                        specDesc={
+                          abilityCoupen === "CHNCEOFF" ? (
+                            plan.name === "Starter" ? (
+                              <>
+                                Free entries for{" "}
+                                <strong> DJ & Mazz Booths</strong>
+                              </>
+                            ) : (
+                              <>
+                                Free entries for{" "}
+                                <strong> DJ & Mazz Booths</strong>
+                              </>
+                            )
                           ) : (
-                            <>
-                              Free entries for{" "}
-                              <strong> DJ & Mazz Booths</strong>
-                            </>
+                            ""
                           )
-                        ) : (
-                          ""
-                        )
-                      }
-                      isDisabled={planDis}
-                      buttonColor={
-                        plan.name == "Starter"
-                          ? "black"
-                          : "" | (plan.name == "Boomer")
+                        }
+                        isDisabled={planDis}
+                        buttonColor={
+                          plan.name == "Starter"
                             ? "black"
-                            : "" | (plan.name == "Platinum")
+                            : "" | (plan.name == "Boomer")
                               ? "black"
-                              : "" | (plan.name == "Gold")
+                              : "" | (plan.name == "Platinum")
                                 ? "black"
-                                : "" | (plan.name == "Black")
-                                  ? "white"
-                                  : "black"
-                      }
-                      arrowColor="[#01819D]"
-                      buttonTextColor={plan.name == "Black" ? "black" : "white"}
-                      btnword="CHOOSE PLAN"
-                      handleChosePlan={handleChosePlan}
-                      bgColorFrom={plan.color}
-                      bgColorTo={plan.colorFrom}
-                      titleColor={"white"}
-                      classNames={`basis-[100%] md:basis-[48%] xl:basis-[28%] ${isOnetime && plan.name == 'Starter' ? 'hidden' : ''}`}
-                      chosenPlan={chosenPlan}
-                      isShowDetails={true}
-                      popular={
-                        plan.name === "Platinum" && isMonthly ? true : false
-                      }
-                      multiplyBy={1}
-                    />
+                                : "" | (plan.name == "Gold")
+                                  ? "black"
+                                  : "" | (plan.name == "Black")
+                                    ? "white"
+                                    : "black"
+                        }
+                        arrowColor="[#01819D]"
+                        buttonTextColor={plan.name == "Black" ? "black" : "white"}
+                        btnword="CHOOSE PLAN"
+                        handleChosePlan={handleChosePlan}
+                        bgColorFrom={plan.color}
+                        bgColorTo={plan.colorFrom}
+                        titleColor={"white"}
+                        classNames={`basis-[100%] md:basis-[48%] xl:basis-[28%] ${isOnetime && plan.name == 'Starter' ? 'hidden' : ''}`}
+                        chosenPlan={chosenPlan}
+                        isShowDetails={true}
+                        popular={
+                          plan.name === "Platinum" && isMonthly ? true : false
+                        }
+                        multiplyBy={1}
+                      />
+                    </SwiperSlide>
                   ))}
                 </>
               ) : (
                 <>
                   {oneOffPackages.map((oneOff, key) => (
-                    <VehicleCardForReg
-                      key={key}
-                      oneOffId={oneOff._id}
-                      type={"vehicle"}
-                      name={oneOff.name}
-                      price={oneOff.price}
-                      descs={oneOff.desc[0]}
-                      fromColor={oneOff.colorFrom}
-                      color={oneOff.color}
-                      date={"2024-02-28"}
-                      raffleimage={
-                        "https://winland.onrender.com/public/images/vehicle.png"
-                      }
-                      handleChoseOneOff={handleChoseOneOff}
-                      select={select}
-                      setSelect={setSelect}
-                      setSelectedPlanName={setSelectedPlanName}
-                      setSelPlanPrice={setSelPlanPrice}
-                      chooseOneOff={chooseOneOff}
-                      multiplyBy={1}
-                      discount={searchParams.get('from') == 'bali' ? 50 : 0}
-                    />
+                    <SwiperSlide>
+                      <VehicleCardForReg
+                        key={key}
+                        oneOffId={oneOff._id}
+                        type={"vehicle"}
+                        name={oneOff.name}
+                        price={oneOff.price}
+                        descs={oneOff.desc[0]}
+                        fromColor={oneOff.colorFrom}
+                        color={oneOff.color}
+                        date={"2024-02-28"}
+                        raffleimage={
+                          "https://winland.onrender.com/public/images/vehicle.png"
+                        }
+                        handleChoseOneOff={handleChoseOneOff}
+                        select={select}
+                        setSelect={setSelect}
+                        setSelectedPlanName={setSelectedPlanName}
+                        setSelPlanPrice={setSelPlanPrice}
+                        chooseOneOff={chooseOneOff}
+                        multiplyBy={1}
+                        discount={searchParams.get('from') == 'bali' ? 50 : 0}
+                      />
+                    </SwiperSlide>
                   ))}
 
                   {/* <button className="md:text-sm text-xs text-blue-500">See More</button> */}
                 </>
               )}
-            </div>
+            </Swiper>
             <div className="flex w-full justify-center items-start sm:divide-x max-sm:flex-col">
               <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 md:mt-10 lg:mt-20 xl:mt-0 mt-1 mb-10 sm:mb-0 px-10 w-full">
                 <span className="text-xl md:text-xl xl:text-xl fw-bold font-bold special:text-2xl">
@@ -1210,7 +1229,7 @@ const Register = ({ location }) => {
               </span>
             </div>
           </div>
-        </div>
+        </div >
       )}
     </>
   );

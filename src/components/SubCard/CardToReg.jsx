@@ -84,12 +84,8 @@ const SubCard = ({
   const dynamicBackgroundColor2 = hexToRgba(bgColorFrom, opacity2);
 
   return (
-    <motion.div
-      initial={{ y: yValue, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1, delay: 0.5 }}
-      className={`rounded-2xl md:pt-8 pt-14 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black ${classNames} text-black`}
+    <div
+      className={`rounded-2xl min-w-52 xl:min-w-72 md:pt-8 pt-14 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black ${classNames} text-black`}
       style={{
         background: bgColorFrom,
         borderColor: bgColorTo,
@@ -97,7 +93,7 @@ const SubCard = ({
     >
       {popular && (
         <div
-          className="flex items-center justify-center text-center absolute rounded-t-2xl top-[-40px] left-1/2 transform -translate-x-1/2 py-2 bg-black font-semibold w-1/2 "
+          className="flex items-center text-sm justify-center text-center absolute rounded-t-2xl top-[-35px]  left-1/2 transform -translate-x-1/2 py-2 bg-black font-semibold w-1/2 "
           style={{ color: "#fff" }}
         >
           <FaStar className="text-yellow-500" /> Most Popular
@@ -197,7 +193,7 @@ const SubCard = ({
         </div>
       </button>
 
-    </motion.div>
+    </div>
   );
 };
 
