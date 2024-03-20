@@ -63,6 +63,7 @@ import EmailVerify from "./pages/Profile/EmailVerify";
 import NewMyEntries from "./pages/MyEntries/NewMyEntries";
 import Succesful from "./pages/Login/Succesful";
 import MobileVerify from "./pages/Profile/EmailVerify copy";
+import './App.css'
 function App() {
   const tagManagerArgs = {
     gtmId: "GTM-P2DVFZVB",
