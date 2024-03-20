@@ -700,7 +700,7 @@ const Register = ({ location }) => {
               pagination={{
                 clickable: true,
               }}
-              className="mySwiper bottom-20 lg:bottom-10"
+              className="mySwiper -mt-32 xl:-mt-20 "
             >
               {/* {abilityCoupen === "CHNCEOFF" && <FreeEntryCardDashboard3 />} */}
 
