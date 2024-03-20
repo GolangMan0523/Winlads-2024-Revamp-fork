@@ -60,13 +60,9 @@ const BCard = () => {
         <>
           <div className="bg-gray-200 rotate-2 mt-4 rounded-2xl xl:w-3/4 mx-auto">
             <div
-              className={` -rotate-2 rounded-[35px] px-4 special:px-8 2xl:px-6 justify-between py-4 special:py-8 2xl:py-4 cursor-pointer `}
+              className={` -rotate-2 rounded-[35px] px-10 justify-between py-4 special:py-8 2xl:py-4 cursor-pointer `}
             style={{
-              background: `linear-gradient(90deg, ${
-                valUser?.subscriptionPlan?.data?.colorFrom
-                  ? valUser?.subscriptionPlan?.data?.colorFrom
-                  : "#15803D"
-              } 0%, #000608 100%)`,
+              background: `linear-gradient(66.98deg, #6ED9F7 18.04%, #C5F2FF 90.07%)`,
             }}
             >
               <div className="flex flex-row justify-between item-center py-5 xl:py-5">
@@ -88,7 +84,7 @@ const BCard = () => {
               </div>
               <div className="flex items-center justify-center">
 
-                <span className="  text-black text-xs font-semibold text-center md:text-sm xl:text-lg 2xl:text-xl special:text-xl xl:w-96 w-40">
+                <span className=" font-['Axiforma']  text-black text-xs font-normal text-left md:text-sm xl:text-lg 2xl:text-xl special:text-xl xl:w-96 w-40">
                   "Connecting Hearts, Uplifting Lives: Our People-Centric Giveaways"
 
                 </span>
