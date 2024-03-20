@@ -89,7 +89,7 @@ const VehicleCardForReg = ({
         className={`border-4 cursor-pointer relative hover:opacity-75 saturate-200 rounded-lg flex flex-col py-4 md:px-2 xl:px-4 px-4 w-full ${select === oneOffId ? "border-black" : ""
           }`}
         style={{
-          background: `${hexToRgba(fromColor, 0.2)}`, border: `2px solid ${color}`
+          background: fromColor, border: `2px solid ${color}`
         }}
         onClick={() => handleCardSelect(oneOffId)}
       >
@@ -126,7 +126,7 @@ const VehicleCardForReg = ({
           <p className="xl:text-sm text-xs font-semibold">Free</p>
           <p className="xl:text-sm text-xs font-semibold">Entry Package</p>
         </div>
-        <div className=" mb-4 rounded-lg py-4 px-4 border-2 " style={{ background: hexToRgba(color, 0.6) }}>
+        <div className=" mb-4 rounded-lg py-4 px-4 border-2 " style={{ background: hexToRgba(color, 0.4) }}>
           <p className="text-center">
             {
               discount > 0 && <div className="w-max relative mx-auto">
