@@ -97,7 +97,7 @@ const AffiliateCard = () => {
         <div className="flex justify-between px-3">
         <div className="flex items-center">
           <div className="flex-1">
-            <p className="text-black font-extrabold  font text-lg md:text-xl xl:text-xl 2xl:text-5xl special:text-3xl">
+            <p className="text-black font-bold  font text-lg md:text-xl xl:text-xl 2xl:text-5xl special:text-3xl font-axiforma">
               $
               {typeof valUser.balance === "number"
                 ? valUser.balance.toFixed(2)

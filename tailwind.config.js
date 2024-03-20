@@ -13,6 +13,7 @@ export default {
     },
     fontFamily: {
       subscription: ["Urbanist", "sans-serif"],
+      'axiforma':['Axiforma', "sans-serif"]
     },
     animations: {
       'animate-spin': 'animation: spin 1s linear infinite',

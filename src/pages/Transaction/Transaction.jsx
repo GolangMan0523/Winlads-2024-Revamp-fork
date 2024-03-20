@@ -227,7 +227,7 @@ const Transaction = () => {
               
               <div className="flex py-2 xl:px-3 md:px-4  flex-row px-2 cursor-default ">
                 <div className="flex-1 w-full">
-                  <p className=" text-black font-extrabold  font text-4xl md:text-xl xl:text-xl 2xl:text-5xl special:text-8xl">
+                  <p className=" text-black font md:text-xl xl:text-xl 2xl:text-5xl special:text-8xl font-extrabold text-5xl font-axiforma tracking-tighter">
                     ${Math.floor(wallet.balance * 100) / 100 || "0.00"}
                   </p>
                   <div className="flex items-center gap-2">
