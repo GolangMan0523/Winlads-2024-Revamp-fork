@@ -89,7 +89,7 @@ const VehicleCardForReg = ({
         className={`border-4 cursor-pointer relative hover:opacity-75 saturate-200 rounded-lg flex flex-col py-4 md:px-2 xl:px-4 px-4 w-full ${select === oneOffId ? "border-black" : ""
           }`}
         style={{
-          background: `${hexToRgba(fromColor, 0.4)}`, border: `2px solid ${color}`
+          background: `${hexToRgba(fromColor, 0.2)}`, border: `2px solid ${color}`
         }}
         onClick={() => handleCardSelect(oneOffId)}
       >

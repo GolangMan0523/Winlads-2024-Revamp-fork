@@ -66,7 +66,7 @@ const DashboardWinnerVehicleCard = ({
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   }
 
-  const bg = hexToRgba(color, 0.5);
+  const bg = hexToRgba(color, 0.3);
 
   return (
     <>

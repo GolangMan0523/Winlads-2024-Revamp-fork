@@ -237,7 +237,7 @@ const SelectRafflePaymentMethod = ({
               <ItemLoader />
             </div>
           ) : (
-            <div className="flex flex-row items-center overflow-x-auto xl:gap-2">
+            <div className="flex flex-row items-center overflow-x-auto gap-2">
               {oneOffPackages.map((oneOff, key) => (
                 <>
                   <VehicleCardForReg
