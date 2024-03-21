@@ -30,10 +30,19 @@ function BusinessCard() {
   };
 
   return (
-    <div>
-      <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl p-5">
-        Business Card
-      </p>
+    <div className="flex flex-col flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat">
+      {/* <TopNav textColor={"black"} title={'Business Card'} /> */}
+      <div className="flex max-lg:flex-col-reverse space-y-4 justify-between">
+        <div className="basis-1/2">
+          <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl p-5">
+            Business Card
+          </p>
+        </div>
+        <div className="basis-1/2 rounded-b-3xl w-full">
+          <TopNav textColor={"black"} />
+        </div>
+      </div>
+
 
       <div className="w-full px-10 xl:px-40 ">
         <BusinessCardComponent />

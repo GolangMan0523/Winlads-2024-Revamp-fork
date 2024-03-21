@@ -48,7 +48,7 @@ const TopNav = ({ textColor }) => {
         <span className="navlinks">
           <Link to="/support">Support</Link>
         </span> */}
-        <span className="navlinks text-2xl w-fit xl:hidden">
+        <span className="navlinks text-2xl w-fit lg:hidden">
           {showMenu ? (
             <HiBars3 className="" onClick={() => handleShowMenu()} />
           ) : (
